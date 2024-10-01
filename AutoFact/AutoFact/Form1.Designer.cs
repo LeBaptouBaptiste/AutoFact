@@ -28,34 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Devis = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            btn_Devis = new Button();
+            boutonCustom = new Button();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // btn_Devis
             // 
-            this.btn_Devis.Location = new System.Drawing.Point(47, 52);
-            this.btn_Devis.Name = "btn_Devis";
-            this.btn_Devis.Size = new System.Drawing.Size(75, 23);
-            this.btn_Devis.TabIndex = 0;
-            this.btn_Devis.Text = "Devis";
-            this.btn_Devis.UseVisualStyleBackColor = true;
-            this.btn_Devis.Click += new System.EventHandler(this.btn_Devis_Click);
+            btn_Devis.Location = new Point(105, 66);
+            btn_Devis.Margin = new Padding(4, 3, 4, 3);
+            btn_Devis.Name = "btn_Devis";
+            btn_Devis.Size = new Size(88, 27);
+            btn_Devis.TabIndex = 0;
+            btn_Devis.Text = "Devis";
+            btn_Devis.UseVisualStyleBackColor = true;
+            // 
+            // boutonCustom
+            // 
+            boutonCustom.BackColor = Color.DarkBlue;
+            boutonCustom.FlatAppearance.BorderColor = Color.White;
+            boutonCustom.FlatAppearance.BorderSize = 2;
+            boutonCustom.FlatStyle = FlatStyle.Flat;
+            boutonCustom.Font = new Font("Arial", 12F, FontStyle.Bold);
+            boutonCustom.ForeColor = Color.White;
+            boutonCustom.Location = new Point(105, 226);
+            boutonCustom.Name = "boutonCustom";
+            boutonCustom.Size = new Size(150, 50);
+            boutonCustom.TabIndex = 0;
+            boutonCustom.Text = "Clique moi";
+            boutonCustom.UseVisualStyleBackColor = false;
+            boutonCustom.Click += boutonCustom_Click;
+            boutonCustom.MouseEnter += boutonCustom_Enter;
+            boutonCustom.MouseLeave += boutonCustom_Leave;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(boutonCustom);
+            panel1.Controls.Add(btn_Devis);
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(380, 801);
+            panel1.TabIndex = 1;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_Devis);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(1482, 825);
+            Controls.Add(panel1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            WindowState = FormWindowState.Maximized;
+            panel1.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.Button btn_Devis;
+        private Button boutonCustom;
+        private Panel panel1;
     }
 }
 
