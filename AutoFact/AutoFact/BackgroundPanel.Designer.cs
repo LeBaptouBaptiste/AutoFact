@@ -1,8 +1,6 @@
-﻿using System.Drawing.Drawing2D;
-
-namespace AutoFact
+﻿namespace AutoFact
 {
-    partial class Form1
+    partial class BackgroundPanel
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -30,23 +28,16 @@ namespace AutoFact
         /// </summary>
         private void InitializeComponent()
         {
-            NavbarControll navbarUserControl = new NavbarControll();
+            this.SuspendLayout();
             // 
-            // Form1
+            // BackgroundPanel
             // 
-            AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1904, 1041);
-            Controls.Add(navbarUserControl);
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            WindowState = FormWindowState.Maximized;
-            ResumeLayout(false);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Name = "BackgroundPanel";
+            this.Size = new System.Drawing.Size(400, 300); // Taille par défaut
+            this.ResumeLayout(false);
         }
+
         #endregion
     }
 }
-

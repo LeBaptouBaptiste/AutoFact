@@ -10,14 +10,16 @@ using System.Windows.Forms;
 using AutoFact;
 using MySqlConnector;
 
-namespace AutoFactTest
+namespace AutoFact
 {
     public partial class Form1 : Form
     {
+        private BackgroundPanel backgroundPanel;
         private MySqlConnection connection;
         public Form1()
         {
             InitializeComponent();
+            InitializeBackground();
             InitializeDatabase();
         }
 
@@ -26,22 +28,13 @@ namespace AutoFactTest
             DataBaseManager data = DataBaseManager.getInstance();
             connection = data.getConnection();
         }
-
-        private void boutonCustom_Click(object sender, EventArgs e)
+        private void InitializeBackground()
         {
-            MessageBox.Show("Bouton cliqué !");
-        }
-
-        private void boutonCustom_Enter(object sender, EventArgs e)
-        {
-            boutonCustom.BackColor = Color.LightBlue;
-            boutonCustom.Font = new Font(boutonCustom.Font, FontStyle.Underline);
-        }
-
-        private void boutonCustom_Leave(object sender, EventArgs e)
-        {
-            boutonCustom.BackColor = Color.DarkBlue;
-            boutonCustom.Font = new Font(boutonCustom.Font, FontStyle.Regular);
+            backgroundPanel = new BackgroundPanel();
+            backgroundPanel.SetBackgroundImage("C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\background.png"); // Remplacez par le chemin réel de votre image
+            backgroundPanel.Dock = DockStyle.Fill; // Remplit toute la fenêtre
+            this.Controls.Add(backgroundPanel);
+            backgroundPanel.SendToBack(); // Envoie le BackgroundPanel derrière tous les autres contrôles
         }
     }
 }

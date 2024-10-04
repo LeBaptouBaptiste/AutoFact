@@ -1,15 +1,16 @@
 ﻿using System.Drawing.Drawing2D;
+using static AutoFact.Form1;
 
 namespace AutoFact
 {
-    partial class Form1
+    partial class NavbarControll
     {
-        /// <summary>
+        /// <summary> 
         /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Nettoyage des ressources utilisées.
         /// </summary>
         /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
@@ -22,31 +23,27 @@ namespace AutoFact
             base.Dispose(disposing);
         }
 
-        #region Code généré par le Concepteur Windows Form
+        #region Code généré par le Concepteur de composants
 
-        /// <summary>
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
+        /// <summary> 
+        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
         /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
         private void InitializeComponent()
         {
-            NavbarControll navbarUserControl = new NavbarControll();
+            SuspendLayout();
             // 
-            // Form1
+            // NavbarControll
             // 
-            AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1904, 1041);
-            Controls.Add(navbarUserControl);
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            WindowState = FormWindowState.Maximized;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Transparent;
+            Name = "NavbarControll";
+            Size = new Size(450, 1080);
             ResumeLayout(false);
-            ResumeLayout(false);
-            PerformLayout();
         }
+
         #endregion
+
     }
 }
-
