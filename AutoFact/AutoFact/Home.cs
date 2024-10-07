@@ -12,14 +12,13 @@ using MySqlConnector;
 
 namespace AutoFact
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
         private BackgroundPanel backgroundPanel;
         private MySqlConnection connection;
-        public Form1()
+        public Home()
         {
             InitializeComponent();
-            InitializeBackground();
             InitializeDatabase();
         }
 
@@ -27,14 +26,6 @@ namespace AutoFact
         {
             DataBaseManager data = DataBaseManager.getInstance();
             connection = data.getConnection();
-        }
-        private void InitializeBackground()
-        {
-            backgroundPanel = new BackgroundPanel();
-            backgroundPanel.SetBackgroundImage("C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\background.png"); // Remplacez par le chemin réel de votre image
-            backgroundPanel.Dock = DockStyle.Fill; // Remplit toute la fenêtre
-            this.Controls.Add(backgroundPanel);
-            backgroundPanel.SendToBack(); // Envoie le BackgroundPanel derrière tous les autres contrôles
         }
     }
 }

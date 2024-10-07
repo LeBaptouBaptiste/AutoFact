@@ -19,6 +19,6 @@ C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-wind
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.genruntimeconfig.cache
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\ref\AutoFact.dll
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.NavbarControll.resources
-C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Form1.resources
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.BackgroundPanel.resources
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Properties.Resources.resources
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Home.resources

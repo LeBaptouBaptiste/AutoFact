@@ -12,14 +12,14 @@ namespace AutoFact
 {
     public partial class NavbarControll : UserControl
     {
+        private BackgroundPanel backgroundPanel;
         public NavbarControll()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
             SetupNavbar();
             this.BackColor = Color.Transparent;
+            this.DoubleBuffered = true;
         }
-
         private void SetupNavbar()
         {
             // Initialisation et configuration des composants
@@ -41,8 +41,6 @@ namespace AutoFact
             btnAllfact = new RoundedButton();
             separator4 = new Panel();
             btnParam = new RoundedButton();
-
-            // Ajouter tout le contenu du Navbar ici (comme dans ton exemple)
 
             Navbar.Controls.Add(lblStats);
             Navbar.Controls.Add(lblPresta);

@@ -4,7 +4,7 @@
     <Compile Update="BackgroundPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Form1.cs">
+    <Compile Update="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GradientPanel.cs">

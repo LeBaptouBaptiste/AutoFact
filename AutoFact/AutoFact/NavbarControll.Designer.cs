@@ -1,5 +1,5 @@
 ﻿using System.Drawing.Drawing2D;
-using static AutoFact.Form1;
+using static AutoFact.Home;
 
 namespace AutoFact
 {
@@ -37,7 +37,8 @@ namespace AutoFact
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Transparent;
+            BackColor = Color.Black;
+            ForeColor = SystemColors.ControlText;
             Name = "NavbarControll";
             Size = new Size(450, 1080);
             ResumeLayout(false);

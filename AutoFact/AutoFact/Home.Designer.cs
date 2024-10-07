@@ -2,7 +2,7 @@
 
 namespace AutoFact
 {
-    partial class Form1
+    partial class Home
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -30,7 +30,14 @@ namespace AutoFact
         /// </summary>
         private void InitializeComponent()
         {
+
+            InitializeBackground();
+
             NavbarControll navbarUserControl = new NavbarControll();
+            navbarUserControl.Dock = DockStyle.Left;
+            this.Controls.Add(backgroundPanel);
+            this.Controls.Add(navbarUserControl);
+            backgroundPanel.SendToBack();
             // 
             // Form1
             // 
@@ -38,13 +45,20 @@ namespace AutoFact
             ClientSize = new Size(1904, 1041);
             Controls.Add(navbarUserControl);
             Margin = new Padding(4, 3, 4, 3);
-            Name = "Form1";
+            Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Home";
             WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void InitializeBackground()
+        {
+            backgroundPanel = new BackgroundPanel();
+            backgroundPanel.SetBackgroundImage("Pictures\\background.png");
+            backgroundPanel.Dock = DockStyle.Fill;
         }
         #endregion
     }
