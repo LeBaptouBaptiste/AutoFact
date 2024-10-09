@@ -3,32 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\home.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\home.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\viewmodel\\articlevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\articlevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\navbarcontroll.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\navbarcontroll.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\models\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\models\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\navbarcontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\navbarcontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\article.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\article.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\navbarcontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\navbarcontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\gradientpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\gradientpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\models\\produits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\models\\produits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,95 +34,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Home.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Home.Designer.cs",
-              "RelativeDocumentMoniker": "AutoFact\\Home.Designer.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Home.Designer.cs",
-              "RelativeToolTip": "AutoFact\\Home.Designer.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCcAAAApAAAA",
+              "DocumentIndex": 4,
+              "Title": "Article.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.Designer.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\Article.Designer.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.Designer.cs",
+              "RelativeToolTip": "AutoFact\\Views\\Article.Designer.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAowF4AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T08:53:29.088Z",
+              "WhenOpened": "2024-10-09T13:43:45.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataBaseManager.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\DataBaseManager.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Models\\DataBaseManager.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\DataBaseManager.cs",
+              "RelativeToolTip": "AutoFact\\Models\\DataBaseManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T13:02:33.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Article.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\Article.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
+              "RelativeToolTip": "AutoFact\\Views\\Article.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAwwH8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T11:26:13.29Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Home.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Home.cs",
-              "RelativeDocumentMoniker": "AutoFact\\Home.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Home.cs",
-              "RelativeToolTip": "AutoFact\\Home.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAADgvxwAAAAJAAAA",
+              "Title": "Article.cs [Conception]",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\Article.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs [Conception]",
+              "RelativeToolTip": "AutoFact\\Views\\Article.cs [Conception]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T08:30:03.474Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Home.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Home.cs",
-              "RelativeDocumentMoniker": "AutoFact\\Home.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Home.cs [Conception]",
-              "RelativeToolTip": "AutoFact\\Home.cs [Conception]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T08:29:59.66Z",
+              "WhenOpened": "2024-10-09T11:25:49.237Z",
               "EditorCaption": " [Conception]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NavbarControll.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\NavbarControll.Designer.cs",
-              "RelativeDocumentMoniker": "AutoFact\\NavbarControll.Designer.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\NavbarControll.Designer.cs",
-              "RelativeToolTip": "AutoFact\\NavbarControll.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAjAAAA",
+              "DocumentIndex": 2,
+              "Title": "ArticleVM.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\ArticleVM.cs",
+              "RelativeDocumentMoniker": "AutoFact\\ViewModel\\ArticleVM.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\ArticleVM.cs",
+              "RelativeToolTip": "AutoFact\\ViewModel\\ArticleVM.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowF4AAABlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T08:19:58.776Z",
+              "WhenOpened": "2024-10-09T11:25:26.256Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "NavbarControll.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\NavbarControll.cs",
-              "RelativeDocumentMoniker": "AutoFact\\NavbarControll.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\NavbarControll.cs",
-              "RelativeToolTip": "AutoFact\\NavbarControll.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABkAAAAgAAAA",
+              "Title": "Produits.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\Produits.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Models\\Produits.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\Produits.cs",
+              "RelativeToolTip": "AutoFact\\Models\\Produits.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAACGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T21:56:19.755Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NavbarControll.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\NavbarControll.cs",
-              "RelativeDocumentMoniker": "AutoFact\\NavbarControll.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\NavbarControll.cs [Conception]",
-              "RelativeToolTip": "AutoFact\\NavbarControll.cs [Conception]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T20:36:55.677Z",
-              "EditorCaption": " [Conception]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GradientPanel.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\GradientPanel.cs",
-              "RelativeDocumentMoniker": "AutoFact\\GradientPanel.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\GradientPanel.cs",
-              "RelativeToolTip": "AutoFact\\GradientPanel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T21:32:18.542Z",
+              "WhenOpened": "2024-10-09T11:25:13.945Z",
               "EditorCaption": ""
             }
           ]
