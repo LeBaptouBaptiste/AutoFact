@@ -72,6 +72,7 @@
             ArticleCB.Size = new Size(264, 27);
             ArticleCB.TabIndex = 2;
             ArticleCB.Text = "Article";
+            ArticleCB.SelectedIndexChanged += ArticleCB_Changed;
             // 
             // PriceTB
             // 
@@ -94,6 +95,7 @@
             SupplyCB.Size = new Size(264, 27);
             SupplyCB.TabIndex = 4;
             SupplyCB.Text = supplyTxt;
+            SupplyCB.SelectedIndexChanged += SupplyCB_Changed;
             // 
             // AddBtn
             // 
@@ -173,7 +175,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Article";
             WindowState = FormWindowState.Maximized;
-            Click += Form_clicked;
+            Click += Resets;
             ResumeLayout(false);
             PerformLayout();
         }

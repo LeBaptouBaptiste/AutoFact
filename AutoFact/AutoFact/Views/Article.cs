@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace AutoFact
 
         private ArticleVM articlevm;
         private List<Societe> listSupply;
+        private List<Produits> listProducts;
 
         public Article()
         {
@@ -30,6 +32,7 @@ namespace AutoFact
             SocieteVM societevm = new SocieteVM(SupplyCB);
             listSupply = societevm.getSupplys();
             articlevm = new ArticleVM(ArticleCB, listSupply);
+            listProducts = articlevm.getProducts();
         }
 
         private void NameTB_Clicked(object sender, EventArgs e)
@@ -68,10 +71,42 @@ namespace AutoFact
             }
         }
 
+        private void SupplyCB_Changed(object sender, EventArgs e)
+        {
+            if(SupplyCB.SelectedIndex != -1)
+            {
+                ChangeText(sender, e, true);
+                this.ActiveControl = null;
+            }
+        }
+
+        private void ArticleCB_Changed(Object sender, EventArgs e)
+        {
+            if (ArticleCB.SelectedIndex != -1)
+            {
+                int id = ArticleCB.SelectedIndex;
+                int idSupply = listSupply.FirstOrDefault(s => s.Id == listProducts[id].Fournisseur.Id);
+
+                ChangeText(sender, e, true); 
+                this.ActiveControl = null;
+
+                NameTB.Clear();
+                PriceTB.Clear();
+                BuypriceTB.Clear();
+                QuantityTB.Clear();
+
+                NameTB.Text = listProducts[id].Libelle;
+                PriceTB.Text = listProducts[id].Prix.ToString();
+                BuypriceTB.Text = listProducts[id].BuyPrice.ToString();
+                QuantityTB.Text = listProducts[id].Quantity.ToString();
+                SupplyCB.SelectedIndex = listProducts[id].Fournisseur.Id;
+            }
+        }
+
         private void ChangeText(object sender, EventArgs e, bool able)
         {
             Control tb = sender as Control;
-
+                 
             if(able)
             {
                 tb.ForeColor = Color.Black;
@@ -82,7 +117,7 @@ namespace AutoFact
             }
         }
 
-        private void Form_clicked(object sender, EventArgs e)
+        private void Resets(object sender, EventArgs e)
         {
             if (NameTB.Text == string.Empty)
             {
@@ -126,7 +161,12 @@ namespace AutoFact
 
                     articlevm.addArticle(name, price, buyprice, quantity, society);
 
-                    Form_clicked(this, e);
+                    NameTB.Clear();
+                    PriceTB.Clear();
+                    BuypriceTB.Clear();
+                    QuantityTB.Clear();
+                    SupplyCB.SelectedIndex = -1;
+                    Resets(this, e);
                 }
                 catch (Exception ex)
                 {

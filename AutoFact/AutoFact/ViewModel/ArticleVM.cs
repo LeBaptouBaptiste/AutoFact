@@ -13,14 +13,17 @@ namespace AutoFact.ViewModel
 {
     internal class ArticleVM
     {
-        private List<Produits> articleList;
+        private List<Produits> articleList = new List<Produits>();
         private MySqlConnection connection;
+        private ComboBox box;
+        private List<Societe> societeList;
 
         public ArticleVM(ComboBox box, List<Societe> societeList)
         {
-            articleList = new List<Produits>();
+            this.box = box;
+            this.societeList = societeList;
             InitializeDatabase();
-            loadArticles(box, societeList);
+            loadArticles();
         }
 
         private void InitializeDatabase()
@@ -29,7 +32,14 @@ namespace AutoFact.ViewModel
             this.connection = data.getConnection();
         }
 
-        private void loadArticles(ComboBox box, List<Societe> societeList)
+        public List<Produits> getProducts()
+        {
+            this.articleList.Clear();
+            loadArticles();
+            return this.articleList;
+        }
+
+        private void loadArticles()
         {
             try
             {
@@ -59,6 +69,7 @@ namespace AutoFact.ViewModel
 
                     Produits product = new Produits(id, libelle, price, buyPrice, quantity, societeList[fournisseur]);
                     box.Items.Add(product.Libelle);
+                    articleList.Add(product);
                 }
             }
             catch (Exception ex)
