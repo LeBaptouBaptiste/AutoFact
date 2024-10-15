@@ -43,6 +43,8 @@ namespace AutoFact.ViewModel
         {
             try
             {
+                box.Items.Clear();
+
                 MySqlCommand cmd = new MySqlCommand("SELECT Designations.id, prixAchat, quantite, id_fournisseur, libelle, prix FROM Produits INNER JOIN Designations ON Produits.id = Designations.id;", connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
@@ -106,13 +108,12 @@ namespace AutoFact.ViewModel
                                 cmdProduct.Parameters.AddWithValue("@quantite", monProduit.Quantity);
                                 cmdProduct.Parameters.AddWithValue("@id_fournisseur", monProduit.Fournisseur.Id);
 
-
-
                                 cmdProduct.ExecuteNonQuery();
                             }
                         }
 
                         transaction.Commit();
+                        loadArticles();
                     }
                     catch (Exception ex)
                     {
@@ -123,6 +124,56 @@ namespace AutoFact.ViewModel
                 }
             }
             catch(Exception ex)
+            {
+                MessageBox.Show("Probleme lors de la creation de l'objet");
+            }
+        }
+
+        public void updArticle(int id, string name, decimal price, decimal buyprice, int quantity, Societe society)
+        {
+            try
+            {
+                Produits monProduit = new Produits(id, name, price, buyprice, quantity, society);
+
+
+                using (MySqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        string designationQuery = "UPDATE Designations SET libelle = @name, prix = @price WHERE id = @id;";
+
+                        using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
+                        {
+                            cmdDesignation.Parameters.AddWithValue("@name", monProduit.Libelle);
+                            cmdDesignation.Parameters.AddWithValue("@price", monProduit.Prix);
+                            cmdDesignation.Parameters.AddWithValue("@id", monProduit.Id);
+
+                            cmdDesignation.ExecuteNonQuery();
+
+                            string produitQuery = "UPDATE Produits SET prixAchat = @buyPrice, quantite = @quantity, id_fournisseur = @supplyId WHERE id = @id";
+                            using (MySqlCommand cmdProduct = new MySqlCommand(produitQuery, connection, transaction))
+                            {
+                                cmdProduct.Parameters.AddWithValue("@id", monProduit.Id);
+                                cmdProduct.Parameters.AddWithValue("@buyPrice", monProduit.BuyPrice);
+                                cmdProduct.Parameters.AddWithValue("@quantity", monProduit.Quantity);
+                                cmdProduct.Parameters.AddWithValue("@supplyId", monProduit.Fournisseur.Id);
+
+                                cmdProduct.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaction.Commit();
+                        loadArticles();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Probleme lors de l'insertion des données");
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Probleme lors de la creation de l'objet");
             }

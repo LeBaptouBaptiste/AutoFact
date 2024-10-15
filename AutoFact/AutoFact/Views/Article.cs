@@ -21,6 +21,7 @@ namespace AutoFact
         private string buypriceTxt = "Prix d'achat";
         private string quantityTxt = "Quantitée";
         private string supplyTxt = "Fournisseur";
+        private string articleTxt = "Article";
 
         private ArticleVM articlevm;
         private List<Societe> listSupply;
@@ -85,7 +86,6 @@ namespace AutoFact
             if (ArticleCB.SelectedIndex != -1)
             {
                 int id = ArticleCB.SelectedIndex;
-                int idSupply = listSupply.FirstOrDefault(s => s.Id == listProducts[id].Fournisseur.Id);
 
                 ChangeText(sender, e, true); 
                 this.ActiveControl = null;
@@ -99,21 +99,27 @@ namespace AutoFact
                 PriceTB.Text = listProducts[id].Prix.ToString();
                 BuypriceTB.Text = listProducts[id].BuyPrice.ToString();
                 QuantityTB.Text = listProducts[id].Quantity.ToString();
-                SupplyCB.SelectedIndex = listProducts[id].Fournisseur.Id;
+                SupplyCB.SelectedIndex = listSupply.IndexOf(listProducts[id].Fournisseur);
+
+                ChangeText(NameTB, e, true);
+                ChangeText(PriceTB, e, true);
+                ChangeText(BuypriceTB, e, true);
+                ChangeText(QuantityTB, e, true);
+                ChangeText(SupplyCB, e, true);
             }
         }
 
         private void ChangeText(object sender, EventArgs e, bool able)
         {
-            Control tb = sender as Control;
+            Control obj = sender as Control;
                  
             if(able)
             {
-                tb.ForeColor = Color.Black;
+                obj.ForeColor = Color.Black;
             }
             else
             {
-                tb.ForeColor = Color.Silver;
+                obj.ForeColor = Color.Silver;
             }
         }
 
@@ -144,6 +150,11 @@ namespace AutoFact
                 SupplyCB.Text = supplyTxt;
                 ChangeText(SupplyCB, e, false);
             }
+            if (ArticleCB.SelectedIndex == -1)
+            {
+                ArticleCB.Text = articleTxt;
+                ChangeText(ArticleCB, e, false);
+            }
             this.ActiveControl = null;
         }
 
@@ -167,6 +178,42 @@ namespace AutoFact
                     QuantityTB.Clear();
                     SupplyCB.SelectedIndex = -1;
                     Resets(this, e);
+
+                    listProducts = articlevm.getProducts();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("La valeur entrée dans le champs 'Nom' ou le champs 'Prix Unitaire' n'est pas valide");
+                }
+            }
+        }
+
+        private void Upd_Clicked(object sender, EventArgs e)
+        {
+            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && PriceTB.Text != string.Empty && PriceTB.Text != priceTxt && BuypriceTB.Text != null && BuypriceTB.Text != buypriceTxt && QuantityTB.Text != null && QuantityTB.Text != quantityTxt && SupplyCB.SelectedIndex > -1 && ArticleCB.SelectedIndex != -1)
+            {
+                try
+                {
+                    int id = listProducts[ArticleCB.SelectedIndex].Id;
+                    string name = NameTB.Text;
+                    decimal price = Convert.ToDecimal(PriceTB.Text);
+                    decimal buyprice = Convert.ToDecimal(BuypriceTB.Text);
+                    int quantity = Convert.ToInt32(QuantityTB.Text);
+                    Societe society = listSupply[SupplyCB.SelectedIndex];
+
+                    ArticleCB.SelectedIndex = -1;
+
+                    articlevm.updArticle(id, name, price, buyprice, quantity, society);
+
+                    NameTB.Clear();
+                    PriceTB.Clear();
+                    BuypriceTB.Clear();
+                    QuantityTB.Clear();
+                    SupplyCB.SelectedIndex = -1;
+                    Resets(this, e);
+
+                    listProducts = articlevm.getProducts();
                 }
                 catch (Exception ex)
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoFact.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -230,6 +231,7 @@ namespace AutoFact
             btnFourn.UseVisualStyleBackColor = false;
             btnFourn.MouseEnter += btn_Enter;
             btnFourn.MouseLeave += btn_Leave;
+            btnFourn.Click += btn_Supplier_Click;
             // 
             // btnServ
             // 
@@ -248,6 +250,7 @@ namespace AutoFact
             btnServ.UseVisualStyleBackColor = false;
             btnServ.MouseEnter += btn_Enter;
             btnServ.MouseLeave += btn_Leave;
+            btnServ.Click += btn_Service_Click;
             // 
             // btnClient
             // 
@@ -344,6 +347,20 @@ namespace AutoFact
             Article article = new Article();
             Parent.Hide();
             article.Show();
+        }
+
+        private void btn_Supplier_Click(object sender, EventArgs e)
+        {
+            Supplier supplier = new Supplier();
+            Parent.Hide();
+            supplier.Show();
+        }
+
+        private void btn_Service_Click(object sender, EventArgs e)
+        {
+            Service service = new Service();
+            Parent.Hide();
+            service.Show();
         }
 
         // Composants

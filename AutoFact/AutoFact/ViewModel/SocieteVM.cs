@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,12 +15,14 @@ namespace AutoFact.ViewModel
     {
         private List<Societe> societeList;
         private MySqlConnection connection;
+        private ComboBox box;
 
         public SocieteVM(ComboBox box)
         {
+            this.box = box;
             societeList = new List<Societe>();
             InitializeDatabase();
-            loadSupplys(box);
+            loadSupplys();
 
         }
 
@@ -28,8 +32,9 @@ namespace AutoFact.ViewModel
             this.connection = data.getConnection();
         }
 
-        private void loadSupplys(ComboBox box)
+        private void loadSupplys()
         {
+            this.box.Items.Clear();
             try
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT Clients.id, siret, adresse, cp, tel, mail, nom FROM Societes INNER JOIN Clients ON Societes.id = Clients.id;", connection);
@@ -48,7 +53,7 @@ namespace AutoFact.ViewModel
                     string nom = row["nom"].ToString();
 
                     Societe society = new Societe(id, nom, adresse, cp, tel, mail, siret);
-                    box.Items.Add(society.Name);
+                    this.box.Items.Add(society.Name);
                     societeList.Add(society);
                 }
             }
@@ -61,6 +66,106 @@ namespace AutoFact.ViewModel
         public List<Societe> getSupplys()
         {
             return this.societeList;
+        }
+
+        public void AddSupplier(string name, string mail, string siret, string phone, string address, string cp)
+        {
+            try
+            {
+                Societe mySupplier = new Societe(name, address, cp, phone, mail, siret);
+
+
+                using (MySqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        string clientQuery = "INSERT INTO Clients(nom, mail, tel, adresse, cp) VALUES(@name, @mail, @phone, @address, @cp); SELECT LAST_INSERT_ID();";
+
+                        using (MySqlCommand cmdClient = new MySqlCommand(clientQuery, connection, transaction))
+                        {
+                            cmdClient.Parameters.AddWithValue("@name", mySupplier.Name);
+                            cmdClient.Parameters.AddWithValue("@mail", mySupplier.Mail);
+                            cmdClient.Parameters.AddWithValue("@phone", mySupplier.Phone);
+                            cmdClient.Parameters.AddWithValue("@address", mySupplier.Address);
+                            cmdClient.Parameters.AddWithValue("@cp", mySupplier.PostalCode);
+
+                            int generatedId = Convert.ToInt32(cmdClient.ExecuteScalar());
+
+                            string SupplierQuery = "INSERT INTO Societes(id, siret) VALUES(@id, @siret);";
+                            using (MySqlCommand cmdSupplier = new MySqlCommand(SupplierQuery, connection, transaction))
+                            {
+                                cmdSupplier.Parameters.AddWithValue("@id", generatedId); // Utiliser l'ID généré
+                                cmdSupplier.Parameters.AddWithValue("@siret", mySupplier.Siret);
+
+                                cmdSupplier.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaction.Commit();
+                        loadSupplys();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Probleme lors de l'insertion des données");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Probleme lors de la creation de l'objet");
+            }
+        }
+        public void UpdSupplier(int id, string name, string mail, string siret, string phone, string address, string cp)
+        {
+            try
+            {
+                Societe mySupplier = new Societe(id, name, address, cp, phone, mail, siret);
+
+
+                using (MySqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        string ClientQuery = "UPDATE Clients SET nom = @name, mail = @mail, tel = @phone, adresse = @address, cp = @cp WHERE id = @id;";
+
+                        using (MySqlCommand cmdClient = new MySqlCommand(ClientQuery, connection, transaction))
+                        {
+                            cmdClient.Parameters.AddWithValue("@name", mySupplier.Name);
+                            cmdClient.Parameters.AddWithValue("@mail", mySupplier.Mail);
+                            cmdClient.Parameters.AddWithValue("@phone", mySupplier.Phone);
+                            cmdClient.Parameters.AddWithValue("@address", mySupplier.Address);
+                            cmdClient.Parameters.AddWithValue("@cp", mySupplier.PostalCode);
+                            cmdClient.Parameters.AddWithValue("@id", mySupplier.Id);
+
+                            cmdClient.ExecuteNonQuery();
+
+                            string supplierQuery = "UPDATE Societes SET siret = @siret WHERE id = @id";
+                            using (MySqlCommand cmdSupplier = new MySqlCommand(supplierQuery, connection, transaction))
+                            {
+                                cmdSupplier.Parameters.AddWithValue("@id", mySupplier.Id);
+                                cmdSupplier.Parameters.AddWithValue("@siret", mySupplier.Siret);
+
+                                cmdSupplier.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaction.Commit();
+                        loadSupplys();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Probleme lors de l'insertion des données");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Probleme lors de la creation de l'objet");
+            }
         }
     }
 }

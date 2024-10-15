@@ -1,4 +1,7 @@
-﻿namespace AutoFact
+﻿using AutoFact.Views;
+
+namespace AutoFact
+
 {
     partial class Article
     {
@@ -71,7 +74,7 @@
             ArticleCB.Name = "ArticleCB";
             ArticleCB.Size = new Size(264, 27);
             ArticleCB.TabIndex = 2;
-            ArticleCB.Text = "Article";
+            ArticleCB.Text = articleTxt;
             ArticleCB.SelectedIndexChanged += ArticleCB_Changed;
             // 
             // PriceTB
@@ -121,6 +124,7 @@
             UpBtn.TabIndex = 6;
             UpBtn.Text = "Modifier";
             UpBtn.UseVisualStyleBackColor = false;
+            UpBtn.Click += Upd_Clicked;
             // 
             // AddUpLbl
             // 

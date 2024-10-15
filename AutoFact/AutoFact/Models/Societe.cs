@@ -22,6 +22,10 @@ namespace AutoFact
         {
             this.siret = siret;
         }
+        public Societe(string name, string address, string cp, string phone, string mail, string siret) : base(name, address, cp, phone, mail)
+        {
+            this.siret=siret;
+        }
 
         public string Siret 
         { 

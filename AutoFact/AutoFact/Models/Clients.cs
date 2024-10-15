@@ -40,6 +40,15 @@ namespace AutoFact
             this.mail = mail;
         }
 
+        public Clients (string name, string address, string cp, string phone, string mail)
+        {
+            this.name = name;
+            this.address = address;
+            this.postalCode = cp;
+            this.phone = phone;
+            this.mail = mail;
+        }
+
         public int Id
         {
             get { return this.id; }           // Accesseur pour obtenir la valeur du champ _id
