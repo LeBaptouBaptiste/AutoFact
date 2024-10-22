@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace AutoFact
+namespace AutoFact.Models
 {
     internal class Clients
     {

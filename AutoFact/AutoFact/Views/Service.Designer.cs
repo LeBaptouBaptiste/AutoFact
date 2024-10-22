@@ -37,6 +37,7 @@
             DurationTB = new TextBox();
             AddBtn = new Button();
             UpdBtn = new Button();
+            ServiceCB = new ComboBox();
             SuspendLayout();
             // 
             // navbarUserControl
@@ -67,6 +68,8 @@
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 1;
+            NameTB.Text = nameTxt;
+            NameTB.Click += NameTB_Clicked;
             // 
             // DescriptionTB
             // 
@@ -78,6 +81,8 @@
             DescriptionTB.Name = "DescriptionTB";
             DescriptionTB.Size = new Size(363, 170);
             DescriptionTB.TabIndex = 2;
+            DescriptionTB.Text = descriptionTxt;
+            DescriptionTB.Click += DescriptionTB_Clicked;
             // 
             // PriceTB
             // 
@@ -88,6 +93,8 @@
             PriceTB.Name = "PriceTB";
             PriceTB.Size = new Size(180, 26);
             PriceTB.TabIndex = 3;
+            PriceTB.Text = priceTxt;
+            PriceTB.Click += PriceTB_Clicked;
             // 
             // TimeChB
             // 
@@ -100,6 +107,7 @@
             TimeChB.TabIndex = 4;
             TimeChB.Text = "Designation temporaire";
             TimeChB.UseVisualStyleBackColor = true;
+            TimeChB.CheckedChanged += TimeChB_CheckedChanged;
             // 
             // DurationTB
             // 
@@ -111,6 +119,8 @@
             DurationTB.Size = new Size(180, 26);
             DurationTB.TabIndex = 3;
             DurationTB.Visible = false;
+            DurationTB.Text = durationTxt;
+            DurationTB.Click += DurationTB_Clicked;
             // 
             // AddBtn
             // 
@@ -138,10 +148,23 @@
             UpdBtn.UseVisualStyleBackColor = false;
             UpdBtn.Click += Upd_Clicked;
             // 
+            // ServiceCB
+            // 
+            ServiceCB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ServiceCB.ForeColor = Color.Silver;
+            ServiceCB.FormattingEnabled = true;
+            ServiceCB.Location = new Point(1548, 333);
+            ServiceCB.Name = "ServiceCB";
+            ServiceCB.Size = new Size(180, 27);
+            ServiceCB.TabIndex = 9;
+            ServiceCB.Text = serviceTxt;
+            ServiceCB.SelectedIndexChanged += ServiceCB_Changed;
+            // 
             // Service
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(ServiceCB);
             Controls.Add(TimeChB);
             Controls.Add(AddUpLbl);
             Controls.Add(NameTB);
@@ -156,6 +179,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Supplier";
             WindowState = FormWindowState.Maximized;
+            Click += Resets;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,5 +191,6 @@
         private TextBox NameTB, DescriptionTB, PriceTB, DurationTB;
         private CheckBox TimeChB;
         private Button AddBtn, UpdBtn;
+        private ComboBox ServiceCB;
     }
 }

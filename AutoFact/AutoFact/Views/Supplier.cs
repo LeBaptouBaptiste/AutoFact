@@ -33,48 +33,60 @@ namespace AutoFact.Views
         {
             if (NameTB.Text == nameTxt)
             {
+                Resets(sender, e);
                 NameTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = NameTB;
             }
         }
         private void MailTB_Clicked(object sender, EventArgs e)
         {
             if (MailTB.Text == mailTxt)
             {
+                Resets(sender, e);
                 MailTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = MailTB;
             }
         }
         private void SiretTB_Clicked(object sender, EventArgs e)
         {
             if (SiretTB.Text == siretTxt)
             {
+                Resets(sender, e);
                 SiretTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = SiretTB;
             }
         }
         private void PhoneTB_Clicked(object sender, EventArgs e)
         {
             if (PhoneTB.Text == phoneTxt)
             {
+                Resets(sender, e);
                 PhoneTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = PhoneTB;
             }
         }
         private void AddressTB_Clicked(object sender, EventArgs e)
         {
             if (AddressTB.Text == addressTxt)
             {
+                Resets(sender, e);
                 AddressTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = AddressTB;
             }
         }
         private void CpTB_Clicked(object sender, EventArgs e)
         {
             if (CpTB.Text == cpTxt)
             {
+                Resets(sender, e);
                 CpTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = CpTB;
             }
         }
         private void SuppliersCB_Changed(Object sender, EventArgs e)

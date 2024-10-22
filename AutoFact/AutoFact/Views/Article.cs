@@ -40,8 +40,10 @@ namespace AutoFact
         {
             if (NameTB.Text == nameTxt)
             {
+                Resets(sender, e);
                 NameTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = NameTB;
             }
         }
 
@@ -49,8 +51,10 @@ namespace AutoFact
         {
             if (PriceTB.Text == priceTxt)
             {
+                Resets(sender, e);
                 PriceTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = PriceTB;
             }
         }
 
@@ -58,8 +62,10 @@ namespace AutoFact
         {
             if (BuypriceTB.Text == buypriceTxt)
             {
+                Resets(sender, e);
                 BuypriceTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = BuypriceTB;
             }
         }
 
@@ -67,8 +73,10 @@ namespace AutoFact
         {
             if (QuantityTB.Text == quantityTxt)
             {
+                Resets(sender, e);
                 QuantityTB.Text = string.Empty;
                 ChangeText(sender, e, true);
+                this.ActiveControl = QuantityTB;
             }
         }
 
@@ -76,6 +84,7 @@ namespace AutoFact
         {
             if(SupplyCB.SelectedIndex != -1)
             {
+                Resets(sender, e);
                 ChangeText(sender, e, true);
                 this.ActiveControl = null;
             }

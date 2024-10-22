@@ -86,7 +86,6 @@ namespace AutoFact.ViewModel
             {
                 Produits monProduit = new Produits(name, price, buyprice, quantity, society);
 
-
                 using (MySqlTransaction transaction = connection.BeginTransaction())
                 {
                     try

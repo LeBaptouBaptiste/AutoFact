@@ -1,26 +1,24 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
-using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using AutoFact.Models;
 
 namespace AutoFact.ViewModel
 {
-    internal class SocieteVM
+    internal class ClientVM
     {
-        private List<Societe> societeList;
+        private List<Societe> clientList;
         private MySqlConnection connection;
         private ComboBox box;
 
-        public SocieteVM(ComboBox box)
+        public ClientVM(ComboBox box)
         {
             this.box = box;
-            societeList = new List<Societe>();
+            clientList = new List<Clients>();
             InitializeDatabase();
             loadSupplys();
 

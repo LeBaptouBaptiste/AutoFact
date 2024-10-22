@@ -45,10 +45,17 @@ namespace AutoFact.ViewModel
                     int id = Convert.ToInt32(row["id"]);
                     string name = row["libelle"].ToString();
                     decimal price = Convert.ToDecimal(row["prix"]);
-                    int duration = Convert.ToInt32(row["duree"]);
                     string description = row["description"].ToString();
 
-                    Services service = new Services(id, name, price, duration, description);
+                    Services service = new Services(id, name, price, description);
+
+                    if (row["duree"] != DBNull.Value)
+                    {
+                        int duration = Convert.ToInt32(row["duree"]);
+                        service.Duration = duration;
+                        service.HaveDuration = true;
+                    }
+
                     this.box.Items.Add(service.Libelle);
                     serviceList.Add(service);
                 }
@@ -61,10 +68,12 @@ namespace AutoFact.ViewModel
 
         public List<Services> getServices()
         {
+            this.serviceList.Clear();
+            loadServices();
             return this.serviceList;
         }
 
-        public void AddSupplier(string name, decimal price, int duration, string description)
+        public void AddService(string name, decimal price, int duration, string description)
         {
             try
             {
@@ -111,6 +120,52 @@ namespace AutoFact.ViewModel
                 MessageBox.Show("Probleme lors de la creation de l'objet");
             }
         }
+        public void AddServiceWithoutDuration(string name, decimal price, string description)
+        {
+            try
+            {
+                Services myService = new Services(name, price, description);
+
+
+                using (MySqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        string designationQuery = "INSERT INTO Designations(libelle, prix) VALUES(@libelle, @prix); SELECT LAST_INSERT_ID();";
+
+                        using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
+                        {
+                            cmdDesignation.Parameters.AddWithValue("@libelle", myService.Libelle);
+                            cmdDesignation.Parameters.AddWithValue("@prix", myService.Prix);
+
+                            int generatedId = Convert.ToInt32(cmdDesignation.ExecuteScalar());
+
+                            string serviceQuery = "INSERT INTO Services(id, description) VALUES(@id, @description)";
+                            using (MySqlCommand cmdService = new MySqlCommand(serviceQuery, connection, transaction))
+                            {
+                                cmdService.Parameters.AddWithValue("@id", generatedId); // Utiliser l'ID généré
+                                cmdService.Parameters.AddWithValue("@description", myService.Description);
+
+                                cmdService.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaction.Commit();
+                        loadServices();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Probleme lors de l'insertion des données");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Probleme lors de la creation de l'objet");
+            }
+        }
         public void UpdService(int id, string name, decimal price, int duration, string description)
         {
             try
@@ -136,6 +191,54 @@ namespace AutoFact.ViewModel
                             using (MySqlCommand cmdService = new MySqlCommand(serviceQuery, connection, transaction))
                             {
                                 cmdService.Parameters.AddWithValue("@duration", myService.Duration);
+                                cmdService.Parameters.AddWithValue("@description", myService.Description);
+                                cmdService.Parameters.AddWithValue("@id", myService.Id);
+
+                                cmdService.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaction.Commit();
+                        loadServices();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Probleme lors de l'insertion des données");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Probleme lors de la creation de l'objet");
+            }
+        }
+
+        public void UpdServiceWithoutDuration(int id, string name, decimal price, string description)
+        {
+            try
+            {
+                Services myService = new Services(id, name, price, description);
+
+
+                using (MySqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        string designationQuery = "UPDATE Designations SET libelle = @name, prix = @price WHERE id = @id;";
+
+                        using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
+                        {
+                            cmdDesignation.Parameters.AddWithValue("@name", myService.Libelle);
+                            cmdDesignation.Parameters.AddWithValue("@price", myService.Prix);
+                            cmdDesignation.Parameters.AddWithValue("@id", myService.Id);
+
+                            cmdDesignation.ExecuteNonQuery();
+
+                            string serviceQuery = "UPDATE Services SET description = @description WHERE id = @id";
+                            using (MySqlCommand cmdService = new MySqlCommand(serviceQuery, connection, transaction))
+                            {
                                 cmdService.Parameters.AddWithValue("@description", myService.Description);
                                 cmdService.Parameters.AddWithValue("@id", myService.Id);
 
