@@ -1,7 +1,6 @@
 ﻿using System.Drawing.Drawing2D;
-using static AutoFact.Home;
 
-namespace AutoFact
+namespace AutoFact.Views
 {
     partial class NavbarControll
     {

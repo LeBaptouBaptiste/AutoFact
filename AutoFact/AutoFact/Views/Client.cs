@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoFact.Models;
+using AutoFact.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,9 +21,14 @@ namespace AutoFact.Views
         private string addressTxt = "Adresse postal";
         private string cpTxt = "Code postal";
         private string clientTxt = "Client";
+
+        private ClientVM clientvm;
+        private List<Particuliers> listClients;
         public Client()
         {
             InitializeComponent();
+            clientvm = new ClientVM(SuppliersCB);
+            listSupply = societevm.getSupplys();
         }
         private void NameTB_Clicked(object sender, EventArgs e)
         {
@@ -130,6 +137,47 @@ namespace AutoFact.Views
                 ChangeText(CpTB, e, false);
             }
             this.ActiveControl = null;
+        }
+        private void Add_Clicked(object sender, EventArgs e)
+        {
+            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && MailTB.Text != string.Empty && MailTB.Text != mailTxt && FirstNameTB.Text != null && FirstNameTB.Text != firstNameTxt && PhoneTB.Text != null && PhoneTB.Text != phoneTxt && AddressTB.Text != null && AddressTB.Text != addressTxt && CpTB.Text != null && CpTB.Text != cpTxt && (HommeRB.Checked || FemmeRB.Checked))
+            {
+                try
+                {
+                    string name = NameTB.Text;
+                    string mail = MailTB.Text;
+                    string firstName = FirstNameTB.Text;
+                    string phone = PhoneTB.Text;
+                    string address = AddressTB.Text;
+                    string cp = CpTB.Text;
+
+                    if (HommeRB.Checked)
+                    {
+                        string civility = "H";
+                    }
+                    else
+                    {
+                        string civility = "F";
+                    }
+
+                    societevm.AddSupplier(name, mail, siret, phone, address, cp);
+
+                    NameTB.Clear();
+                    MailTB.Clear();
+                    SiretTB.Clear();
+                    PhoneTB.Clear();
+                    AddressTB.Clear();
+                    CpTB.Clear();
+                    Resets(this, e);
+
+                    listSupply = societevm.getSupplys();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("La valeur entrée dans le champs 'Nom' ou le champs 'Prix Unitaire' n'est pas valide");
+                }
+            }
         }
     }
 }

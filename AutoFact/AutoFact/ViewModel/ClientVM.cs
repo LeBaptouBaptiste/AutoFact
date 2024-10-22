@@ -11,16 +11,16 @@ namespace AutoFact.ViewModel
 {
     internal class ClientVM
     {
-        private List<Societe> clientList;
+        private List<Particuliers> clientList;
         private MySqlConnection connection;
         private ComboBox box;
 
         public ClientVM(ComboBox box)
         {
             this.box = box;
-            clientList = new List<Clients>();
+            clientList = new List<Particuliers>();
             InitializeDatabase();
-            loadSupplys();
+            loadClients();
 
         }
 
@@ -30,12 +30,12 @@ namespace AutoFact.ViewModel
             this.connection = data.getConnection();
         }
 
-        private void loadSupplys()
+        private void loadClients()
         {
             this.box.Items.Clear();
             try
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT Clients.id, siret, adresse, cp, tel, mail, nom FROM Societes INNER JOIN Clients ON Societes.id = Clients.id;", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT Clients.id, civilitee, adresse, cp, tel, mail, nom, prenom FROM Particuliers INNER JOIN Clients ON Particuliers.id = Clients.id;", connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -43,16 +43,17 @@ namespace AutoFact.ViewModel
                 foreach (DataRow row in dataTable.Rows)
                 {
                     int id = Convert.ToInt32(row["id"]);
-                    string siret = row["siret"].ToString();
+                    string civilitee = row["civlitee"].ToString();
                     string adresse = row["adresse"].ToString();
                     string cp = row["cp"].ToString();
                     string tel = row["tel"].ToString();
                     string mail = row["mail"].ToString();
                     string nom = row["nom"].ToString();
+                    string prenom = row["prenom"].ToString();
 
-                    Societe society = new Societe(id, nom, adresse, cp, tel, mail, siret);
-                    this.box.Items.Add(society.Name);
-                    societeList.Add(society);
+                    Particuliers particulier = new Particuliers(id, nom, adresse, cp, tel, mail, civilitee, prenom);
+                    this.box.Items.Add($"{particulier.Name} {particulier.FirstName}");
+                    clientList.Add(particulier);
                 }
             }
             catch (Exception ex)
@@ -61,18 +62,18 @@ namespace AutoFact.ViewModel
             }
         }
 
-        public List<Societe> getSupplys()
+        public List<Particuliers> getSupplys()
         {
-            this.societeList.Clear();
-            loadSupplys();
-            return this.societeList;
+            this.clientList.Clear();
+            loadClients();
+            return this.clientList;
         }
 
-        public void AddSupplier(string name, string mail, string siret, string phone, string address, string cp)
+        public void AddClients(string name, string mail, string phone, string address, string cp, string civility, string firstName)
         {
             try
             {
-                Societe mySupplier = new Societe(name, address, cp, phone, mail, siret);
+                Particuliers myClient = new Particuliers(name, address, cp, phone, mail, civility, firstName);
 
 
                 using (MySqlTransaction transaction = connection.BeginTransaction())
@@ -83,26 +84,27 @@ namespace AutoFact.ViewModel
 
                         using (MySqlCommand cmdClient = new MySqlCommand(clientQuery, connection, transaction))
                         {
-                            cmdClient.Parameters.AddWithValue("@name", mySupplier.Name);
-                            cmdClient.Parameters.AddWithValue("@mail", mySupplier.Mail);
-                            cmdClient.Parameters.AddWithValue("@phone", mySupplier.Phone);
-                            cmdClient.Parameters.AddWithValue("@address", mySupplier.Address);
-                            cmdClient.Parameters.AddWithValue("@cp", mySupplier.PostalCode);
+                            cmdClient.Parameters.AddWithValue("@name", myClient.Name);
+                            cmdClient.Parameters.AddWithValue("@mail", myClient.Mail);
+                            cmdClient.Parameters.AddWithValue("@phone", myClient.Phone);
+                            cmdClient.Parameters.AddWithValue("@address", myClient.Address);
+                            cmdClient.Parameters.AddWithValue("@cp", myClient.PostalCode);
 
                             int generatedId = Convert.ToInt32(cmdClient.ExecuteScalar());
 
-                            string SupplierQuery = "INSERT INTO Societes(id, siret) VALUES(@id, @siret);";
-                            using (MySqlCommand cmdSupplier = new MySqlCommand(SupplierQuery, connection, transaction))
+                            string individualQuery = "INSERT INTO Particuliers(id, civilitee, prenom) VALUES(@id, @civility, @firstName);";
+                            using (MySqlCommand cmdIndividual = new MySqlCommand(individualQuery, connection, transaction))
                             {
-                                cmdSupplier.Parameters.AddWithValue("@id", generatedId); // Utiliser l'ID généré
-                                cmdSupplier.Parameters.AddWithValue("@siret", mySupplier.Siret);
+                                cmdIndividual.Parameters.AddWithValue("@id", generatedId); // Utiliser l'ID généré
+                                cmdIndividual.Parameters.AddWithValue("@civility", myClient.Civility);
+                                cmdIndividual.Parameters.AddWithValue("@fisrtName", myClient.FirstName);
 
-                                cmdSupplier.ExecuteNonQuery();
+                                cmdIndividual.ExecuteNonQuery();
                             }
                         }
 
                         transaction.Commit();
-                        loadSupplys();
+                        loadClients();
                     }
                     catch (Exception ex)
                     {
@@ -117,11 +119,11 @@ namespace AutoFact.ViewModel
                 MessageBox.Show("Probleme lors de la creation de l'objet");
             }
         }
-        public void UpdSupplier(int id, string name, string mail, string siret, string phone, string address, string cp)
+        public void UpdSupplier(int id, string name, string mail, string phone, string address, string cp, string civility, string firstName)
         {
             try
             {
-                Societe mySupplier = new Societe(id, name, address, cp, phone, mail, siret);
+                Particuliers myClient = new Particuliers(id, name, address, cp, phone, mail, civility, firstName);
 
 
                 using (MySqlTransaction transaction = connection.BeginTransaction())
@@ -132,27 +134,28 @@ namespace AutoFact.ViewModel
 
                         using (MySqlCommand cmdClient = new MySqlCommand(ClientQuery, connection, transaction))
                         {
-                            cmdClient.Parameters.AddWithValue("@name", mySupplier.Name);
-                            cmdClient.Parameters.AddWithValue("@mail", mySupplier.Mail);
-                            cmdClient.Parameters.AddWithValue("@phone", mySupplier.Phone);
-                            cmdClient.Parameters.AddWithValue("@address", mySupplier.Address);
-                            cmdClient.Parameters.AddWithValue("@cp", mySupplier.PostalCode);
-                            cmdClient.Parameters.AddWithValue("@id", mySupplier.Id);
+                            cmdClient.Parameters.AddWithValue("@name", myClient.Name);
+                            cmdClient.Parameters.AddWithValue("@mail", myClient.Mail);
+                            cmdClient.Parameters.AddWithValue("@phone", myClient.Phone);
+                            cmdClient.Parameters.AddWithValue("@address", myClient.Address);
+                            cmdClient.Parameters.AddWithValue("@cp", myClient.PostalCode);
+                            cmdClient.Parameters.AddWithValue("@id", myClient.Id);
 
                             cmdClient.ExecuteNonQuery();
 
-                            string supplierQuery = "UPDATE Societes SET siret = @siret WHERE id = @id";
-                            using (MySqlCommand cmdSupplier = new MySqlCommand(supplierQuery, connection, transaction))
+                            string individualQuery = "UPDATE Particuliers SET civilitee = @civility, prenom = @firstName WHERE id = @id";
+                            using (MySqlCommand cmdIndividual = new MySqlCommand(individualQuery, connection, transaction))
                             {
-                                cmdSupplier.Parameters.AddWithValue("@id", mySupplier.Id);
-                                cmdSupplier.Parameters.AddWithValue("@siret", mySupplier.Siret);
+                                cmdIndividual.Parameters.AddWithValue("@id", myClient.Id);
+                                cmdIndividual.Parameters.AddWithValue("@civility", myClient.Civility);
+                                cmdIndividual.Parameters.AddWithValue("@prenom", myClient.FirstName);
 
-                                cmdSupplier.ExecuteNonQuery();
+                                cmdIndividual.ExecuteNonQuery();
                             }
                         }
 
                         transaction.Commit();
-                        loadSupplys();
+                        loadClients();
                     }
                     catch (Exception ex)
                     {

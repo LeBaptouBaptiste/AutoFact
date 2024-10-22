@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoFact.ViewModel;
 using MySqlConnector;
+using AutoFact.Models;
 
-namespace AutoFact
+namespace AutoFact.Views
 {
     public partial class Article : Form
     {

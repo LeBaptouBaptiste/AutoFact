@@ -32,10 +32,6 @@ C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-w
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\MySqlConnector.dll
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.csproj.AssemblyReference.cache
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Properties.Resources.resources
-C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Article.resources
-C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.BackgroundPanel.resources
-C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Home.resources
-C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.NavbarControll.resources
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.csproj.GenerateResource.cache
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.AssemblyInfoInputs.cache
@@ -52,3 +48,8 @@ C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-w
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Service.resources
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Service.resources
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Supplier.resources
+C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Client.resources
+C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Article.resources
+C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.BackgroundPanel.resources
+C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Home.resources
+C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.NavbarControll.resources

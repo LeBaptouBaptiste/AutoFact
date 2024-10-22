@@ -1,6 +1,6 @@
 ﻿using AutoFact.Views;
 
-namespace AutoFact
+namespace AutoFact.Views
 
 {
     partial class Article

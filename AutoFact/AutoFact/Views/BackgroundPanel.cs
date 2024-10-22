@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AutoFact
+namespace AutoFact.Views
 {
     public partial class BackgroundPanel : UserControl
     {

@@ -1,4 +1,4 @@
-﻿namespace AutoFact
+﻿namespace AutoFact.Views
 {
     partial class BackgroundPanel
     {

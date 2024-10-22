@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AutoFact
+namespace AutoFact.Views
 {
     public partial class NavbarControll : UserControl
     {
@@ -269,6 +269,7 @@ namespace AutoFact
             btnClient.UseVisualStyleBackColor = false;
             btnClient.MouseEnter += btn_Enter;
             btnClient.MouseLeave += btn_Leave;
+            btnClient.Click += btn_Client_Click;
             // 
             // separator3
             // 
@@ -361,6 +362,13 @@ namespace AutoFact
             Service service = new Service();
             Parent.Hide();
             service.Show();
+        }
+
+        private void btn_Client_Click(object sender, EventArgs e)
+        {
+            Client client = new Client();
+            Parent.Hide();
+            client.Show();
         }
 
         // Composants

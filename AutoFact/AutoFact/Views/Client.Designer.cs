@@ -40,6 +40,7 @@ namespace AutoFact.Views
             PhoneTB = new TextBox();
             AddressTB = new TextBox();
             CpTB = new TextBox();
+            ClientsCB = new ComboBox();
             SuspendLayout();
             // 
             // navbarUserControl
@@ -90,9 +91,9 @@ namespace AutoFact.Views
             NameTB.Location = new Point(867, 418);
             NameTB.MaxLength = 255;
             NameTB.Name = "NameTB";
-            NameTB.Text = nameTxt;
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 1;
+            NameTB.Click += NameTB_Clicked;
             // 
             // MailTB
             // 
@@ -101,9 +102,9 @@ namespace AutoFact.Views
             MailTB.Location = new Point(1228, 418);
             MailTB.MaxLength = 255;
             MailTB.Name = "MailTB";
-            MailTB.Text = mailTxt;
             MailTB.Size = new Size(180, 26);
             MailTB.TabIndex = 2;
+            MailTB.Click += MailTB_Clicked;
             // 
             // FirstNameTB
             // 
@@ -112,9 +113,9 @@ namespace AutoFact.Views
             FirstNameTB.Location = new Point(867, 548);
             FirstNameTB.MaxLength = 255;
             FirstNameTB.Name = "FirstNameTB";
-            FirstNameTB.Text = firstNameTxt;
             FirstNameTB.Size = new Size(180, 26);
             FirstNameTB.TabIndex = 3;
+            FirstNameTB.Click += FirstNameTB_Clicked;
             // 
             // PhoneTB
             // 
@@ -123,9 +124,9 @@ namespace AutoFact.Views
             PhoneTB.Location = new Point(1228, 548);
             PhoneTB.MaxLength = 255;
             PhoneTB.Name = "PhoneTB";
-            PhoneTB.Text = phoneTxt;
             PhoneTB.Size = new Size(180, 26);
             PhoneTB.TabIndex = 4;
+            PhoneTB.Click += PhoneTB_Clicked;
             // 
             // AddressTB
             // 
@@ -134,9 +135,9 @@ namespace AutoFact.Views
             AddressTB.Location = new Point(867, 677);
             AddressTB.MaxLength = 255;
             AddressTB.Name = "AddressTB";
-            AddressTB.Text = addressTxt;
             AddressTB.Size = new Size(180, 26);
             AddressTB.TabIndex = 5;
+            AddressTB.Click += AddressTB_Clicked;
             // 
             // CpTB
             // 
@@ -145,14 +146,25 @@ namespace AutoFact.Views
             CpTB.Location = new Point(1228, 677);
             CpTB.MaxLength = 255;
             CpTB.Name = "CpTB";
-            CpTB.Text = cpTxt;
             CpTB.Size = new Size(180, 26);
             CpTB.TabIndex = 6;
+            CpTB.Click += CpTB_Clicked;
+            // 
+            // ClientsCB
+            // 
+            ClientsCB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ClientsCB.ForeColor = Color.Silver;
+            ClientsCB.FormattingEnabled = true;
+            ClientsCB.Location = new Point(1597, 295);
+            ClientsCB.Name = "ClientsCB";
+            ClientsCB.Size = new Size(180, 23);
+            ClientsCB.TabIndex = 11;
             // 
             // Client
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(ClientsCB);
             Controls.Add(CpTB);
             Controls.Add(AddressTB);
             Controls.Add(PhoneTB);
@@ -168,8 +180,14 @@ namespace AutoFact.Views
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Article";
             WindowState = FormWindowState.Maximized;
+            Click += Resets;
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void CpTB_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -178,5 +196,6 @@ namespace AutoFact.Views
         private Label AddUpLbl;
         private RadioButton HommeRB, FemmeRB;
         private TextBox NameTB, MailTB, FirstNameTB, PhoneTB, AddressTB, CpTB;
+        private ComboBox ClientsCB;
     }
 }

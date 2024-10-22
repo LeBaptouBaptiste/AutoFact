@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using AutoFact.Models;
 
 namespace AutoFact.ViewModel
 {

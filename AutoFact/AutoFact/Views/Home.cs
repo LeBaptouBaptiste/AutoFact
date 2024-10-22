@@ -10,22 +10,21 @@ using System.Windows.Forms;
 using AutoFact.Models;
 using MySqlConnector;
 
-namespace AutoFact
-{
-    public partial class Home : Form
-    {
-        private BackgroundPanel backgroundPanel;
-        private MySqlConnection connection;
-        public Home()
-        {
-            InitializeComponent();
-            InitializeDatabase();
-        }
+namespace AutoFact.Views;
 
-        private void InitializeDatabase()
-        {
-            DataBaseManager data = DataBaseManager.getInstance();
-            connection = data.getConnection();
-        }
+public partial class Home : Form
+{
+    private BackgroundPanel backgroundPanel;
+    private MySqlConnection connection;
+    public Home()
+    {
+        InitializeComponent();
+        InitializeDatabase();
+    }
+
+    private void InitializeDatabase()
+    {
+        DataBaseManager data = DataBaseManager.getInstance();
+        connection = data.getConnection();
     }
 }
