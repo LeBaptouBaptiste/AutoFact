@@ -62,7 +62,7 @@ namespace AutoFact.ViewModel
             }
         }
 
-        public List<Particuliers> getSupplys()
+        public List<Particuliers> getClients()
         {
             this.clientList.Clear();
             loadClients();

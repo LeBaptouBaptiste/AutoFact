@@ -27,8 +27,8 @@ namespace AutoFact.Views
         public Client()
         {
             InitializeComponent();
-            clientvm = new ClientVM(SuppliersCB);
-            listSupply = societevm.getSupplys();
+            clientvm = new ClientVM(ClientsCB);
+            listClients = clientvm.getClients();
         }
         private void NameTB_Clicked(object sender, EventArgs e)
         {
@@ -150,27 +150,70 @@ namespace AutoFact.Views
                     string phone = PhoneTB.Text;
                     string address = AddressTB.Text;
                     string cp = CpTB.Text;
+                    string civility = "F";
 
                     if (HommeRB.Checked)
                     {
-                        string civility = "H";
-                    }
-                    else
-                    {
-                        string civility = "F";
+                        civility = "H";
                     }
 
-                    societevm.AddSupplier(name, mail, siret, phone, address, cp);
+
+                    clientvm.AddClients(name, mail, firstName, phone, address, cp, civility);
 
                     NameTB.Clear();
                     MailTB.Clear();
-                    SiretTB.Clear();
+                    FirstNameTB.Clear();
                     PhoneTB.Clear();
                     AddressTB.Clear();
                     CpTB.Clear();
+                    HommeRB.Checked = false;
+                    FemmeRB.Checked = false;
                     Resets(this, e);
 
-                    listSupply = societevm.getSupplys();
+                    listClients = clientvm.getClients();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("La valeur entrée dans le champs 'Nom' ou le champs 'Prix Unitaire' n'est pas valide");
+                }
+            }
+        }
+        private void Upd_Clicked(object sender, EventArgs e)
+        {
+            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && MailTB.Text != string.Empty && MailTB.Text != mailTxt && FirstNameTB.Text != null && FirstNameTB.Text != firstNameTxt && PhoneTB.Text != null && PhoneTB.Text != phoneTxt && AddressTB.Text != null && AddressTB.Text != addressTxt && CpTB.Text != null && CpTB.Text != cpTxt && (HommeRB.Checked || FemmeRB.Checked) && ClientsCB.SelectedIndex != -1)
+            {
+                try
+                {
+                    int id = listClients[ClientsCB.SelectedIndex].Id;
+                    string name = NameTB.Text;
+                    string mail = MailTB.Text;
+                    string firstName = FirstNameTB.Text;
+                    string phone = PhoneTB.Text;
+                    string address = AddressTB.Text;
+                    string cp = CpTB.Text;
+                    string civility = "F";
+
+                    if (HommeRB.Checked)
+                    {
+                        civility = "H";
+                    }
+
+                    ClientsCB.SelectedIndex = -1;
+
+                    clientvm.UpdSupplier(id, name, mail, firstName, phone, address, cp, civility);
+
+                    NameTB.Clear();
+                    MailTB.Clear();
+                    FirstNameTB.Clear();
+                    PhoneTB.Clear();
+                    AddressTB.Clear();
+                    CpTB.Clear();
+                    HommeRB.Checked = false;
+                    FemmeRB.Checked = false;
+                    Resets(this, e);
+
+                    listClients = clientvm.getClients();
                 }
                 catch (Exception ex)
                 {

@@ -41,6 +41,8 @@ namespace AutoFact.Views
             AddressTB = new TextBox();
             CpTB = new TextBox();
             ClientsCB = new ComboBox();
+            AddBtn = new Button();
+            UpdBtn = new Button();
             SuspendLayout();
             // 
             // navbarUserControl
@@ -160,6 +162,32 @@ namespace AutoFact.Views
             ClientsCB.Size = new Size(180, 23);
             ClientsCB.TabIndex = 11;
             // 
+            // AddBtn
+            // 
+            AddBtn.BackColor = Color.Blue;
+            AddBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddBtn.ForeColor = Color.White;
+            AddBtn.Location = new Point(933, 762);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(144, 43);
+            AddBtn.TabIndex = 5;
+            AddBtn.Text = "Ajouter";
+            AddBtn.UseVisualStyleBackColor = false;
+            AddBtn.Click += Add_Clicked;
+            // 
+            // UpdBtn
+            // 
+            UpdBtn.BackColor = Color.Blue;
+            UpdBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            UpdBtn.ForeColor = Color.White;
+            UpdBtn.Location = new Point(1570, 762);
+            UpdBtn.Name = "UpdBtn";
+            UpdBtn.Size = new Size(144, 43);
+            UpdBtn.TabIndex = 5;
+            UpdBtn.Text = "Modifier";
+            UpdBtn.UseVisualStyleBackColor = false;
+            UpdBtn.Click += Upd_Clicked;
+            // 
             // Client
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -197,5 +225,6 @@ namespace AutoFact.Views
         private RadioButton HommeRB, FemmeRB;
         private TextBox NameTB, MailTB, FirstNameTB, PhoneTB, AddressTB, CpTB;
         private ComboBox ClientsCB;
+        private Button AddBtn, UpdBtn;
     }
 }
