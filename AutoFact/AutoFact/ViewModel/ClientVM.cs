@@ -43,7 +43,7 @@ namespace AutoFact.ViewModel
                 foreach (DataRow row in dataTable.Rows)
                 {
                     int id = Convert.ToInt32(row["id"]);
-                    string civilitee = row["civlitee"].ToString();
+                    string civilitee = row["civilitee"].ToString();
                     string adresse = row["adresse"].ToString();
                     string cp = row["cp"].ToString();
                     string tel = row["tel"].ToString();
@@ -160,8 +160,7 @@ namespace AutoFact.ViewModel
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        MessageBox.Show(ex.Message);
-                        MessageBox.Show("Probleme lors de l'insertion des données");
+                        MessageBox.Show($"Probleme lors de l'insertion des données :{ex.Message}");
                     }
                 }
             }

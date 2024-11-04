@@ -161,6 +161,7 @@ namespace AutoFact.Views
             ClientsCB.Name = "ClientsCB";
             ClientsCB.Size = new Size(180, 23);
             ClientsCB.TabIndex = 11;
+            ClientsCB.SelectedIndexChanged += ClientsCB_Changed;
             // 
             // AddBtn
             // 
@@ -192,6 +193,8 @@ namespace AutoFact.Views
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(AddBtn);
+            Controls.Add(UpdBtn);
             Controls.Add(ClientsCB);
             Controls.Add(CpTB);
             Controls.Add(AddressTB);

@@ -14,9 +14,9 @@ namespace AutoFact.Views
 {
     public partial class Client : Form
     {
-        private string nameTxt = "Nom de la société";
+        private string nameTxt = "Nom";
         private string mailTxt = "Adresse mail";
-        private string firstNameTxt = "Siret";
+        private string firstNameTxt = "Prénom";
         private string phoneTxt = "Telephone";
         private string addressTxt = "Adresse postal";
         private string cpTxt = "Code postal";
@@ -88,6 +88,46 @@ namespace AutoFact.Views
                 CpTB.Text = string.Empty;
                 ChangeText(sender, e, true);
                 this.ActiveControl = CpTB;
+            }
+        }
+        private void ClientsCB_Changed(Object sender, EventArgs e)
+        {
+            if (ClientsCB.SelectedIndex != -1)
+            {
+                int id = ClientsCB.SelectedIndex;
+
+                ChangeText(sender, e, true);
+                this.ActiveControl = null;
+
+                NameTB.Clear();
+                MailTB.Clear();
+                FirstNameTB.Clear();
+                PhoneTB.Clear();
+                AddressTB.Clear();
+                CpTB.Clear();
+
+                NameTB.Text = listClients[id].Name;
+                MailTB.Text = listClients[id].Mail;
+                FirstNameTB.Text = listClients[id].FirstName;
+                PhoneTB.Text = listClients[id].Phone;
+                AddressTB.Text = listClients[id].Address;
+                CpTB.Text = listClients[id].PostalCode;
+
+                if (listClients[id].Civility == "H")
+                {
+                    HommeRB.Checked = true;
+                }
+                else
+                {
+                    FemmeRB.Checked = true;
+                }
+
+                ChangeText(NameTB, e, true);
+                ChangeText(MailTB, e, true);
+                ChangeText(FirstNameTB, e, true);
+                ChangeText(PhoneTB, e, true);
+                ChangeText(AddressTB, e, true);
+                ChangeText(CpTB, e, true);
             }
         }
         private void ChangeText(object sender, EventArgs e, bool able)
