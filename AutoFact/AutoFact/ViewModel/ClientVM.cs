@@ -119,7 +119,7 @@ namespace AutoFact.ViewModel
                 MessageBox.Show("Probleme lors de la creation de l'objet");
             }
         }
-        public void UpdSupplier(int id, string name, string mail, string phone, string address, string cp, string civility, string firstName)
+        public void UpdClients(int id, string name, string mail, string phone, string address, string cp, string civility, string firstName)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace AutoFact.ViewModel
                             {
                                 cmdIndividual.Parameters.AddWithValue("@id", myClient.Id);
                                 cmdIndividual.Parameters.AddWithValue("@civility", myClient.Civility);
-                                cmdIndividual.Parameters.AddWithValue("@prenom", myClient.FirstName);
+                                cmdIndividual.Parameters.AddWithValue("@firstName", myClient.FirstName);
 
                                 cmdIndividual.ExecuteNonQuery();
                             }

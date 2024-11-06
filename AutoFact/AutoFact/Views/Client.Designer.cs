@@ -95,6 +95,7 @@ namespace AutoFact.Views
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 1;
+            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
             // 
             // MailTB
@@ -106,6 +107,7 @@ namespace AutoFact.Views
             MailTB.Name = "MailTB";
             MailTB.Size = new Size(180, 26);
             MailTB.TabIndex = 2;
+            MailTB.Text = mailTxt;
             MailTB.Click += MailTB_Clicked;
             // 
             // FirstNameTB
@@ -117,6 +119,7 @@ namespace AutoFact.Views
             FirstNameTB.Name = "FirstNameTB";
             FirstNameTB.Size = new Size(180, 26);
             FirstNameTB.TabIndex = 3;
+            FirstNameTB.Text = firstNameTxt;
             FirstNameTB.Click += FirstNameTB_Clicked;
             // 
             // PhoneTB
@@ -128,6 +131,7 @@ namespace AutoFact.Views
             PhoneTB.Name = "PhoneTB";
             PhoneTB.Size = new Size(180, 26);
             PhoneTB.TabIndex = 4;
+            PhoneTB.Text = phoneTxt;
             PhoneTB.Click += PhoneTB_Clicked;
             // 
             // AddressTB
@@ -139,6 +143,7 @@ namespace AutoFact.Views
             AddressTB.Name = "AddressTB";
             AddressTB.Size = new Size(180, 26);
             AddressTB.TabIndex = 5;
+            AddressTB.Text = addressTxt;
             AddressTB.Click += AddressTB_Clicked;
             // 
             // CpTB
@@ -150,6 +155,7 @@ namespace AutoFact.Views
             CpTB.Name = "CpTB";
             CpTB.Size = new Size(180, 26);
             CpTB.TabIndex = 6;
+            CpTB.Text = cpTxt;
             CpTB.Click += CpTB_Clicked;
             // 
             // ClientsCB
@@ -161,6 +167,7 @@ namespace AutoFact.Views
             ClientsCB.Name = "ClientsCB";
             ClientsCB.Size = new Size(180, 23);
             ClientsCB.TabIndex = 11;
+            ClientsCB.Text = clientTxt;
             ClientsCB.SelectedIndexChanged += ClientsCB_Changed;
             // 
             // AddBtn
