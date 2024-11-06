@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj": {}
+    "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj": {
+    "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj",
+        "projectUniqueName": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj",
         "projectName": "AutoFact",
-        "projectPath": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj",
-        "packagesPath": "C:\\Users\\sipha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\obj\\",
+        "projectPath": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj",
+        "packagesPath": "C:\\Users\\maxim\\.nuget\\packages\\",
+        "outputPath": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sipha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\maxim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +69,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

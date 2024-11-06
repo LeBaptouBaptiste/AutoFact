@@ -83,7 +83,7 @@ namespace AutoFact.Views
 
         private void SupplyCB_Changed(object sender, EventArgs e)
         {
-            if(SupplyCB.SelectedIndex != -1)
+            if (SupplyCB.SelectedIndex != -1)
             {
                 Resets(sender, e);
                 ChangeText(sender, e, true);
@@ -97,7 +97,7 @@ namespace AutoFact.Views
             {
                 int id = ArticleCB.SelectedIndex;
 
-                ChangeText(sender, e, true); 
+                ChangeText(sender, e, true);
                 this.ActiveControl = null;
 
                 NameTB.Clear();
@@ -122,8 +122,8 @@ namespace AutoFact.Views
         private void ChangeText(object sender, EventArgs e, bool able)
         {
             Control obj = sender as Control;
-                 
-            if(able)
+
+            if (able)
             {
                 obj.ForeColor = Color.Black;
             }
@@ -155,7 +155,7 @@ namespace AutoFact.Views
                 QuantityTB.Text = quantityTxt;
                 ChangeText(QuantityTB, e, false);
             }
-            if(SupplyCB.SelectedIndex == -1)
+            if (SupplyCB.SelectedIndex == -1)
             {
                 SupplyCB.Text = supplyTxt;
                 ChangeText(SupplyCB, e, false);

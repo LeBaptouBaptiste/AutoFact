@@ -84,6 +84,7 @@ namespace AutoFact.Views
             btnDevis.UseVisualStyleBackColor = false;
             btnDevis.MouseEnter += btn_Enter;
             btnDevis.MouseLeave += btn_Leave;
+            btnDevis.Click += btn_Quote_Click;
             // 
             // btnFact
             // 
@@ -369,6 +370,13 @@ namespace AutoFact.Views
             Client client = new Client();
             Parent.Hide();
             client.Show();
+        }
+
+        private void btn_Quote_Click(object sender, EventArgs e)
+        {
+            Quote quote = new Quote();
+            Parent.Hide();
+            quote.Show();
         }
 
         // Composants
