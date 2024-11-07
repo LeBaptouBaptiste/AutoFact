@@ -97,7 +97,7 @@ namespace AutoFact.ViewModel
                             {
                                 cmdIndividual.Parameters.AddWithValue("@id", generatedId); // Utiliser l'ID généré
                                 cmdIndividual.Parameters.AddWithValue("@civility", myClient.Civility);
-                                cmdIndividual.Parameters.AddWithValue("@fisrtName", myClient.FirstName);
+                                cmdIndividual.Parameters.AddWithValue("@firstName", myClient.FirstName);
 
                                 cmdIndividual.ExecuteNonQuery();
                             }

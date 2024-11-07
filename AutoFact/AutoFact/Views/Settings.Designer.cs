@@ -32,12 +32,12 @@
             SettingsLbl = new Label();
             SocietyLbl = new Label();
             NameTB = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            label1 = new Label();
+            PhoneTB = new TextBox();
+            MailTB = new TextBox();
+            AddressTB = new TextBox();
+            CpTB = new TextBox();
+            CountryTB = new TextBox();
+            ImportLbl = new Label();
             openFileDialog1 = new OpenFileDialog();
             LogoPB = new PictureBox();
             SelectLogoBtn = new Button();
@@ -77,71 +77,83 @@
             // 
             NameTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             NameTB.ForeColor = Color.Silver;
-            NameTB.Location = new Point(694, 289);
+            NameTB.Location = new Point(630, 280);
             NameTB.MaxLength = 255;
             NameTB.Name = "NameTB";
-            NameTB.Size = new Size(180, 26);
+            NameTB.Size = new Size(250, 26);
             NameTB.TabIndex = 1;
+            NameTB.Text = nameTxt;
+            NameTB.Click += NameTB_Clicked;
             // 
-            // textBox1
+            // PhoneTB
             // 
-            textBox1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.Silver;
-            textBox1.Location = new Point(1063, 289);
-            textBox1.MaxLength = 255;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(180, 26);
-            textBox1.TabIndex = 10;
+            PhoneTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PhoneTB.ForeColor = Color.Silver;
+            PhoneTB.Location = new Point(1030, 280);
+            PhoneTB.MaxLength = 255;
+            PhoneTB.Name = "PhoneTB";
+            PhoneTB.Size = new Size(250, 26);
+            PhoneTB.TabIndex = 10;
+            PhoneTB.Text = phoneTxt;
+            PhoneTB.Click += PhoneTB_Clicked;
             // 
-            // textBox2
+            // MailTB
             // 
-            textBox2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox2.ForeColor = Color.Silver;
-            textBox2.Location = new Point(1431, 289);
-            textBox2.MaxLength = 255;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(180, 26);
-            textBox2.TabIndex = 11;
+            MailTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MailTB.ForeColor = Color.Silver;
+            MailTB.Location = new Point(1430, 280);
+            MailTB.MaxLength = 255;
+            MailTB.Name = "MailTB";
+            MailTB.Size = new Size(250, 26);
+            MailTB.TabIndex = 11;
+            MailTB.Text = mailTxt;
+            MailTB.Click += MailTB_Clicked;
             // 
-            // textBox3
+            // AddressTB
             // 
-            textBox3.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox3.ForeColor = Color.Silver;
-            textBox3.Location = new Point(694, 422);
-            textBox3.MaxLength = 255;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(180, 26);
-            textBox3.TabIndex = 12;
+            AddressTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddressTB.ForeColor = Color.Silver;
+            AddressTB.Location = new Point(630, 420);
+            AddressTB.MaxLength = 255;
+            AddressTB.Name = "AddressTB";
+            AddressTB.Size = new Size(250, 26);
+            AddressTB.TabIndex = 12;
+            AddressTB.Text = addressTxt;
+            AddressTB.Click += AddressTB_Clicked;
             // 
-            // textBox4
+            // CpTB
             // 
-            textBox4.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox4.ForeColor = Color.Silver;
-            textBox4.Location = new Point(1063, 422);
-            textBox4.MaxLength = 255;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(180, 26);
-            textBox4.TabIndex = 13;
+            CpTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CpTB.ForeColor = Color.Silver;
+            CpTB.Location = new Point(1030, 420);
+            CpTB.MaxLength = 255;
+            CpTB.Name = "CpTB";
+            CpTB.Size = new Size(250, 26);
+            CpTB.TabIndex = 13;
+            CpTB.Text = cpTxt;
+            CpTB.Click += CpTB_Clicked;
             // 
-            // textBox5
+            // CountryTB
             // 
-            textBox5.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox5.ForeColor = Color.Silver;
-            textBox5.Location = new Point(1431, 422);
-            textBox5.MaxLength = 255;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(180, 26);
-            textBox5.TabIndex = 14;
+            CountryTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CountryTB.ForeColor = Color.Silver;
+            CountryTB.Location = new Point(1430, 420);
+            CountryTB.MaxLength = 255;
+            CountryTB.Name = "CountryTB";
+            CountryTB.Size = new Size(250, 26);
+            CountryTB.TabIndex = 14;
+            CountryTB.Text = countryTxt;
+            CountryTB.Click += CountryTB_Clicked;
             // 
-            // label1
+            // ImportLbl
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label1.Location = new Point(796, 560);
-            label1.Name = "label1";
-            label1.Size = new Size(358, 29);
-            label1.TabIndex = 15;
-            label1.Text = "Importer votre logo de société";
+            ImportLbl.AutoSize = true;
+            ImportLbl.Font = new Font("Arial", 18F, FontStyle.Bold);
+            ImportLbl.Location = new Point(780, 560);
+            ImportLbl.Name = "ImportLbl";
+            ImportLbl.Size = new Size(358, 29);
+            ImportLbl.TabIndex = 15;
+            ImportLbl.Text = "Importer votre logo de société";
             // 
             // openFileDialog1
             // 
@@ -149,9 +161,9 @@
             // 
             // LogoPB
             // 
-            LogoPB.Location = new Point(1541, 560);
+            LogoPB.Location = new Point(1528, 550);
             LogoPB.Name = "LogoPB";
-            LogoPB.Size = new Size(53, 46);
+            LogoPB.Size = new Size(66, 56);
             LogoPB.TabIndex = 16;
             LogoPB.TabStop = false;
             // 
@@ -175,12 +187,12 @@
             ClientSize = new Size(1904, 1041);
             Controls.Add(SelectLogoBtn);
             Controls.Add(LogoPB);
-            Controls.Add(label1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(ImportLbl);
+            Controls.Add(CountryTB);
+            Controls.Add(CpTB);
+            Controls.Add(AddressTB);
+            Controls.Add(MailTB);
+            Controls.Add(PhoneTB);
             Controls.Add(NameTB);
             Controls.Add(SocietyLbl);
             Controls.Add(SettingsLbl);
@@ -191,6 +203,7 @@
             Text = "Settings";
             WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)LogoPB).EndInit();
+            Click += Resets;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,12 +213,12 @@
         private NavbarControll navbarUserControl;
         private Label SettingsLbl, SocietyLbl;
         private TextBox NameTB;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private Label label1;
+        private TextBox PhoneTB;
+        private TextBox MailTB;
+        private TextBox AddressTB;
+        private TextBox CpTB;
+        private TextBox CountryTB;
+        private Label ImportLbl;
         private OpenFileDialog openFileDialog1;
         private PictureBox LogoPB;
         private Button SelectLogoBtn;
