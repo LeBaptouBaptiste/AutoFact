@@ -41,6 +41,7 @@
             openFileDialog1 = new OpenFileDialog();
             LogoPB = new PictureBox();
             SelectLogoBtn = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)LogoPB).BeginInit();
             SuspendLayout();
             // 
@@ -82,7 +83,6 @@
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(250, 26);
             NameTB.TabIndex = 1;
-            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
             // 
             // PhoneTB
@@ -94,7 +94,6 @@
             PhoneTB.Name = "PhoneTB";
             PhoneTB.Size = new Size(250, 26);
             PhoneTB.TabIndex = 10;
-            PhoneTB.Text = phoneTxt;
             PhoneTB.Click += PhoneTB_Clicked;
             // 
             // MailTB
@@ -106,7 +105,6 @@
             MailTB.Name = "MailTB";
             MailTB.Size = new Size(250, 26);
             MailTB.TabIndex = 11;
-            MailTB.Text = mailTxt;
             MailTB.Click += MailTB_Clicked;
             // 
             // AddressTB
@@ -118,7 +116,6 @@
             AddressTB.Name = "AddressTB";
             AddressTB.Size = new Size(250, 26);
             AddressTB.TabIndex = 12;
-            AddressTB.Text = addressTxt;
             AddressTB.Click += AddressTB_Clicked;
             // 
             // CpTB
@@ -130,7 +127,6 @@
             CpTB.Name = "CpTB";
             CpTB.Size = new Size(250, 26);
             CpTB.TabIndex = 13;
-            CpTB.Text = cpTxt;
             CpTB.Click += CpTB_Clicked;
             // 
             // CountryTB
@@ -142,7 +138,6 @@
             CountryTB.Name = "CountryTB";
             CountryTB.Size = new Size(250, 26);
             CountryTB.TabIndex = 14;
-            CountryTB.Text = countryTxt;
             CountryTB.Click += CountryTB_Clicked;
             // 
             // ImportLbl
@@ -180,11 +175,21 @@
             SelectLogoBtn.UseVisualStyleBackColor = false;
             SelectLogoBtn.Click += SelectLogoBtn_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(1165, 792);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 18;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(button1);
             Controls.Add(SelectLogoBtn);
             Controls.Add(LogoPB);
             Controls.Add(ImportLbl);
@@ -202,8 +207,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Settings";
             WindowState = FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)LogoPB).EndInit();
+            Load += LoadForm;
             Click += Resets;
+            ((System.ComponentModel.ISupportInitialize)LogoPB).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -222,5 +228,6 @@
         private OpenFileDialog openFileDialog1;
         private PictureBox LogoPB;
         private Button SelectLogoBtn;
+        private Button button1;
     }
 }

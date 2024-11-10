@@ -1,4 +1,5 @@
-﻿using AutoFact.ViewModel;
+﻿using AutoFact.Models;
+using AutoFact.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using AutoFact.ViewModel;
 
 namespace AutoFact.Views
 {
@@ -53,7 +56,6 @@ namespace AutoFact.Views
                     try
                     {
                         File.Copy(filePath, targetFilePath, true); // 'true' pour écraser si existe déjà
-                        MessageBox.Show("Image copiée avec succès dans le projet.");
                     }
                     catch (Exception ex)
                     {
@@ -62,9 +64,6 @@ namespace AutoFact.Views
 
                     LogoPB.Image = ResizeImage(Image.FromFile(filePath), LogoPB.Width, LogoPB.Height);
                     LogoPB.SizeMode = PictureBoxSizeMode.StretchImage; // Ajuste l'image au contrôle PictureBox
-
-                    // Optionnel : Affiche un message ou met à jour un label ou TextBox avec le chemin
-                    MessageBox.Show("Image chargée : " + filePath, "Image Importée");
                 }
             }
         }
@@ -192,5 +191,41 @@ namespace AutoFact.Views
             }
             this.ActiveControl = null;
         }
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            // Définissez le chemin de votre fichier .ini
+            Inifile ini = new Inifile("config.ini");
+
+            // Enregistrez les informations des TextBox dans des sections et des clés du fichier ini
+            ini.Write("Section", "Name", NameTB.Text);
+            ini.Write("Section", "Phone", PhoneTB.Text);
+            ini.Write("Section", "Mail", MailTB.Text);
+            ini.Write("Section", "Address", AddressTB.Text);
+            ini.Write("Section", "Cp", CpTB.Text);
+            ini.Write("Section", "Country", CountryTB.Text);
+
+            MessageBox.Show("Données enregistrées dans le fichier .ini");
+        }
+
+        private void LoadForm(object sender, EventArgs e)
+        {
+            // Chargez les informations depuis le fichier .ini
+            string filePath = "config.ini";
+            Inifile ini = new Inifile(filePath);
+
+            if (File.Exists(filePath))
+            {
+                NameTB.Text = ini.Read("Section", "Name");
+                PhoneTB.Text = ini.Read("Section", "Phone");
+                MailTB.Text = ini.Read("Section", "Mail");
+                AddressTB.Text = ini.Read("Section", "Address");
+                CpTB.Text = ini.Read("Section", "Cp");
+                CountryTB.Text = ini.Read("Section", "Country");
+
+                MessageBox.Show("Données chargées depuis le fichier .ini");
+            }
+        }
+
+
     }
 }
