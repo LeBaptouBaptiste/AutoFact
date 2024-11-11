@@ -225,7 +225,5 @@ namespace AutoFact.Views
                 MessageBox.Show("Données chargées depuis le fichier .ini");
             }
         }
-
-
     }
 }

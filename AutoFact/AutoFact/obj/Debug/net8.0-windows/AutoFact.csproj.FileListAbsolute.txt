@@ -55,3 +55,4 @@ C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-wind
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Home.resources
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.NavbarControll.resources
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Settings.resources
+C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Settings.resources

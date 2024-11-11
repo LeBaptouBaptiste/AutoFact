@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "PjMtdzYRWc8=",
+  "dgSpecHash": "R7QCCd8JCAw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj",
+  "projectFilePath": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\AutoFact.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sipha\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
-    "C:\\Users\\sipha\\.nuget\\packages\\mysqlconnector\\2.3.7\\mysqlconnector.2.3.7.nupkg.sha512"
+    "C:\\Users\\Baptiste\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\Baptiste\\.nuget\\packages\\mysqlconnector\\2.3.7\\mysqlconnector.2.3.7.nupkg.sha512"
   ],
   "logs": []
 }

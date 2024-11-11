@@ -41,7 +41,7 @@
             openFileDialog1 = new OpenFileDialog();
             LogoPB = new PictureBox();
             SelectLogoBtn = new Button();
-            button1 = new Button();
+            SaveBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)LogoPB).BeginInit();
             SuspendLayout();
             // 
@@ -175,21 +175,25 @@
             SelectLogoBtn.UseVisualStyleBackColor = false;
             SelectLogoBtn.Click += SelectLogoBtn_Click;
             // 
-            // button1
+            // SaveBtn
             // 
-            button1.Location = new Point(1165, 792);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 18;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            SaveBtn.BackColor = Color.Blue;
+            SaveBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SaveBtn.ForeColor = Color.White;
+            SaveBtn.Location = new Point(1030, 793);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(267, 89);
+            SaveBtn.TabIndex = 18;
+            SaveBtn.Text = "Enregister";
+            SaveBtn.UseVisualStyleBackColor = false;
+            SaveBtn.Click += SaveButton_Click;
             // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(button1);
+            Controls.Add(SaveBtn);
             Controls.Add(SelectLogoBtn);
             Controls.Add(LogoPB);
             Controls.Add(ImportLbl);
@@ -228,6 +232,6 @@
         private OpenFileDialog openFileDialog1;
         private PictureBox LogoPB;
         private Button SelectLogoBtn;
-        private Button button1;
+        private Button SaveBtn;
     }
 }
