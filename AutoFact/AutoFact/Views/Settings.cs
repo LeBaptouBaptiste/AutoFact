@@ -23,6 +23,8 @@ namespace AutoFact.Views
         string mailTxt = "Email professionel";
         string countryTxt = "Pays";
 
+        string logoPath;
+
         public Settings()
         {
             InitializeComponent();
@@ -40,12 +42,12 @@ namespace AutoFact.Views
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Récupère le chemin du fichier sélectionné
-                    string filePath = openFileDialog.FileName;
+                    logoPath = openFileDialog.FileName;
 
                     string projectDirectory = AppDomain.CurrentDomain.BaseDirectory; // Répertoire de l'exécutable
                     string targetDirectory = Path.Combine(projectDirectory, "Pictures");
 
-                    string targetFilePath = Path.Combine(targetDirectory, "Logo" + Path.GetExtension(filePath));
+                    string targetFilePath = Path.Combine(targetDirectory, "Logo" + Path.GetExtension(logoPath));
 
                     string[] existingFiles = Directory.GetFiles(targetDirectory, "Logo.*");
                     foreach (string file in existingFiles)
@@ -55,14 +57,14 @@ namespace AutoFact.Views
 
                     try
                     {
-                        File.Copy(filePath, targetFilePath, true); // 'true' pour écraser si existe déjà
+                        File.Copy(logoPath, targetFilePath, true); // 'true' pour écraser si existe déjà
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Erreur lors de la copie de l'image : {ex.Message}");
                     }
 
-                    LogoPB.Image = ResizeImage(Image.FromFile(filePath), LogoPB.Width, LogoPB.Height);
+                    LogoPB.Image = ResizeImage(Image.FromFile(logoPath), LogoPB.Width, LogoPB.Height);
                     LogoPB.SizeMode = PictureBoxSizeMode.StretchImage; // Ajuste l'image au contrôle PictureBox
                 }
             }
@@ -84,7 +86,7 @@ namespace AutoFact.Views
             {
                 Resets(sender, e);
                 NameTB.Text = string.Empty;
-                ChangeText(sender, e, true);
+                ChangeText(sender, true);
                 this.ActiveControl = NameTB;
             }
         }
@@ -95,7 +97,7 @@ namespace AutoFact.Views
             {
                 Resets(sender, e);
                 PhoneTB.Text = string.Empty;
-                ChangeText(sender, e, true);
+                ChangeText(sender, true);
                 this.ActiveControl = PhoneTB;
             }
         }
@@ -106,7 +108,7 @@ namespace AutoFact.Views
             {
                 Resets(sender, e);
                 MailTB.Text = string.Empty;
-                ChangeText(sender, e, true);
+                ChangeText(sender, true);
                 this.ActiveControl = MailTB;
             }
         }
@@ -117,7 +119,7 @@ namespace AutoFact.Views
             {
                 Resets(sender, e);
                 AddressTB.Text = string.Empty;
-                ChangeText(sender, e, true);
+                ChangeText(sender, true);
                 this.ActiveControl = AddressTB;
             }
         }
@@ -128,7 +130,7 @@ namespace AutoFact.Views
             {
                 Resets(sender, e);
                 CpTB.Text = string.Empty;
-                ChangeText(sender, e, true);
+                ChangeText(sender, true);
                 this.ActiveControl = CpTB;
             }
         }
@@ -139,12 +141,12 @@ namespace AutoFact.Views
             {
                 Resets(sender, e);
                 CountryTB.Text = string.Empty;
-                ChangeText(sender, e, true);
+                ChangeText(sender, true);
                 this.ActiveControl = CountryTB;
             }
         }
 
-        private void ChangeText(object sender, EventArgs e, bool able)
+        private void ChangeText(object sender, bool able)
         {
             Control obj = sender as Control;
 
@@ -162,39 +164,44 @@ namespace AutoFact.Views
             if (NameTB.Text == string.Empty)
             {
                 NameTB.Text = nameTxt;
-                ChangeText(NameTB, e, false);
+                ChangeText(NameTB, false);
             }
             if (PhoneTB.Text == string.Empty)
             {
                 PhoneTB.Text = phoneTxt;
-                ChangeText(PhoneTB, e, false);
+                ChangeText(PhoneTB, false);
             }
             if (MailTB.Text == string.Empty)
             {
                 MailTB.Text = mailTxt;
-                ChangeText(MailTB, e, false);
+                ChangeText(MailTB, false);
             }
             if (AddressTB.Text == string.Empty)
             {
                 AddressTB.Text = addressTxt;
-                ChangeText(AddressTB, e, false);
+                ChangeText(AddressTB, false);
             }
-            if(CpTB.Text == string.Empty)
+            if (CpTB.Text == string.Empty)
             {
                 CpTB.Text = cpTxt;
-                ChangeText(CpTB, e, false);
+                ChangeText(CpTB, false);
             }
             if (CountryTB.Text == string.Empty)
             {
                 CountryTB.Text = countryTxt;
-                ChangeText(CountryTB, e, false);
+                ChangeText(CountryTB, false);
             }
             this.ActiveControl = null;
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            // Définissez le chemin de votre fichier .ini
-            Inifile ini = new Inifile("config.ini");
+            string configDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config");
+            if (!Directory.Exists(configDirectory))
+            {
+                Directory.CreateDirectory(configDirectory);
+            }
+            string configPath = Path.Combine(configDirectory, "config.ini");
+            Inifile ini = new Inifile(configPath);
 
             // Enregistrez les informations des TextBox dans des sections et des clés du fichier ini
             ini.Write("Section", "Name", NameTB.Text);
@@ -203,6 +210,7 @@ namespace AutoFact.Views
             ini.Write("Section", "Address", AddressTB.Text);
             ini.Write("Section", "Cp", CpTB.Text);
             ini.Write("Section", "Country", CountryTB.Text);
+            ini.Write("Section", "Logo", logoPath);
 
             MessageBox.Show("Données enregistrées dans le fichier .ini");
         }
@@ -210,7 +218,7 @@ namespace AutoFact.Views
         private void LoadForm(object sender, EventArgs e)
         {
             // Chargez les informations depuis le fichier .ini
-            string filePath = "config.ini";
+            string filePath = "./Config/config.ini";
             Inifile ini = new Inifile(filePath);
 
             if (File.Exists(filePath))
@@ -221,9 +229,26 @@ namespace AutoFact.Views
                 AddressTB.Text = ini.Read("Section", "Address");
                 CpTB.Text = ini.Read("Section", "Cp");
                 CountryTB.Text = ini.Read("Section", "Country");
+                logoPath = ini.Read("Section", "Logo");
 
-                MessageBox.Show("Données chargées depuis le fichier .ini");
+                if (File.Exists(logoPath))
+                {
+                    LogoPB.Image = ResizeImage(Image.FromFile(logoPath), LogoPB.Width, LogoPB.Height);
+                    LogoPB.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+
+                ChangeText(NameTB, true);
+                ChangeText(PhoneTB, true);
+                ChangeText(MailTB, true);
+                ChangeText(AddressTB, true);
+                ChangeText(CpTB, true);
+                ChangeText(CountryTB, true);
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

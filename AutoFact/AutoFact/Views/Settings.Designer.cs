@@ -42,6 +42,7 @@
             LogoPB = new PictureBox();
             SelectLogoBtn = new Button();
             SaveBtn = new Button();
+            DelivCB = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)LogoPB).BeginInit();
             SuspendLayout();
             // 
@@ -180,7 +181,7 @@
             SaveBtn.BackColor = Color.Blue;
             SaveBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SaveBtn.ForeColor = Color.White;
-            SaveBtn.Location = new Point(1030, 793);
+            SaveBtn.Location = new Point(1030, 915);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(267, 89);
             SaveBtn.TabIndex = 18;
@@ -188,11 +189,23 @@
             SaveBtn.UseVisualStyleBackColor = false;
             SaveBtn.Click += SaveButton_Click;
             // 
+            // DelivCB
+            // 
+            DelivCB.AutoSize = true;
+            DelivCB.Location = new Point(1187, 758);
+            DelivCB.Name = "DelivCB";
+            DelivCB.Size = new Size(121, 19);
+            DelivCB.TabIndex = 19;
+            DelivCB.Text = "Frais de livraison ?";
+            DelivCB.UseVisualStyleBackColor = true;
+            DelivCB.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(DelivCB);
             Controls.Add(SaveBtn);
             Controls.Add(SelectLogoBtn);
             Controls.Add(LogoPB);
@@ -233,5 +246,6 @@
         private PictureBox LogoPB;
         private Button SelectLogoBtn;
         private Button SaveBtn;
+        private CheckBox DelivCB;
     }
 }

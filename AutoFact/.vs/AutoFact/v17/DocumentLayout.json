@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\inifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\inifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\views\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\views\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\views\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\views\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\views\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\inifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\inifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\articlevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,13 +54,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Inifile.cs",
               "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\Inifile.cs",
               "RelativeDocumentMoniker": "AutoFact\\ViewModel\\Inifile.cs",
               "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\Inifile.cs",
               "RelativeToolTip": "AutoFact\\ViewModel\\Inifile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-07T18:24:04.731Z",
               "EditorCaption": ""
@@ -104,39 +104,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Settings.cs",
               "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Settings.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Settings.cs",
               "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Settings.cs",
               "RelativeToolTip": "AutoFact\\Views\\Settings.cs",
-              "ViewState": "AgIAALMAAAAAAAAAAAAiwN0AAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAANkAAAAAAAAAAAAywPoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-06T12:43:45.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Settings.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Settings.Designer.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Settings.Designer.cs",
               "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Settings.Designer.cs",
               "RelativeToolTip": "AutoFact\\Views\\Settings.Designer.cs",
-              "ViewState": "AgIAALQAAAAAAAAAAAAowLwAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAowMQAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T12:24:46.26Z"
+              "WhenOpened": "2024-11-06T12:24:46.26Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Settings.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Settings.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Settings.cs",
               "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Settings.cs [Conception]",
               "RelativeToolTip": "AutoFact\\Views\\Settings.cs [Conception]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T12:21:51.541Z"
+              "WhenOpened": "2024-11-06T12:21:51.541Z",
+              "EditorCaption": " [Conception]"
             },
             {
               "$type": "Document",
