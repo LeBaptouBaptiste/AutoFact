@@ -27,6 +27,13 @@ namespace AutoFact.ViewModel
             loadArticles();
         }
 
+        public ArticleVM(ComboBox box)
+        {
+            this.box = box;
+            InitializeDatabase();
+            loadArticles();
+        }
+
         private void InitializeDatabase()
         {
             DataBaseManager data = DataBaseManager.getInstance();
@@ -46,7 +53,7 @@ namespace AutoFact.ViewModel
             {
                 box.Items.Clear();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT Designations.id, prixAchat, quantite, id_fournisseur, libelle, prix FROM Produits INNER JOIN Designations ON Produits.id = Designations.id;", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT Designations.id, prixAchat, quantite, id_fournisseur, libelle, prix, description FROM Produits INNER JOIN Designations ON Produits.id = Designations.id;", connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -59,20 +66,29 @@ namespace AutoFact.ViewModel
                     int idFournisseur = Convert.ToInt32(row["id_fournisseur"]);
                     string libelle = row["libelle"].ToString();
                     decimal price = Convert.ToDecimal(row["prix"]);
+                    string description = row["description"].ToString();
 
-                    int fournisseur = 0;
-                    foreach (Societe societe in societeList)
+                    if (societeList != null)
                     {
-                        if (societe.Id == idFournisseur)
+                        int fournisseur = 0;
+                        foreach (Societe societe in societeList)
                         {
-                            break;
+                            if (societe.Id == idFournisseur)
+                            {
+                                break;
+                            }
+                            fournisseur += 1;
                         }
-                    fournisseur += 1;
+                        Produits product = new Produits(id, libelle, price, buyPrice, quantity, societeList[fournisseur], description);
+                        box.Items.Add(product.Libelle);
+                        articleList.Add(product);
                     }
-
-                    Produits product = new Produits(id, libelle, price, buyPrice, quantity, societeList[fournisseur]);
-                    box.Items.Add(product.Libelle);
-                    articleList.Add(product);
+                    else
+                    {
+                        Produits product = new Produits(id, libelle, price, buyPrice, quantity, description);
+                        box.Items.Add(product.Libelle);
+                        articleList.Add(product);
+                    }
                 }
             }
             catch (Exception ex)
@@ -91,12 +107,13 @@ namespace AutoFact.ViewModel
                 {
                     try
                     {
-                        string designationQuery = "INSERT INTO Designations(libelle, prix) VALUES(@libelle, @prix); SELECT LAST_INSERT_ID();";
+                        string designationQuery = "INSERT INTO Designations(libelle, prix, description) VALUES(@libelle, @prix, @description); SELECT LAST_INSERT_ID();";
 
                         using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
                         {
                             cmdDesignation.Parameters.AddWithValue("@libelle", monProduit.Libelle);
                             cmdDesignation.Parameters.AddWithValue("@prix", monProduit.Prix);
+                            cmdDesignation.Parameters.AddWithValue("@description", monProduit.Description);
 
                             int generatedId = Convert.ToInt32(cmdDesignation.ExecuteScalar());
 
@@ -129,23 +146,24 @@ namespace AutoFact.ViewModel
             }
         }
 
-        public void updArticle(int id, string name, decimal price, decimal buyprice, int quantity, Societe society)
+        public void updArticle(int id, string name, decimal price, decimal buyprice, int quantity, Societe society, string description)
         {
             try
             {
-                Produits monProduit = new Produits(id, name, price, buyprice, quantity, society);
+                Produits monProduit = new Produits(id, name, price, buyprice, quantity, society, description);
 
 
                 using (MySqlTransaction transaction = connection.BeginTransaction())
                 {
                     try
                     {
-                        string designationQuery = "UPDATE Designations SET libelle = @name, prix = @price WHERE id = @id;";
+                        string designationQuery = "UPDATE Designations SET libelle = @name, prix = @price, description = @description WHERE id = @id;";
 
                         using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
                         {
                             cmdDesignation.Parameters.AddWithValue("@name", monProduit.Libelle);
                             cmdDesignation.Parameters.AddWithValue("@price", monProduit.Prix);
+                            cmdDesignation.Parameters.AddWithValue("@description", monProduit.Description);
                             cmdDesignation.Parameters.AddWithValue("@id", monProduit.Id);
 
                             cmdDesignation.ExecuteNonQuery();

@@ -65,6 +65,7 @@ namespace AutoFact.ViewModel
         public List<Particuliers> getClients()
         {
             this.clientList.Clear();
+            this.box.Items.Clear();
             loadClients();
             return this.clientList;
         }

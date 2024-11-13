@@ -41,6 +41,7 @@ namespace AutoFact.Views
             AddUpLbl = new Label();
             BuypriceTB = new TextBox();
             QuantityTB = new TextBox();
+            DescTB = new TextBox();
             SuspendLayout();
             // 
             // navbarUserControl
@@ -154,10 +155,18 @@ namespace AutoFact.Views
             QuantityTB.TabIndex = 9;
             QuantityTB.Click += QuantityTB_Clicked;
             // 
+            // DescTB
+            // 
+            DescTB.Location = new Point(697, 485);
+            DescTB.Name = "DescTB";
+            DescTB.Size = new Size(478, 23);
+            DescTB.TabIndex = 10;
+            // 
             // Article
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(DescTB);
             Controls.Add(QuantityTB);
             Controls.Add(BuypriceTB);
             Controls.Add(AddUpLbl);
@@ -197,5 +206,6 @@ namespace AutoFact.Views
         private Label AddUpLbl;
         private TextBox BuypriceTB;
         private TextBox QuantityTB;
+        private TextBox DescTB;
     }
 }

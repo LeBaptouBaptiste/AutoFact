@@ -91,9 +91,9 @@ namespace AutoFact.Views
             }
         }
 
-        private void ArticleCB_Changed(Object sender, EventArgs e)
+        private void ArticleCB_Changed(Object sender, EventArgs e) // Add l'article séléctionné 
         {
-            if (ArticleCB.SelectedIndex != -1)
+            if (ArticleCB.SelectedIndex != -1) // Si rien n'est selectionné
             {
                 int id = ArticleCB.SelectedIndex;
 
@@ -119,7 +119,7 @@ namespace AutoFact.Views
             }
         }
 
-        private void ChangeText(object sender, EventArgs e, bool able)
+        private void ChangeText(object sender, EventArgs e, bool able) // Change la couleur du texte
         {
             Control obj = sender as Control;
 
@@ -133,6 +133,7 @@ namespace AutoFact.Views
             }
         }
 
+        // Placeholder
         private void Resets(object sender, EventArgs e)
         {
             if (NameTB.Text == string.Empty)
@@ -201,7 +202,7 @@ namespace AutoFact.Views
 
         private void Upd_Clicked(object sender, EventArgs e)
         {
-            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && PriceTB.Text != string.Empty && PriceTB.Text != priceTxt && BuypriceTB.Text != null && BuypriceTB.Text != buypriceTxt && QuantityTB.Text != null && QuantityTB.Text != quantityTxt && SupplyCB.SelectedIndex > -1 && ArticleCB.SelectedIndex != -1)
+            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && PriceTB.Text != string.Empty && PriceTB.Text != priceTxt && BuypriceTB.Text != null && BuypriceTB.Text != buypriceTxt && QuantityTB.Text != null && QuantityTB.Text != quantityTxt && DescTB.Text != null && SupplyCB.SelectedIndex > -1 && ArticleCB.SelectedIndex != -1)
             {
                 try
                 {
@@ -211,10 +212,11 @@ namespace AutoFact.Views
                     decimal buyprice = Convert.ToDecimal(BuypriceTB.Text);
                     int quantity = Convert.ToInt32(QuantityTB.Text);
                     Societe society = listSupply[SupplyCB.SelectedIndex];
+                    string description = DescTB.Text;
 
                     ArticleCB.SelectedIndex = -1;
 
-                    articlevm.updArticle(id, name, price, buyprice, quantity, society);
+                    articlevm.updArticle(id, name, price, buyprice, quantity, society, description);
 
                     NameTB.Clear();
                     PriceTB.Clear();

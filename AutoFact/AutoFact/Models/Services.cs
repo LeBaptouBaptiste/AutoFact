@@ -12,7 +12,7 @@ namespace AutoFact.Models
         private string description;
         private bool haveDuration;
 
-        public Services(int id, string libelle, decimal prix, int duree, string description) : base(id, libelle, prix)
+        public Services(int id, string libelle, decimal prix, int duree, string description) : base(id, libelle, prix, description)
         {
             this.duration = duree;
             this.description = description;
@@ -24,7 +24,7 @@ namespace AutoFact.Models
             this.description = description;
             this.haveDuration = true;
         }
-        public Services(int id, string libelle, decimal prix, string description) : base(id, libelle, prix)
+        public Services(int id, string libelle, decimal prix, string description) : base(id, libelle, prix, description)
         {
             this.description = description;
             this.haveDuration = false;

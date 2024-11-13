@@ -35,7 +35,7 @@ namespace AutoFact.ViewModel
 
         private void loadSupplys()
         {
-            this.box.Items.Clear();
+            
             try
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT Clients.id, siret, adresse, cp, tel, mail, nom FROM Societes INNER JOIN Clients ON Societes.id = Clients.id;", connection);
@@ -67,6 +67,7 @@ namespace AutoFact.ViewModel
         public List<Societe> getSupplys()
         {
             this.societeList.Clear();
+            this.box.Items.Clear();
             loadSupplys();
             return this.societeList;
         }

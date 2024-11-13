@@ -20,6 +20,9 @@ namespace AutoFact.Models
                 //Server = "192.168.1.170",
                 //Server = "192.168.56.5",
                 Port = 20125,
+                // [User connected in localhost]
+                //UserID = "homeUserMax",
+                //Password = "hReQFrNybXYLMmllBls7",
                 UserID = "adminAutofact",
                 Password = "AjXg$%Auc~B?K\"fl5q#.#aYbG",
                 Database = "Autofact",

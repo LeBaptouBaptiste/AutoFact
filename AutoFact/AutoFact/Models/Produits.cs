@@ -12,7 +12,7 @@ namespace AutoFact.Models
         private int quantity;
         private Societe fournisseur;
 
-        public Produits(int id, string libelle, decimal prix, decimal buyPrice, int quantity, Societe fournisseur) : base(id, libelle, prix)
+        public Produits(int id, string libelle, decimal prix, decimal buyPrice, int quantity, Societe fournisseur, string description) : base(id, libelle, prix, description)
         {
             this.buyPrice = buyPrice;
             this.quantity = quantity;
@@ -24,6 +24,12 @@ namespace AutoFact.Models
             this.buyPrice = buyPrice;
             this.quantity = quantity;
             this.fournisseur = fournisseur;
+        }
+
+        public Produits(int id, string libelle, decimal prix, decimal buyPrice, int quantity, string description) : base(id, libelle, prix, description)
+        {
+            this.buyPrice = buyPrice;
+            this.quantity = quantity;
         }
 
         public decimal BuyPrice
