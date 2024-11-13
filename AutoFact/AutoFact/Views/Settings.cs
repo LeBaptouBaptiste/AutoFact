@@ -23,7 +23,7 @@ namespace AutoFact.Views
         string mailTxt = "Email professionel";
         string countryTxt = "Pays";
 
-        string logoPath;
+        string extension;
 
         public Settings()
         {
@@ -42,12 +42,14 @@ namespace AutoFact.Views
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Récupère le chemin du fichier sélectionné
-                    logoPath = openFileDialog.FileName;
+                    string logoPath = openFileDialog.FileName;
 
                     string projectDirectory = AppDomain.CurrentDomain.BaseDirectory; // Répertoire de l'exécutable
                     string targetDirectory = Path.Combine(projectDirectory, "Pictures");
 
                     string targetFilePath = Path.Combine(targetDirectory, "Logo" + Path.GetExtension(logoPath));
+
+                    extension = Path.GetExtension(logoPath);
 
                     string[] existingFiles = Directory.GetFiles(targetDirectory, "Logo.*");
                     foreach (string file in existingFiles)
@@ -210,7 +212,7 @@ namespace AutoFact.Views
             ini.Write("Section", "Address", AddressTB.Text);
             ini.Write("Section", "Cp", CpTB.Text);
             ini.Write("Section", "Country", CountryTB.Text);
-            ini.Write("Section", "Logo", logoPath);
+            ini.Write("Section", "Logo", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pictures", "Logo*"));
 
             MessageBox.Show("Données enregistrées dans le fichier .ini");
         }
@@ -229,10 +231,11 @@ namespace AutoFact.Views
                 AddressTB.Text = ini.Read("Section", "Address");
                 CpTB.Text = ini.Read("Section", "Cp");
                 CountryTB.Text = ini.Read("Section", "Country");
-                logoPath = ini.Read("Section", "Logo");
+                string logoPath = ini.Read("Section", "Logo");
 
                 if (File.Exists(logoPath))
                 {
+                    MessageBox.Show(logoPath);
                     LogoPB.Image = ResizeImage(Image.FromFile(logoPath), LogoPB.Width, LogoPB.Height);
                     LogoPB.SizeMode = PictureBoxSizeMode.StretchImage;
                 }

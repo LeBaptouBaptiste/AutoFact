@@ -23,6 +23,7 @@ namespace AutoFact.Views
         private string quantityTxt = "Quantitée";
         private string supplyTxt = "Fournisseur";
         private string articleTxt = "Article";
+        private string descriptionTxt = "Description";
 
         private ArticleVM articlevm;
         private List<Societe> listSupply;
@@ -80,6 +81,16 @@ namespace AutoFact.Views
                 this.ActiveControl = QuantityTB;
             }
         }
+        private void DescriptionTB_Clicked(object sender, EventArgs e)
+        {
+            if (DescriptionTB.Text == descriptionTxt)
+            {
+                Resets(sender, e);
+                DescriptionTB.Text = string.Empty;
+                ChangeText(sender, e, true);
+                this.ActiveControl = null;
+            }
+        }
 
         private void SupplyCB_Changed(object sender, EventArgs e)
         {
@@ -110,6 +121,16 @@ namespace AutoFact.Views
                 BuypriceTB.Text = listProducts[id].BuyPrice.ToString();
                 QuantityTB.Text = listProducts[id].Quantity.ToString();
                 SupplyCB.SelectedIndex = listSupply.IndexOf(listProducts[id].Fournisseur);
+
+                MessageBox.Show();
+
+                if (listProducts[id].Description != null)
+                {
+                    DescriptionTB.Text = listProducts[id].Description.ToString();
+                    ChangeText(DescriptionTB, e, true);
+                    DescriptionTB.Clear();
+                    ChangeText(DescriptionTB, e, true);
+                }
 
                 ChangeText(NameTB, e, true);
                 ChangeText(PriceTB, e, true);
@@ -155,6 +176,11 @@ namespace AutoFact.Views
                 QuantityTB.Text = quantityTxt;
                 ChangeText(QuantityTB, e, false);
             }
+            if (DescriptionTB.Text == string.Empty)
+            {
+                DescriptionTB.Text = descriptionTxt;
+                ChangeText(DescriptionTB, e, false);
+            }
             if(SupplyCB.SelectedIndex == -1)
             {
                 SupplyCB.Text = supplyTxt;
@@ -180,12 +206,22 @@ namespace AutoFact.Views
                     int quantity = Convert.ToInt32(QuantityTB.Text);
                     Societe society = listSupply[SupplyCB.SelectedIndex];
 
-                    articlevm.addArticle(name, price, buyprice, quantity, society);
+                    if (DescriptionTB.Text != string.Empty && DescriptionTB.Text != descriptionTxt)
+                    {
+                        string description = DescriptionTB.Text;
+                        articlevm.addArticle(name, price, buyprice, quantity, society, description);
+                    }
+                    else
+                    {
+                        articlevm.addArticle(name, price, buyprice, quantity, society);
+                    }
+                    
 
                     NameTB.Clear();
                     PriceTB.Clear();
                     BuypriceTB.Clear();
                     QuantityTB.Clear();
+                    DescriptionTB.Clear();
                     SupplyCB.SelectedIndex = -1;
                     Resets(this, e);
 
@@ -212,14 +248,23 @@ namespace AutoFact.Views
                     int quantity = Convert.ToInt32(QuantityTB.Text);
                     Societe society = listSupply[SupplyCB.SelectedIndex];
 
-                    ArticleCB.SelectedIndex = -1;
+                    if (DescriptionTB.Text != string.Empty && DescriptionTB.Text != descriptionTxt)
+                    {
+                        string description = DescriptionTB.Text;
+                        articlevm.updArticle(id, name, price, buyprice, quantity, society, description);
+                    }
+                    else
+                    {
+                        articlevm.updArticle(id, name, price, buyprice, quantity, society);
+                    }
 
-                    articlevm.updArticle(id, name, price, buyprice, quantity, society);
+                    ArticleCB.SelectedIndex = -1;
 
                     NameTB.Clear();
                     PriceTB.Clear();
                     BuypriceTB.Clear();
                     QuantityTB.Clear();
+                    DescriptionTB.Clear();
                     SupplyCB.SelectedIndex = -1;
                     Resets(this, e);
 

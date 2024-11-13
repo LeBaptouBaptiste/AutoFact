@@ -41,6 +41,7 @@ namespace AutoFact.Views
             AddUpLbl = new Label();
             BuypriceTB = new TextBox();
             QuantityTB = new TextBox();
+            DescriptionTB = new TextBox();
             SuspendLayout();
             // 
             // navbarUserControl
@@ -160,10 +161,24 @@ namespace AutoFact.Views
             QuantityTB.Text = quantityTxt;
             QuantityTB.Click += QuantityTB_Clicked;
             // 
+            // DescriptionTB
+            // 
+            DescriptionTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DescriptionTB.ForeColor = Color.Silver;
+            DescriptionTB.Location = new Point(766, 506);
+            DescriptionTB.MaxLength = 511;
+            DescriptionTB.Multiline = true;
+            DescriptionTB.Name = "DescriptionTB";
+            DescriptionTB.Size = new Size(363, 170);
+            DescriptionTB.TabIndex = 10;
+            DescriptionTB.Text = descriptionTxt;
+            DescriptionTB.Click += DescriptionTB_Clicked;
+            // 
             // Article
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(DescriptionTB);
             Controls.Add(QuantityTB);
             Controls.Add(BuypriceTB);
             Controls.Add(AddUpLbl);
@@ -203,5 +218,6 @@ namespace AutoFact.Views
         private Label AddUpLbl;
         private TextBox BuypriceTB;
         private TextBox QuantityTB;
+        private TextBox DescriptionTB;
     }
 }

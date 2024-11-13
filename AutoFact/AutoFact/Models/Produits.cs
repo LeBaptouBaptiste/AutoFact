@@ -12,14 +12,14 @@ namespace AutoFact.Models
         private int quantity;
         private Societe fournisseur;
 
-        public Produits(int id, string libelle, decimal prix, decimal buyPrice, int quantity, Societe fournisseur) : base(id, libelle, prix)
+        public Produits(int id, string libelle, string description, decimal prix, decimal buyPrice, int quantity, Societe fournisseur) : base(id, libelle, prix, description)
         {
             this.buyPrice = buyPrice;
             this.quantity = quantity;
             this.fournisseur = fournisseur;
         }
 
-        public Produits(string libelle, decimal prix, decimal buyPrice, int quantity, Societe fournisseur) : base(libelle, prix)
+        public Produits(string libelle, string description, decimal prix, decimal buyPrice, int quantity, Societe fournisseur) : base(libelle, prix, description)
         {
             this.buyPrice = buyPrice;
             this.quantity = quantity;

@@ -46,7 +46,7 @@ namespace AutoFact.ViewModel
             {
                 box.Items.Clear();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT Designations.id, prixAchat, quantite, id_fournisseur, libelle, prix FROM Produits INNER JOIN Designations ON Produits.id = Designations.id;", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT Designations.id, prixAchat, quantite, id_fournisseur, libelle, prix, description FROM Produits INNER JOIN Designations ON Produits.id = Designations.id;", connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -59,6 +59,7 @@ namespace AutoFact.ViewModel
                     int idFournisseur = Convert.ToInt32(row["id_fournisseur"]);
                     string libelle = row["libelle"].ToString();
                     decimal price = Convert.ToDecimal(row["prix"]);
+                    string description = row["description"].ToString();
 
                     int fournisseur = 0;
                     foreach (Societe societe in societeList)
@@ -70,7 +71,7 @@ namespace AutoFact.ViewModel
                     fournisseur += 1;
                     }
 
-                    Produits product = new Produits(id, libelle, price, buyPrice, quantity, societeList[fournisseur]);
+                    Produits product = new Produits(id, libelle, description, price, buyPrice, quantity, societeList[fournisseur]);
                     box.Items.Add(product.Libelle);
                     articleList.Add(product);
                 }
@@ -81,22 +82,23 @@ namespace AutoFact.ViewModel
             }
         }
 
-        public void addArticle(string name, decimal price, decimal buyprice, int quantity, Societe society)
+        public void addArticle(string name, decimal price, decimal buyprice, int quantity, Societe society, string description = null)
         {
             try
             {
-                Produits monProduit = new Produits(name, price, buyprice, quantity, society);
+                Produits monProduit = new Produits(name, description, price, buyprice, quantity, society);
 
                 using (MySqlTransaction transaction = connection.BeginTransaction())
                 {
                     try
                     {
-                        string designationQuery = "INSERT INTO Designations(libelle, prix) VALUES(@libelle, @prix); SELECT LAST_INSERT_ID();";
+                        string designationQuery = "INSERT INTO Designations(libelle, description, prix) VALUES(@libelle, @description, @prix); SELECT LAST_INSERT_ID();";
 
                         using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
                         {
                             cmdDesignation.Parameters.AddWithValue("@libelle", monProduit.Libelle);
                             cmdDesignation.Parameters.AddWithValue("@prix", monProduit.Prix);
+                            cmdDesignation.Parameters.AddWithValue("@description", monProduit.Description);
 
                             int generatedId = Convert.ToInt32(cmdDesignation.ExecuteScalar());
 
@@ -129,22 +131,23 @@ namespace AutoFact.ViewModel
             }
         }
 
-        public void updArticle(int id, string name, decimal price, decimal buyprice, int quantity, Societe society)
+        public void updArticle(int id, string name, decimal price, decimal buyprice, int quantity, Societe society, string description = null)
         {
             try
             {
-                Produits monProduit = new Produits(id, name, price, buyprice, quantity, society);
+                Produits monProduit = new Produits(id, name, description, price, buyprice, quantity, society);
 
 
                 using (MySqlTransaction transaction = connection.BeginTransaction())
                 {
                     try
                     {
-                        string designationQuery = "UPDATE Designations SET libelle = @name, prix = @price WHERE id = @id;";
+                        string designationQuery = "UPDATE Designations SET libelle = @name, description = @description, prix = @price WHERE id = @id;";
 
                         using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
                         {
                             cmdDesignation.Parameters.AddWithValue("@name", monProduit.Libelle);
+                            cmdDesignation.Parameters.AddWithValue("@description", monProduit.Description);
                             cmdDesignation.Parameters.AddWithValue("@price", monProduit.Prix);
                             cmdDesignation.Parameters.AddWithValue("@id", monProduit.Id);
 
