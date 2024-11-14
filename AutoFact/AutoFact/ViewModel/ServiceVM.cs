@@ -78,28 +78,28 @@ namespace AutoFact.ViewModel
         {
             try
             {
-                Services myService = new Services(name, price, duration, description);
+                Services myService = new Services(name, price, duration, description = null);
 
 
                 using (MySqlTransaction transaction = connection.BeginTransaction())
                 {
                     try
                     {
-                        string designationQuery = "INSERT INTO Designations(libelle, prix) VALUES(@libelle, @prix); SELECT LAST_INSERT_ID();";
+                        string designationQuery = "INSERT INTO Designations(libelle, description, prix) VALUES(@libelle, @description, @prix); SELECT LAST_INSERT_ID();";
 
                         using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
                         {
                             cmdDesignation.Parameters.AddWithValue("@libelle", myService.Libelle);
+                            cmdDesignation.Parameters.AddWithValue("@description", myService.Description);
                             cmdDesignation.Parameters.AddWithValue("@prix", myService.Prix);
 
                             int generatedId = Convert.ToInt32(cmdDesignation.ExecuteScalar());
 
-                            string serviceQuery = "INSERT INTO Services(id, duree, description) VALUES(@id, @duration, @description)";
+                            string serviceQuery = "INSERT INTO Services(id, duree) VALUES(@id, @duration)";
                             using (MySqlCommand cmdService = new MySqlCommand(serviceQuery, connection, transaction))
                             {
                                 cmdService.Parameters.AddWithValue("@id", generatedId); // Utiliser l'ID généré
                                 cmdService.Parameters.AddWithValue("@duration", myService.Duration);
-                                cmdService.Parameters.AddWithValue("@description", myService.Description);
                                 
                                 cmdService.ExecuteNonQuery();
                             }
@@ -121,7 +121,7 @@ namespace AutoFact.ViewModel
                 MessageBox.Show("Probleme lors de la creation de l'objet");
             }
         }
-        public void AddServiceWithoutDuration(string name, decimal price, string description)
+        public void AddServiceWithoutDuration(string name, decimal price, string description = null)
         {
             try
             {
@@ -132,20 +132,20 @@ namespace AutoFact.ViewModel
                 {
                     try
                     {
-                        string designationQuery = "INSERT INTO Designations(libelle, prix) VALUES(@libelle, @prix); SELECT LAST_INSERT_ID();";
+                        string designationQuery = "INSERT INTO Designations(libelle, description, prix) VALUES(@libelle, @description, @prix); SELECT LAST_INSERT_ID();";
 
                         using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
                         {
                             cmdDesignation.Parameters.AddWithValue("@libelle", myService.Libelle);
+                            cmdDesignation.Parameters.AddWithValue("@description", myService.Description);
                             cmdDesignation.Parameters.AddWithValue("@prix", myService.Prix);
 
                             int generatedId = Convert.ToInt32(cmdDesignation.ExecuteScalar());
 
-                            string serviceQuery = "INSERT INTO Services(id, description) VALUES(@id, @description)";
+                            string serviceQuery = "INSERT INTO Services(id) VALUES(@id)";
                             using (MySqlCommand cmdService = new MySqlCommand(serviceQuery, connection, transaction))
                             {
                                 cmdService.Parameters.AddWithValue("@id", generatedId); // Utiliser l'ID généré
-                                cmdService.Parameters.AddWithValue("@description", myService.Description);
 
                                 cmdService.ExecuteNonQuery();
                             }
@@ -167,7 +167,7 @@ namespace AutoFact.ViewModel
                 MessageBox.Show("Probleme lors de la creation de l'objet");
             }
         }
-        public void UpdService(int id, string name, decimal price, int duration, string description)
+        public void UpdService(int id, string name, decimal price, int duration, string description = null)
         {
             try
             {
@@ -178,21 +178,21 @@ namespace AutoFact.ViewModel
                 {
                     try
                     {
-                        string designationQuery = "UPDATE Designations SET libelle = @name, prix = @price WHERE id = @id;";
+                        string designationQuery = "UPDATE Designations SET libelle = @name, description = @description, prix = @price WHERE id = @id;";
 
                         using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
                         {
                             cmdDesignation.Parameters.AddWithValue("@name", myService.Libelle);
+                            cmdDesignation.Parameters.AddWithValue("@description", myService.Description);
                             cmdDesignation.Parameters.AddWithValue("@price", myService.Prix);
                             cmdDesignation.Parameters.AddWithValue("@id", myService.Id);
 
                             cmdDesignation.ExecuteNonQuery();
 
-                            string serviceQuery = "UPDATE Services SET duree = @duration, description = @description WHERE id = @id";
+                            string serviceQuery = "UPDATE Services SET duree = @duration WHERE id = @id";
                             using (MySqlCommand cmdService = new MySqlCommand(serviceQuery, connection, transaction))
                             {
                                 cmdService.Parameters.AddWithValue("@duration", myService.Duration);
-                                cmdService.Parameters.AddWithValue("@description", myService.Description);
                                 cmdService.Parameters.AddWithValue("@id", myService.Id);
 
                                 cmdService.ExecuteNonQuery();
@@ -216,7 +216,7 @@ namespace AutoFact.ViewModel
             }
         }
 
-        public void UpdServiceWithoutDuration(int id, string name, decimal price, string description)
+        public void UpdServiceWithoutDuration(int id, string name, decimal price, string description = null)
         {
             try
             {
@@ -227,24 +227,16 @@ namespace AutoFact.ViewModel
                 {
                     try
                     {
-                        string designationQuery = "UPDATE Designations SET libelle = @name, prix = @price WHERE id = @id;";
+                        string designationQuery = "UPDATE Designations SET libelle = @name, description = @description, prix = @price WHERE id = @id;";
 
                         using (MySqlCommand cmdDesignation = new MySqlCommand(designationQuery, connection, transaction))
                         {
                             cmdDesignation.Parameters.AddWithValue("@name", myService.Libelle);
+                            cmdDesignation.Parameters.AddWithValue("@description", myService.Description);
                             cmdDesignation.Parameters.AddWithValue("@price", myService.Prix);
                             cmdDesignation.Parameters.AddWithValue("@id", myService.Id);
 
                             cmdDesignation.ExecuteNonQuery();
-
-                            string serviceQuery = "UPDATE Services SET description = @description WHERE id = @id";
-                            using (MySqlCommand cmdService = new MySqlCommand(serviceQuery, connection, transaction))
-                            {
-                                cmdService.Parameters.AddWithValue("@description", myService.Description);
-                                cmdService.Parameters.AddWithValue("@id", myService.Id);
-
-                                cmdService.ExecuteNonQuery();
-                            }
                         }
 
                         transaction.Commit();

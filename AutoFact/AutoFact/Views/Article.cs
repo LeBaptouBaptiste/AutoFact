@@ -115,6 +115,9 @@ namespace AutoFact.Views
                 PriceTB.Clear();
                 BuypriceTB.Clear();
                 QuantityTB.Clear();
+                DescriptionTB.Clear();
+
+                Resets(sender, e);
 
                 NameTB.Text = listProducts[id].Libelle;
                 PriceTB.Text = listProducts[id].Prix.ToString();
@@ -122,13 +125,9 @@ namespace AutoFact.Views
                 QuantityTB.Text = listProducts[id].Quantity.ToString();
                 SupplyCB.SelectedIndex = listSupply.IndexOf(listProducts[id].Fournisseur);
 
-                MessageBox.Show();
-
-                if (listProducts[id].Description != null)
-                {
+                if (!string.IsNullOrEmpty(listProducts[id].Description))
+                {   
                     DescriptionTB.Text = listProducts[id].Description.ToString();
-                    ChangeText(DescriptionTB, e, true);
-                    DescriptionTB.Clear();
                     ChangeText(DescriptionTB, e, true);
                 }
 

@@ -196,6 +196,7 @@ namespace AutoFact.Views
                     PriceTB.Clear();
                     DurationTB.Clear();
                     DescriptionTB.Clear();
+                    ServiceCB.SelectedIndex = -1;
                     Resets(this, e);
                     listServices = servicevm.getServices();
                 }
