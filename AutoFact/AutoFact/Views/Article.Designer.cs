@@ -199,13 +199,6 @@ namespace AutoFact.Views
             PerformLayout();
         }
 
-        private void InitializeBackground()
-        {
-            backgroundPanel = new BackgroundPanel();
-            backgroundPanel.SetBackgroundImage("Pictures\\background.png");
-            backgroundPanel.Dock = DockStyle.Fill;
-        }
-
         #endregion
 
         private NavbarControll navbarUserControl;

@@ -14,6 +14,7 @@ namespace AutoFact.Views
 {
     public partial class Supplier : Form
     {
+        // Définition des textes par défaut (placeholders)
         private string nameTxt = "Nom de la société";
         private string mailTxt = "Adresse mail";
         private string siretTxt = "Siret";
@@ -22,83 +23,51 @@ namespace AutoFact.Views
         private string cpTxt = "Code postal";
         private string suppTxt = "Fournisseurs";
 
+        // Variables pour la gestion des fournisseurs
         SocieteVM societevm;
         private List<Societe> listSupply;
+
+        // Constructeur
         public Supplier()
         {
             InitializeComponent();
             societevm = new SocieteVM(SuppliersCB);
             listSupply = societevm.getSupplys();
         }
-        private void NameTB_Clicked(object sender, EventArgs e)
+
+        // Gestion des clics sur les champs de texte (réinitialisation du texte)
+        private void NameTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, nameTxt, NameTB); }
+        private void MailTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, mailTxt, MailTB); }
+        private void SiretTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, siretTxt, SiretTB); }
+        private void PhoneTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, phoneTxt, PhoneTB); }
+        private void AddressTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, addressTxt, AddressTB); }
+        private void CpTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, cpTxt, CpTB); }
+
+        // Gestion de l'événement lorsque le texte est cliqué
+        private void HandleTextBoxClick(object sender, EventArgs e, string defaultText, TextBox textBox)
         {
-            if (NameTB.Text == nameTxt)
+            if (textBox.Text == defaultText)
             {
                 Resets(sender, e);
-                NameTB.Text = string.Empty;
+                textBox.Text = string.Empty;
                 ChangeText(sender, e, true);
-                this.ActiveControl = NameTB;
+                this.ActiveControl = textBox;
             }
         }
-        private void MailTB_Clicked(object sender, EventArgs e)
-        {
-            if (MailTB.Text == mailTxt)
-            {
-                Resets(sender, e);
-                MailTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = MailTB;
-            }
-        }
-        private void SiretTB_Clicked(object sender, EventArgs e)
-        {
-            if (SiretTB.Text == siretTxt)
-            {
-                Resets(sender, e);
-                SiretTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = SiretTB;
-            }
-        }
-        private void PhoneTB_Clicked(object sender, EventArgs e)
-        {
-            if (PhoneTB.Text == phoneTxt)
-            {
-                Resets(sender, e);
-                PhoneTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = PhoneTB;
-            }
-        }
-        private void AddressTB_Clicked(object sender, EventArgs e)
-        {
-            if (AddressTB.Text == addressTxt)
-            {
-                Resets(sender, e);
-                AddressTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = AddressTB;
-            }
-        }
-        private void CpTB_Clicked(object sender, EventArgs e)
-        {
-            if (CpTB.Text == cpTxt)
-            {
-                Resets(sender, e);
-                CpTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = CpTB;
-            }
-        }
+
+        // Gestion de la sélection d'un fournisseur dans le ComboBox
         private void SuppliersCB_Changed(Object sender, EventArgs e)
         {
             if (SuppliersCB.SelectedIndex != -1)
             {
                 int id = SuppliersCB.SelectedIndex;
 
+                // Réinitialisation des champs
+                Resets(sender, e);
                 ChangeText(sender, e, true);
                 this.ActiveControl = null;
 
+                // Remplissage des champs avec les informations du fournisseur sélectionné
                 NameTB.Clear();
                 MailTB.Clear();
                 SiretTB.Clear();
@@ -113,6 +82,7 @@ namespace AutoFact.Views
                 AddressTB.Text = listSupply[id].Address;
                 CpTB.Text = listSupply[id].PostalCode;
 
+                // Mise à jour de la couleur du texte des champs
                 ChangeText(NameTB, e, true);
                 ChangeText(MailTB, e, true);
                 ChangeText(SiretTB, e, true);
@@ -121,54 +91,28 @@ namespace AutoFact.Views
                 ChangeText(CpTB, e, true);
             }
         }
+
+        // Modification de la couleur du texte pour les champs de texte
         private void ChangeText(object sender, EventArgs e, bool able)
         {
             Control obj = sender as Control;
-
-            if (able)
-            {
-                obj.ForeColor = Color.Black;
-            }
-            else
-            {
-                obj.ForeColor = Color.Silver;
-            }
+            if (able) obj.ForeColor = Color.Black;
+            else obj.ForeColor = Color.Silver;
         }
 
+        // Réinitialisation des champs à leurs valeurs par défaut
         private void Resets(object sender, EventArgs e)
         {
-            if (NameTB.Text == string.Empty)
-            {
-                NameTB.Text = nameTxt;
-                ChangeText(NameTB, e, false);
-            }
-            if (MailTB.Text == string.Empty)
-            {
-                MailTB.Text = mailTxt;
-                ChangeText(MailTB, e, false);
-            }
-            if (SiretTB.Text == string.Empty)
-            {
-                SiretTB.Text = siretTxt;
-                ChangeText(SiretTB, e, false);
-            }
-            if (PhoneTB.Text == string.Empty)
-            {
-                PhoneTB.Text = phoneTxt;
-                ChangeText(PhoneTB, e, false);
-            }
-            if (AddressTB.Text == string.Empty)
-            {
-                AddressTB.Text = addressTxt;
-                ChangeText(AddressTB, e, false);
-            }
-            if (CpTB.Text == string.Empty)
-            {
-                CpTB.Text = cpTxt;
-                ChangeText(CpTB, e, false);
-            }
+            if (NameTB.Text == string.Empty) { NameTB.Text = nameTxt; ChangeText(NameTB, e, false); }
+            if (MailTB.Text == string.Empty) { MailTB.Text = mailTxt; ChangeText(MailTB, e, false); }
+            if (SiretTB.Text == string.Empty) { SiretTB.Text = siretTxt; ChangeText(SiretTB, e, false); }
+            if (PhoneTB.Text == string.Empty) { PhoneTB.Text = phoneTxt; ChangeText(PhoneTB, e, false); }
+            if (AddressTB.Text == string.Empty) { AddressTB.Text = addressTxt; ChangeText(AddressTB, e, false); }
+            if (CpTB.Text == string.Empty) { CpTB.Text = cpTxt; ChangeText(CpTB, e, false); }
             this.ActiveControl = null;
         }
+
+        // Validation et ajout d'un fournisseur
         private void Add_Clicked(object sender, EventArgs e)
         {
             if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && MailTB.Text != string.Empty && MailTB.Text != mailTxt && SiretTB.Text != null && SiretTB.Text != siretTxt && PhoneTB.Text != null && PhoneTB.Text != phoneTxt && AddressTB.Text != null && AddressTB.Text != addressTxt && CpTB.Text != null && CpTB.Text != cpTxt)
@@ -184,26 +128,22 @@ namespace AutoFact.Views
 
                     societevm.addSupplier(name, mail, siret, phone, address, cp);
 
-                    NameTB.Clear();
-                    MailTB.Clear();
-                    SiretTB.Clear();
-                    PhoneTB.Clear();
-                    AddressTB.Clear();
-                    CpTB.Clear();
-                    Resets(this, e);
-
                     listSupply = societevm.getSupplys();
+                    Resets(sender, e);
+                    SuppliersCB.SelectedIndex = -1;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    MessageBox.Show("La valeur entrée dans le champs 'Nom' ou le champs 'Prix Unitaire' n'est pas valide");
+                    MessageBox.Show("Une valeur est invalide. Vérifiez les champs.");
                 }
             }
         }
+
+        // Validation et mise à jour d'un fournisseur
         private void Upd_Clicked(object sender, EventArgs e)
         {
-            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && MailTB.Text != string.Empty && MailTB.Text != mailTxt && SiretTB.Text != null && SiretTB.Text != siretTxt && PhoneTB.Text != null && PhoneTB.Text != phoneTxt && AddressTB.Text != null && AddressTB.Text != addressTxt && CpTB.Text != null && CpTB.Text != cpTxt && SuppliersCB.SelectedIndex != -1)
+            if (SuppliersCB.SelectedIndex != -1)
             {
                 try
                 {
@@ -215,24 +155,16 @@ namespace AutoFact.Views
                     string address = AddressTB.Text;
                     string cp = CpTB.Text;
 
-                    SuppliersCB.SelectedIndex = -1;
-
                     societevm.updSupplier(id, name, mail, siret, phone, address, cp);
 
-                    NameTB.Clear();
-                    MailTB.Clear();
-                    SiretTB.Clear();
-                    PhoneTB.Clear();
-                    AddressTB.Clear();
-                    CpTB.Clear();
-                    Resets(this, e);
-
                     listSupply = societevm.getSupplys();
+                    Resets(sender, e);
+                    SuppliersCB.SelectedIndex = -1;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    MessageBox.Show("La valeur entrée dans le champs 'Nom' ou le champs 'Prix Unitaire' n'est pas valide");
+                    MessageBox.Show("Une valeur est invalide. Vérifiez les champs.");
                 }
             }
         }

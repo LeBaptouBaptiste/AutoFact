@@ -22,7 +22,6 @@ namespace AutoFact.ViewModel
             serviceList = new List<Services>();
             InitializeDatabase();
             loadServices();
-
         }
 
         private void InitializeDatabase()
@@ -37,7 +36,9 @@ namespace AutoFact.ViewModel
             try
             {
                 // Requête SQL pour récupérer les données des services avec jointure
-                string query = @"SELECT Designations.id, libelle, prix, duree, description FROM Services INNER JOIN Designations ON Services.id = Designations.id;";
+                string query = @"SELECT Designations.id, libelle, prix, duree, description 
+                                 FROM Services 
+                                 INNER JOIN Designations ON Services.id = Designations.id;";
 
                 // Créer une commande SQLite avec la requête et la connexion
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
@@ -143,6 +144,7 @@ namespace AutoFact.ViewModel
                 MessageBox.Show("Problème lors de la création de l'objet");
             }
         }
+
         public void addServiceWithoutDuration(string name, decimal price, string description = null)
         {
             try
@@ -197,6 +199,7 @@ namespace AutoFact.ViewModel
                 MessageBox.Show("Problème lors de la création de l'objet");
             }
         }
+
         public void updService(int id, string name, decimal price, int duration, string description = null)
         {
             try
@@ -253,6 +256,7 @@ namespace AutoFact.ViewModel
                 MessageBox.Show("Problème lors de la création de l'objet");
             }
         }
+
         public void updServiceWithoutDuration(int id, string name, decimal price, string description = null)
         {
             try

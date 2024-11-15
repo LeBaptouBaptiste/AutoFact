@@ -1,111 +1,68 @@
-﻿using AutoFact.Models;
-using AutoFact.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using AutoFact.ViewModel;
+using AutoFact.Models;
 
 namespace AutoFact.Views
 {
     public partial class Client : Form
     {
+        // Texte par défaut pour les champs de saisie
         private string nameTxt = "Nom";
         private string mailTxt = "Adresse mail";
         private string firstNameTxt = "Prénom";
-        private string phoneTxt = "Telephone";
-        private string addressTxt = "Adresse postal";
+        private string phoneTxt = "Téléphone";
+        private string addressTxt = "Adresse postale";
         private string cpTxt = "Code postal";
         private string clientTxt = "Client";
 
         private ClientVM clientvm;
         private List<Particuliers> listClients;
+
         public Client()
         {
             InitializeComponent();
+
+            // Initialisation du ViewModel et de la liste des clients
             clientvm = new ClientVM(ClientsCB);
             listClients = clientvm.getClients();
         }
-        private void NameTB_Clicked(object sender, EventArgs e)
+
+        // Gestion des clics dans les champs de saisie
+        private void NameTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, nameTxt);
+        private void MailTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, mailTxt);
+        private void FirstNameTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, firstNameTxt);
+        private void PhoneTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, phoneTxt);
+        private void AddressTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, addressTxt);
+        private void CpTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, cpTxt);
+
+        // Méthode générique pour gérer les clics sur les champs de saisie
+        private void HandleFieldClick(object sender, string defaultText)
         {
-            if (NameTB.Text == nameTxt)
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == defaultText)
             {
-                Resets(sender, e);
-                NameTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = NameTB;
+                Resets(sender, EventArgs.Empty);
+                textBox.Text = string.Empty;
+                ChangeText(sender, EventArgs.Empty, true);
+                this.ActiveControl = textBox;
             }
         }
-        private void MailTB_Clicked(object sender, EventArgs e)
-        {
-            if (MailTB.Text == mailTxt)
-            {
-                Resets(sender, e);
-                MailTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = MailTB;
-            }
-        }
-        private void FirstNameTB_Clicked(object sender, EventArgs e)
-        {
-            if (FirstNameTB.Text == firstNameTxt)
-            {
-                Resets(sender, e);
-                FirstNameTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = FirstNameTB;
-            }
-        }
-        private void PhoneTB_Clicked(object sender, EventArgs e)
-        {
-            if (PhoneTB.Text == phoneTxt)
-            {
-                Resets(sender, e);
-                PhoneTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = PhoneTB;
-            }
-        }
-        private void AddressTB_Clicked(object sender, EventArgs e)
-        {
-            if (AddressTB.Text == addressTxt)
-            {
-                Resets(sender, e);
-                AddressTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = AddressTB;
-            }
-        }
-        private void CpTB_Clicked(object sender, EventArgs e)
-        {
-            if (CpTB.Text == cpTxt)
-            {
-                Resets(sender, e);
-                CpTB.Text = string.Empty;
-                ChangeText(sender, e, true);
-                this.ActiveControl = CpTB;
-            }
-        }
-        private void ClientsCB_Changed(Object sender, EventArgs e)
+
+        // Changement de sélection pour le client
+        private void ClientsCB_Changed(object sender, EventArgs e)
         {
             if (ClientsCB.SelectedIndex != -1)
             {
                 int id = ClientsCB.SelectedIndex;
 
-                ChangeText(sender, e, true);
-                this.ActiveControl = null;
+                // Effacer les champs avant de remplir les données
+                ClearFields();
 
-                NameTB.Clear();
-                MailTB.Clear();
-                FirstNameTB.Clear();
-                PhoneTB.Clear();
-                AddressTB.Clear();
-                CpTB.Clear();
-
+                // Remplir les champs avec les données du client sélectionné
                 NameTB.Text = listClients[id].Name;
                 MailTB.Text = listClients[id].Mail;
                 FirstNameTB.Text = listClients[id].FirstName;
@@ -122,65 +79,79 @@ namespace AutoFact.Views
                     FemmeRB.Checked = true;
                 }
 
-                ChangeText(NameTB, e, true);
-                ChangeText(MailTB, e, true);
-                ChangeText(FirstNameTB, e, true);
-                ChangeText(PhoneTB, e, true);
-                ChangeText(AddressTB, e, true);
-                ChangeText(CpTB, e, true);
+                // Mettre à jour l'apparence des champs
+                UpdateFieldAppearance();
             }
         }
+
+        // Méthode pour effacer les champs de saisie
+        private void ClearFields()
+        {
+            NameTB.Clear();
+            MailTB.Clear();
+            FirstNameTB.Clear();
+            PhoneTB.Clear();
+            AddressTB.Clear();
+            CpTB.Clear();
+            HommeRB.Checked = false;
+            FemmeRB.Checked = false;
+        }
+
+        // Mise à jour de l'apparence des champs (couleur du texte)
+        private void UpdateFieldAppearance()
+        {
+            ChangeText(NameTB, EventArgs.Empty, true);
+            ChangeText(MailTB, EventArgs.Empty, true);
+            ChangeText(FirstNameTB, EventArgs.Empty, true);
+            ChangeText(PhoneTB, EventArgs.Empty, true);
+            ChangeText(AddressTB, EventArgs.Empty, true);
+            ChangeText(CpTB, EventArgs.Empty, true);
+        }
+
+        // Changement de la couleur du texte des contrôles
         private void ChangeText(object sender, EventArgs e, bool able)
         {
             Control obj = sender as Control;
-
-            if (able)
-            {
-                obj.ForeColor = Color.Black;
-            }
-            else
-            {
-                obj.ForeColor = Color.Silver;
-            }
+            obj.ForeColor = able ? Color.Black : Color.Silver;
         }
 
+        // Réinitialisation des champs de saisie
         private void Resets(object sender, EventArgs e)
         {
-            if (NameTB.Text == string.Empty)
-            {
-                NameTB.Text = nameTxt;
-                ChangeText(NameTB, e, false);
-            }
-            if (MailTB.Text == string.Empty)
-            {
-                MailTB.Text = mailTxt;
-                ChangeText(MailTB, e, false);
-            }
-            if (FirstNameTB.Text == string.Empty)
-            {
-                FirstNameTB.Text = firstNameTxt;
-                ChangeText(FirstNameTB, e, false);
-            }
-            if (PhoneTB.Text == string.Empty)
-            {
-                PhoneTB.Text = phoneTxt;
-                ChangeText(PhoneTB, e, false);
-            }
-            if (AddressTB.Text == string.Empty)
-            {
-                AddressTB.Text = addressTxt;
-                ChangeText(AddressTB, e, false);
-            }
-            if (CpTB.Text == string.Empty)
-            {
-                CpTB.Text = cpTxt;
-                ChangeText(CpTB, e, false);
-            }
+            ResetField(NameTB, nameTxt, e);
+            ResetField(MailTB, mailTxt, e);
+            ResetField(FirstNameTB, firstNameTxt, e);
+            ResetField(PhoneTB, phoneTxt, e);
+            ResetField(AddressTB, addressTxt, e);
+            ResetField(CpTB, cpTxt, e);
+            ResetComboBox(ClientsCB, clientTxt, e);
             this.ActiveControl = null;
         }
+
+        // Réinitialisation d'un champ de texte
+        private void ResetField(TextBox textBox, string defaultText, EventArgs e)
+        {
+            if (textBox.Text == string.Empty)
+            {
+                textBox.Text = defaultText;
+                ChangeText(textBox, e, false);
+            }
+        }
+
+        // Réinitialisation d'une ComboBox
+        private void ResetComboBox(ComboBox comboBox, string defaultText, EventArgs e)
+        {
+            if (comboBox.SelectedIndex == -1)
+            {
+                comboBox.Text = defaultText;
+                ChangeText(comboBox, e, false);
+            }
+        }
+
+        // Ajout d'un nouveau client
         private void Add_Clicked(object sender, EventArgs e)
         {
-            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && MailTB.Text != string.Empty && MailTB.Text != mailTxt && FirstNameTB.Text != null && FirstNameTB.Text != firstNameTxt && PhoneTB.Text != null && PhoneTB.Text != phoneTxt && AddressTB.Text != null && AddressTB.Text != addressTxt && CpTB.Text != null && CpTB.Text != cpTxt && (HommeRB.Checked || FemmeRB.Checked))
+            if (IsValidClientInput())
             {
                 try
                 {
@@ -190,38 +161,28 @@ namespace AutoFact.Views
                     string phone = PhoneTB.Text;
                     string address = AddressTB.Text;
                     string cp = CpTB.Text;
-                    string civility = "F";
-
-                    if (HommeRB.Checked)
-                    {
-                        civility = "H";
-                    }
-
+                    string civility = HommeRB.Checked ? "H" : "F";
 
                     clientvm.addClients(name, mail, phone, address, cp, civility, firstName);
 
-                    NameTB.Clear();
-                    MailTB.Clear();
-                    FirstNameTB.Clear();
-                    PhoneTB.Clear();
-                    AddressTB.Clear();
-                    CpTB.Clear();
-                    HommeRB.Checked = false;
-                    FemmeRB.Checked = false;
-                    Resets(this, e);
+                    ClearFields();
+                    Resets(this, EventArgs.Empty);
 
+                    // Rafraîchir la liste des clients
                     listClients = clientvm.getClients();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    MessageBox.Show("La valeur entrée dans le champs 'Nom' ou le champs 'Prix Unitaire' n'est pas valide");
+                    MessageBox.Show("Erreur dans les données saisies.");
                 }
             }
         }
+
+        // Mise à jour d'un client existant
         private void Upd_Clicked(object sender, EventArgs e)
         {
-            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && MailTB.Text != string.Empty && MailTB.Text != mailTxt && FirstNameTB.Text != null && FirstNameTB.Text != firstNameTxt && PhoneTB.Text != null && PhoneTB.Text != phoneTxt && AddressTB.Text != null && AddressTB.Text != addressTxt && CpTB.Text != null && CpTB.Text != cpTxt && (HommeRB.Checked || FemmeRB.Checked) && ClientsCB.SelectedIndex != -1)
+            if (IsValidClientInput() && ClientsCB.SelectedIndex != -1)
             {
                 try
                 {
@@ -232,35 +193,34 @@ namespace AutoFact.Views
                     string phone = PhoneTB.Text;
                     string address = AddressTB.Text;
                     string cp = CpTB.Text;
-                    string civility = "F";
-
-                    if (HommeRB.Checked)
-                    {
-                        civility = "H";
-                    }
-
-                    ClientsCB.SelectedIndex = -1;
+                    string civility = HommeRB.Checked ? "H" : "F";
 
                     clientvm.updClients(id, name, mail, phone, address, cp, civility, firstName);
 
-                    NameTB.Clear();
-                    MailTB.Clear();
-                    FirstNameTB.Clear();
-                    PhoneTB.Clear();
-                    AddressTB.Clear();
-                    CpTB.Clear();
-                    HommeRB.Checked = false;
-                    FemmeRB.Checked = false;
-                    Resets(this, e);
+                    ClearFields();
+                    Resets(this, EventArgs.Empty);
 
+                    // Rafraîchir la liste des clients
                     listClients = clientvm.getClients();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    MessageBox.Show("La valeur entrée dans le champs 'Nom' ou le champs 'Prix Unitaire' n'est pas valide");
+                    MessageBox.Show("Erreur dans les données saisies.");
                 }
             }
+        }
+
+        // Vérification que l'entrée du client est valide
+        private bool IsValidClientInput()
+        {
+            return NameTB.Text != string.Empty && NameTB.Text != nameTxt &&
+                   MailTB.Text != string.Empty && MailTB.Text != mailTxt &&
+                   FirstNameTB.Text != string.Empty && FirstNameTB.Text != firstNameTxt &&
+                   PhoneTB.Text != string.Empty && PhoneTB.Text != phoneTxt &&
+                   AddressTB.Text != string.Empty && AddressTB.Text != addressTxt &&
+                   CpTB.Text != string.Empty && CpTB.Text != cpTxt &&
+                   (HommeRB.Checked || FemmeRB.Checked);
         }
     }
 }
