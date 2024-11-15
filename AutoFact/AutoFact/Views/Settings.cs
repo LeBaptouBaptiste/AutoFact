@@ -22,9 +22,7 @@ namespace AutoFact.Views
         string addressTxt = "Adresse postale";
         string mailTxt = "Email professionel";
         string countryTxt = "Pays";
-
-        string extension;
-
+        string tvaTxt = "TVA";
         public Settings()
         {
             InitializeComponent();
@@ -47,16 +45,9 @@ namespace AutoFact.Views
                     string projectDirectory = AppDomain.CurrentDomain.BaseDirectory; // Répertoire de l'exécutable
                     string targetDirectory = Path.Combine(projectDirectory, "Pictures");
 
-                    string targetFilePath = Path.Combine(targetDirectory, "Logo" + Path.GetExtension(logoPath));
+                    string targetFilePath = Path.Combine(targetDirectory, "NewLogo" + Path.GetExtension(logoPath));
 
-                    extension = Path.GetExtension(logoPath);
-
-                    string[] existingFiles = Directory.GetFiles(targetDirectory, "Logo.*");
-                    foreach (string file in existingFiles)
-                    {
-                        File.Delete(file);
-                    }
-
+                    DeleteExistingFiles("./Pictures/", "Logo.*");
                     try
                     {
                         File.Copy(logoPath, targetFilePath, true); // 'true' pour écraser si existe déjà
@@ -66,7 +57,11 @@ namespace AutoFact.Views
                         MessageBox.Show($"Erreur lors de la copie de l'image : {ex.Message}");
                     }
 
-                    LogoPB.Image = ResizeImage(Image.FromFile(logoPath), LogoPB.Width, LogoPB.Height);
+                    using (var memoryStream = new MemoryStream(File.ReadAllBytes(logoPath)))
+                    {
+                        LogoPB.Image = ResizeImage(Image.FromStream(memoryStream), LogoPB.Width, LogoPB.Height);
+                    }
+
                     LogoPB.SizeMode = PictureBoxSizeMode.StretchImage; // Ajuste l'image au contrôle PictureBox
                 }
             }
@@ -80,6 +75,16 @@ namespace AutoFact.Views
                 g.DrawImage(imgToResize, 0, 0, width, height);
             }
             return b;
+        }
+        private void DeleteExistingFiles(string directory, string pattern)
+        {
+            if (Directory.Exists(directory))
+            {
+                foreach (string file in Directory.GetFiles(directory, pattern))
+                {
+                    File.Delete(file);
+                }
+            }
         }
 
         private void NameTB_Clicked(object sender, EventArgs e)
@@ -147,6 +152,16 @@ namespace AutoFact.Views
                 this.ActiveControl = CountryTB;
             }
         }
+        private void TVATB_Clicked(object sender, EventArgs e)
+        {
+            if (TVATB.Text == tvaTxt)
+            {
+                Resets(sender, e);
+                TVATB.Text = string.Empty;
+                ChangeText(sender, true);
+                this.ActiveControl = TVATB;
+            }
+        }
 
         private void ChangeText(object sender, bool able)
         {
@@ -193,6 +208,11 @@ namespace AutoFact.Views
                 CountryTB.Text = countryTxt;
                 ChangeText(CountryTB, false);
             }
+            if (TVATB.Text == string.Empty)
+            {
+                TVATB.Text = tvaTxt;
+                ChangeText(TVATB, false);
+            }
             this.ActiveControl = null;
         }
         private void SaveButton_Click(object sender, EventArgs e)
@@ -212,10 +232,35 @@ namespace AutoFact.Views
             ini.Write("Section", "Address", AddressTB.Text);
             ini.Write("Section", "Cp", CpTB.Text);
             ini.Write("Section", "Country", CountryTB.Text);
-            ini.Write("Section", "Logo", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pictures", "Logo*"));
+            ini.Write("Section", "Delivery", DelivCB.Checked.ToString());
+            ini.Write("Section", "TVA", TVATB.Text);
 
-            MessageBox.Show("Données enregistrées dans le fichier .ini");
+            string logoDirectory = "./Pictures/";
+            string[] logoFiles = Directory.GetFiles(logoDirectory, "NewLogo.*");
+
+            string logoPath = "";
+
+            if (logoFiles.Length > 0)
+            {
+                logoPath = logoFiles[0]; // Prend le premier fichier trouvé
+            }
+
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory; // Répertoire de l'exécutable
+            string targetDirectory = Path.Combine(projectDirectory, "Pictures");
+
+            string targetFilePath = Path.Combine(targetDirectory, "Logo" + Path.GetExtension(logoPath));
+
+            DeleteExistingFiles("./Pictures/", "Logo.*");
+            try
+            {
+                File.Copy(logoPath, targetFilePath, true); // 'true' pour écraser si existe déjà
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la copie de l'image : {ex.Message}");
+            }
         }
+
 
         private void LoadForm(object sender, EventArgs e)
         {
@@ -231,12 +276,20 @@ namespace AutoFact.Views
                 AddressTB.Text = ini.Read("Section", "Address");
                 CpTB.Text = ini.Read("Section", "Cp");
                 CountryTB.Text = ini.Read("Section", "Country");
-                string logoPath = ini.Read("Section", "Logo");
+                DelivCB.Checked = Convert.ToBoolean(ini.Read("Section", "Delivery"));
+                TVATB.Text = ini.Read("Section", "TVA");
 
-                if (File.Exists(logoPath))
+                string logoDirectory = "./Pictures/";
+                string[] logoFiles = Directory.GetFiles(logoDirectory, "Logo.*");
+
+                if (logoFiles.Length > 0)
                 {
-                    MessageBox.Show(logoPath);
-                    LogoPB.Image = ResizeImage(Image.FromFile(logoPath), LogoPB.Width, LogoPB.Height);
+                    string logoPath = logoFiles[0]; // Prend le premier fichier trouvé
+                    using (var memoryStream = new MemoryStream(File.ReadAllBytes(logoPath)))
+                    {
+                        LogoPB.Image = ResizeImage(Image.FromStream(memoryStream), LogoPB.Width, LogoPB.Height);
+                    }
+
                     LogoPB.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
 
@@ -246,12 +299,8 @@ namespace AutoFact.Views
                 ChangeText(AddressTB, true);
                 ChangeText(CpTB, true);
                 ChangeText(CountryTB, true);
+                ChangeText(TVATB, true);
             }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

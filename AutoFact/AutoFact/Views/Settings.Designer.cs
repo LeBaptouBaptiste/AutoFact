@@ -43,6 +43,7 @@
             SelectLogoBtn = new Button();
             SaveBtn = new Button();
             DelivCB = new CheckBox();
+            TVATB = new TextBox();
             ((System.ComponentModel.ISupportInitialize)LogoPB).BeginInit();
             SuspendLayout();
             // 
@@ -84,6 +85,7 @@
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(250, 26);
             NameTB.TabIndex = 1;
+            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
             // 
             // PhoneTB
@@ -95,6 +97,7 @@
             PhoneTB.Name = "PhoneTB";
             PhoneTB.Size = new Size(250, 26);
             PhoneTB.TabIndex = 10;
+            PhoneTB.Text = phoneTxt;
             PhoneTB.Click += PhoneTB_Clicked;
             // 
             // MailTB
@@ -106,6 +109,7 @@
             MailTB.Name = "MailTB";
             MailTB.Size = new Size(250, 26);
             MailTB.TabIndex = 11;
+            MailTB.Text = mailTxt;
             MailTB.Click += MailTB_Clicked;
             // 
             // AddressTB
@@ -117,6 +121,7 @@
             AddressTB.Name = "AddressTB";
             AddressTB.Size = new Size(250, 26);
             AddressTB.TabIndex = 12;
+            AddressTB.Text = addressTxt;
             AddressTB.Click += AddressTB_Clicked;
             // 
             // CpTB
@@ -128,6 +133,7 @@
             CpTB.Name = "CpTB";
             CpTB.Size = new Size(250, 26);
             CpTB.TabIndex = 13;
+            CpTB.Text = cpTxt;
             CpTB.Click += CpTB_Clicked;
             // 
             // CountryTB
@@ -139,6 +145,7 @@
             CountryTB.Name = "CountryTB";
             CountryTB.Size = new Size(250, 26);
             CountryTB.TabIndex = 14;
+            CountryTB.Text = countryTxt;
             CountryTB.Click += CountryTB_Clicked;
             // 
             // ImportLbl
@@ -192,19 +199,31 @@
             // DelivCB
             // 
             DelivCB.AutoSize = true;
-            DelivCB.Location = new Point(1187, 758);
+            DelivCB.Location = new Point(1134, 695);
             DelivCB.Name = "DelivCB";
             DelivCB.Size = new Size(121, 19);
             DelivCB.TabIndex = 19;
             DelivCB.Text = "Frais de livraison ?";
             DelivCB.UseVisualStyleBackColor = true;
-            DelivCB.CheckedChanged += checkBox1_CheckedChanged;
             // 
+            // TVATB
+            // 
+            TVATB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TVATB.ForeColor = Color.Silver;
+            TVATB.Location = new Point(1100, 800);
+            TVATB.Size = new Size(100, 23);
+            TVATB.MaxLength = 255;
+            TVATB.Name = "TVATB";
+            TVATB.TabIndex = 14;
+            TVATB.Text = tvaTxt;
+            TVATB.Click += TVATB_Clicked;
+            //    
             // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(TVATB);
             Controls.Add(DelivCB);
             Controls.Add(SaveBtn);
             Controls.Add(SelectLogoBtn);
@@ -247,5 +266,6 @@
         private Button SelectLogoBtn;
         private Button SaveBtn;
         private CheckBox DelivCB;
+        private TextBox TVATB;
     }
 }
