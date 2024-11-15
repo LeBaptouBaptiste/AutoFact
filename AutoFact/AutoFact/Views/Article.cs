@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoFact.ViewModel;
-using MySqlConnector;
 using AutoFact.Models;
 
 namespace AutoFact.Views

@@ -1,38 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySqlConnector;
+using System.Data;
+using System.Data.SQLite;
+using System.IO;
 
 namespace AutoFact.Models
 {
     internal class DataBaseManager
     {
         private static DataBaseManager instance = null;
-        private MySqlConnection connection;
+        private SQLiteConnection connection;
 
         private DataBaseManager()
         {
-            var builder = new MySqlConnectionStringBuilder
+            string databasePath = "DBAutofact.db"; // Fichier SQLite
+            string connectionString = $"Data Source={databasePath};Version=3;";
+
+            if (!File.Exists(databasePath))
             {
-                //Server = "172.16.119.56",
-                //Server = "192.168.1.170",
-                Server = "192.168.56.5",
-                Port = 20125,
-                UserID = "adminAutofact",
-                Password = "AjXg$%Auc~B?K\"fl5q#.#aYbG",
-                Database = "Autofact",
-            };
-            connection = new MySqlConnection(builder.ConnectionString);
+                SQLiteConnection.CreateFile(databasePath); // Crée le fichier si non existant
+                Console.WriteLine("Fichier de base de données SQLite créé.");
+            }
+
+            connection = new SQLiteConnection(connectionString);
+
             try
             {
                 connection.Open();
-                Console.WriteLine("Connexion à la base de données réussie!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erreur de connexion à la base de données : {ex.Message}", "Erreur de connexion");
+                MessageBox.Show($"Erreur de connexion à la base de données : {ex.Message}");
             }
         }
 
@@ -45,7 +42,7 @@ namespace AutoFact.Models
             return DataBaseManager.instance;
         }
 
-        public MySqlConnection getConnection()
+        public SQLiteConnection getConnection()
         {
             return connection;
         }

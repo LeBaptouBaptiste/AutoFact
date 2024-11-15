@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="DBAutofact.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1515"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="Avoirs" custom_title="0" dock_id="1" table="4,6:mainAvoirs"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000012100ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">CREATE TABLE Clients(
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   adresse VARCHAR(255) NOT NULL,
+   cp CHAR(5) NOT NULL,
+   tel CHAR(10) NOT NULL,
+   mail VARCHAR(255) NOT NULL,
+   nom VARCHAR(32) NOT NULL
+);
+
+CREATE TABLE Particuliers(
+   id INTEGER,
+   civilitée VARCHAR(10) NOT NULL,
+   prenom VARCHAR(50) NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id) REFERENCES Clients(id)
+);
+
+CREATE TABLE Designations(
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   libelle VARCHAR(255) NOT NULL,
+   prix DECIMAL(15,2) NOT NULL,
+   description TEXT
+);
+
+CREATE TABLE TypesReduc(
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   libelle VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE EtatsContrat(
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   libelle VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Services(
+   id INTEGER,
+   duree INT NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id) REFERENCES Designations(id)
+);
+
+CREATE TABLE Societes(
+   id INTEGER,
+   siret VARCHAR(17) NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id) REFERENCES Clients(id)
+);
+
+CREATE TABLE DelaisPaiement(
+   id INTEGER,
+   libelle VARCHAR(50) NOT NULL,
+   nbjours INT NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE Contrats(
+   reference VARCHAR(50) PRIMARY KEY,
+   id INTEGER NOT NULL,
+   client INTEGER NOT NULL,
+   FOREIGN KEY(id) REFERENCES DelaisPaiement(id),
+   FOREIGN KEY(client) REFERENCES Clients(id)
+);
+
+CREATE TABLE CodesPromo(
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   code VARCHAR(50) NOT NULL,
+   reduction DECIMAL(9,2) NOT NULL,
+   typeR INTEGER NOT NULL,
+   FOREIGN KEY(typeR) REFERENCES TypesReduc(id)
+);
+
+CREATE TABLE Avoirs(
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   montant DECIMAL(9,2) NOT NULL,
+   contrat VARCHAR(50),
+   client INTEGER NOT NULL,
+   FOREIGN KEY(contrat) REFERENCES Contrats(reference),
+   FOREIGN KEY(client) REFERENCES Clients(id)
+);
+
+CREATE TABLE Produits(
+   id INTEGER,
+   prixAchat DECIMAL(15,2) NOT NULL,
+   Quantite VARCHAR(50),
+   id_fournisseur INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id) REFERENCES Designations(id),
+   FOREIGN KEY(id_fournisseur) REFERENCES Societes(id)
+);
+
+CREATE TABLE ServicesClients(
+   id INTEGER,
+   reference VARCHAR(50),
+   quantité INT NOT NULL,
+   prix DECIMAL(9,2) NOT NULL,
+   PRIMARY KEY(id, reference),
+   FOREIGN KEY(id) REFERENCES Designations(id),
+   FOREIGN KEY(reference) REFERENCES Contrats(reference)
+);
+
+CREATE TABLE StatutsContrats(
+   reference VARCHAR(50),
+   etat INTEGER,
+   dateAction DATE,
+   PRIMARY KEY(reference, etat),
+   FOREIGN KEY(reference) REFERENCES Contrats(reference),
+   FOREIGN KEY(etat) REFERENCES EtatsContrat(id)
+);
+</sql><sql name="SQL 2*">SELECT Clients.id, siret, adresse, cp, tel, mail, nom FROM Societes INNER JOIN Clients ON Societes.id = Clients.id;</sql><sql name="SQL 3*">CREATE TABLE Particuliers(
+   id INTEGER,
+   civilitee VARCHAR(10) NOT NULL,
+   prenom VARCHAR(50) NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id) REFERENCES Clients(id)
+);
+</sql><current_tab id="2"/></tab_sql></sqlb_project>

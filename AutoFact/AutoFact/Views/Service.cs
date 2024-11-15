@@ -150,11 +150,11 @@ namespace AutoFact.Views
                     {
                         int duration = Convert.ToInt32(DurationTB.Text);
 
-                        servicevm.AddService(name, price, duration, description);
+                        servicevm.addService(name, price, duration, description);
                     }
                     else
                     {
-                        servicevm.AddServiceWithoutDuration(name, price, description);
+                        servicevm.addServiceWithoutDuration(name, price, description);
                     }
 
                     NameTB.Clear();
@@ -185,11 +185,11 @@ namespace AutoFact.Views
                     {
                         int duration = Convert.ToInt32(DurationTB.Text);
 
-                        servicevm.UpdService(id, name, price, duration, description);
+                        servicevm.updService(id, name, price, duration, description);
                     }
                     else
                     {
-                        servicevm.UpdServiceWithoutDuration(id, name, price, description);
+                        servicevm.updServiceWithoutDuration(id, name, price, description);
                     }
 
                     NameTB.Clear();

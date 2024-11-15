@@ -198,7 +198,7 @@ namespace AutoFact.Views
                     }
 
 
-                    clientvm.AddClients(name, mail, phone, address, cp, civility, firstName);
+                    clientvm.addClients(name, mail, phone, address, cp, civility, firstName);
 
                     NameTB.Clear();
                     MailTB.Clear();
@@ -241,7 +241,7 @@ namespace AutoFact.Views
 
                     ClientsCB.SelectedIndex = -1;
 
-                    clientvm.UpdClients(id, name, mail, phone, address, cp, civility, firstName);
+                    clientvm.updClients(id, name, mail, phone, address, cp, civility, firstName);
 
                     NameTB.Clear();
                     MailTB.Clear();

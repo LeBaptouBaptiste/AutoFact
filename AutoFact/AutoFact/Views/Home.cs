@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoFact.Models;
-using MySqlConnector;
+using System.Data.SQLite;
 
 namespace AutoFact.Views;
 
 public partial class Home : Form
 {
     private BackgroundPanel backgroundPanel;
-    private MySqlConnection connection;
+    private SQLiteConnection connection;
     public Home()
     {
         InitializeComponent();

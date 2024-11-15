@@ -182,7 +182,7 @@ namespace AutoFact.Views
                     string address = AddressTB.Text;
                     string cp = CpTB.Text;
 
-                    societevm.AddSupplier(name, mail, siret, phone, address, cp);
+                    societevm.addSupplier(name, mail, siret, phone, address, cp);
 
                     NameTB.Clear();
                     MailTB.Clear();
@@ -217,7 +217,7 @@ namespace AutoFact.Views
 
                     SuppliersCB.SelectedIndex = -1;
 
-                    societevm.UpdSupplier(id, name, mail, siret, phone, address, cp);
+                    societevm.updSupplier(id, name, mail, siret, phone, address, cp);
 
                     NameTB.Clear();
                     MailTB.Clear();

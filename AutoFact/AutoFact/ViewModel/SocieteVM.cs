@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+﻿using System.Data.SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +15,7 @@ namespace AutoFact.ViewModel
     internal class SocieteVM
     {
         private List<Societe> societeList;
-        private MySqlConnection connection;
+        private SQLiteConnection connection;
         private ComboBox box;
 
         public SocieteVM(ComboBox box)
@@ -38,24 +38,32 @@ namespace AutoFact.ViewModel
             this.box.Items.Clear();
             try
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT Clients.id, siret, adresse, cp, tel, mail, nom FROM Societes INNER JOIN Clients ON Societes.id = Clients.id;", connection);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
+                // Requête SQLite pour récupérer les données
+                string query = @"SELECT Clients.id, siret, adresse, cp, tel, mail, nom FROM Societes INNER JOIN Clients ON Societes.id = Clients.id;";
 
-                foreach (DataRow row in dataTable.Rows)
+                // Utilisation de SQLiteCommand et SQLiteDataAdapter pour interagir avec la base de données SQLite
+                using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
                 {
-                    int id = Convert.ToInt32(row["id"]);
-                    string siret = row["siret"].ToString();
-                    string adresse = row["adresse"].ToString();
-                    string cp = row["cp"].ToString();
-                    string tel = row["tel"].ToString();
-                    string mail = row["mail"].ToString();
-                    string nom = row["nom"].ToString();
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
 
-                    Societe society = new Societe(id, nom, adresse, cp, tel, mail, siret);
-                    this.box.Items.Add(society.Name);
-                    societeList.Add(society);
+                    // Remplir la liste des sociétés à partir des données récupérées
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        int id = Convert.ToInt32(row["id"]);
+                        string siret = row["siret"].ToString();
+                        string adresse = row["adresse"].ToString();
+                        string cp = row["cp"].ToString();
+                        string tel = row["tel"].ToString();
+                        string mail = row["mail"].ToString();
+                        string nom = row["nom"].ToString();
+
+                        // Création de l'objet Societe et ajout dans la liste
+                        Societe society = new Societe(id, nom, adresse, cp, tel, mail, siret);
+                        this.box.Items.Add(society.Name);
+                        societeList.Add(society);
+                    }
                 }
             }
             catch (Exception ex)
@@ -64,6 +72,7 @@ namespace AutoFact.ViewModel
             }
         }
 
+
         public List<Societe> getSupplys()
         {
             this.societeList.Clear();
@@ -71,20 +80,20 @@ namespace AutoFact.ViewModel
             return this.societeList;
         }
 
-        public void AddSupplier(string name, string mail, string siret, string phone, string address, string cp)
+        public void addSupplier(string name, string mail, string siret, string phone, string address, string cp)
         {
             try
             {
                 Societe mySupplier = new Societe(name, address, cp, phone, mail, siret);
 
-
-                using (MySqlTransaction transaction = connection.BeginTransaction())
+                using (SQLiteTransaction transaction = connection.BeginTransaction())
                 {
                     try
                     {
-                        string clientQuery = "INSERT INTO Clients(nom, mail, tel, adresse, cp) VALUES(@name, @mail, @phone, @address, @cp); SELECT LAST_INSERT_ID();";
+                        // Requête d'insertion dans la table Clients
+                        string clientQuery = "INSERT INTO Clients(nom, mail, tel, adresse, cp) VALUES(@name, @mail, @phone, @address, @cp); SELECT last_insert_rowid();";
 
-                        using (MySqlCommand cmdClient = new MySqlCommand(clientQuery, connection, transaction))
+                        using (SQLiteCommand cmdClient = new SQLiteCommand(clientQuery, connection, transaction))
                         {
                             cmdClient.Parameters.AddWithValue("@name", mySupplier.Name);
                             cmdClient.Parameters.AddWithValue("@mail", mySupplier.Mail);
@@ -92,49 +101,56 @@ namespace AutoFact.ViewModel
                             cmdClient.Parameters.AddWithValue("@address", mySupplier.Address);
                             cmdClient.Parameters.AddWithValue("@cp", mySupplier.PostalCode);
 
+                            // Récupérer l'ID généré de la table Clients
                             int generatedId = Convert.ToInt32(cmdClient.ExecuteScalar());
 
-                            string SupplierQuery = "INSERT INTO Societes(id, siret) VALUES(@id, @siret);";
-                            using (MySqlCommand cmdSupplier = new MySqlCommand(SupplierQuery, connection, transaction))
+                            // Requête d'insertion dans la table Societes
+                            string supplierQuery = "INSERT INTO Societes(id, siret) VALUES(@id, @siret);";
+                            using (SQLiteCommand cmdSupplier = new SQLiteCommand(supplierQuery, connection, transaction))
                             {
-                                cmdSupplier.Parameters.AddWithValue("@id", generatedId); // Utiliser l'ID généré
+                                cmdSupplier.Parameters.AddWithValue("@id", generatedId); // Utilise l'ID généré
                                 cmdSupplier.Parameters.AddWithValue("@siret", mySupplier.Siret);
 
                                 cmdSupplier.ExecuteNonQuery();
                             }
                         }
 
+                        // Commit de la transaction si tout s'est bien passé
                         transaction.Commit();
-                        loadSupplys();
+                        loadSupplys(); // Recharge la liste des fournisseurs
                     }
                     catch (Exception ex)
                     {
+                        // Annuler la transaction en cas d'erreur
                         transaction.Rollback();
                         MessageBox.Show(ex.Message);
-                        MessageBox.Show("Probleme lors de l'insertion des données");
+                        MessageBox.Show("Problème lors de l'insertion des données");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Probleme lors de la creation de l'objet");
+                MessageBox.Show("Problème lors de la création de l'objet");
             }
         }
-        public void UpdSupplier(int id, string name, string mail, string siret, string phone, string address, string cp)
+        public void updSupplier(int id, string name, string mail, string siret, string phone, string address, string cp)
         {
             try
             {
+                // Créer un objet Societe avec les nouvelles données
                 Societe mySupplier = new Societe(id, name, address, cp, phone, mail, siret);
 
-
-                using (MySqlTransaction transaction = connection.BeginTransaction())
+                // Démarrer une transaction SQLite
+                using (SQLiteTransaction transaction = connection.BeginTransaction())
                 {
                     try
                     {
-                        string ClientQuery = "UPDATE Clients SET nom = @name, mail = @mail, tel = @phone, adresse = @address, cp = @cp WHERE id = @id;";
+                        // Requête d'update dans la table Clients
+                        string clientQuery = "UPDATE Clients SET nom = @name, mail = @mail, tel = @phone, adresse = @address, cp = @cp WHERE id = @id;";
 
-                        using (MySqlCommand cmdClient = new MySqlCommand(ClientQuery, connection, transaction))
+                        using (SQLiteCommand cmdClient = new SQLiteCommand(clientQuery, connection, transaction))
                         {
+                            // Ajouter les paramètres à la commande SQLite
                             cmdClient.Parameters.AddWithValue("@name", mySupplier.Name);
                             cmdClient.Parameters.AddWithValue("@mail", mySupplier.Mail);
                             cmdClient.Parameters.AddWithValue("@phone", mySupplier.Phone);
@@ -142,32 +158,39 @@ namespace AutoFact.ViewModel
                             cmdClient.Parameters.AddWithValue("@cp", mySupplier.PostalCode);
                             cmdClient.Parameters.AddWithValue("@id", mySupplier.Id);
 
+                            // Exécuter la requête pour mettre à jour la table Clients
                             cmdClient.ExecuteNonQuery();
-
-                            string supplierQuery = "UPDATE Societes SET siret = @siret WHERE id = @id";
-                            using (MySqlCommand cmdSupplier = new MySqlCommand(supplierQuery, connection, transaction))
-                            {
-                                cmdSupplier.Parameters.AddWithValue("@id", mySupplier.Id);
-                                cmdSupplier.Parameters.AddWithValue("@siret", mySupplier.Siret);
-
-                                cmdSupplier.ExecuteNonQuery();
-                            }
                         }
 
+                        // Requête d'update dans la table Societes
+                        string supplierQuery = "UPDATE Societes SET siret = @siret WHERE id = @id;";
+
+                        using (SQLiteCommand cmdSupplier = new SQLiteCommand(supplierQuery, connection, transaction))
+                        {
+                            // Ajouter les paramètres à la commande SQLite
+                            cmdSupplier.Parameters.AddWithValue("@id", mySupplier.Id);
+                            cmdSupplier.Parameters.AddWithValue("@siret", mySupplier.Siret);
+
+                            // Exécuter la requête pour mettre à jour la table Societes
+                            cmdSupplier.ExecuteNonQuery();
+                        }
+
+                        // Valider la transaction après succès
                         transaction.Commit();
-                        loadSupplys();
+                        loadSupplys(); // Recharger les fournisseurs après la mise à jour
                     }
                     catch (Exception ex)
                     {
+                        // Annuler la transaction en cas d'erreur
                         transaction.Rollback();
                         MessageBox.Show(ex.Message);
-                        MessageBox.Show("Probleme lors de l'insertion des données");
+                        MessageBox.Show("Problème lors de la mise à jour des données");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Probleme lors de la creation de l'objet");
+                MessageBox.Show("Problème lors de la création de l'objet");
             }
         }
     }
