@@ -1,21 +1,16 @@
-﻿using AutoFact.Models;
-using AutoFact.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using AutoFact.ViewModel;
+using AutoFact.Models;
 
 namespace AutoFact.Views
 {
-    public partial class Settings : Form
+    public partial class Settings : Form // Définit la fenêtre de paramètres de l'application.
     {
+        // Texte par défaut pour différents champs de texte.
         string nameTxt = "Denomination de la société";
         string cpTxt = "Code postale";
         string phoneTxt = "Telephone professionel";
@@ -23,143 +18,146 @@ namespace AutoFact.Views
         string mailTxt = "Email professionel";
         string countryTxt = "Pays";
         string tvaTxt = "TVA";
+
         public Settings()
         {
-            InitializeComponent();
+            InitializeComponent(); // Initialisation des composants de la fenêtre.
         }
 
+        // Les méthodes déclenchées lorsqu'un champ de texte est cliqué.
+        private void NameTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, nameTxt);
+        private void CpTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, cpTxt);
+        private void PhoneTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, phoneTxt);
+        private void AddressTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, addressTxt);
+        private void MailTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, mailTxt);
+        private void CountryTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, countryTxt);
+        private void TVATB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, tvaTxt);
+
+        // Méthode générique pour gérer le clic sur un champ.
+        private void HandleFieldClick(object sender, string defaultText)
+        {
+            TextBox textBox = sender as TextBox; // Cast l'objet déclencheur en TextBox.
+            if (textBox.Text == defaultText) // Si le champ contient le texte par défaut :
+            {
+                Resets(sender, EventArgs.Empty); // Réinitialise les autres champs.
+                textBox.Text = string.Empty; // Vide le texte.
+                ChangeText(sender, EventArgs.Empty, true); // Change l'apparence (texte noir).
+                this.ActiveControl = textBox; // Place le focus sur ce champ.
+            }
+        }
+
+        // Efface tous les champs de texte.
+        private void ClearFields()
+        {
+            NameTB.Clear();
+            CpTB.Clear();
+            PhoneTB.Clear();
+            AddressTB.Clear();
+            MailTB.Clear();
+            CountryTB.Clear();
+            TVATB.Clear();
+        }
+
+        // Change l'apparence de tous les champs.
+        private void UpdateFieldAppearance()
+        {
+            ChangeText(NameTB, EventArgs.Empty, true);
+            ChangeText(CpTB, EventArgs.Empty, true);
+            ChangeText(PhoneTB, EventArgs.Empty, true);
+            ChangeText(AddressTB, EventArgs.Empty, true);
+            ChangeText(MailTB, EventArgs.Empty, true);
+            ChangeText(CountryTB, EventArgs.Empty, true);
+            ChangeText(TVATB, EventArgs.Empty, true);
+        }
+
+        // Change la couleur du texte d'un contrôle (noir ou gris).
+        private void ChangeText(object sender, EventArgs e, bool able)
+        {
+            Control obj = sender as Control; // Cast en contrôle générique.
+            obj.ForeColor = able ? Color.Black : Color.Silver; // Définit la couleur.
+        }
+
+        // Réinitialise les champs avec les textes par défaut.
+        private void Resets(object sender, EventArgs e)
+        {
+            ResetField(NameTB, nameTxt, e);
+            ResetField(CpTB, cpTxt, e);
+            ResetField(PhoneTB, phoneTxt, e);
+            ResetField(AddressTB, addressTxt, e);
+            ResetField(MailTB, mailTxt, e);
+            ResetField(CountryTB, countryTxt, e);
+            ResetField(TVATB, tvaTxt, e);
+            this.ActiveControl = null; // Enlève le focus.
+        }
+
+        // Réinitialise un champ spécifique s'il est vide.
+        private void ResetField(TextBox textBox, string defaultText, EventArgs e)
+        {
+            if (textBox.Text == string.Empty) // Si le champ est vide :
+            {
+                textBox.Text = defaultText; // Remet le texte par défaut.
+                ChangeText(textBox, e, false); // Change la couleur (texte gris).
+            }
+        }
+
+        // Sélectionne et redimensionne un logo.
         private void SelectLogoBtn_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Title = "Sélectionnez une image";
-                openFileDialog.Filter = "Images Files|*.jpg;*.jpeg;*.png;*.bmp";
-                openFileDialog.Multiselect = false;
+                openFileDialog.Title = "Sélectionnez une image"; // Titre de la boîte de dialogue.
+                openFileDialog.Filter = "Images Files|*.jpg;*.jpeg;*.png;*.bmp"; // Filtre les fichiers image.
+                openFileDialog.Multiselect = false; // Permet de sélectionner un seul fichier.
 
-                // Affiche la boîte de dialogue et vérifie si l'utilisateur a sélectionné un fichier
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                if (openFileDialog.ShowDialog() == DialogResult.OK) // Si un fichier est sélectionné :
                 {
-                    // Récupère le chemin du fichier sélectionné
-                    string logoPath = openFileDialog.FileName;
+                    string logoPath = openFileDialog.FileName; // Chemin du fichier sélectionné.
 
-                    string projectDirectory = AppDomain.CurrentDomain.BaseDirectory; // Répertoire de l'exécutable
+                    // Répertoires pour enregistrer le fichier.
+                    string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
                     string targetDirectory = Path.Combine(projectDirectory, "Pictures");
-
                     string targetFilePath = Path.Combine(targetDirectory, "NewLogo" + Path.GetExtension(logoPath));
 
-                    DeleteExistingFiles("./Pictures/", "Logo.*");
+                    DeleteExistingFiles("./Pictures/", "Logo.*"); // Supprime les anciens fichiers logo.
                     try
                     {
-                        File.Copy(logoPath, targetFilePath, true); // 'true' pour écraser si existe déjà
+                        File.Copy(logoPath, targetFilePath, true); // Copie le fichier sélectionné.
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Erreur lors de la copie de l'image : {ex.Message}");
                     }
 
+                    // Charge et redimensionne l'image pour l'afficher dans PictureBox.
                     using (var memoryStream = new MemoryStream(File.ReadAllBytes(logoPath)))
                     {
                         LogoPB.Image = ResizeImage(Image.FromStream(memoryStream), LogoPB.Width, LogoPB.Height);
                     }
-
-                    LogoPB.SizeMode = PictureBoxSizeMode.StretchImage; // Ajuste l'image au contrôle PictureBox
+                    LogoPB.SizeMode = PictureBoxSizeMode.StretchImage; // Ajuste l'image.
                 }
             }
         }
 
+        // Redimensionne une image.
         Image ResizeImage(Image imgToResize, int width, int height)
         {
             Bitmap b = new Bitmap(width, height);
             using (Graphics g = Graphics.FromImage(b))
             {
-                g.DrawImage(imgToResize, 0, 0, width, height);
+                g.DrawImage(imgToResize, 0, 0, width, height); // Redimensionne l'image.
             }
             return b;
         }
+
+        // Supprime les fichiers existants dans un répertoire selon un motif.
         private void DeleteExistingFiles(string directory, string pattern)
         {
             if (Directory.Exists(directory))
             {
                 foreach (string file in Directory.GetFiles(directory, pattern))
                 {
-                    File.Delete(file);
+                    File.Delete(file); // Supprime chaque fichier correspondant au motif.
                 }
-            }
-        }
-
-        private void NameTB_Clicked(object sender, EventArgs e)
-        {
-            if (NameTB.Text == nameTxt)
-            {
-                Resets(sender, e);
-                NameTB.Text = string.Empty;
-                ChangeText(sender, true);
-                this.ActiveControl = NameTB;
-            }
-        }
-
-        private void PhoneTB_Clicked(object sender, EventArgs e)
-        {
-            if (PhoneTB.Text == phoneTxt)
-            {
-                Resets(sender, e);
-                PhoneTB.Text = string.Empty;
-                ChangeText(sender, true);
-                this.ActiveControl = PhoneTB;
-            }
-        }
-
-        private void MailTB_Clicked(object sender, EventArgs e)
-        {
-            if (MailTB.Text == mailTxt)
-            {
-                Resets(sender, e);
-                MailTB.Text = string.Empty;
-                ChangeText(sender, true);
-                this.ActiveControl = MailTB;
-            }
-        }
-
-        private void AddressTB_Clicked(object sender, EventArgs e)
-        {
-            if (AddressTB.Text == addressTxt)
-            {
-                Resets(sender, e);
-                AddressTB.Text = string.Empty;
-                ChangeText(sender, true);
-                this.ActiveControl = AddressTB;
-            }
-        }
-
-        private void CpTB_Clicked(object sender, EventArgs e)
-        {
-            if (CpTB.Text == cpTxt)
-            {
-                Resets(sender, e);
-                CpTB.Text = string.Empty;
-                ChangeText(sender, true);
-                this.ActiveControl = CpTB;
-            }
-        }
-
-        private void CountryTB_Clicked(object sender, EventArgs e)
-        {
-            if (CountryTB.Text == countryTxt)
-            {
-                Resets(sender, e);
-                CountryTB.Text = string.Empty;
-                ChangeText(sender, true);
-                this.ActiveControl = CountryTB;
-            }
-        }
-        private void TVATB_Clicked(object sender, EventArgs e)
-        {
-            if (TVATB.Text == tvaTxt)
-            {
-                Resets(sender, e);
-                TVATB.Text = string.Empty;
-                ChangeText(sender, true);
-                this.ActiveControl = TVATB;
             }
         }
 
@@ -176,56 +174,20 @@ namespace AutoFact.Views
                 obj.ForeColor = Color.Silver;
             }
         }
-        private void Resets(object sender, EventArgs e)
-        {
-            if (NameTB.Text == string.Empty)
-            {
-                NameTB.Text = nameTxt;
-                ChangeText(NameTB, false);
-            }
-            if (PhoneTB.Text == string.Empty)
-            {
-                PhoneTB.Text = phoneTxt;
-                ChangeText(PhoneTB, false);
-            }
-            if (MailTB.Text == string.Empty)
-            {
-                MailTB.Text = mailTxt;
-                ChangeText(MailTB, false);
-            }
-            if (AddressTB.Text == string.Empty)
-            {
-                AddressTB.Text = addressTxt;
-                ChangeText(AddressTB, false);
-            }
-            if (CpTB.Text == string.Empty)
-            {
-                CpTB.Text = cpTxt;
-                ChangeText(CpTB, false);
-            }
-            if (CountryTB.Text == string.Empty)
-            {
-                CountryTB.Text = countryTxt;
-                ChangeText(CountryTB, false);
-            }
-            if (TVATB.Text == string.Empty)
-            {
-                TVATB.Text = tvaTxt;
-                ChangeText(TVATB, false);
-            }
-            this.ActiveControl = null;
-        }
+
+        // Sauvegarde les paramètres dans un fichier .ini.
         private void SaveButton_Click(object sender, EventArgs e)
         {
             string configDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config");
             if (!Directory.Exists(configDirectory))
             {
-                Directory.CreateDirectory(configDirectory);
+                Directory.CreateDirectory(configDirectory); // Crée le dossier s'il n'existe pas.
             }
+
             string configPath = Path.Combine(configDirectory, "config.ini");
             Inifile ini = new Inifile(configPath);
 
-            // Enregistrez les informations des TextBox dans des sections et des clés du fichier ini
+            // Écrit les valeurs des TextBox dans le fichier ini.
             ini.Write("Section", "Name", NameTB.Text);
             ini.Write("Section", "Phone", PhoneTB.Text);
             ini.Write("Section", "Mail", MailTB.Text);
@@ -235,40 +197,34 @@ namespace AutoFact.Views
             ini.Write("Section", "Delivery", DelivCB.Checked.ToString());
             ini.Write("Section", "TVA", TVATB.Text);
 
+            // Gère le logo
             string logoDirectory = "./Pictures/";
             string[] logoFiles = Directory.GetFiles(logoDirectory, "NewLogo.*");
 
-            string logoPath = "";
-
             if (logoFiles.Length > 0)
             {
-                logoPath = logoFiles[0]; // Prend le premier fichier trouvé
-            }
+                string logoPath = logoFiles[0];
+                string targetFilePath = Path.Combine(logoDirectory, "Logo" + Path.GetExtension(logoPath));
 
-            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory; // Répertoire de l'exécutable
-            string targetDirectory = Path.Combine(projectDirectory, "Pictures");
-
-            string targetFilePath = Path.Combine(targetDirectory, "Logo" + Path.GetExtension(logoPath));
-
-            DeleteExistingFiles("./Pictures/", "Logo.*");
-            try
-            {
-                File.Copy(logoPath, targetFilePath, true); // 'true' pour écraser si existe déjà
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors de la copie de l'image : {ex.Message}");
+                DeleteExistingFiles("./Pictures/", "Logo.*");
+                try
+                {
+                    File.Copy(logoPath, targetFilePath, true);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la copie de l'image : {ex.Message}");
+                }
             }
         }
 
-
+        // Charge les paramètres depuis un fichier .ini.
         private void LoadForm(object sender, EventArgs e)
         {
-            // Chargez les informations depuis le fichier .ini
             string filePath = "./Config/config.ini";
             Inifile ini = new Inifile(filePath);
 
-            if (File.Exists(filePath))
+            if (File.Exists(filePath)) // Si le fichier existe :
             {
                 NameTB.Text = ini.Read("Section", "Name");
                 PhoneTB.Text = ini.Read("Section", "Phone");
@@ -279,20 +235,21 @@ namespace AutoFact.Views
                 DelivCB.Checked = Convert.ToBoolean(ini.Read("Section", "Delivery"));
                 TVATB.Text = ini.Read("Section", "TVA");
 
+                // Charge le logo.
                 string logoDirectory = "./Pictures/";
                 string[] logoFiles = Directory.GetFiles(logoDirectory, "Logo.*");
 
                 if (logoFiles.Length > 0)
                 {
-                    string logoPath = logoFiles[0]; // Prend le premier fichier trouvé
+                    string logoPath = logoFiles[0];
                     using (var memoryStream = new MemoryStream(File.ReadAllBytes(logoPath)))
                     {
                         LogoPB.Image = ResizeImage(Image.FromStream(memoryStream), LogoPB.Width, LogoPB.Height);
                     }
-
                     LogoPB.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
 
+                // Met à jour l'apparence des champs.
                 ChangeText(NameTB, true);
                 ChangeText(PhoneTB, true);
                 ChangeText(MailTB, true);
