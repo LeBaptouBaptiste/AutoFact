@@ -8,6 +8,8 @@ using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -117,7 +119,8 @@ namespace AutoFact.Views
                 // Calculer le total des taxes
                 totalTaxes += listProducts[idArticle].Prix * 0.2m;
                 LeTotalTaxes.Text = $"{totalTaxes} €";
-            } else
+            }
+            else
             {
                 // Calculer le total HT des services
                 totalServices += listServices[idArticle].Prix;
@@ -135,6 +138,42 @@ namespace AutoFact.Views
             // Calculer le total TTC final
             totalTTC = totalHT + totalTaxes;
             LeTotalTTC.Text = $"{totalTTC} €";
+        }
+
+        // Envoyer un mail automatiquement à un client après un achat
+
+        public void EnvoyerEmail(string destinataire, string sujet, string corps)
+        {
+            try
+            {
+                var client = new SmtpClient("smtp.votre-serveur-smtp.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("votre-email@domaine.com", "votre-mot-de-passe"),
+                    EnableSsl = true,
+                };
+
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("votre-email@domaine.com"),
+                    Subject = sujet,
+                    Body = corps,
+                    IsBodyHtml = true,
+                };
+                mailMessage.To.Add(destinataire);
+
+                client.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                // Gérer les exceptions (par exemple, journaliser l'erreur)
+                Console.WriteLine($"Erreur lors de l'envoi de l'email: {ex.Message}");
+            }
+        }
+
+        private void SendInvoiceByMailBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

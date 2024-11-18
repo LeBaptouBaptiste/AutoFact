@@ -396,6 +396,7 @@
             SendInvoiceByMailBtn.TabIndex = 11;
             SendInvoiceByMailBtn.Text = "Envoyer la facture par mail";
             SendInvoiceByMailBtn.UseVisualStyleBackColor = false;
+            SendInvoiceByMailBtn.Click += SendInvoiceByMailBtn_Click;
             // 
             // PrintInvoiceBtn
             // 

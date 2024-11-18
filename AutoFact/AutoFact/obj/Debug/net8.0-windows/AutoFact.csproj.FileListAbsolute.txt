@@ -83,3 +83,4 @@ D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-wi
 D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.genruntimeconfig.cache
 D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\ref\AutoFact.dll
 D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Quote.resources
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.ModalMailSender.resources
