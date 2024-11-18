@@ -3,8 +3,6 @@ C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-wind
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\AutoFact.runtimeconfig.json
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\AutoFact.dll
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\AutoFact.pdb
-C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\MySqlConnector.dll
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.csproj.AssemblyReference.cache
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.csproj.GenerateResource.cache
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.GeneratedMSBuildEditorConfig.editorconfig
@@ -59,3 +57,8 @@ C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-w
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\System.Data.SQLite.dll
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll

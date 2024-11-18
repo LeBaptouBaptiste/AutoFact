@@ -210,6 +210,7 @@ namespace AutoFact.Views
                 try
                 {
                     File.Copy(logoPath, targetFilePath, true);
+                    DeleteExistingFiles("./Pictures/", "NewLogo.*");
                 }
                 catch (Exception ex)
                 {
