@@ -50,9 +50,9 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
-            "MySqlConnector": {
+            "System.Data.SQLite.Core": {
               "target": "Package",
-              "version": "[2.3.7, )"
+              "version": "[1.0.119, )"
             }
           },
           "imports": [

@@ -21,11 +21,11 @@ namespace AutoFact.Models
             this.description = description;
         }
 
-        public Designation(string libelle, decimal prix)
+        public Designation(string libelle, decimal prix, string description)
         {
-            this.id = id;
             this.libelle = libelle;
             this.prix = prix;
+            this.description = description;
         }
 
         public int Id
@@ -48,8 +48,13 @@ namespace AutoFact.Models
 
         public string Description
         {
+<<<<<<< HEAD
             get { return this.description; }   // Accesseur pour obtenir la valeur du champ description
             set { this.description = value; }  // Accesseur pour modifier la valeur du champ description
+=======
+            get { return this.description; }       // Accesseur pour obtenir la valeur du champ quantity
+            set { this.description = value; }      // Accesseur pour modifier la valeur du champ quantity
+>>>>>>> origin/MigrationSQLite
         }
     }
 }

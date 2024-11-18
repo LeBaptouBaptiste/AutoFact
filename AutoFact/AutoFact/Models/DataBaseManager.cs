@@ -1,44 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySqlConnector;
+using System.Data;
+using System.Data.SQLite;
+using System.IO;
 
 namespace AutoFact.Models
 {
     internal class DataBaseManager
     {
+        // Instance unique (singleton)
         private static DataBaseManager instance = null;
-        private MySqlConnection connection;
 
+        // Connexion SQLite à la base de données
+        private SQLiteConnection connection;
+
+        // Constructeur privé pour initialiser la connexion à la base de données
         private DataBaseManager()
         {
-            var builder = new MySqlConnectionStringBuilder
+            string databasePath = "DBAutofact.db"; // Fichier SQLite
+            string connectionString = $"Data Source={databasePath};Version=3;"; // Chaîne de connexion
+
+            // Crée le fichier si il n'existe pas
+            if (!File.Exists(databasePath))
             {
-                Server = "172.16.119.56",
-                //Server = "192.168.1.170",
-                //Server = "192.168.56.5",
-                Port = 20125,
-                // [User connected in localhost]
-                //UserID = "homeUserMax",
-                //Password = "hReQFrNybXYLMmllBls7",
-                UserID = "adminAutofact",
-                Password = "AjXg$%Auc~B?K\"fl5q#.#aYbG",
-                Database = "Autofact",
-            };
-            connection = new MySqlConnection(builder.ConnectionString);
+                SQLiteConnection.CreateFile(databasePath);
+                Console.WriteLine("Fichier de base de données SQLite créé.");
+            }
+
+            connection = new SQLiteConnection(connectionString);
+
             try
             {
-                connection.Open();
-                Console.WriteLine("Connexion à la base de données réussie!");
+                connection.Open(); // Tente d'ouvrir la connexion
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erreur de connexion à la base de données : {ex.Message}", "Erreur de connexion");
+                // Affiche un message d'erreur en cas de problème
+                MessageBox.Show($"Erreur de connexion à la base de données : {ex.Message}");
             }
         }
 
+        // Retourne l'instance unique de la classe (singleton)
         public static DataBaseManager getInstance()
         {
             if (DataBaseManager.instance == null)
@@ -48,7 +49,8 @@ namespace AutoFact.Models
             return DataBaseManager.instance;
         }
 
-        public MySqlConnection getConnection()
+        // Retourne la connexion à la base de données
+        public SQLiteConnection getConnection()
         {
             return connection;
         }

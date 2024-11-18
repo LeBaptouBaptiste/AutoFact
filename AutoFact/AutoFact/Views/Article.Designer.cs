@@ -41,7 +41,11 @@ namespace AutoFact.Views
             AddUpLbl = new Label();
             BuypriceTB = new TextBox();
             QuantityTB = new TextBox();
+<<<<<<< HEAD
             DescTB = new TextBox();
+=======
+            DescriptionTB = new TextBox();
+>>>>>>> origin/MigrationSQLite
             SuspendLayout();
             // 
             // navbarUserControl
@@ -155,18 +159,37 @@ namespace AutoFact.Views
             QuantityTB.TabIndex = 9;
             QuantityTB.Click += QuantityTB_Clicked;
             // 
+<<<<<<< HEAD
             // DescTB
             // 
             DescTB.Location = new Point(697, 485);
             DescTB.Name = "DescTB";
             DescTB.Size = new Size(478, 23);
             DescTB.TabIndex = 10;
+=======
+            // DescriptionTB
+            // 
+            DescriptionTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DescriptionTB.ForeColor = Color.Silver;
+            DescriptionTB.Location = new Point(766, 506);
+            DescriptionTB.MaxLength = 511;
+            DescriptionTB.Multiline = true;
+            DescriptionTB.Name = "DescriptionTB";
+            DescriptionTB.Size = new Size(363, 170);
+            DescriptionTB.TabIndex = 10;
+            DescriptionTB.Text = descriptionTxt;
+            DescriptionTB.Click += DescriptionTB_Clicked;
+>>>>>>> origin/MigrationSQLite
             // 
             // Article
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
+<<<<<<< HEAD
             Controls.Add(DescTB);
+=======
+            Controls.Add(DescriptionTB);
+>>>>>>> origin/MigrationSQLite
             Controls.Add(QuantityTB);
             Controls.Add(BuypriceTB);
             Controls.Add(AddUpLbl);
@@ -187,13 +210,6 @@ namespace AutoFact.Views
             PerformLayout();
         }
 
-        private void InitializeBackground()
-        {
-            backgroundPanel = new BackgroundPanel();
-            backgroundPanel.SetBackgroundImage("Pictures\\background.png");
-            backgroundPanel.Dock = DockStyle.Fill;
-        }
-
         #endregion
 
         private NavbarControll navbarUserControl;
@@ -206,6 +222,10 @@ namespace AutoFact.Views
         private Label AddUpLbl;
         private TextBox BuypriceTB;
         private TextBox QuantityTB;
+<<<<<<< HEAD
         private TextBox DescTB;
+=======
+        private TextBox DescriptionTB;
+>>>>>>> origin/MigrationSQLite
     }
 }
