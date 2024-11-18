@@ -157,6 +157,7 @@ namespace AutoFact.Views
             btnCAc.UseVisualStyleBackColor = false;
             btnCAc.MouseEnter += btn_Enter;
             btnCAc.MouseLeave += btn_Leave;
+            btnCAc.Click += btn_CAc_Click;
             // 
             // btnCAca
             // 
@@ -342,6 +343,13 @@ namespace AutoFact.Views
 
             btn.BackColor = Color.FromArgb(217, 217, 217);
             btn.Font = new Font("Arial", 12F, FontStyle.Regular);
+        }
+
+        private void btn_CAc_Click(object sender, EventArgs e)
+        {
+            CACumul cACumul = new CACumul();
+            Parent.Hide();
+            cACumul.Show();
         }
 
         private void btn_Article_Click(object sender, EventArgs e)

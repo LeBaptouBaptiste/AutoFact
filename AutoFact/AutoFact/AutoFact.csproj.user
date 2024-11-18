@@ -7,6 +7,9 @@
     <Compile Update="Views\BackgroundPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\CACumul.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Client.cs">
       <SubType>Form</SubType>
     </Compile>
