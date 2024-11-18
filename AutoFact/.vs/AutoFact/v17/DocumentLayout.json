@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|d:\\cours\\bts_sio\\sio2\\autofact\\c#\\autofact\\autofact\\autofact\\viewmodel\\societevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\societevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|d:\\cours\\bts_sio\\sio2\\autofact\\c#\\autofact\\autofact\\autofact\\models\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\models\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,10 +47,6 @@
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\models\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|d:\\cours\\bts_sio\\sio2\\autofact\\c#\\autofact\\autofact\\autofact\\viewmodel\\societevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\societevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|d:\\cours\\bts_sio\\sio2\\autofact\\c#\\autofact\\autofact\\autofact\\views\\navbarcontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\navbarcontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DataBaseManager.cs",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Models\\DataBaseManager.cs",
               "RelativeDocumentMoniker": "AutoFact\\Models\\DataBaseManager.cs",
@@ -99,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ModalMailSender.cs [Conception]",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\ModalMailSender.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\ModalMailSender.cs",
@@ -110,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ModalMailSender.Designer.cs",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\ModalMailSender.Designer.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\ModalMailSender.Designer.cs",
@@ -122,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Service.cs [Conception]",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\Service.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Service.cs",
@@ -158,19 +158,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
               "Title": "SocieteVM.cs",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\SocieteVM.cs",
               "RelativeDocumentMoniker": "AutoFact\\ViewModel\\SocieteVM.cs",
               "ToolTip": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\SocieteVM.cs",
               "RelativeToolTip": "AutoFact\\ViewModel\\SocieteVM.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwEUAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAtwDEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T15:36:19.281Z"
+              "WhenOpened": "2024-11-13T15:36:19.281Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Client.cs [Conception]",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\Client.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Client.cs",
@@ -181,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ClientVM.cs",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\ClientVM.cs",
               "RelativeDocumentMoniker": "AutoFact\\ViewModel\\ClientVM.cs",
@@ -229,7 +230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Quote.cs [Conception]",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\Quote.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Quote.cs",
@@ -240,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ModalMailSender.cs",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\ModalMailSender.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\ModalMailSender.cs",
@@ -252,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Article.Designer.cs",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.Designer.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Article.Designer.cs",
@@ -264,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Services.cs",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Models\\Services.cs",
               "RelativeDocumentMoniker": "AutoFact\\Models\\Services.cs",
