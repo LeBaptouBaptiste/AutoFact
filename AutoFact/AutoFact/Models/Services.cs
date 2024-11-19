@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoFact.Models
 {
-    internal class Services : Designation
+    public class Services : Designation
     {
         private int duration;
         private bool haveDuration;

@@ -22,13 +22,53 @@ namespace AutoFact.Views
         private ClientVM clientvm;
         private List<Particuliers> listClients;
 
+        private int idUpd;
+
         public Client()
         {
             InitializeComponent();
+            UpdBtn.Hide();
 
-            // Initialisation du ViewModel et de la liste des clients
-            clientvm = new ClientVM(ClientsCB);
+            clientvm = new ClientVM();
             listClients = clientvm.getClients();
+        }
+
+        public Client(Particuliers clientUpd)
+        {
+            InitializeComponent();
+            AddBtn.Hide();
+
+            UpdForm_Load(clientUpd);
+            idUpd = clientUpd.Id;
+
+            clientvm = new ClientVM();
+            listClients = clientvm.getClients();
+        }
+
+        private void UpdForm_Load(Particuliers client)
+        {
+            // Effacer les champs avant de remplir les données
+            ClearFields();
+
+            // Remplir les champs avec les données du client sélectionné
+            NameTB.Text = client.Name;
+            MailTB.Text = client.Mail;
+            FirstNameTB.Text = client.FirstName;
+            PhoneTB.Text = client.Phone;
+            AddressTB.Text = client.Address;
+            CpTB.Text = client.PostalCode;
+
+            if (client.Civility == "H")
+            {
+                HommeRB.Checked = true;
+            }
+            else
+            {
+                FemmeRB.Checked = true;
+            }
+
+            // Mettre à jour l'apparence des champs
+            UpdateFieldAppearance();
         }
 
         // Gestion des clics dans les champs de saisie
@@ -49,38 +89,6 @@ namespace AutoFact.Views
                 textBox.Text = string.Empty;
                 ChangeText(sender, EventArgs.Empty, true);
                 this.ActiveControl = textBox;
-            }
-        }
-
-        // Changement de sélection pour le client
-        private void ClientsCB_Changed(object sender, EventArgs e)
-        {
-            if (ClientsCB.SelectedIndex != -1)
-            {
-                int id = ClientsCB.SelectedIndex;
-
-                // Effacer les champs avant de remplir les données
-                ClearFields();
-
-                // Remplir les champs avec les données du client sélectionné
-                NameTB.Text = listClients[id].Name;
-                MailTB.Text = listClients[id].Mail;
-                FirstNameTB.Text = listClients[id].FirstName;
-                PhoneTB.Text = listClients[id].Phone;
-                AddressTB.Text = listClients[id].Address;
-                CpTB.Text = listClients[id].PostalCode;
-
-                if (listClients[id].Civility == "H")
-                {
-                    HommeRB.Checked = true;
-                }
-                else
-                {
-                    FemmeRB.Checked = true;
-                }
-
-                // Mettre à jour l'apparence des champs
-                UpdateFieldAppearance();
             }
         }
 
@@ -124,7 +132,6 @@ namespace AutoFact.Views
             ResetField(PhoneTB, phoneTxt, e);
             ResetField(AddressTB, addressTxt, e);
             ResetField(CpTB, cpTxt, e);
-            ResetComboBox(ClientsCB, clientTxt, e);
             this.ActiveControl = null;
         }
 
@@ -170,6 +177,10 @@ namespace AutoFact.Views
 
                     // Rafraîchir la liste des clients
                     listClients = clientvm.getClients();
+
+                    ClientShow form = new ClientShow();
+                    form.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -182,11 +193,11 @@ namespace AutoFact.Views
         // Mise à jour d'un client existant
         private void Upd_Clicked(object sender, EventArgs e)
         {
-            if (IsValidClientInput() && ClientsCB.SelectedIndex != -1)
+            if (IsValidClientInput())
             {
                 try
                 {
-                    int id = listClients[ClientsCB.SelectedIndex].Id;
+                    int id = idUpd;
                     string name = NameTB.Text;
                     string mail = MailTB.Text;
                     string firstName = FirstNameTB.Text;
@@ -202,6 +213,10 @@ namespace AutoFact.Views
 
                     // Rafraîchir la liste des clients
                     listClients = clientvm.getClients();
+
+                    ClientShow form = new ClientShow();
+                    form.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {

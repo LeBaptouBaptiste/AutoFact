@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoFact.Models
 {
-    internal class Designation
+    public class Designation
     {
         private int id;
         private string libelle;

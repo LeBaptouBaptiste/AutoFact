@@ -9,7 +9,7 @@ namespace AutoFact.ViewModel
     internal class ClientVM
     {
         // Liste des clients
-        private List<Particuliers> clientList;
+        private List<Particuliers> clientList = new List<Particuliers>();
 
         // Connexion SQLite
         private SQLiteConnection connection;
@@ -26,6 +26,11 @@ namespace AutoFact.ViewModel
             loadClients(); // Chargement des clients dans le ComboBox et la liste
         }
 
+        public ClientVM()
+        {
+            InitializeDatabase();
+        }
+
         // Initialisation de la connexion à la base de données
         private void InitializeDatabase()
         {
@@ -36,7 +41,10 @@ namespace AutoFact.ViewModel
         // Récupère la liste des clients
         public List<Particuliers> getClients()
         {
-            this.clientList.Clear(); // Réinitialise la liste
+            if (clientList != null)
+            {
+                this.clientList.Clear();// Réinitialise la liste
+            }
             loadClients(); // Recharge les clients
             return this.clientList; // Retourne la liste des clients
         }
@@ -46,7 +54,10 @@ namespace AutoFact.ViewModel
         {
             try
             {
-                box.Items.Clear(); // Vide le ComboBox
+                if (this.box != null)
+                {
+                    this.box.Items.Clear(); // Vide le ComboBox
+                }
 
                 // Requête SQLite pour récupérer les clients
                 string query = @"SELECT Clients.id, civilitee, adresse, cp, tel, mail, nom, prenom FROM Particuliers INNER JOIN Clients ON Particuliers.id = Clients.id;";
@@ -71,7 +82,10 @@ namespace AutoFact.ViewModel
 
                         // Création du client et ajout au ComboBox et à la liste
                         Particuliers particulier = new Particuliers(id, nom, adresse, cp, tel, mail, civilitee, prenom);
-                        box.Items.Add($"{particulier.Name} {particulier.FirstName}");
+                        if (box != null)
+                        {
+                            box.Items.Add($"{particulier.Name} {particulier.FirstName}");
+                        }
                         clientList.Add(particulier);
                     }
                 }
@@ -80,6 +94,21 @@ namespace AutoFact.ViewModel
             {
                 MessageBox.Show($"Erreur lors du chargement des données : {ex.Message}", "Erreur de chargement");
             }
+        }
+
+        public DataTable getClientsForDGV()
+        {
+            string query = @"SELECT Clients.id, civilitee, adresse, cp, tel, mail, nom, prenom FROM Particuliers INNER JOIN Clients ON Particuliers.id = Clients.id;";
+            DataTable dataTable = new DataTable();
+
+            using (SQLiteCommand Clientscmd = new SQLiteCommand(query, connection))
+            {
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(Clientscmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+            }
+            return dataTable;
         }
 
         // Ajoute un nouveau client dans la base de données

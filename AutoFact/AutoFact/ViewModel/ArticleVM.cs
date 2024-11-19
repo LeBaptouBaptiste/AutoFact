@@ -23,7 +23,7 @@ namespace AutoFact.ViewModel
         private ComboBox box;
 
         // Liste des fournisseurs
-        private List<Societe> societeList;
+        private List<Societe> societeList = new List<Societe>();
 
         // Constructeur pour initialiser le ComboBox, la liste des sociétés et charger les articles
         public ArticleVM(ComboBox box, List<Societe> societeList)

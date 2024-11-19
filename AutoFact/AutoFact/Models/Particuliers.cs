@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoFact.Models
 {
-    internal class Particuliers : Clients
+    public class Particuliers : Clients
     {
         private string civility {  get; set; }
         private string firstName {  get; set; }
