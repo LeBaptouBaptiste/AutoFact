@@ -22,6 +22,9 @@
     <Compile Update="Views\ModalMailSender.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ModalQuantityProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\NavbarControll.cs">
       <SubType>UserControl</SubType>
     </Compile>

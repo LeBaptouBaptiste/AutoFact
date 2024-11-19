@@ -43,11 +43,7 @@ namespace AutoFact.ViewModel
         // Charge les sociétés depuis la base de données
         private void loadSupplys()
         {
-<<<<<<< HEAD
-            
-=======
             this.box.Items.Clear(); // Vide le ComboBox pour éviter les doublons
->>>>>>> origin/MigrationSQLite
             try
             {
                 // Requête SQLite pour récupérer les sociétés et leurs informations associées
@@ -88,16 +84,9 @@ namespace AutoFact.ViewModel
         // Retourne la liste des sociétés
         public List<Societe> getSupplys()
         {
-<<<<<<< HEAD
-            this.societeList.Clear();
-            this.box.Items.Clear();
-            loadSupplys();
-            return this.societeList;
-=======
             this.societeList.Clear(); // Réinitialisation de la liste
             loadSupplys(); // Recharge les sociétés
             return this.societeList; // Retourne la liste des sociétés
->>>>>>> origin/MigrationSQLite
         }
 
         // Ajoute une nouvelle société dans la base de données

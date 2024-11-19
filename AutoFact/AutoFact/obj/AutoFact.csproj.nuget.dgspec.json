@@ -50,6 +50,14 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Aspose.Email": {
+              "target": "Package",
+              "version": "[24.10.0, )"
+            },
+            "Aspose.PDF": {
+              "target": "Package",
+              "version": "[24.11.0, )"
+            },
             "System.Data.SQLite.Core": {
               "target": "Package",
               "version": "[1.0.119, )"

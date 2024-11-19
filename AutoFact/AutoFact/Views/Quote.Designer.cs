@@ -117,7 +117,6 @@
             AllArticlesDGV.Columns.AddRange(new DataGridViewColumn[] { Ref, name, Desc, tva, PrixUnitaire, Quantite, PrixTotal });
             AllArticlesDGV.Location = new Point(491, 347);
             AllArticlesDGV.Name = "AllArticlesDGV";
-            AllArticlesDGV.ReadOnly = true;
             AllArticlesDGV.Size = new Size(1343, 253);
             AllArticlesDGV.TabIndex = 3;
             // 
@@ -126,14 +125,12 @@
             Ref.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Ref.HeaderText = "Référence";
             Ref.Name = "Ref";
-            Ref.ReadOnly = true;
             // 
             // name
             // 
             name.FillWeight = 280.851074F;
             name.HeaderText = "Désignation";
             name.Name = "name";
-            name.ReadOnly = true;
             name.Width = 250;
             // 
             // Desc
@@ -141,7 +138,6 @@
             Desc.FillWeight = 63.8297844F;
             Desc.HeaderText = "Description";
             Desc.Name = "Desc";
-            Desc.ReadOnly = true;
             Desc.Width = 400;
             // 
             // tva
@@ -149,14 +145,12 @@
             tva.FillWeight = 63.8297844F;
             tva.HeaderText = "TVA";
             tva.Name = "tva";
-            tva.ReadOnly = true;
             // 
             // PrixUnitaire
             // 
             PrixUnitaire.FillWeight = 63.8297844F;
             PrixUnitaire.HeaderText = "Prix Unitaire (HT)";
             PrixUnitaire.Name = "PrixUnitaire";
-            PrixUnitaire.ReadOnly = true;
             PrixUnitaire.Width = 150;
             // 
             // Quantite
@@ -164,14 +158,12 @@
             Quantite.FillWeight = 63.8297844F;
             Quantite.HeaderText = "Quantité";
             Quantite.Name = "Quantite";
-            Quantite.ReadOnly = true;
             // 
             // PrixTotal
             // 
             PrixTotal.FillWeight = 63.8297844F;
             PrixTotal.HeaderText = "Prix Total (HT)";
             PrixTotal.Name = "PrixTotal";
-            PrixTotal.ReadOnly = true;
             PrixTotal.Width = 150;
             // 
             // TaxesDGV

@@ -82,20 +82,9 @@ namespace AutoFact.ViewModel
             }
         }
 
-<<<<<<< HEAD
-        public List<Particuliers> getClients()
-        {
-            this.clientList.Clear();
-            this.box.Items.Clear();
-            loadClients();
-            return this.clientList;
-        }
-
-        public void AddClients(string name, string mail, string phone, string address, string cp, string civility, string firstName)
-=======
         // Ajoute un nouveau client dans la base de données
         public void addClients(string name, string mail, string phone, string address, string cp, string civility, string firstName)
->>>>>>> origin/MigrationSQLite
+
         {
             try
             {

@@ -65,22 +65,15 @@ namespace AutoFact.Views
             }
         }
 
-<<<<<<< HEAD
-        private void ArticleCB_Changed(Object sender, EventArgs e) // Add l'article séléctionné 
-=======
         // Changement de sélection pour l'article
         private void ArticleCB_Changed(object sender, EventArgs e)
->>>>>>> origin/MigrationSQLite
+
         {
             if (ArticleCB.SelectedIndex != -1) // Si rien n'est selectionné
             {
                 int id = ArticleCB.SelectedIndex;
-<<<<<<< HEAD
-
-                ChangeText(sender, e, true);
-=======
                 ChangeText(sender, EventArgs.Empty, true);
->>>>>>> origin/MigrationSQLite
+
                 this.ActiveControl = null;
 
                 // Effacer les champs avant de remplir les données
@@ -98,56 +91,6 @@ namespace AutoFact.Views
                 UpdateFieldAppearance();
             }
         }
-
-<<<<<<< HEAD
-        private void ChangeText(object sender, EventArgs e, bool able) // Change la couleur du texte
-        {
-            Control obj = sender as Control;
-
-            if (able)
-            {
-                obj.ForeColor = Color.Black;
-            }
-            else
-            {
-                obj.ForeColor = Color.Silver;
-            }
-        }
-
-        // Placeholder
-        private void Resets(object sender, EventArgs e)
-        {
-            if (NameTB.Text == string.Empty)
-            {
-                NameTB.Text = nameTxt;
-                ChangeText(NameTB, e, false);
-            }
-            if (PriceTB.Text == string.Empty)
-            {
-                PriceTB.Text = priceTxt;
-                ChangeText(PriceTB, e, false);
-            }
-            if (BuypriceTB.Text == string.Empty)
-            {
-                BuypriceTB.Text = buypriceTxt;
-                ChangeText(BuypriceTB, e, false);
-            }
-            if (QuantityTB.Text == string.Empty)
-            {
-                QuantityTB.Text = quantityTxt;
-                ChangeText(QuantityTB, e, false);
-            }
-            if (SupplyCB.SelectedIndex == -1)
-            {
-                SupplyCB.Text = supplyTxt;
-                ChangeText(SupplyCB, e, false);
-            }
-            if (ArticleCB.SelectedIndex == -1)
-            {
-                ArticleCB.Text = articleTxt;
-                ChangeText(ArticleCB, e, false);
-            }
-=======
         // Méthode pour effacer les champs de saisie
         private void ClearFields()
         {
@@ -189,7 +132,6 @@ namespace AutoFact.Views
             ResetField(DescriptionTB, descriptionTxt, e);
             ResetComboBox(SupplyCB, supplyTxt, e);
             ResetComboBox(ArticleCB, articleTxt, e);
->>>>>>> origin/MigrationSQLite
             this.ActiveControl = null;
         }
 
@@ -247,11 +189,8 @@ namespace AutoFact.Views
         // Mise à jour d'un article existant
         private void Upd_Clicked(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && PriceTB.Text != string.Empty && PriceTB.Text != priceTxt && BuypriceTB.Text != null && BuypriceTB.Text != buypriceTxt && QuantityTB.Text != null && QuantityTB.Text != quantityTxt && DescTB.Text != null && SupplyCB.SelectedIndex > -1 && ArticleCB.SelectedIndex != -1)
-=======
             if (IsValidArticleInput() && ArticleCB.SelectedIndex != -1)
->>>>>>> origin/MigrationSQLite
+
             {
                 try
                 {
@@ -261,24 +200,14 @@ namespace AutoFact.Views
                     decimal buyprice = Convert.ToDecimal(BuypriceTB.Text);
                     int quantity = Convert.ToInt32(QuantityTB.Text);
                     Societe society = listSupply[SupplyCB.SelectedIndex];
-                    string description = DescTB.Text;
+                    string description = DescriptionTB.Text;
 
-                    string description = DescriptionTB.Text != descriptionTxt ? DescriptionTB.Text : null;
                     articlevm.updArticle(id, name, price, buyprice, quantity, society, description);
 
                     // Réinitialiser après mise à jour
                     ArticleCB.SelectedIndex = -1;
-<<<<<<< HEAD
-
-                    articlevm.updArticle(id, name, price, buyprice, quantity, society, description);
-
-                    NameTB.Clear();
-                    PriceTB.Clear();
-                    BuypriceTB.Clear();
-                    QuantityTB.Clear();
-=======
                     ClearFields();
->>>>>>> origin/MigrationSQLite
+
                     SupplyCB.SelectedIndex = -1;
                     Resets(this, EventArgs.Empty);
 

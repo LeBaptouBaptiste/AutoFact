@@ -373,19 +373,18 @@ namespace AutoFact.Views
             client.Show();
         }
 
-<<<<<<< HEAD
         private void btn_Quote_Click(object sender, EventArgs e)
         {
             Quote quote = new Quote();
             Parent.Hide();
             quote.Show();
-=======
+        }
+
         private void btn_Settings_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
             Parent.Hide();
             settings.Show();
->>>>>>> origin/MigrationSQLite
         }
 
         // Composants

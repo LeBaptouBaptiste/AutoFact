@@ -12,11 +12,8 @@ namespace AutoFact.Models
         private int quantity;
         private Societe fournisseur;
 
-<<<<<<< HEAD
-        public Produits(int id, string libelle, decimal prix, decimal buyPrice, int quantity, Societe fournisseur, string description) : base(id, libelle, prix, description)
-=======
         public Produits(int id, string libelle, string description, decimal prix, decimal buyPrice, int quantity, Societe fournisseur) : base(id, libelle, prix, description)
->>>>>>> origin/MigrationSQLite
+
         {
             this.buyPrice = buyPrice;
             this.quantity = quantity;

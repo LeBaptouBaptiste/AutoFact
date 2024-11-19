@@ -95,3 +95,16 @@ C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-wind
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
 >>>>>>> origin/MigrationSQLite
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.Settings.resources
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\System.Data.SQLite.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.ModalQuantityProduct.resources
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Aspose.PDF.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyModel.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Aspose.Email.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\System.Drawing.Common.dll

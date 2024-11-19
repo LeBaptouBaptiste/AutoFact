@@ -1,6 +1,5 @@
 ﻿using AutoFact.Models;
 using AutoFact.ViewModel;
-using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,11 +7,16 @@ using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Runtime.Intrinsics.X86;
+using System.Diagnostics;
+using System.IO;
+using Aspose.Email;
+
 
 namespace AutoFact.Views
 {
@@ -37,10 +41,10 @@ namespace AutoFact.Views
         public Quote()
         {
             InitializeComponent();
-            articlevm = new ArticleVM(AProduitCB);
+            clientSvm = new SocieteVM(TheClientCB);
+            articlevm = new ArticleVM(AProduitCB, clientSvm.getSupplys());
             servicevm = new ServiceVM(AServiceCB);
             clientPvm = new ClientVM(TheClientCB);
-            clientSvm = new SocieteVM(TheClientCB);
             listProducts = articlevm.getProducts();
             listServices = servicevm.getServices();
             listClientsP = clientPvm.getClients();
@@ -61,6 +65,23 @@ namespace AutoFact.Views
             }
         }
 
+        private int showQuantityModal(object sender, EventArgs e)
+        {
+            int theQuantity = 0;
+            ModalQuantityProduct modal = new ModalQuantityProduct();
+
+            // Afficher le modal et vérifier si l'utilisateur a cliqué sur "OK"
+            if (modal.ShowDialog() == DialogResult.OK)
+            {
+                // Récupérer la quantité saisie
+                string enteredQuantity = modal.EnteredQuantity;
+
+                theQuantity = Convert.ToInt32(enteredQuantity);
+            }
+            return theQuantity;
+
+        }
+
         private void AProduit_Choose(Object sender, EventArgs e)
         {
             if (AProduitCB.SelectedIndex != -1)
@@ -71,19 +92,23 @@ namespace AutoFact.Views
                 this.ActiveControl = null;
 
                 // Clear la textBox
-                //AnArticleCB.Items.Clear();
+                //AProduitCB.Items.Clear();
+
+                int theQuantity = showQuantityModal(sender, e);
 
                 // Ajouter l'article séléctionné dans le tableau du devis
-                AllArticlesDGV.Rows.Add(listProducts[id].Id, listProducts[id].Libelle, listProducts[id].Description, "20%", listProducts[id].Prix, listProducts[id].Quantity, listProducts[id].Prix * listProducts[id].Quantity);
+                AllArticlesDGV.Rows.Add(listProducts[id].Id, listProducts[id].Libelle, listProducts[id].Description, "20%", listProducts[id].Prix, theQuantity, listProducts[id].Prix * theQuantity);
 
                 //// Ajouter la taxe correspondante dans le tableau des taxes
-                decimal resultat = listProducts[id].Prix * 0.2m;
+                decimal resultat = listProducts[id].Prix * 0.2m * theQuantity;
 
                 TaxesDGV.Rows.Add("Produits", "20%", resultat + " €");
 
                 ChangeText(AProduitCB, e, true);
 
-                UpdateTotal(id, true);
+                UpdateTotal(id, true, theQuantity);
+
+                //MessageBox.Show("Produit ajouté au devis");
             }
         }
 
@@ -97,33 +122,38 @@ namespace AutoFact.Views
                 this.ActiveControl = null;
 
                 // Clear la textBox
-                //AnArticleCB.Items.Clear();
+                //AServiceCB.Items.Clear();
 
-                // Ajouter l'article séléctionné dans le tableau du devis
-                AllArticlesDGV.Rows.Add(listServices[id].Id, listServices[id].Libelle, listServices[id].Description, "0%", listServices[id].Prix, 1, listServices[id].Prix);
+                int theQuantity = showQuantityModal(sender, e);
+
+                // Ajouter l'article séléctionné dans le tableau du devis avec la quantité entrée dans le modal
+                AllArticlesDGV.Rows.Add(listServices[id].Id, listServices[id].Libelle, listServices[id].Description, "0%", listServices[id].Prix, theQuantity, listServices[id].Prix * theQuantity);
 
                 ChangeText(AServiceCB, e, true);
 
-                UpdateTotal(id, false);
+                UpdateTotal(id, false, theQuantity);
+
+                //MessageBox.Show("Service ajouté au devis");
+
             }
         }
 
-        private void UpdateTotal(int idArticle, bool typeArticle) // typeArticle --> True : Produits | False : Services
+        private void UpdateTotal(int idArticle, bool typeArticle, int quantity)
         {
-            if (typeArticle)
+            if (typeArticle) // Products
             {
                 // Calculer le total HT des produits
-                totalProduits += listProducts[idArticle].Prix;
+                totalProduits += listProducts[idArticle].Prix * quantity;
                 LeTotalProduits.Text = $"{totalProduits} €";
 
                 // Calculer le total des taxes
-                totalTaxes += listProducts[idArticle].Prix * 0.2m;
+                totalTaxes += listProducts[idArticle].Prix * 0.2m * quantity;
                 LeTotalTaxes.Text = $"{totalTaxes} €";
             }
-            else
+            else // Services
             {
                 // Calculer le total HT des services
-                totalServices += listServices[idArticle].Prix;
+                totalServices += listServices[idArticle].Prix * quantity;
                 LeTotalServices.Text = $"{totalServices} €";
 
                 //// Calculer le total des taxes
@@ -140,40 +170,79 @@ namespace AutoFact.Views
             LeTotalTTC.Text = $"{totalTTC} €";
         }
 
-        // Envoyer un mail automatiquement à un client après un achat
-
-        public void EnvoyerEmail(string destinataire, string sujet, string corps)
+        private void SendInvoiceByMailBtn_Click(object sender, EventArgs e)
         {
+            // Définir les informations de l'email
+            string destinataire = "client@example.com"; // Remplacez par l'adresse du client
+            string sujet = "Votre facture n°123";
+            string corps = "Bonjour,\n\nVeuillez trouver ci-joint votre facture.\n\nCordialement,\nVotre entreprise";
+
+            // Facultatif : générer un fichier de facture en pièce jointe (exemple PDF)
+            string attachmentPath = GenerateInvoicePDF();
+
+            // Attendre que le fichier soit généré
+            if (string.IsNullOrEmpty(attachmentPath))
+            {
+                MessageBox.Show("Impossible de générer la facture. Veuillez réessayer.", "Erreur");
+                return;
+            }
+
+            // Construire l'URI mailto (attention : il n'inclut pas les pièces jointes)
+            string mailtoUri = $"mailto:{destinataire}?subject={Uri.EscapeDataString(sujet)}&body={Uri.EscapeDataString(corps)}";
+
             try
             {
-                var client = new SmtpClient("smtp.votre-serveur-smtp.com")
+                // Configurer ProcessStartInfo
+                var psi = new ProcessStartInfo
                 {
-                    Port = 587,
-                    Credentials = new NetworkCredential("votre-email@domaine.com", "votre-mot-de-passe"),
-                    EnableSsl = true,
+                    FileName = mailtoUri, // Lien mailto
+                    UseShellExecute = true // Important pour exécuter via le shell par défaut
                 };
 
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress("votre-email@domaine.com"),
-                    Subject = sujet,
-                    Body = corps,
-                    IsBodyHtml = true,
-                };
-                mailMessage.To.Add(destinataire);
+                // Ouvrir l'application de messagerie par défaut avec mailto
+                Process.Start(psi);
 
-                client.Send(mailMessage);
+                // Afficher un message pour guider l'utilisateur sur la pièce jointe
+                if (!string.IsNullOrEmpty(attachmentPath))
+                {
+                    MessageBox.Show($"La facture a été générée à l'emplacement suivant :\n\n{attachmentPath}\n\nAjoutez-la manuellement dans votre e-mail.", "Ajout de la pièce jointe");
+                }
             }
             catch (Exception ex)
             {
-                // Gérer les exceptions (par exemple, journaliser l'erreur)
-                Console.WriteLine($"Erreur lors de l'envoi de l'email: {ex.Message}");
+                MessageBox.Show($"Erreur lors de l'ouverture de l'application de messagerie : {ex.Message}", "Erreur");
             }
         }
 
-        private void SendInvoiceByMailBtn_Click(object sender, EventArgs e)
+        private string GenerateInvoicePDF()
         {
+            try
+            {
+                // Définir le chemin pour enregistrer le PDF (ex. : sur le bureau)
+                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Facture123.pdf");
 
+                // Créer un document PDF
+                Aspose.Pdf.Document document = new Aspose.Pdf.Document();
+
+                // Ajouter une page au document
+                Aspose.Pdf.Page page = document.Pages.Add();
+
+                // Ajouter un contenu exemple à la page (remplacez cela par le contenu réel de votre facture)
+                page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Facture n°123"));
+                page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Client : Nom du client"));
+                page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Montant : 123 €"));
+                page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Merci pour votre achat !"));
+
+                // Enregistrer le document PDF
+                document.Save(filePath);
+
+                return filePath;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la génération du PDF : {ex.Message}", "Erreur");
+                return null;
+            }
         }
     }
 }

@@ -48,13 +48,9 @@ namespace AutoFact.Models
 
         public string Description
         {
-<<<<<<< HEAD
-            get { return this.description; }   // Accesseur pour obtenir la valeur du champ description
-            set { this.description = value; }  // Accesseur pour modifier la valeur du champ description
-=======
             get { return this.description; }       // Accesseur pour obtenir la valeur du champ quantity
             set { this.description = value; }      // Accesseur pour modifier la valeur du champ quantity
->>>>>>> origin/MigrationSQLite
+
         }
     }
 }
