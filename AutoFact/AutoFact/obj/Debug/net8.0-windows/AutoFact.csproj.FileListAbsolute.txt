@@ -64,3 +64,5 @@ C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-wind
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.CACumul.resources
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.CACumul.resources
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.ClientShow.resources
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.ServiceShow.resources

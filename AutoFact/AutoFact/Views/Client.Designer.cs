@@ -40,17 +40,14 @@ namespace AutoFact.Views
             PhoneTB = new TextBox();
             AddressTB = new TextBox();
             CpTB = new TextBox();
-            ClientsCB = new ComboBox();
             AddBtn = new Button();
             UpdBtn = new Button();
-            button1 = new Button();
             NameLbl = new Label();
             FirstNameLbl = new Label();
             AddressLbl = new Label();
             MailLbl = new Label();
             PhoneLbl = new Label();
             CpLbl = new Label();
-            SupplierLbl = new Label();
             SuspendLayout();
             // 
             // navbarUserControl
@@ -162,25 +159,14 @@ namespace AutoFact.Views
             CpTB.TabIndex = 6;
             CpTB.Click += CpTB_Clicked;
             // 
-            // ClientsCB
-            // 
-            ClientsCB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ClientsCB.ForeColor = Color.Silver;
-            ClientsCB.FormattingEnabled = true;
-            ClientsCB.Location = new Point(1597, 295);
-            ClientsCB.Name = "ClientsCB";
-            ClientsCB.Size = new Size(180, 27);
-            ClientsCB.TabIndex = 11;
-            ClientsCB.SelectedIndexChanged += ClientsCB_Changed;
-            // 
             // AddBtn
             // 
             AddBtn.BackColor = Color.Blue;
             AddBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddBtn.ForeColor = Color.White;
-            AddBtn.Location = new Point(933, 762);
+            AddBtn.Location = new Point(1037, 822);
             AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(144, 43);
+            AddBtn.Size = new Size(201, 70);
             AddBtn.TabIndex = 5;
             AddBtn.Text = "Ajouter";
             AddBtn.UseVisualStyleBackColor = false;
@@ -191,25 +177,13 @@ namespace AutoFact.Views
             UpdBtn.BackColor = Color.Blue;
             UpdBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             UpdBtn.ForeColor = Color.White;
-            UpdBtn.Location = new Point(1570, 762);
+            UpdBtn.Location = new Point(1037, 822);
             UpdBtn.Name = "UpdBtn";
-            UpdBtn.Size = new Size(144, 43);
+            UpdBtn.Size = new Size(201, 70);
             UpdBtn.TabIndex = 5;
             UpdBtn.Text = "Modifier";
             UpdBtn.UseVisualStyleBackColor = false;
             UpdBtn.Click += Upd_Clicked;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Blue;
-            button1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1570, 570);
-            button1.Name = "button1";
-            button1.Size = new Size(144, 59);
-            button1.TabIndex = 12;
-            button1.Text = "Afficher tout les Clients";
-            button1.UseVisualStyleBackColor = false;
             // 
             // NameLbl
             // 
@@ -271,31 +245,18 @@ namespace AutoFact.Views
             CpLbl.TabIndex = 18;
             CpLbl.Text = "Code Postal :";
             // 
-            // SupplierLbl
-            // 
-            SupplierLbl.AutoSize = true;
-            SupplierLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            SupplierLbl.Location = new Point(1597, 275);
-            SupplierLbl.Name = "SupplierLbl";
-            SupplierLbl.Size = new Size(88, 17);
-            SupplierLbl.TabIndex = 19;
-            SupplierLbl.Text = "Fournisseur :";
-            // 
             // Client
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(SupplierLbl);
             Controls.Add(CpLbl);
             Controls.Add(PhoneLbl);
             Controls.Add(MailLbl);
             Controls.Add(AddressLbl);
             Controls.Add(FirstNameLbl);
             Controls.Add(NameLbl);
-            Controls.Add(button1);
             Controls.Add(AddBtn);
             Controls.Add(UpdBtn);
-            Controls.Add(ClientsCB);
             Controls.Add(CpTB);
             Controls.Add(AddressTB);
             Controls.Add(PhoneTB);
@@ -327,15 +288,12 @@ namespace AutoFact.Views
         private Label AddUpLbl;
         private RadioButton HommeRB, FemmeRB;
         private TextBox NameTB, MailTB, FirstNameTB, PhoneTB, AddressTB, CpTB;
-        private ComboBox ClientsCB;
         private Button AddBtn, UpdBtn;
-        private Button button1;
         private Label NameLbl;
         private Label FirstNameLbl;
         private Label AddressLbl;
         private Label MailLbl;
         private Label PhoneLbl;
         private Label CpLbl;
-        private Label SupplierLbl;
     }
 }
