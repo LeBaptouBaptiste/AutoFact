@@ -40,9 +40,14 @@ namespace AutoFact.Views
             PhoneTB = new TextBox();
             AddressTB = new TextBox();
             CpTB = new TextBox();
-            ClientsCB = new ComboBox();
             AddBtn = new Button();
             UpdBtn = new Button();
+            NameLbl = new Label();
+            FirstNameLbl = new Label();
+            AddressLbl = new Label();
+            MailLbl = new Label();
+            PhoneLbl = new Label();
+            CpLbl = new Label();
             SuspendLayout();
             // 
             // navbarUserControl
@@ -67,9 +72,10 @@ namespace AutoFact.Views
             // HommeRB
             // 
             HommeRB.AutoSize = true;
+            HommeRB.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             HommeRB.Location = new Point(933, 296);
             HommeRB.Name = "HommeRB";
-            HommeRB.Size = new Size(69, 19);
+            HommeRB.Size = new Size(75, 21);
             HommeRB.TabIndex = 9;
             HommeRB.TabStop = true;
             HommeRB.Text = "Homme";
@@ -78,9 +84,10 @@ namespace AutoFact.Views
             // FemmeRB
             // 
             FemmeRB.AutoSize = true;
+            FemmeRB.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FemmeRB.Location = new Point(1279, 296);
             FemmeRB.Name = "FemmeRB";
-            FemmeRB.Size = new Size(65, 19);
+            FemmeRB.Size = new Size(71, 21);
             FemmeRB.TabIndex = 10;
             FemmeRB.TabStop = true;
             FemmeRB.Text = "Femme";
@@ -95,7 +102,6 @@ namespace AutoFact.Views
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 1;
-            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
             // 
             // MailTB
@@ -107,7 +113,6 @@ namespace AutoFact.Views
             MailTB.Name = "MailTB";
             MailTB.Size = new Size(180, 26);
             MailTB.TabIndex = 2;
-            MailTB.Text = mailTxt;
             MailTB.Click += MailTB_Clicked;
             // 
             // FirstNameTB
@@ -119,7 +124,6 @@ namespace AutoFact.Views
             FirstNameTB.Name = "FirstNameTB";
             FirstNameTB.Size = new Size(180, 26);
             FirstNameTB.TabIndex = 3;
-            FirstNameTB.Text = firstNameTxt;
             FirstNameTB.Click += FirstNameTB_Clicked;
             // 
             // PhoneTB
@@ -131,7 +135,6 @@ namespace AutoFact.Views
             PhoneTB.Name = "PhoneTB";
             PhoneTB.Size = new Size(180, 26);
             PhoneTB.TabIndex = 4;
-            PhoneTB.Text = phoneTxt;
             PhoneTB.Click += PhoneTB_Clicked;
             // 
             // AddressTB
@@ -143,7 +146,6 @@ namespace AutoFact.Views
             AddressTB.Name = "AddressTB";
             AddressTB.Size = new Size(180, 26);
             AddressTB.TabIndex = 5;
-            AddressTB.Text = addressTxt;
             AddressTB.Click += AddressTB_Clicked;
             // 
             // CpTB
@@ -155,29 +157,16 @@ namespace AutoFact.Views
             CpTB.Name = "CpTB";
             CpTB.Size = new Size(180, 26);
             CpTB.TabIndex = 6;
-            CpTB.Text = cpTxt;
             CpTB.Click += CpTB_Clicked;
-            // 
-            // ClientsCB
-            // 
-            ClientsCB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ClientsCB.ForeColor = Color.Silver;
-            ClientsCB.FormattingEnabled = true;
-            ClientsCB.Location = new Point(1597, 295);
-            ClientsCB.Name = "ClientsCB";
-            ClientsCB.Size = new Size(180, 23);
-            ClientsCB.TabIndex = 11;
-            ClientsCB.Text = clientTxt;
-            ClientsCB.SelectedIndexChanged += ClientsCB_Changed;
             // 
             // AddBtn
             // 
             AddBtn.BackColor = Color.Blue;
             AddBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddBtn.ForeColor = Color.White;
-            AddBtn.Location = new Point(933, 762);
+            AddBtn.Location = new Point(1037, 822);
             AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(144, 43);
+            AddBtn.Size = new Size(201, 70);
             AddBtn.TabIndex = 5;
             AddBtn.Text = "Ajouter";
             AddBtn.UseVisualStyleBackColor = false;
@@ -188,21 +177,86 @@ namespace AutoFact.Views
             UpdBtn.BackColor = Color.Blue;
             UpdBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             UpdBtn.ForeColor = Color.White;
-            UpdBtn.Location = new Point(1570, 762);
+            UpdBtn.Location = new Point(1037, 822);
             UpdBtn.Name = "UpdBtn";
-            UpdBtn.Size = new Size(144, 43);
+            UpdBtn.Size = new Size(201, 70);
             UpdBtn.TabIndex = 5;
             UpdBtn.Text = "Modifier";
             UpdBtn.UseVisualStyleBackColor = false;
             UpdBtn.Click += Upd_Clicked;
             // 
+            // NameLbl
+            // 
+            NameLbl.AutoSize = true;
+            NameLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            NameLbl.Location = new Point(867, 398);
+            NameLbl.Name = "NameLbl";
+            NameLbl.Size = new Size(46, 17);
+            NameLbl.TabIndex = 13;
+            NameLbl.Text = "Nom :";
+            // 
+            // FirstNameLbl
+            // 
+            FirstNameLbl.AutoSize = true;
+            FirstNameLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FirstNameLbl.Location = new Point(867, 528);
+            FirstNameLbl.Name = "FirstNameLbl";
+            FirstNameLbl.Size = new Size(64, 17);
+            FirstNameLbl.TabIndex = 14;
+            FirstNameLbl.Text = "Prénom :";
+            // 
+            // AddressLbl
+            // 
+            AddressLbl.AutoSize = true;
+            AddressLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddressLbl.Location = new Point(867, 657);
+            AddressLbl.Name = "AddressLbl";
+            AddressLbl.Size = new Size(64, 17);
+            AddressLbl.TabIndex = 15;
+            AddressLbl.Text = "Adresse :";
+            // 
+            // MailLbl
+            // 
+            MailLbl.AutoSize = true;
+            MailLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MailLbl.Location = new Point(1228, 398);
+            MailLbl.Name = "MailLbl";
+            MailLbl.Size = new Size(43, 17);
+            MailLbl.TabIndex = 16;
+            MailLbl.Text = "Mail :";
+            // 
+            // PhoneLbl
+            // 
+            PhoneLbl.AutoSize = true;
+            PhoneLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PhoneLbl.Location = new Point(1228, 528);
+            PhoneLbl.Name = "PhoneLbl";
+            PhoneLbl.Size = new Size(80, 17);
+            PhoneLbl.TabIndex = 17;
+            PhoneLbl.Text = "Téléphone :";
+            // 
+            // CpLbl
+            // 
+            CpLbl.AutoSize = true;
+            CpLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CpLbl.Location = new Point(1228, 657);
+            CpLbl.Name = "CpLbl";
+            CpLbl.Size = new Size(89, 17);
+            CpLbl.TabIndex = 18;
+            CpLbl.Text = "Code Postal :";
+            // 
             // Client
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(CpLbl);
+            Controls.Add(PhoneLbl);
+            Controls.Add(MailLbl);
+            Controls.Add(AddressLbl);
+            Controls.Add(FirstNameLbl);
+            Controls.Add(NameLbl);
             Controls.Add(AddBtn);
             Controls.Add(UpdBtn);
-            Controls.Add(ClientsCB);
             Controls.Add(CpTB);
             Controls.Add(AddressTB);
             Controls.Add(PhoneTB);
@@ -234,7 +288,12 @@ namespace AutoFact.Views
         private Label AddUpLbl;
         private RadioButton HommeRB, FemmeRB;
         private TextBox NameTB, MailTB, FirstNameTB, PhoneTB, AddressTB, CpTB;
-        private ComboBox ClientsCB;
         private Button AddBtn, UpdBtn;
+        private Label NameLbl;
+        private Label FirstNameLbl;
+        private Label AddressLbl;
+        private Label MailLbl;
+        private Label PhoneLbl;
+        private Label CpLbl;
     }
 }

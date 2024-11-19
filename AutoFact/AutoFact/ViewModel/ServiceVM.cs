@@ -12,7 +12,7 @@ namespace AutoFact.ViewModel
 {
     internal class ServiceVM
     {
-        private List<Services> serviceList;
+        private List<Services> serviceList = new List<Services>();
         private SQLiteConnection connection;
         private ComboBox box;
 
@@ -24,6 +24,11 @@ namespace AutoFact.ViewModel
             loadServices();
         }
 
+        public ServiceVM()
+        {
+            InitializeDatabase();
+        }
+
         private void InitializeDatabase()
         {
             DataBaseManager data = DataBaseManager.getInstance();
@@ -32,7 +37,10 @@ namespace AutoFact.ViewModel
 
         private void loadServices()
         {
-            this.box.Items.Clear();
+            if (box != null)
+            {
+                this.box.Items.Clear();
+            }
             try
             {
                 // Requête SQL pour récupérer les données des services avec jointure
@@ -69,7 +77,10 @@ namespace AutoFact.ViewModel
                         }
 
                         // Ajouter le nom du service à la liste déroulante (box)
-                        this.box.Items.Add(service.Libelle);
+                        if (box != null)
+                        {
+                            this.box.Items.Add(service.Libelle);
+                        }
                         serviceList.Add(service);
                     }
                 }
@@ -79,6 +90,21 @@ namespace AutoFact.ViewModel
                 // Afficher une erreur si quelque chose échoue
                 MessageBox.Show($"Erreur lors du chargement des données : {ex.Message}", "Erreur de chargement");
             }
+        }
+
+        public DataTable getServicesForDGV()
+        {
+            string query = @"SELECT Designations.id, libelle, prix, duree, description FROM Services INNER JOIN Designations ON Services.id = Designations.id;";
+            DataTable dataTable = new DataTable();
+
+            using (SQLiteCommand Servicescmd = new SQLiteCommand(query, connection))
+            {
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(Servicescmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+            }
+            return dataTable;
         }
 
         public List<Services> getServices()

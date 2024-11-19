@@ -17,6 +17,7 @@ namespace AutoFact.Views
         private CACumulVM cacumulvm;
         private List<Contrats> listFactures;
         private decimal CAcalcule = 0m;
+        private decimal oldCAcalcul = 0m;
         public CACumul()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace AutoFact.Views
         private void CalculBtn_Click(object sender, EventArgs e)
         {
             CAcalcule = 0m;
+            oldCAcalcul = 0m;
             if (StartDP.Value < EndDP.Value)
             {
                 listFactures = cacumulvm.getFactures(StartDP.Value, EndDP.Value);
@@ -36,6 +38,36 @@ namespace AutoFact.Views
                 }
 
                 CALbl.Text = CAcalcule.ToString() + " €";
+
+                int difference = (EndDP.Value - StartDP.Value).Days;
+
+                TimeSpan dayDiff = TimeSpan.FromDays(difference);
+                listFactures = cacumulvm.getFactures(StartDP.Value - dayDiff, EndDP.Value - dayDiff);
+
+                foreach (Contrats facture in listFactures)
+                {
+                    oldCAcalcul += facture.PrixTotal;
+                }
+
+                if (oldCAcalcul == 0)
+                {
+                    PercentLbl.Text = "+ 100 %";
+                }
+                else if (CAcalcule < oldCAcalcul)
+                {
+                    PercentLbl.Text = $"- {((oldCAcalcul - CAcalcule) * 100 / oldCAcalcul):0.##} %";
+                }
+                else if (CAcalcule > oldCAcalcul)
+                {
+                    PercentLbl.Text = $"+ {((CAcalcule - oldCAcalcul) * 100 / oldCAcalcul):0.##} %";
+                }
+                else
+                {
+                    PercentLbl.Text = "+ 0 %";
+                }
+
+                PercentLbl.Visible = true;
+                CALbl.Visible = true;
             }
             else
             {

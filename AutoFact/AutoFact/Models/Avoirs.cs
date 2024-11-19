@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoFact.Models
 {
-    internal class Avoirs
+    public class Avoirs
     {
         private int id { get; set; }
         private decimal montant { get; set; }

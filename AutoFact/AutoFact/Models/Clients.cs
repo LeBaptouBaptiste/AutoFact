@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace AutoFact.Models
 {
-    internal class Clients
+    public class Clients
     {
         private int id;
         private string name;

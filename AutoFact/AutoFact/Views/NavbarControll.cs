@@ -347,44 +347,44 @@ namespace AutoFact.Views
 
         private void btn_CAc_Click(object sender, EventArgs e)
         {
-            CACumul cACumul = new CACumul();
+            CACumul form = new CACumul();
             Parent.Hide();
-            cACumul.Show();
+            form.Show();
         }
 
         private void btn_Article_Click(object sender, EventArgs e)
         {
-            Article article = new Article();
+            Article form = new Article();
             Parent.Hide();
-            article.Show();
+            form.Show();
         }
 
         private void btn_Supplier_Click(object sender, EventArgs e)
         {
-            Supplier supplier = new Supplier();
+            Supplier form = new Supplier();
             Parent.Hide();
-            supplier.Show();
+            form.Show();
         }
 
         private void btn_Service_Click(object sender, EventArgs e)
         {
-            Service service = new Service();
+            ServiceShow form = new ServiceShow();
             Parent.Hide();
-            service.Show();
+            form.Show();
         }
 
         private void btn_Client_Click(object sender, EventArgs e)
         {
-            Client client = new Client();
+            ClientShow form = new ClientShow();
             Parent.Hide();
-            client.Show();
+            form.Show();
         }
 
         private void btn_Settings_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings();
+            Settings form = new Settings();
             Parent.Hide();
-            settings.Show();
+            form.Show();
         }
 
         // Composants

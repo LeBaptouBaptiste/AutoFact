@@ -17,17 +17,51 @@ namespace AutoFact.Views
         private string serviceTxt = "Service";
 
         private ServiceVM servicevm;
-        private List<Services> listServices;
+        private List<Services> listServices = new List<Services>();
 
+        private int idUpd;
         public Service()
         {
             InitializeComponent();
+            UpdBtn.Hide();
 
             // Initialisation du ViewModel et récupération des services existants
-            servicevm = new ServiceVM(ServiceCB);
+            servicevm = new ServiceVM();
             listServices = servicevm.getServices();
         }
+        public Service(Services serviceUpd)
+        {
+            InitializeComponent();
+            AddBtn.Hide();
 
+            UpdForm_Load(serviceUpd);
+            idUpd = serviceUpd.Id;
+
+            // Initialisation du ViewModel et récupération des services existants
+            servicevm = new ServiceVM();
+
+            listServices = servicevm.getServices();
+        }
+        private void UpdForm_Load(Services service)
+        {
+            // Effacer les champs avant de remplir les données
+            ClearFields();
+
+            // Remplir les champs avec les données du service sélectionné
+            NameTB.Text = service.Libelle;
+            PriceTB.Text = service.Prix.ToString();
+            DescriptionTB.Text = service.Description ?? string.Empty;
+
+            if (service.HaveDuration)
+            {
+                TimeChB.Checked = true;
+                TimeChB_CheckedChanged();
+                DurationTB.Text = service.Duration.ToString();
+            }
+
+            // Mettre à jour l'apparence des champs
+            UpdateFieldAppearance();
+        }
         // Gestion des clics dans les champs de saisie
         private void NameTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, nameTxt);
         private void PriceTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, priceTxt);
@@ -46,36 +80,6 @@ namespace AutoFact.Views
                 this.ActiveControl = textBox;
             }
         }
-
-        // Changement de sélection pour le service
-        private void ServiceCB_Changed(object sender, EventArgs e)
-        {
-            if (ServiceCB.SelectedIndex != -1)
-            {
-                int id = ServiceCB.SelectedIndex;
-                ChangeText(sender, EventArgs.Empty, true);
-                this.ActiveControl = null;
-
-                // Effacer les champs avant de remplir les données
-                ClearFields();
-
-                // Remplir les champs avec les données du service sélectionné
-                NameTB.Text = listServices[id].Libelle;
-                PriceTB.Text = listServices[id].Prix.ToString();
-                DescriptionTB.Text = listServices[id].Description ?? string.Empty;
-
-                if (listServices[id].HaveDuration)
-                {
-                    TimeChB.Checked = true;
-                    TimeChB_CheckedChanged(sender, EventArgs.Empty);
-                    DurationTB.Text = listServices[id].Duration.ToString();
-                }
-
-                // Mettre à jour l'apparence des champs
-                UpdateFieldAppearance();
-            }
-        }
-
         // Méthode pour effacer les champs de saisie
         private void ClearFields()
         {
@@ -112,7 +116,6 @@ namespace AutoFact.Views
             ResetField(PriceTB, priceTxt, e);
             ResetField(DurationTB, durationTxt, e);
             ResetField(DescriptionTB, descriptionTxt, e);
-            ResetComboBox(ServiceCB, serviceTxt, e);
             this.ActiveControl = null;
         }
 
@@ -162,6 +165,10 @@ namespace AutoFact.Views
 
                     // Rafraîchir la liste des services
                     listServices = servicevm.getServices();
+
+                    ServiceShow form = new ServiceShow();
+                    form.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -174,11 +181,11 @@ namespace AutoFact.Views
         // Mise à jour d'un service existant
         private void Upd_Clicked(object sender, EventArgs e)
         {
-            if (IsValidServiceInput() && ServiceCB.SelectedIndex != -1)
+            if (IsValidServiceInput())
             {
                 try
                 {
-                    int id = listServices[ServiceCB.SelectedIndex].Id;
+                    int id = idUpd;
                     string name = NameTB.Text;
                     decimal price = Convert.ToDecimal(PriceTB.Text);
                     string description = DescriptionTB.Text != descriptionTxt ? DescriptionTB.Text : null;
@@ -194,11 +201,14 @@ namespace AutoFact.Views
                     }
 
                     ClearFields();
-                    ServiceCB.SelectedIndex = -1;
                     Resets(this, EventArgs.Empty);
 
                     // Rafraîchir la liste des services
                     listServices = servicevm.getServices();
+
+                    ServiceShow form = new ServiceShow();
+                    form.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -217,7 +227,7 @@ namespace AutoFact.Views
         }
 
         // Gestion de la visibilité du champ "Durée"
-        private void TimeChB_CheckedChanged(object sender, EventArgs e)
+        private void TimeChB_CheckedChanged(object sender = null, EventArgs e = null)
         {
             DurationTB.Visible = TimeChB.Checked;
             DurationTB.Enabled = TimeChB.Checked;

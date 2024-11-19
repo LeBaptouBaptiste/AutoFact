@@ -34,6 +34,7 @@
             EndDP = new DateTimePicker();
             CalculBtn = new Button();
             CALbl = new Label();
+            PercentLbl = new Label();
             SuspendLayout();
             // 
             // CACumulLbl
@@ -85,19 +86,31 @@
             // CALbl
             // 
             CALbl.AutoSize = true;
-            CALbl.Enabled = false;
             CALbl.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CALbl.Location = new Point(882, 797);
             CALbl.Name = "CALbl";
             CALbl.Size = new Size(306, 65);
             CALbl.TabIndex = 18;
             CALbl.Text = "Chargement";
+            CALbl.Visible = false;
+            // 
+            // PercentLbl
+            // 
+            PercentLbl.AutoSize = true;
+            PercentLbl.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PercentLbl.Location = new Point(1354, 797);
+            PercentLbl.Name = "PercentLbl";
+            PercentLbl.Size = new Size(306, 65);
+            PercentLbl.TabIndex = 19;
+            PercentLbl.Text = "Chargement";
+            PercentLbl.Visible = false;
             // 
             // CACumul
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(PercentLbl);
             Controls.Add(CALbl);
             Controls.Add(EndDP);
             Controls.Add(StartDP);
@@ -120,5 +133,6 @@
         private DateTimePicker EndDP;
         private Button CalculBtn;
         private Label CALbl;
+        private Label PercentLbl;
     }
 }
