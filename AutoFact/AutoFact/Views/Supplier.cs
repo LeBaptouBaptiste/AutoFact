@@ -25,97 +25,127 @@ namespace AutoFact.Views
 
         // Variables pour la gestion des fournisseurs
         SocieteVM societevm;
-        private List<Societe> listSupply;
+        private List<Societe> listSupply = new List<Societe>();
+
+        private int idUpd;
 
         // Constructeur
         public Supplier()
         {
             InitializeComponent();
-            societevm = new SocieteVM(SuppliersCB);
+            UpdBtn.Hide();
+
+            societevm = new SocieteVM();
             listSupply = societevm.getSupplys();
         }
 
-        // Gestion des clics sur les champs de texte (réinitialisation du texte)
-        private void NameTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, nameTxt, NameTB); }
-        private void MailTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, mailTxt, MailTB); }
-        private void SiretTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, siretTxt, SiretTB); }
-        private void PhoneTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, phoneTxt, PhoneTB); }
-        private void AddressTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, addressTxt, AddressTB); }
-        private void CpTB_Clicked(object sender, EventArgs e) { HandleTextBoxClick(sender, e, cpTxt, CpTB); }
-
-        // Gestion de l'événement lorsque le texte est cliqué
-        private void HandleTextBoxClick(object sender, EventArgs e, string defaultText, TextBox textBox)
+        public Supplier(Societe SupplyUpd)
         {
+            InitializeComponent();
+            AddBtn.Hide();
+
+            UpdForm_Load(SupplyUpd);
+            idUpd = SupplyUpd.Id;
+
+            societevm = new SocieteVM();
+            listSupply = societevm.getSupplys();
+        }
+
+        private void UpdForm_Load(Societe fournisseur)
+        {
+            // Remplissage des champs avec les informations du fournisseur sélectionné
+            NameTB.Clear();
+            MailTB.Clear();
+            SiretTB.Clear();
+            PhoneTB.Clear();
+            AddressTB.Clear();
+            CpTB.Clear();
+
+            NameTB.Text = fournisseur.Name;
+            MailTB.Text = fournisseur.Mail;
+            SiretTB.Text = fournisseur.Siret;
+            PhoneTB.Text = fournisseur.Phone;
+            AddressTB.Text = fournisseur.Address;
+            CpTB.Text = fournisseur.PostalCode;
+
+            UpdateFieldAppearance();
+        }
+
+        // Gestion des clics sur les champs de texte (réinitialisation du texte)
+        private void NameTB_Clicked(object sender, EventArgs e) { HandleFieldClick(sender, nameTxt); }
+        private void MailTB_Clicked(object sender, EventArgs e) { HandleFieldClick(sender, mailTxt); }
+        private void SiretTB_Clicked(object sender, EventArgs e) { HandleFieldClick(sender, siretTxt); }
+        private void PhoneTB_Clicked(object sender, EventArgs e) { HandleFieldClick(sender, phoneTxt); }
+        private void AddressTB_Clicked(object sender, EventArgs e) { HandleFieldClick(sender, addressTxt); }
+        private void CpTB_Clicked(object sender, EventArgs e) { HandleFieldClick(sender, cpTxt); }
+
+        // Méthode générique pour gérer les clics sur les champs de saisie
+        private void HandleFieldClick(object sender, string defaultText)
+        {
+            TextBox textBox = sender as TextBox;
             if (textBox.Text == defaultText)
             {
-                Resets(sender, e);
+                Resets(sender, EventArgs.Empty);
                 textBox.Text = string.Empty;
-                ChangeText(sender, e, true);
+                ChangeText(sender, EventArgs.Empty, true);
                 this.ActiveControl = textBox;
             }
         }
-
-        // Gestion de la sélection d'un fournisseur dans le ComboBox
-        private void SuppliersCB_Changed(Object sender, EventArgs e)
+        // Méthode pour effacer les champs de saisie
+        private void ClearFields()
         {
-            if (SuppliersCB.SelectedIndex != -1)
-            {
-                int id = SuppliersCB.SelectedIndex;
-
-                // Réinitialisation des champs
-                Resets(sender, e);
-                ChangeText(sender, e, true);
-                this.ActiveControl = null;
-
-                // Remplissage des champs avec les informations du fournisseur sélectionné
-                NameTB.Clear();
-                MailTB.Clear();
-                SiretTB.Clear();
-                PhoneTB.Clear();
-                AddressTB.Clear();
-                CpTB.Clear();
-
-                NameTB.Text = listSupply[id].Name;
-                MailTB.Text = listSupply[id].Mail;
-                SiretTB.Text = listSupply[id].Siret;
-                PhoneTB.Text = listSupply[id].Phone;
-                AddressTB.Text = listSupply[id].Address;
-                CpTB.Text = listSupply[id].PostalCode;
-
-                // Mise à jour de la couleur du texte des champs
-                ChangeText(NameTB, e, true);
-                ChangeText(MailTB, e, true);
-                ChangeText(SiretTB, e, true);
-                ChangeText(PhoneTB, e, true);
-                ChangeText(AddressTB, e, true);
-                ChangeText(CpTB, e, true);
-            }
+            NameTB.Clear();
+            MailTB.Clear();
+            SiretTB.Clear();
+            PhoneTB.Clear();
+            AddressTB.Clear();
+            CpTB.Clear();
         }
 
-        // Modification de la couleur du texte pour les champs de texte
+        // Mise à jour de l'apparence des champs (couleur du texte)
+        private void UpdateFieldAppearance()
+        {
+            ChangeText(NameTB, EventArgs.Empty, true);
+            ChangeText(MailTB, EventArgs.Empty, true);
+            ChangeText(SiretTB, EventArgs.Empty, true);
+            ChangeText(PhoneTB, EventArgs.Empty, true);
+            ChangeText(AddressTB, EventArgs.Empty, true);
+            ChangeText(CpTB, EventArgs.Empty, true);
+        }
+
+        // Changement de la couleur du texte des contrôles
         private void ChangeText(object sender, EventArgs e, bool able)
         {
             Control obj = sender as Control;
-            if (able) obj.ForeColor = Color.Black;
-            else obj.ForeColor = Color.Silver;
+            obj.ForeColor = able ? Color.Black : Color.Silver;
         }
 
-        // Réinitialisation des champs à leurs valeurs par défaut
+        // Réinitialisation des champs de saisie
         private void Resets(object sender, EventArgs e)
         {
-            if (NameTB.Text == string.Empty) { NameTB.Text = nameTxt; ChangeText(NameTB, e, false); }
-            if (MailTB.Text == string.Empty) { MailTB.Text = mailTxt; ChangeText(MailTB, e, false); }
-            if (SiretTB.Text == string.Empty) { SiretTB.Text = siretTxt; ChangeText(SiretTB, e, false); }
-            if (PhoneTB.Text == string.Empty) { PhoneTB.Text = phoneTxt; ChangeText(PhoneTB, e, false); }
-            if (AddressTB.Text == string.Empty) { AddressTB.Text = addressTxt; ChangeText(AddressTB, e, false); }
-            if (CpTB.Text == string.Empty) { CpTB.Text = cpTxt; ChangeText(CpTB, e, false); }
+            ResetField(NameTB, nameTxt, e);
+            ResetField(MailTB, mailTxt, e);
+            ResetField(SiretTB, siretTxt, e);
+            ResetField(PhoneTB, phoneTxt, e);
+            ResetField(AddressTB, addressTxt, e);
+            ResetField(CpTB, cpTxt, e);
             this.ActiveControl = null;
+        }
+
+        // Réinitialisation d'un champ de texte
+        private void ResetField(TextBox textBox, string defaultText, EventArgs e)
+        {
+            if (textBox.Text == string.Empty)
+            {
+                textBox.Text = defaultText;
+                ChangeText(textBox, e, false);
+            }
         }
 
         // Validation et ajout d'un fournisseur
         private void Add_Clicked(object sender, EventArgs e)
         {
-            if (NameTB.Text != string.Empty && NameTB.Text != nameTxt && MailTB.Text != string.Empty && MailTB.Text != mailTxt && SiretTB.Text != null && SiretTB.Text != siretTxt && PhoneTB.Text != null && PhoneTB.Text != phoneTxt && AddressTB.Text != null && AddressTB.Text != addressTxt && CpTB.Text != null && CpTB.Text != cpTxt)
+            if (IsValidServiceInput())
             {
                 try
                 {
@@ -130,7 +160,6 @@ namespace AutoFact.Views
 
                     listSupply = societevm.getSupplys();
                     Resets(sender, e);
-                    SuppliersCB.SelectedIndex = -1;
                 }
                 catch (Exception ex)
                 {
@@ -143,11 +172,11 @@ namespace AutoFact.Views
         // Validation et mise à jour d'un fournisseur
         private void Upd_Clicked(object sender, EventArgs e)
         {
-            if (SuppliersCB.SelectedIndex != -1)
+            if (IsValidServiceInput())
             {
                 try
                 {
-                    int id = listSupply[SuppliersCB.SelectedIndex].Id;
+                    int id = idUpd;
                     string name = NameTB.Text;
                     string mail = MailTB.Text;
                     string siret = SiretTB.Text;
@@ -159,7 +188,6 @@ namespace AutoFact.Views
 
                     listSupply = societevm.getSupplys();
                     Resets(sender, e);
-                    SuppliersCB.SelectedIndex = -1;
                 }
                 catch (Exception ex)
                 {
@@ -167,6 +195,16 @@ namespace AutoFact.Views
                     MessageBox.Show("Une valeur est invalide. Vérifiez les champs.");
                 }
             }
+        }
+        // Vérification que l'entrée du service est valide
+        private bool IsValidServiceInput()
+        {
+            return NameTB.Text != string.Empty && NameTB.Text != nameTxt &&
+                   MailTB.Text != string.Empty && MailTB.Text != mailTxt &&
+                   SiretTB.Text != string.Empty && SiretTB.Text != siretTxt &&
+                   PhoneTB.Text != string.Empty && PhoneTB.Text != phoneTxt &&
+                   AddressTB.Text != string.Empty && AddressTB.Text != addressTxt &&
+                   CpTB.Text != string.Empty && CpTB.Text != cpTxt;
         }
     }
 }

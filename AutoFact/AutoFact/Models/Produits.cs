@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoFact.Models
 {
-    internal class Produits : Designation
+    public class Produits : Designation
     {
         private decimal buyPrice;
         private int quantity;

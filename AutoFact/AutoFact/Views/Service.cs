@@ -129,16 +129,6 @@ namespace AutoFact.Views
             }
         }
 
-        // Réinitialisation d'une ComboBox
-        private void ResetComboBox(ComboBox comboBox, string defaultText, EventArgs e)
-        {
-            if (comboBox.SelectedIndex == -1)
-            {
-                comboBox.Text = defaultText;
-                ChangeText(comboBox, e, false);
-            }
-        }
-
         // Ajout d'un nouveau service
         private void Add_Clicked(object sender, EventArgs e)
         {

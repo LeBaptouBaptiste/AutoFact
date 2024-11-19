@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AutoFact.Models
 {
-    internal class Societe : Clients
+    public class Societe : Clients
     {
         private string siret;
         private List<Produits> produits { get; set; }

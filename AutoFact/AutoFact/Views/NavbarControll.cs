@@ -361,7 +361,7 @@ namespace AutoFact.Views
 
         private void btn_Supplier_Click(object sender, EventArgs e)
         {
-            Supplier form = new Supplier();
+            SupplierShow form = new SupplierShow();
             Parent.Hide();
             form.Show();
         }

@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             navbarControll1 = new NavbarControll();
             AddBtn = new Button();
             ServicesDGV = new DataGridView();
-            ShowServicesLbl = new Label();
             id = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             price = new DataGridViewTextBoxColumn();
             duree = new DataGridViewTextBoxColumn();
             description = new DataGridViewTextBoxColumn();
             update = new DataGridViewButtonColumn();
+            ShowServicesLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)ServicesDGV).BeginInit();
             SuspendLayout();
             // 
@@ -70,30 +70,20 @@
             ServicesDGV.BackgroundColor = Color.LightCoral;
             ServicesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ServicesDGV.Columns.AddRange(new DataGridViewColumn[] { id, name, price, duree, description, update });
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Arial", 12F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            ServicesDGV.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Arial", 12F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            ServicesDGV.DefaultCellStyle = dataGridViewCellStyle2;
             ServicesDGV.Location = new Point(512, 222);
             ServicesDGV.Name = "ServicesDGV";
             ServicesDGV.ReadOnly = true;
             ServicesDGV.Size = new Size(1319, 661);
             ServicesDGV.TabIndex = 12;
             ServicesDGV.CellClick += UpdBtn_Click;
-            // 
-            // ShowServicesLbl
-            // 
-            ShowServicesLbl.AutoSize = true;
-            ShowServicesLbl.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ShowServicesLbl.Location = new Point(991, 138);
-            ShowServicesLbl.Name = "ShowServicesLbl";
-            ShowServicesLbl.Size = new Size(367, 37);
-            ShowServicesLbl.TabIndex = 11;
-            ShowServicesLbl.Text = "Affichage des services";
             // 
             // id
             // 
@@ -131,12 +121,12 @@
             duree.ReadOnly = true;
             duree.Width = 63;
             // 
-            // Description
+            // description
             // 
             description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             description.DataPropertyName = "description";
             description.HeaderText = "Description";
-            description.Name = "Description";
+            description.Name = "description";
             description.ReadOnly = true;
             // 
             // update
@@ -149,6 +139,16 @@
             update.UseColumnTextForButtonValue = true;
             update.Width = 58;
             // 
+            // ShowServicesLbl
+            // 
+            ShowServicesLbl.AutoSize = true;
+            ShowServicesLbl.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ShowServicesLbl.Location = new Point(991, 138);
+            ShowServicesLbl.Name = "ShowServicesLbl";
+            ShowServicesLbl.Size = new Size(367, 37);
+            ShowServicesLbl.TabIndex = 11;
+            ShowServicesLbl.Text = "Affichage des services";
+            // 
             // ServiceShow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -160,8 +160,8 @@
             Controls.Add(navbarControll1);
             Name = "ServiceShow";
             Text = "ServiceShow";
-            ((System.ComponentModel.ISupportInitialize)ServicesDGV).EndInit();
             Load += ServicesShow_Load;
+            ((System.ComponentModel.ISupportInitialize)ServicesDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

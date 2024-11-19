@@ -16,7 +16,7 @@ namespace AutoFact.ViewModel
     internal class SocieteVM
     {
         // Liste des sociétés
-        private List<Societe> societeList;
+        private List<Societe> societeList = new List<Societe>();
 
         // Connexion à la base de données SQLite
         private SQLiteConnection connection;
@@ -32,6 +32,10 @@ namespace AutoFact.ViewModel
             InitializeDatabase(); // Connexion à la base de données
             loadSupplys(); // Chargement des sociétés dans le ComboBox et la liste
         }
+        public SocieteVM()
+        {
+            InitializeDatabase();
+        }
 
         // Initialisation de la connexion à la base de données SQLite
         private void InitializeDatabase()
@@ -43,7 +47,10 @@ namespace AutoFact.ViewModel
         // Charge les sociétés depuis la base de données
         private void loadSupplys()
         {
-            this.box.Items.Clear(); // Vide le ComboBox pour éviter les doublons
+            if (box != null)
+            {
+                this.box.Items.Clear(); // Vide le ComboBox pour éviter les doublons
+            }
             try
             {
                 // Requête SQLite pour récupérer les sociétés et leurs informations associées
@@ -69,7 +76,10 @@ namespace AutoFact.ViewModel
 
                         // Création de l'objet Societe et ajout dans la liste et le ComboBox
                         Societe society = new Societe(id, nom, adresse, cp, tel, mail, siret);
-                        this.box.Items.Add(society.Name); // Ajout du nom de la société dans le ComboBox
+                        if (box != null)
+                        {
+                            this.box.Items.Add(society.Name); // Ajout du nom de la société dans le ComboBox
+                        }
                         societeList.Add(society); // Ajout de l'objet Societe dans la liste
                     }
                 }
@@ -79,6 +89,20 @@ namespace AutoFact.ViewModel
                 // Gestion des erreurs lors du chargement des données
                 MessageBox.Show($"Erreur lors du chargement des données : {ex.Message}", "Erreur de chargement");
             }
+        }
+        public DataTable getSuppliersForDGV()
+        {
+            string query = @"SELECT Clients.id, siret, adresse, cp, tel, mail, nom FROM Societes INNER JOIN Clients ON Societes.id = Clients.id;";
+            DataTable dataTable = new DataTable();
+
+            using (SQLiteCommand Servicescmd = new SQLiteCommand(query, connection))
+            {
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(Servicescmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+            }
+            return dataTable;
         }
 
         // Retourne la liste des sociétés
