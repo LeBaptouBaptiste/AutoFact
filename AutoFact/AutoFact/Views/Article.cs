@@ -20,18 +20,53 @@ namespace AutoFact.Views
         private string descriptionTxt = "Description";
 
         private ArticleVM articlevm;
-        private List<Societe> listSupply;
-        private List<Produits> listProducts;
+        private SocieteVM societevm;
+        private List<Societe> listSupply = new List<Societe>();
+        private List<Produits> listProducts = new List<Produits>();
+
+        private int idUpd;
 
         public Article()
         {
             InitializeComponent();
+            UpBtn.Hide();
 
             // Initialisation des objets viewmodel et de la liste des fournisseurs
             SocieteVM societevm = new SocieteVM(SupplyCB);
             listSupply = societevm.getSupplys();
-            articlevm = new ArticleVM(ArticleCB, listSupply);
+            articlevm = new ArticleVM(listSupply);
             listProducts = articlevm.getProducts();
+        }
+        public Article(Produits produitUpd)
+        {
+            InitializeComponent();
+            AddBtn.Hide();
+
+            UpdForm_Load(produitUpd);
+            idUpd = produitUpd.Id;
+
+            // Initialisation du ViewModel et récupération des services existants
+            SocieteVM societevm = new SocieteVM(SupplyCB);
+            listSupply = societevm.getSupplys();
+            articlevm = new ArticleVM(listSupply);
+            listProducts = articlevm.getProducts();
+        }
+        private void UpdForm_Load(Produits produit)
+        {
+            // Effacer les champs avant de remplir les données
+            ClearFields();
+
+            // Remplir les champs avec les données de l'article sélectionné
+            NameTB.Text = produit.Libelle;
+            PriceTB.Text = produit.Prix.ToString();
+            BuypriceTB.Text = produit.BuyPrice.ToString();
+            QuantityTB.Text = produit.Quantity.ToString();
+            MessageBox.Show(listSupply.IndexOf(produit.Fournisseur).ToString());
+            SupplyCB.SelectedIndex = listSupply.IndexOf(produit.Fournisseur);
+            DescriptionTB.Text = produit.Description ?? string.Empty;
+
+            // Mettre à jour l'apparence des champs
+            UpdateFieldAppearance();
         }
 
         // Gestion des clics dans les champs de saisie
@@ -62,31 +97,6 @@ namespace AutoFact.Views
                 Resets(sender, EventArgs.Empty);
                 ChangeText(sender, EventArgs.Empty, true);
                 this.ActiveControl = null;
-            }
-        }
-
-        // Changement de sélection pour l'article
-        private void ArticleCB_Changed(object sender, EventArgs e)
-        {
-            if (ArticleCB.SelectedIndex != -1)
-            {
-                int id = ArticleCB.SelectedIndex;
-                ChangeText(sender, EventArgs.Empty, true);
-                this.ActiveControl = null;
-
-                // Effacer les champs avant de remplir les données
-                ClearFields();
-
-                // Remplir les champs avec les données de l'article sélectionné
-                NameTB.Text = listProducts[id].Libelle;
-                PriceTB.Text = listProducts[id].Prix.ToString();
-                BuypriceTB.Text = listProducts[id].BuyPrice.ToString();
-                QuantityTB.Text = listProducts[id].Quantity.ToString();
-                SupplyCB.SelectedIndex = listSupply.IndexOf(listProducts[id].Fournisseur);
-                DescriptionTB.Text = listProducts[id].Description ?? string.Empty;
-
-                // Mettre à jour l'apparence des champs
-                UpdateFieldAppearance();
             }
         }
 
@@ -130,7 +140,6 @@ namespace AutoFact.Views
             ResetField(QuantityTB, quantityTxt, e);
             ResetField(DescriptionTB, descriptionTxt, e);
             ResetComboBox(SupplyCB, supplyTxt, e);
-            ResetComboBox(ArticleCB, articleTxt, e);
             this.ActiveControl = null;
         }
 
@@ -188,11 +197,11 @@ namespace AutoFact.Views
         // Mise à jour d'un article existant
         private void Upd_Clicked(object sender, EventArgs e)
         {
-            if (IsValidArticleInput() && ArticleCB.SelectedIndex != -1)
+            if (IsValidArticleInput())
             {
                 try
                 {
-                    int id = listProducts[ArticleCB.SelectedIndex].Id;
+                    int id = idUpd;
                     string name = NameTB.Text;
                     decimal price = Convert.ToDecimal(PriceTB.Text);
                     decimal buyprice = Convert.ToDecimal(BuypriceTB.Text);
@@ -203,7 +212,6 @@ namespace AutoFact.Views
                     articlevm.updArticle(id, name, price, buyprice, quantity, society, description);
 
                     // Réinitialiser après mise à jour
-                    ArticleCB.SelectedIndex = -1;
                     ClearFields();
                     SupplyCB.SelectedIndex = -1;
                     Resets(this, EventArgs.Empty);

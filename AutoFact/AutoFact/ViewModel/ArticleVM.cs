@@ -33,6 +33,11 @@ namespace AutoFact.ViewModel
             InitializeDatabase(); // Connexion à la base de données
             loadArticles(); // Chargement des articles dans le ComboBox et la liste
         }
+        public ArticleVM(List<Societe> societeList)
+        {
+            this.societeList = societeList;
+            InitializeDatabase();
+        }
 
         // Initialisation de la connexion à la base de données
         private void InitializeDatabase()
@@ -54,7 +59,10 @@ namespace AutoFact.ViewModel
         {
             try
             {
-                box.Items.Clear(); // Vide le ComboBox
+                if (box != null)
+                {
+                    box.Items.Clear(); // Vide le ComboBox
+                }
 
                 // Requête SQLite pour récupérer les produits
                 string query = @"SELECT Designations.id, prixAchat, quantite, id_fournisseur, libelle, prix, description FROM Produits INNER JOIN Designations ON Produits.id = Designations.id;";
@@ -86,7 +94,10 @@ namespace AutoFact.ViewModel
 
                         // Création du produit et ajout au ComboBox et à la liste
                         Produits product = new Produits(id, libelle, description, price, buyPrice, quantity, societeList[fournisseur]);
-                        box.Items.Add(product.Libelle);
+                        if (box != null)
+                        {
+                            box.Items.Add(product.Libelle);
+                        }
                         articleList.Add(product);
                     }
                 }
@@ -95,6 +106,21 @@ namespace AutoFact.ViewModel
             {
                 MessageBox.Show($"Erreur lors du chargement des données : {ex.Message}", "Erreur de chargement");
             }
+        }
+
+        public DataTable getProductsForDGV()
+        {
+            string query = @"SELECT Designations.id, prixAchat, quantite, Clients.nom AS fournisseur, libelle, prix, description FROM Produits INNER JOIN Designations ON Produits.id = Designations.id INNER JOIN Societes ON Societes.id = Produits.id_fournisseur INNER JOIN Clients ON Societes.id = Clients.id;";
+            DataTable dataTable = new DataTable();
+
+            using (SQLiteCommand Servicescmd = new SQLiteCommand(query, connection))
+            {
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(Servicescmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+            }
+            return dataTable;
         }
 
         // Ajoute un nouvel article dans la base de données

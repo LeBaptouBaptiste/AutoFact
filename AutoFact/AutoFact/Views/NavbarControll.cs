@@ -354,7 +354,7 @@ namespace AutoFact.Views
 
         private void btn_Article_Click(object sender, EventArgs e)
         {
-            Article form = new Article();
+            ArticleShow form = new ArticleShow();
             Parent.Hide();
             form.Show();
         }

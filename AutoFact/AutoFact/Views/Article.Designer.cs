@@ -33,7 +33,6 @@ namespace AutoFact.Views
         {
             navbarUserControl = new NavbarControll();
             NameTB = new TextBox();
-            ArticleCB = new ComboBox();
             PriceTB = new TextBox();
             SupplyCB = new ComboBox();
             AddBtn = new Button();
@@ -42,6 +41,12 @@ namespace AutoFact.Views
             BuypriceTB = new TextBox();
             QuantityTB = new TextBox();
             DescriptionTB = new TextBox();
+            NameLbl = new Label();
+            PriceLbl = new Label();
+            QuantityLbl = new Label();
+            BuyPriceLbl = new Label();
+            DescriptionLbl = new Label();
+            SupplierLbl = new Label();
             SuspendLayout();
             // 
             // navbarUserControl
@@ -58,35 +63,21 @@ namespace AutoFact.Views
             // 
             NameTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             NameTB.ForeColor = Color.Silver;
-            NameTB.Location = new Point(694, 289);
+            NameTB.Location = new Point(714, 289);
             NameTB.MaxLength = 255;
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 1;
-            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
-            // 
-            // ArticleCB
-            // 
-            ArticleCB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ArticleCB.ForeColor = Color.Silver;
-            ArticleCB.FormattingEnabled = true;
-            ArticleCB.Location = new Point(1275, 289);
-            ArticleCB.Name = "ArticleCB";
-            ArticleCB.Size = new Size(264, 27);
-            ArticleCB.TabIndex = 2;
-            ArticleCB.Text = articleTxt;
-            ArticleCB.SelectedIndexChanged += ArticleCB_Changed;
             // 
             // PriceTB
             // 
             PriceTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PriceTB.ForeColor = Color.Silver;
-            PriceTB.Location = new Point(694, 405);
+            PriceTB.Location = new Point(714, 405);
             PriceTB.Name = "PriceTB";
             PriceTB.Size = new Size(180, 26);
             PriceTB.TabIndex = 3;
-            PriceTB.Text = priceTxt;
             PriceTB.Click += PriceTB_Clicked;
             // 
             // SupplyCB
@@ -94,11 +85,10 @@ namespace AutoFact.Views
             SupplyCB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SupplyCB.ForeColor = Color.Silver;
             SupplyCB.FormattingEnabled = true;
-            SupplyCB.Location = new Point(1275, 529);
+            SupplyCB.Location = new Point(1460, 288);
             SupplyCB.Name = "SupplyCB";
             SupplyCB.Size = new Size(264, 27);
             SupplyCB.TabIndex = 4;
-            SupplyCB.Text = supplyTxt;
             SupplyCB.SelectedIndexChanged += SupplyCB_Changed;
             // 
             // AddBtn
@@ -106,9 +96,9 @@ namespace AutoFact.Views
             AddBtn.BackColor = Color.Blue;
             AddBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddBtn.ForeColor = Color.White;
-            AddBtn.Location = new Point(714, 828);
+            AddBtn.Location = new Point(1022, 859);
             AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(144, 43);
+            AddBtn.Size = new Size(275, 94);
             AddBtn.TabIndex = 5;
             AddBtn.Text = "Ajouter";
             AddBtn.UseVisualStyleBackColor = false;
@@ -119,9 +109,9 @@ namespace AutoFact.Views
             UpBtn.BackColor = Color.Blue;
             UpBtn.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             UpBtn.ForeColor = Color.White;
-            UpBtn.Location = new Point(1355, 828);
+            UpBtn.Location = new Point(1022, 859);
             UpBtn.Name = "UpBtn";
-            UpBtn.Size = new Size(144, 43);
+            UpBtn.Size = new Size(275, 94);
             UpBtn.TabIndex = 6;
             UpBtn.Text = "Modifier";
             UpBtn.UseVisualStyleBackColor = false;
@@ -141,43 +131,106 @@ namespace AutoFact.Views
             // 
             BuypriceTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BuypriceTB.ForeColor = Color.Silver;
-            BuypriceTB.Location = new Point(996, 405);
+            BuypriceTB.Location = new Point(1075, 405);
             BuypriceTB.MaxLength = 255;
             BuypriceTB.Name = "BuypriceTB";
             BuypriceTB.Size = new Size(180, 26);
             BuypriceTB.TabIndex = 8;
-            BuypriceTB.Text = buypriceTxt;
             BuypriceTB.Click += BuypriceTB_Clicked;
             // 
             // QuantityTB
             // 
             QuantityTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             QuantityTB.ForeColor = Color.Silver;
-            QuantityTB.Location = new Point(996, 289);
+            QuantityTB.Location = new Point(1075, 288);
             QuantityTB.MaxLength = 255;
             QuantityTB.Name = "QuantityTB";
             QuantityTB.Size = new Size(180, 26);
             QuantityTB.TabIndex = 9;
-            QuantityTB.Text = quantityTxt;
             QuantityTB.Click += QuantityTB_Clicked;
             // 
             // DescriptionTB
             // 
             DescriptionTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DescriptionTB.ForeColor = Color.Silver;
-            DescriptionTB.Location = new Point(766, 506);
+            DescriptionTB.Location = new Point(820, 520);
             DescriptionTB.MaxLength = 511;
             DescriptionTB.Multiline = true;
             DescriptionTB.Name = "DescriptionTB";
             DescriptionTB.Size = new Size(363, 170);
             DescriptionTB.TabIndex = 10;
-            DescriptionTB.Text = descriptionTxt;
             DescriptionTB.Click += DescriptionTB_Clicked;
+            // 
+            // NameLbl
+            // 
+            NameLbl.AutoSize = true;
+            NameLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            NameLbl.Location = new Point(714, 269);
+            NameLbl.Name = "NameLbl";
+            NameLbl.Size = new Size(46, 17);
+            NameLbl.TabIndex = 15;
+            NameLbl.Text = "Nom :";
+            // 
+            // PriceLbl
+            // 
+            PriceLbl.AutoSize = true;
+            PriceLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PriceLbl.Location = new Point(714, 385);
+            PriceLbl.Name = "PriceLbl";
+            PriceLbl.Size = new Size(40, 17);
+            PriceLbl.TabIndex = 16;
+            PriceLbl.Text = "Prix :";
+            // 
+            // QuantityLbl
+            // 
+            QuantityLbl.AutoSize = true;
+            QuantityLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            QuantityLbl.Location = new Point(1075, 269);
+            QuantityLbl.Name = "QuantityLbl";
+            QuantityLbl.Size = new Size(49, 17);
+            QuantityLbl.TabIndex = 17;
+            QuantityLbl.Text = "Stock :";
+            // 
+            // BuyPriceLbl
+            // 
+            BuyPriceLbl.AutoSize = true;
+            BuyPriceLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BuyPriceLbl.Location = new Point(1075, 385);
+            BuyPriceLbl.Name = "BuyPriceLbl";
+            BuyPriceLbl.Size = new Size(89, 17);
+            BuyPriceLbl.TabIndex = 18;
+            BuyPriceLbl.Text = "Prix d'achat :";
+            // 
+            // DescriptionLbl
+            // 
+            DescriptionLbl.AutoSize = true;
+            DescriptionLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DescriptionLbl.Location = new Point(820, 500);
+            DescriptionLbl.Name = "DescriptionLbl";
+            DescriptionLbl.Size = new Size(87, 17);
+            DescriptionLbl.TabIndex = 19;
+            DescriptionLbl.Text = "Description :";
+            // 
+            // SupplierLbl
+            // 
+            SupplierLbl.AutoSize = true;
+            SupplierLbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SupplierLbl.Location = new Point(1460, 268);
+            SupplierLbl.Name = "SupplierLbl";
+            SupplierLbl.Size = new Size(88, 17);
+            SupplierLbl.TabIndex = 20;
+            SupplierLbl.Text = "Fournisseur :";
             // 
             // Article
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(SupplierLbl);
+            Controls.Add(DescriptionLbl);
+            Controls.Add(BuyPriceLbl);
+            Controls.Add(QuantityLbl);
+            Controls.Add(PriceLbl);
+            Controls.Add(NameLbl);
             Controls.Add(DescriptionTB);
             Controls.Add(QuantityTB);
             Controls.Add(BuypriceTB);
@@ -186,7 +239,6 @@ namespace AutoFact.Views
             Controls.Add(AddBtn);
             Controls.Add(SupplyCB);
             Controls.Add(PriceTB);
-            Controls.Add(ArticleCB);
             Controls.Add(NameTB);
             Controls.Add(navbarUserControl);
             Margin = new Padding(4, 3, 4, 3);
@@ -203,7 +255,6 @@ namespace AutoFact.Views
 
         private NavbarControll navbarUserControl;
         private TextBox NameTB;
-        private ComboBox ArticleCB;
         private TextBox PriceTB;
         private ComboBox SupplyCB;
         private Button AddBtn;
@@ -212,5 +263,11 @@ namespace AutoFact.Views
         private TextBox BuypriceTB;
         private TextBox QuantityTB;
         private TextBox DescriptionTB;
+        private Label NameLbl;
+        private Label PriceLbl;
+        private Label QuantityLbl;
+        private Label BuyPriceLbl;
+        private Label DescriptionLbl;
+        private Label SupplierLbl;
     }
 }
