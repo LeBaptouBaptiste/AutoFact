@@ -22,6 +22,7 @@ namespace AutoFact.Views
         private ArticleVM articlevm;
         private SocieteVM societevm;
         private List<Societe> listSupply = new List<Societe>();
+        private List<int> listSupplyId = new List<int>();
         private List<Produits> listProducts = new List<Produits>();
 
         private int idUpd;
@@ -42,12 +43,14 @@ namespace AutoFact.Views
             InitializeComponent();
             AddBtn.Hide();
 
+            SocieteVM societevm = new SocieteVM(SupplyCB);
+            listSupply = societevm.getSupplys();
+            listSupplyId = societevm.getSupplysId();
+
             UpdForm_Load(produitUpd);
             idUpd = produitUpd.Id;
 
             // Initialisation du ViewModel et récupération des services existants
-            SocieteVM societevm = new SocieteVM(SupplyCB);
-            listSupply = societevm.getSupplys();
             articlevm = new ArticleVM(listSupply);
             listProducts = articlevm.getProducts();
         }
@@ -61,8 +64,7 @@ namespace AutoFact.Views
             PriceTB.Text = produit.Prix.ToString();
             BuypriceTB.Text = produit.BuyPrice.ToString();
             QuantityTB.Text = produit.Quantity.ToString();
-            MessageBox.Show(listSupply.IndexOf(produit.Fournisseur).ToString());
-            SupplyCB.SelectedIndex = listSupply.IndexOf(produit.Fournisseur);
+            SupplyCB.SelectedIndex = listSupplyId.IndexOf(produit.Fournisseur.Id);
             DescriptionTB.Text = produit.Description ?? string.Empty;
 
             // Mettre à jour l'apparence des champs
@@ -179,12 +181,9 @@ namespace AutoFact.Views
                     string description = DescriptionTB.Text != descriptionTxt ? DescriptionTB.Text : null;
                     articlevm.addArticle(name, price, buyprice, quantity, society, description);
 
-                    ClearFields();
-                    SupplyCB.SelectedIndex = -1;
-                    Resets(this, EventArgs.Empty);
-
-                    // Rafraîchir la liste des produits
-                    listProducts = articlevm.getProducts();
+                    ArticleShow form = new ArticleShow();
+                    form.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -211,13 +210,9 @@ namespace AutoFact.Views
                     string description = DescriptionTB.Text != descriptionTxt ? DescriptionTB.Text : null;
                     articlevm.updArticle(id, name, price, buyprice, quantity, society, description);
 
-                    // Réinitialiser après mise à jour
-                    ClearFields();
-                    SupplyCB.SelectedIndex = -1;
-                    Resets(this, EventArgs.Empty);
-
-                    // Rafraîchir la liste des produits
-                    listProducts = articlevm.getProducts();
+                    ArticleShow form = new ArticleShow();
+                    form.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {

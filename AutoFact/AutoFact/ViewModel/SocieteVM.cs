@@ -112,6 +112,17 @@ namespace AutoFact.ViewModel
             loadSupplys(); // Recharge les sociétés
             return this.societeList; // Retourne la liste des sociétés
         }
+        public List<int> getSupplysId()
+        {
+            this.societeList.Clear();
+            loadSupplys();
+            List<int> list = new List<int>();
+            foreach(Societe societe in this.societeList)
+            {
+                list.Add(societe.Id);
+            }
+            return list;
+        }
 
         // Ajoute une nouvelle société dans la base de données
         public void addSupplier(string name, string mail, string siret, string phone, string address, string cp)

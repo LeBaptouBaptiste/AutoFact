@@ -180,8 +180,8 @@
             Controls.Add(navbarControll1);
             Name = "ArticleShow";
             Text = "ArticleShow";
-            ((System.ComponentModel.ISupportInitialize)ArticlesDGV).EndInit();
             Load += ArticlesShow_Load;
+            ((System.ComponentModel.ISupportInitialize)ArticlesDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -1,30 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\",
+  "WorkspaceRootPath": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\views\\articleshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\articleshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\article.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\article.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\views\\articleshow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\articleshow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\views\\articleshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\articleshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\articlevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\articleshow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\articleshow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\societevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\societevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\articlevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\articlevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\baptiste\\documents\\github\\autofact\\autofact\\autofact\\views\\articleshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\articleshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\articleshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\articleshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,13 +50,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Article.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.Designer.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\Article.Designer.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.Designer.cs",
+              "RelativeToolTip": "AutoFact\\Views\\Article.Designer.cs",
+              "ViewState": "AgIAALoAAAAAAAAAAAAowAgBAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T07:45:09.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SocieteVM.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\SocieteVM.cs",
+              "RelativeDocumentMoniker": "AutoFact\\ViewModel\\SocieteVM.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\SocieteVM.cs",
+              "RelativeToolTip": "AutoFact\\ViewModel\\SocieteVM.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAcwHkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T07:08:03.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Article.cs",
-              "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Article.cs",
-              "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
               "RelativeToolTip": "AutoFact\\Views\\Article.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAewD8AAABQAAAAAAAAAA==",
+              "ViewState": "AgIAALsAAAAAAAAAAAAQwNIAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T18:40:51.876Z",
               "EditorCaption": ""
@@ -57,9 +91,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Article.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Article.cs",
-              "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs [Conception]",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.cs [Conception]",
               "RelativeToolTip": "AutoFact\\Views\\Article.cs [Conception]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T18:40:02.076Z",
@@ -67,24 +101,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ArticleShow.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.Designer.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\ArticleShow.Designer.cs",
-              "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.Designer.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.Designer.cs",
               "RelativeToolTip": "AutoFact\\Views\\ArticleShow.Designer.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAowLcAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T18:36:52.788Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "ArticleShow.cs",
-              "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\ArticleShow.cs",
-              "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.cs",
               "RelativeToolTip": "AutoFact\\Views\\ArticleShow.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -93,24 +127,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ArticleVM.cs",
-              "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\ArticleVM.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\ArticleVM.cs",
               "RelativeDocumentMoniker": "AutoFact\\ViewModel\\ArticleVM.cs",
-              "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\ArticleVM.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\ArticleVM.cs",
               "RelativeToolTip": "AutoFact\\ViewModel\\ArticleVM.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACUAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAuwCUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T18:29:33.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "ArticleShow.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\ArticleShow.cs",
-              "ToolTip": "C:\\Users\\Baptiste\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.cs [Conception]",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ArticleShow.cs [Conception]",
               "RelativeToolTip": "AutoFact\\Views\\ArticleShow.cs [Conception]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T18:27:46.429Z",

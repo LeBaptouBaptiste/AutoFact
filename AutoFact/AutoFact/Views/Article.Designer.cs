@@ -68,6 +68,7 @@ namespace AutoFact.Views
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 1;
+            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
             // 
             // PriceTB
@@ -78,6 +79,7 @@ namespace AutoFact.Views
             PriceTB.Name = "PriceTB";
             PriceTB.Size = new Size(180, 26);
             PriceTB.TabIndex = 3;
+            PriceTB.Text = priceTxt;
             PriceTB.Click += PriceTB_Clicked;
             // 
             // SupplyCB
@@ -89,6 +91,7 @@ namespace AutoFact.Views
             SupplyCB.Name = "SupplyCB";
             SupplyCB.Size = new Size(264, 27);
             SupplyCB.TabIndex = 4;
+            SupplyCB.Text = supplyTxt;
             SupplyCB.SelectedIndexChanged += SupplyCB_Changed;
             // 
             // AddBtn
@@ -136,6 +139,7 @@ namespace AutoFact.Views
             BuypriceTB.Name = "BuypriceTB";
             BuypriceTB.Size = new Size(180, 26);
             BuypriceTB.TabIndex = 8;
+            BuypriceTB.Text = buypriceTxt;
             BuypriceTB.Click += BuypriceTB_Clicked;
             // 
             // QuantityTB
@@ -147,6 +151,7 @@ namespace AutoFact.Views
             QuantityTB.Name = "QuantityTB";
             QuantityTB.Size = new Size(180, 26);
             QuantityTB.TabIndex = 9;
+            QuantityTB.Text = quantityTxt;
             QuantityTB.Click += QuantityTB_Clicked;
             // 
             // DescriptionTB
@@ -159,6 +164,7 @@ namespace AutoFact.Views
             DescriptionTB.Name = "DescriptionTB";
             DescriptionTB.Size = new Size(363, 170);
             DescriptionTB.TabIndex = 10;
+            DescriptionTB.Text = descriptionTxt;
             DescriptionTB.Click += DescriptionTB_Clicked;
             // 
             // NameLbl
