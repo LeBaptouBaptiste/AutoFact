@@ -57,7 +57,7 @@ namespace AutoFact.Views
             navbarUserControl.Location = new Point(0, 0);
             navbarUserControl.Name = "navbarUserControl";
             navbarUserControl.Size = new Size(450, 1041);
-            navbarUserControl.TabIndex = 0;
+            navbarUserControl.TabIndex = 7;
             // 
             // NameTB
             // 
@@ -67,9 +67,11 @@ namespace AutoFact.Views
             NameTB.MaxLength = 255;
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
-            NameTB.TabIndex = 1;
+            NameTB.TabIndex = 0;
             NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
+            NameTB.Enter += NameTB_Clicked;
+            NameTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // PriceTB
             // 
@@ -78,9 +80,11 @@ namespace AutoFact.Views
             PriceTB.Location = new Point(714, 405);
             PriceTB.Name = "PriceTB";
             PriceTB.Size = new Size(180, 26);
-            PriceTB.TabIndex = 3;
+            PriceTB.TabIndex = 1;
             PriceTB.Text = priceTxt;
             PriceTB.Click += PriceTB_Clicked;
+            PriceTB.Enter += PriceTB_Clicked;
+            PriceTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // SupplyCB
             // 
@@ -90,9 +94,11 @@ namespace AutoFact.Views
             SupplyCB.Location = new Point(1460, 288);
             SupplyCB.Name = "SupplyCB";
             SupplyCB.Size = new Size(264, 27);
-            SupplyCB.TabIndex = 4;
+            SupplyCB.TabIndex = 5;
             SupplyCB.Text = supplyTxt;
             SupplyCB.SelectedIndexChanged += SupplyCB_Changed;
+            SupplyCB.Enter += SupplyCB_Changed;
+            SupplyCB.Leave += (sender, e) => Resets(sender, false);
             // 
             // AddBtn
             // 
@@ -102,7 +108,7 @@ namespace AutoFact.Views
             AddBtn.Location = new Point(1022, 859);
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(275, 94);
-            AddBtn.TabIndex = 5;
+            AddBtn.TabIndex = 6;
             AddBtn.Text = "Ajouter";
             AddBtn.UseVisualStyleBackColor = false;
             AddBtn.Click += Add_Clicked;
@@ -127,7 +133,6 @@ namespace AutoFact.Views
             AddUpLbl.Location = new Point(933, 159);
             AddUpLbl.Name = "AddUpLbl";
             AddUpLbl.Size = new Size(433, 37);
-            AddUpLbl.TabIndex = 7;
             AddUpLbl.Text = "Ajout/Modification d'article";
             // 
             // BuypriceTB
@@ -138,9 +143,11 @@ namespace AutoFact.Views
             BuypriceTB.MaxLength = 255;
             BuypriceTB.Name = "BuypriceTB";
             BuypriceTB.Size = new Size(180, 26);
-            BuypriceTB.TabIndex = 8;
+            BuypriceTB.TabIndex = 3;
             BuypriceTB.Text = buypriceTxt;
             BuypriceTB.Click += BuypriceTB_Clicked;
+            BuypriceTB.Enter += BuypriceTB_Clicked;
+            BuypriceTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // QuantityTB
             // 
@@ -150,9 +157,11 @@ namespace AutoFact.Views
             QuantityTB.MaxLength = 255;
             QuantityTB.Name = "QuantityTB";
             QuantityTB.Size = new Size(180, 26);
-            QuantityTB.TabIndex = 9;
+            QuantityTB.TabIndex = 2;
             QuantityTB.Text = quantityTxt;
             QuantityTB.Click += QuantityTB_Clicked;
+            QuantityTB.Enter += QuantityTB_Clicked;
+            QuantityTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // DescriptionTB
             // 
@@ -163,9 +172,11 @@ namespace AutoFact.Views
             DescriptionTB.Multiline = true;
             DescriptionTB.Name = "DescriptionTB";
             DescriptionTB.Size = new Size(363, 170);
-            DescriptionTB.TabIndex = 10;
+            DescriptionTB.TabIndex = 4;
             DescriptionTB.Text = descriptionTxt;
             DescriptionTB.Click += DescriptionTB_Clicked;
+            DescriptionTB.Enter += DescriptionTB_Clicked;
+            DescriptionTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // NameLbl
             // 
@@ -174,7 +185,6 @@ namespace AutoFact.Views
             NameLbl.Location = new Point(714, 269);
             NameLbl.Name = "NameLbl";
             NameLbl.Size = new Size(46, 17);
-            NameLbl.TabIndex = 15;
             NameLbl.Text = "Nom :";
             // 
             // PriceLbl
@@ -184,7 +194,6 @@ namespace AutoFact.Views
             PriceLbl.Location = new Point(714, 385);
             PriceLbl.Name = "PriceLbl";
             PriceLbl.Size = new Size(40, 17);
-            PriceLbl.TabIndex = 16;
             PriceLbl.Text = "Prix :";
             // 
             // QuantityLbl
@@ -194,7 +203,6 @@ namespace AutoFact.Views
             QuantityLbl.Location = new Point(1075, 269);
             QuantityLbl.Name = "QuantityLbl";
             QuantityLbl.Size = new Size(49, 17);
-            QuantityLbl.TabIndex = 17;
             QuantityLbl.Text = "Stock :";
             // 
             // BuyPriceLbl
@@ -204,7 +212,6 @@ namespace AutoFact.Views
             BuyPriceLbl.Location = new Point(1075, 385);
             BuyPriceLbl.Name = "BuyPriceLbl";
             BuyPriceLbl.Size = new Size(89, 17);
-            BuyPriceLbl.TabIndex = 18;
             BuyPriceLbl.Text = "Prix d'achat :";
             // 
             // DescriptionLbl
@@ -214,7 +221,6 @@ namespace AutoFact.Views
             DescriptionLbl.Location = new Point(820, 500);
             DescriptionLbl.Name = "DescriptionLbl";
             DescriptionLbl.Size = new Size(87, 17);
-            DescriptionLbl.TabIndex = 19;
             DescriptionLbl.Text = "Description :";
             // 
             // SupplierLbl
@@ -224,7 +230,6 @@ namespace AutoFact.Views
             SupplierLbl.Location = new Point(1460, 268);
             SupplierLbl.Name = "SupplierLbl";
             SupplierLbl.Size = new Size(88, 17);
-            SupplierLbl.TabIndex = 20;
             SupplierLbl.Text = "Fournisseur :";
             // 
             // Article
@@ -252,7 +257,7 @@ namespace AutoFact.Views
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Article";
             WindowState = FormWindowState.Maximized;
-            Click += Resets;
+            Click += (sender, e) => Resets(sender, true);
             ResumeLayout(false);
             PerformLayout();
         }

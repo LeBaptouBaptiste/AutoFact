@@ -68,15 +68,25 @@ namespace AutoFact.Views
         private void DurationTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, durationTxt);
         private void DescriptionTB_Clicked(object sender, EventArgs e) => HandleFieldClick(sender, descriptionTxt);
 
+        // Méthode pour changer l'etat de la checkbox en appuyant sur "Entrer"
+        private void TimeChB_Press(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                TimeChB.Checked = !TimeChB.Checked; // Inverse l'état
+                e.Handled = true;
+            }
+        }
+
         // Méthode générique pour gérer les clics sur les champs de saisie
         private void HandleFieldClick(object sender, string defaultText)
         {
             TextBox textBox = sender as TextBox;
             if (textBox.Text == defaultText)
             {
-                Resets(sender, EventArgs.Empty);
+                Resets(sender, true);
                 textBox.Text = string.Empty;
-                ChangeText(sender, EventArgs.Empty, true);
+                ChangeText(sender, true);
                 this.ActiveControl = textBox;
             }
         }
@@ -93,39 +103,42 @@ namespace AutoFact.Views
         // Mise à jour de l'apparence des champs (couleur du texte)
         private void UpdateFieldAppearance()
         {
-            ChangeText(NameTB, EventArgs.Empty, true);
-            ChangeText(PriceTB, EventArgs.Empty, true);
-            ChangeText(DurationTB, EventArgs.Empty, true);
+            ChangeText(NameTB, true);
+            ChangeText(PriceTB, true);
+            ChangeText(DurationTB, true);
             if (!string.IsNullOrEmpty(DescriptionTB.Text))
             {
-                ChangeText(DescriptionTB, EventArgs.Empty, true);
+                ChangeText(DescriptionTB, true);
             }
         }
 
         // Changement de la couleur du texte des contrôles
-        private void ChangeText(object sender, EventArgs e, bool able)
+        private void ChangeText(object sender, bool able)
         {
             Control obj = sender as Control;
             obj.ForeColor = able ? Color.Black : Color.Silver;
         }
 
         // Réinitialisation des champs de saisie
-        private void Resets(object sender, EventArgs e)
+        private void Resets(object sender, bool resetControll)
         {
-            ResetField(NameTB, nameTxt, e);
-            ResetField(PriceTB, priceTxt, e);
-            ResetField(DurationTB, durationTxt, e);
-            ResetField(DescriptionTB, descriptionTxt, e);
-            this.ActiveControl = null;
+            ResetField(NameTB, nameTxt);
+            ResetField(PriceTB, priceTxt);
+            ResetField(DurationTB, durationTxt);
+            ResetField(DescriptionTB, descriptionTxt);
+            if (resetControll)
+            {
+                this.ActiveControl = null;
+            }
         }
 
         // Réinitialisation d'un champ de texte
-        private void ResetField(TextBox textBox, string defaultText, EventArgs e)
+        private void ResetField(TextBox textBox, string defaultText)
         {
             if (textBox.Text == string.Empty)
             {
                 textBox.Text = defaultText;
-                ChangeText(textBox, e, false);
+                ChangeText(textBox, false);
             }
         }
 
@@ -151,7 +164,7 @@ namespace AutoFact.Views
                     }
 
                     ClearFields();
-                    Resets(this, EventArgs.Empty);
+                    Resets(this, true);
 
                     // Rafraîchir la liste des services
                     listServices = servicevm.getServices();
@@ -191,7 +204,7 @@ namespace AutoFact.Views
                     }
 
                     ClearFields();
-                    Resets(this, EventArgs.Empty);
+                    Resets(this, true);
 
                     // Rafraîchir la liste des services
                     listServices = servicevm.getServices();

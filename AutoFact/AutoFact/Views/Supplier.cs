@@ -85,9 +85,9 @@ namespace AutoFact.Views
             TextBox textBox = sender as TextBox;
             if (textBox.Text == defaultText)
             {
-                Resets(sender, EventArgs.Empty);
+                Resets(sender, true);
                 textBox.Text = string.Empty;
-                ChangeText(sender, EventArgs.Empty, true);
+                ChangeText(sender, true);
                 this.ActiveControl = textBox;
             }
         }
@@ -105,40 +105,43 @@ namespace AutoFact.Views
         // Mise à jour de l'apparence des champs (couleur du texte)
         private void UpdateFieldAppearance()
         {
-            ChangeText(NameTB, EventArgs.Empty, true);
-            ChangeText(MailTB, EventArgs.Empty, true);
-            ChangeText(SiretTB, EventArgs.Empty, true);
-            ChangeText(PhoneTB, EventArgs.Empty, true);
-            ChangeText(AddressTB, EventArgs.Empty, true);
-            ChangeText(CpTB, EventArgs.Empty, true);
+            ChangeText(NameTB, true);
+            ChangeText(MailTB, true);
+            ChangeText(SiretTB, true);
+            ChangeText(PhoneTB, true);
+            ChangeText(AddressTB, true);
+            ChangeText(CpTB, true);
         }
 
         // Changement de la couleur du texte des contrôles
-        private void ChangeText(object sender, EventArgs e, bool able)
+        private void ChangeText(object sender, bool able)
         {
             Control obj = sender as Control;
             obj.ForeColor = able ? Color.Black : Color.Silver;
         }
 
         // Réinitialisation des champs de saisie
-        private void Resets(object sender, EventArgs e)
+        private void Resets(object sender, bool resetControll)
         {
-            ResetField(NameTB, nameTxt, e);
-            ResetField(MailTB, mailTxt, e);
-            ResetField(SiretTB, siretTxt, e);
-            ResetField(PhoneTB, phoneTxt, e);
-            ResetField(AddressTB, addressTxt, e);
-            ResetField(CpTB, cpTxt, e);
-            this.ActiveControl = null;
+            ResetField(NameTB, nameTxt);
+            ResetField(MailTB, mailTxt);
+            ResetField(SiretTB, siretTxt);
+            ResetField(PhoneTB, phoneTxt);
+            ResetField(AddressTB, addressTxt);
+            ResetField(CpTB, cpTxt);
+            if (resetControll)
+            {
+                this.ActiveControl = null;
+            }
         }
 
         // Réinitialisation d'un champ de texte
-        private void ResetField(TextBox textBox, string defaultText, EventArgs e)
+        private void ResetField(TextBox textBox, string defaultText)
         {
             if (textBox.Text == string.Empty)
             {
                 textBox.Text = defaultText;
-                ChangeText(textBox, e, false);
+                ChangeText(textBox, false);
             }
         }
 
@@ -159,7 +162,7 @@ namespace AutoFact.Views
                     societevm.addSupplier(name, mail, siret, phone, address, cp);
 
                     listSupply = societevm.getSupplys();
-                    Resets(sender, e);
+                    Resets(sender, true);
                 }
                 catch (Exception ex)
                 {
@@ -187,7 +190,7 @@ namespace AutoFact.Views
                     societevm.updSupplier(id, name, mail, siret, phone, address, cp);
 
                     listSupply = societevm.getSupplys();
-                    Resets(sender, e);
+                    Resets(sender, true);
                 }
                 catch (Exception ex)
                 {

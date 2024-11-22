@@ -59,7 +59,6 @@
             AddUpLbl.Location = new Point(933, 159);
             AddUpLbl.Name = "AddUpLbl";
             AddUpLbl.Size = new Size(484, 37);
-            AddUpLbl.TabIndex = 7;
             AddUpLbl.Text = "Ajout/Modification de services";
             // 
             // NameTB
@@ -70,8 +69,10 @@
             NameTB.MaxLength = 255;
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
-            NameTB.TabIndex = 1;
+            NameTB.TabIndex = 0;
             NameTB.Click += NameTB_Clicked;
+            NameTB.Enter += NameTB_Clicked;
+            NameTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // DescriptionTB
             // 
@@ -82,8 +83,10 @@
             DescriptionTB.Multiline = true;
             DescriptionTB.Name = "DescriptionTB";
             DescriptionTB.Size = new Size(469, 261);
-            DescriptionTB.TabIndex = 2;
+            DescriptionTB.TabIndex = 1;
             DescriptionTB.Click += DescriptionTB_Clicked;
+            DescriptionTB.Enter += DescriptionTB_Clicked;
+            DescriptionTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // PriceTB
             // 
@@ -93,8 +96,10 @@
             PriceTB.MaxLength = 511;
             PriceTB.Name = "PriceTB";
             PriceTB.Size = new Size(180, 26);
-            PriceTB.TabIndex = 3;
+            PriceTB.TabIndex = 2;
             PriceTB.Click += PriceTB_Clicked;
+            PriceTB.Enter += PriceTB_Clicked;
+            PriceTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // TimeChB
             // 
@@ -104,10 +109,11 @@
             TimeChB.Location = new Point(897, 689);
             TimeChB.Name = "TimeChB";
             TimeChB.Size = new Size(206, 23);
-            TimeChB.TabIndex = 4;
+            TimeChB.TabIndex = 3;
             TimeChB.Text = "Designation temporaire";
             TimeChB.UseVisualStyleBackColor = true;
             TimeChB.CheckedChanged += TimeChB_CheckedChanged;
+            TimeChB.KeyDown += TimeChB_Press;
             // 
             // DurationTB
             // 
@@ -117,9 +123,11 @@
             DurationTB.MaxLength = 511;
             DurationTB.Name = "DurationTB";
             DurationTB.Size = new Size(180, 26);
-            DurationTB.TabIndex = 3;
+            DurationTB.TabIndex = 4;
             DurationTB.Visible = false;
             DurationTB.Click += DurationTB_Clicked;
+            DurationTB.Enter += DurationTB_Clicked;
+            DurationTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // AddBtn
             // 
@@ -154,7 +162,6 @@
             NameLbl.Location = new Point(828, 325);
             NameLbl.Name = "NameLbl";
             NameLbl.Size = new Size(46, 17);
-            NameLbl.TabIndex = 14;
             NameLbl.Text = "Nom :";
             // 
             // PriceLbl
@@ -164,7 +171,6 @@
             PriceLbl.Location = new Point(828, 488);
             PriceLbl.Name = "PriceLbl";
             PriceLbl.Size = new Size(40, 17);
-            PriceLbl.TabIndex = 15;
             PriceLbl.Text = "Prix :";
             // 
             // DurationLbl
@@ -174,7 +180,6 @@
             DurationLbl.Location = new Point(1237, 669);
             DurationLbl.Name = "DurationLbl";
             DurationLbl.Size = new Size(53, 17);
-            DurationLbl.TabIndex = 16;
             DurationLbl.Text = "Durée :";
             // 
             // DescriptionLbl
@@ -184,7 +189,6 @@
             DescriptionLbl.Location = new Point(1297, 274);
             DescriptionLbl.Name = "DescriptionLbl";
             DescriptionLbl.Size = new Size(87, 17);
-            DescriptionLbl.TabIndex = 17;
             DescriptionLbl.Text = "Description :";
             // 
             // Service
@@ -209,7 +213,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Supplier";
             WindowState = FormWindowState.Maximized;
-            Click += Resets;
+            Click += (sender, e) => Resets(sender, true);
             ResumeLayout(false);
             PerformLayout();
         }

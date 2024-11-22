@@ -84,9 +84,9 @@ namespace AutoFact.Views
             TextBox textBox = sender as TextBox;
             if (textBox.Text == defaultText)
             {
-                Resets(sender, EventArgs.Empty);
+                Resets(sender, true);
                 textBox.Text = string.Empty;
-                ChangeText(sender, EventArgs.Empty, true);
+                ChangeText(sender, true);
                 this.ActiveControl = textBox;
             }
         }
@@ -96,8 +96,8 @@ namespace AutoFact.Views
         {
             if (SupplyCB.SelectedIndex != -1)
             {
-                Resets(sender, EventArgs.Empty);
-                ChangeText(sender, EventArgs.Empty, true);
+                Resets(sender, true);
+                ChangeText(sender, true);
                 this.ActiveControl = null;
             }
         }
@@ -115,53 +115,56 @@ namespace AutoFact.Views
         // Mise à jour de l'apparence des champs (couleur du texte)
         private void UpdateFieldAppearance()
         {
-            ChangeText(NameTB, EventArgs.Empty, true);
-            ChangeText(PriceTB, EventArgs.Empty, true);
-            ChangeText(BuypriceTB, EventArgs.Empty, true);
-            ChangeText(QuantityTB, EventArgs.Empty, true);
-            ChangeText(SupplyCB, EventArgs.Empty, true);
+            ChangeText(NameTB, true);
+            ChangeText(PriceTB, true);
+            ChangeText(BuypriceTB, true);
+            ChangeText(QuantityTB, true);
+            ChangeText(SupplyCB, true);
             if (!string.IsNullOrEmpty(DescriptionTB.Text))
             {
-                ChangeText(DescriptionTB, EventArgs.Empty, true);
+                ChangeText(DescriptionTB, true);
             }
         }
 
         // Changement de la couleur du texte des contrôles
-        private void ChangeText(object sender, EventArgs e, bool able)
+        private void ChangeText(object sender, bool able)
         {
             Control obj = sender as Control;
             obj.ForeColor = able ? Color.Black : Color.Silver;
         }
 
         // Réinitialisation des champs de saisie
-        private void Resets(object sender, EventArgs e)
+        private void Resets(object sender, bool resetConctroll)
         {
-            ResetField(NameTB, nameTxt, e);
-            ResetField(PriceTB, priceTxt, e);
-            ResetField(BuypriceTB, buypriceTxt, e);
-            ResetField(QuantityTB, quantityTxt, e);
-            ResetField(DescriptionTB, descriptionTxt, e);
-            ResetComboBox(SupplyCB, supplyTxt, e);
-            this.ActiveControl = null;
+            ResetField(NameTB, nameTxt);
+            ResetField(PriceTB, priceTxt);
+            ResetField(BuypriceTB, buypriceTxt);
+            ResetField(QuantityTB, quantityTxt);
+            ResetField(DescriptionTB, descriptionTxt);
+            ResetComboBox(SupplyCB, supplyTxt);
+            if (resetConctroll)
+            {
+                this.ActiveControl = null;
+            }
         }
 
         // Réinitialisation d'un champ de texte
-        private void ResetField(TextBox textBox, string defaultText, EventArgs e)
+        private void ResetField(TextBox textBox, string defaultText)
         {
             if (textBox.Text == string.Empty)
             {
                 textBox.Text = defaultText;
-                ChangeText(textBox, e, false);
+                ChangeText(textBox, false);
             }
         }
 
         // Réinitialisation d'une ComboBox
-        private void ResetComboBox(ComboBox comboBox, string defaultText, EventArgs e)
+        private void ResetComboBox(ComboBox comboBox, string defaultText)
         {
             if (comboBox.SelectedIndex == -1)
             {
                 comboBox.Text = defaultText;
-                ChangeText(comboBox, e, false);
+                ChangeText(comboBox, false);
             }
         }
 

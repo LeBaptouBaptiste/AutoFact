@@ -85,9 +85,9 @@ namespace AutoFact.Views
             TextBox textBox = sender as TextBox;
             if (textBox.Text == defaultText)
             {
-                Resets(sender, EventArgs.Empty);
+                Resets(sender, true);
                 textBox.Text = string.Empty;
-                ChangeText(sender, EventArgs.Empty, true);
+                ChangeText(sender, true);
                 this.ActiveControl = textBox;
             }
         }
@@ -108,50 +108,53 @@ namespace AutoFact.Views
         // Mise à jour de l'apparence des champs (couleur du texte)
         private void UpdateFieldAppearance()
         {
-            ChangeText(NameTB, EventArgs.Empty, true);
-            ChangeText(MailTB, EventArgs.Empty, true);
-            ChangeText(FirstNameTB, EventArgs.Empty, true);
-            ChangeText(PhoneTB, EventArgs.Empty, true);
-            ChangeText(AddressTB, EventArgs.Empty, true);
-            ChangeText(CpTB, EventArgs.Empty, true);
+            ChangeText(NameTB, true);
+            ChangeText(MailTB, true);
+            ChangeText(FirstNameTB, true);
+            ChangeText(PhoneTB, true);
+            ChangeText(AddressTB, true);
+            ChangeText(CpTB, true);
         }
 
         // Changement de la couleur du texte des contrôles
-        private void ChangeText(object sender, EventArgs e, bool able)
+        private void ChangeText(object sender, bool able)
         {
             Control obj = sender as Control;
             obj.ForeColor = able ? Color.Black : Color.Silver;
         }
 
         // Réinitialisation des champs de saisie
-        private void Resets(object sender, EventArgs e)
+        private void Resets(object sender, bool resetControll)
         {
-            ResetField(NameTB, nameTxt, e);
-            ResetField(MailTB, mailTxt, e);
-            ResetField(FirstNameTB, firstNameTxt, e);
-            ResetField(PhoneTB, phoneTxt, e);
-            ResetField(AddressTB, addressTxt, e);
-            ResetField(CpTB, cpTxt, e);
-            this.ActiveControl = null;
+            ResetField(NameTB, nameTxt);
+            ResetField(MailTB, mailTxt);
+            ResetField(FirstNameTB, firstNameTxt);
+            ResetField(PhoneTB, phoneTxt);
+            ResetField(AddressTB, addressTxt);
+            ResetField(CpTB, cpTxt);
+            if (resetControll)
+            {
+                this.ActiveControl = null;
+            }
         }
 
         // Réinitialisation d'un champ de texte
-        private void ResetField(TextBox textBox, string defaultText, EventArgs e)
+        private void ResetField(TextBox textBox, string defaultText)
         {
             if (textBox.Text == string.Empty)
             {
                 textBox.Text = defaultText;
-                ChangeText(textBox, e, false);
+                ChangeText(textBox, false);
             }
         }
 
         // Réinitialisation d'une ComboBox
-        private void ResetComboBox(ComboBox comboBox, string defaultText, EventArgs e)
+        private void ResetComboBox(ComboBox comboBox, string defaultText)
         {
             if (comboBox.SelectedIndex == -1)
             {
                 comboBox.Text = defaultText;
-                ChangeText(comboBox, e, false);
+                ChangeText(comboBox, false);
             }
         }
 
@@ -173,7 +176,7 @@ namespace AutoFact.Views
                     clientvm.addClients(name, mail, phone, address, cp, civility, firstName);
 
                     ClearFields();
-                    Resets(this, EventArgs.Empty);
+                    Resets(this, true);
 
                     // Rafraîchir la liste des clients
                     listClients = clientvm.getClients();
@@ -209,7 +212,7 @@ namespace AutoFact.Views
                     clientvm.updClients(id, name, mail, phone, address, cp, civility, firstName);
 
                     ClearFields();
-                    Resets(this, EventArgs.Empty);
+                    Resets(this, true);
 
                     // Rafraîchir la liste des clients
                     listClients = clientvm.getClients();

@@ -54,7 +54,7 @@
             navbarUserControl.Location = new Point(0, 0);
             navbarUserControl.Name = "navbarUserControl";
             navbarUserControl.Size = new Size(450, 1041);
-            navbarUserControl.TabIndex = 0;
+            navbarUserControl.TabIndex = 7;
             // 
             // AddUpLbl
             // 
@@ -63,7 +63,6 @@
             AddUpLbl.Location = new Point(933, 159);
             AddUpLbl.Name = "AddUpLbl";
             AddUpLbl.Size = new Size(549, 37);
-            AddUpLbl.TabIndex = 7;
             AddUpLbl.Text = "Ajout/Modification de fournisseurs";
             // 
             // NameTB
@@ -74,8 +73,11 @@
             NameTB.MaxLength = 255;
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
-            NameTB.TabIndex = 1;
+            NameTB.TabIndex = 0;
+            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
+            NameTB.Enter += NameTB_Clicked;
+            NameTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // MailTB
             // 
@@ -85,8 +87,11 @@
             MailTB.MaxLength = 255;
             MailTB.Name = "MailTB";
             MailTB.Size = new Size(180, 26);
-            MailTB.TabIndex = 2;
+            MailTB.TabIndex = 1;
+            MailTB.Text = mailTxt;
             MailTB.Click += MailTB_Clicked;
+            MailTB.Enter += MailTB_Clicked;
+            MailTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // SiretTB
             // 
@@ -96,8 +101,11 @@
             SiretTB.MaxLength = 255;
             SiretTB.Name = "SiretTB";
             SiretTB.Size = new Size(180, 26);
-            SiretTB.TabIndex = 3;
+            SiretTB.TabIndex = 2;
+            SiretTB.Text = siretTxt;
             SiretTB.Click += SiretTB_Clicked;
+            SiretTB.Enter += SiretTB_Clicked;
+            SiretTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // PhoneTB
             // 
@@ -107,8 +115,11 @@
             PhoneTB.MaxLength = 255;
             PhoneTB.Name = "PhoneTB";
             PhoneTB.Size = new Size(180, 26);
-            PhoneTB.TabIndex = 4;
+            PhoneTB.TabIndex = 3;
+            PhoneTB.Text = phoneTxt;
             PhoneTB.Click += PhoneTB_Clicked;
+            PhoneTB.Enter += PhoneTB_Clicked;
+            PhoneTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // AddressTB
             // 
@@ -118,8 +129,11 @@
             AddressTB.MaxLength = 255;
             AddressTB.Name = "AddressTB";
             AddressTB.Size = new Size(180, 26);
-            AddressTB.TabIndex = 5;
+            AddressTB.TabIndex = 4;
+            AddressTB.Text = addressTxt;
             AddressTB.Click += AddressTB_Clicked;
+            AddressTB.Enter += AddressTB_Clicked;
+            AddressTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // CpTB
             // 
@@ -129,8 +143,11 @@
             CpTB.MaxLength = 255;
             CpTB.Name = "CpTB";
             CpTB.Size = new Size(180, 26);
-            CpTB.TabIndex = 6;
+            CpTB.TabIndex = 5;
+            CpTB.Text = cpTxt;
             CpTB.Click += CpTB_Clicked;
+            CpTB.Enter += CpTB_Clicked;
+            CpTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // AddBtn
             // 
@@ -140,7 +157,7 @@
             AddBtn.Location = new Point(1049, 770);
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(282, 91);
-            AddBtn.TabIndex = 5;
+            AddBtn.TabIndex = 6;
             AddBtn.Text = "Ajouter";
             AddBtn.UseVisualStyleBackColor = false;
             AddBtn.Click += Add_Clicked;
@@ -153,7 +170,7 @@
             UpdBtn.Location = new Point(1049, 770);
             UpdBtn.Name = "UpdBtn";
             UpdBtn.Size = new Size(282, 91);
-            UpdBtn.TabIndex = 5;
+            UpdBtn.TabIndex = 6;
             UpdBtn.Text = "Modifier";
             UpdBtn.UseVisualStyleBackColor = false;
             UpdBtn.Click += Upd_Clicked;
@@ -165,7 +182,6 @@
             NameLbl.Location = new Point(837, 301);
             NameLbl.Name = "NameLbl";
             NameLbl.Size = new Size(46, 17);
-            NameLbl.TabIndex = 15;
             NameLbl.Text = "Nom :";
             // 
             // SiretLbl
@@ -175,7 +191,6 @@
             SiretLbl.Location = new Point(837, 427);
             SiretLbl.Name = "SiretLbl";
             SiretLbl.Size = new Size(44, 17);
-            SiretLbl.TabIndex = 16;
             SiretLbl.Text = "Siret :";
             // 
             // AddressLbl
@@ -185,7 +200,6 @@
             AddressLbl.Location = new Point(837, 578);
             AddressLbl.Name = "AddressLbl";
             AddressLbl.Size = new Size(64, 17);
-            AddressLbl.TabIndex = 17;
             AddressLbl.Text = "Adresse :";
             // 
             // MailLbl
@@ -195,7 +209,6 @@
             MailLbl.Location = new Point(1369, 301);
             MailLbl.Name = "MailLbl";
             MailLbl.Size = new Size(43, 17);
-            MailLbl.TabIndex = 18;
             MailLbl.Text = "Mail :";
             // 
             // PhoneLbl
@@ -205,7 +218,6 @@
             PhoneLbl.Location = new Point(1369, 427);
             PhoneLbl.Name = "PhoneLbl";
             PhoneLbl.Size = new Size(80, 17);
-            PhoneLbl.TabIndex = 19;
             PhoneLbl.Text = "Téléphone :";
             // 
             // CpLbl
@@ -215,7 +227,6 @@
             CpLbl.Location = new Point(1366, 578);
             CpLbl.Name = "CpLbl";
             CpLbl.Size = new Size(89, 17);
-            CpLbl.TabIndex = 20;
             CpLbl.Text = "Code Postal :";
             // 
             // Supplier
@@ -243,7 +254,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Supplier";
             WindowState = FormWindowState.Maximized;
-            Click += Resets;
+            Click += (sender, e) => Resets(sender, true);
             ResumeLayout(false);
             PerformLayout();
         }

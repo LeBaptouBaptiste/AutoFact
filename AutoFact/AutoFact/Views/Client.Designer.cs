@@ -57,7 +57,7 @@ namespace AutoFact.Views
             navbarUserControl.Location = new Point(0, 0);
             navbarUserControl.Name = "navbarUserControl";
             navbarUserControl.Size = new Size(450, 1080);
-            navbarUserControl.TabIndex = 8;
+            navbarUserControl.TabIndex = 9;
             // 
             // AddUpLbl
             // 
@@ -66,7 +66,6 @@ namespace AutoFact.Views
             AddUpLbl.Location = new Point(933, 159);
             AddUpLbl.Name = "AddUpLbl";
             AddUpLbl.Size = new Size(440, 37);
-            AddUpLbl.TabIndex = 7;
             AddUpLbl.Text = "Ajout/Modification de client";
             // 
             // HommeRB
@@ -76,8 +75,8 @@ namespace AutoFact.Views
             HommeRB.Location = new Point(933, 296);
             HommeRB.Name = "HommeRB";
             HommeRB.Size = new Size(75, 21);
-            HommeRB.TabIndex = 9;
             HommeRB.TabStop = true;
+            HommeRB.TabIndex = 0;
             HommeRB.Text = "Homme";
             HommeRB.UseVisualStyleBackColor = true;
             // 
@@ -88,8 +87,8 @@ namespace AutoFact.Views
             FemmeRB.Location = new Point(1279, 296);
             FemmeRB.Name = "FemmeRB";
             FemmeRB.Size = new Size(71, 21);
-            FemmeRB.TabIndex = 10;
-            FemmeRB.TabStop = true;
+            FemmeRB.TabStop = true; 
+            FemmeRB.TabIndex = 1;
             FemmeRB.Text = "Femme";
             FemmeRB.UseVisualStyleBackColor = true;
             // 
@@ -101,8 +100,11 @@ namespace AutoFact.Views
             NameTB.MaxLength = 255;
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
-            NameTB.TabIndex = 1;
+            NameTB.TabIndex = 2;
+            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
+            NameTB.Enter += NameTB_Clicked;
+            NameTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // MailTB
             // 
@@ -112,8 +114,11 @@ namespace AutoFact.Views
             MailTB.MaxLength = 255;
             MailTB.Name = "MailTB";
             MailTB.Size = new Size(180, 26);
-            MailTB.TabIndex = 2;
+            MailTB.TabIndex = 3;
+            MailTB.Text = mailTxt;
             MailTB.Click += MailTB_Clicked;
+            MailTB.Enter += MailTB_Clicked;
+            MailTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // FirstNameTB
             // 
@@ -123,8 +128,11 @@ namespace AutoFact.Views
             FirstNameTB.MaxLength = 255;
             FirstNameTB.Name = "FirstNameTB";
             FirstNameTB.Size = new Size(180, 26);
-            FirstNameTB.TabIndex = 3;
+            FirstNameTB.TabIndex = 4;
+            FirstNameTB.Text = firstNameTxt;
             FirstNameTB.Click += FirstNameTB_Clicked;
+            FirstNameTB.Enter += FirstNameTB_Clicked;
+            FirstNameTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // PhoneTB
             // 
@@ -134,8 +142,11 @@ namespace AutoFact.Views
             PhoneTB.MaxLength = 255;
             PhoneTB.Name = "PhoneTB";
             PhoneTB.Size = new Size(180, 26);
-            PhoneTB.TabIndex = 4;
+            PhoneTB.TabIndex = 5;
+            PhoneTB.Text = phoneTxt;
             PhoneTB.Click += PhoneTB_Clicked;
+            PhoneTB.Enter += PhoneTB_Clicked;
+            PhoneTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // AddressTB
             // 
@@ -145,8 +156,11 @@ namespace AutoFact.Views
             AddressTB.MaxLength = 255;
             AddressTB.Name = "AddressTB";
             AddressTB.Size = new Size(180, 26);
-            AddressTB.TabIndex = 5;
+            AddressTB.TabIndex = 6;
+            AddressTB.Text = addressTxt;
             AddressTB.Click += AddressTB_Clicked;
+            AddressTB.Enter += AddressTB_Clicked;
+            AddressTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // CpTB
             // 
@@ -156,8 +170,11 @@ namespace AutoFact.Views
             CpTB.MaxLength = 255;
             CpTB.Name = "CpTB";
             CpTB.Size = new Size(180, 26);
-            CpTB.TabIndex = 6;
+            CpTB.TabIndex = 7;
+            CpTB.Text = cpTxt;
             CpTB.Click += CpTB_Clicked;
+            CpTB.Enter += CpTB_Clicked;
+            CpTB.Leave += (sender, e) => Resets(sender, false);
             // 
             // AddBtn
             // 
@@ -167,7 +184,7 @@ namespace AutoFact.Views
             AddBtn.Location = new Point(1037, 822);
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(201, 70);
-            AddBtn.TabIndex = 5;
+            AddBtn.TabIndex = 8;
             AddBtn.Text = "Ajouter";
             AddBtn.UseVisualStyleBackColor = false;
             AddBtn.Click += Add_Clicked;
@@ -180,7 +197,7 @@ namespace AutoFact.Views
             UpdBtn.Location = new Point(1037, 822);
             UpdBtn.Name = "UpdBtn";
             UpdBtn.Size = new Size(201, 70);
-            UpdBtn.TabIndex = 5;
+            UpdBtn.TabIndex = 8;
             UpdBtn.Text = "Modifier";
             UpdBtn.UseVisualStyleBackColor = false;
             UpdBtn.Click += Upd_Clicked;
@@ -192,7 +209,6 @@ namespace AutoFact.Views
             NameLbl.Location = new Point(867, 398);
             NameLbl.Name = "NameLbl";
             NameLbl.Size = new Size(46, 17);
-            NameLbl.TabIndex = 13;
             NameLbl.Text = "Nom :";
             // 
             // FirstNameLbl
@@ -202,7 +218,6 @@ namespace AutoFact.Views
             FirstNameLbl.Location = new Point(867, 528);
             FirstNameLbl.Name = "FirstNameLbl";
             FirstNameLbl.Size = new Size(64, 17);
-            FirstNameLbl.TabIndex = 14;
             FirstNameLbl.Text = "Prénom :";
             // 
             // AddressLbl
@@ -212,7 +227,6 @@ namespace AutoFact.Views
             AddressLbl.Location = new Point(867, 657);
             AddressLbl.Name = "AddressLbl";
             AddressLbl.Size = new Size(64, 17);
-            AddressLbl.TabIndex = 15;
             AddressLbl.Text = "Adresse :";
             // 
             // MailLbl
@@ -222,7 +236,6 @@ namespace AutoFact.Views
             MailLbl.Location = new Point(1228, 398);
             MailLbl.Name = "MailLbl";
             MailLbl.Size = new Size(43, 17);
-            MailLbl.TabIndex = 16;
             MailLbl.Text = "Mail :";
             // 
             // PhoneLbl
@@ -232,7 +245,6 @@ namespace AutoFact.Views
             PhoneLbl.Location = new Point(1228, 528);
             PhoneLbl.Name = "PhoneLbl";
             PhoneLbl.Size = new Size(80, 17);
-            PhoneLbl.TabIndex = 17;
             PhoneLbl.Text = "Téléphone :";
             // 
             // CpLbl
@@ -242,7 +254,6 @@ namespace AutoFact.Views
             CpLbl.Location = new Point(1228, 657);
             CpLbl.Name = "CpLbl";
             CpLbl.Size = new Size(89, 17);
-            CpLbl.TabIndex = 18;
             CpLbl.Text = "Code Postal :";
             // 
             // Client
@@ -272,7 +283,7 @@ namespace AutoFact.Views
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Article";
             WindowState = FormWindowState.Maximized;
-            Click += Resets;
+            Click += (sender, e) => Resets(sender, true);
             ResumeLayout(false);
             PerformLayout();
         }

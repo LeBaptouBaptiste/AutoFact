@@ -79,7 +79,7 @@ namespace AutoFact.Views
             btnDevis.Location = new Point(110, 30);
             btnDevis.Name = "btnDevis";
             btnDevis.Size = new Size(180, 40);
-            btnDevis.TabIndex = 1;
+            btnDevis.TabIndex = 0;
             btnDevis.Text = "Devis";
             btnDevis.UseVisualStyleBackColor = false;
             btnDevis.MouseEnter += btn_Enter;
@@ -115,7 +115,7 @@ namespace AutoFact.Views
             btnAvoir.Location = new Point(110, 150);
             btnAvoir.Name = "btnAvoir";
             btnAvoir.Size = new Size(180, 40);
-            btnAvoir.TabIndex = 1;
+            btnAvoir.TabIndex = 2;
             btnAvoir.Text = "Avoirs";
             btnAvoir.UseVisualStyleBackColor = false;
             btnAvoir.MouseEnter += btn_Enter;
@@ -127,7 +127,6 @@ namespace AutoFact.Views
             separator1.Location = new Point(100, 210);
             separator1.Name = "separator1";
             separator1.Size = new Size(200, 2);
-            separator1.TabIndex = 2;
             // 
             // lblStats
             // 
@@ -136,7 +135,6 @@ namespace AutoFact.Views
             lblStats.Location = new Point(110, 230);
             lblStats.Name = "lblStats";
             lblStats.Size = new Size(180, 40);
-            lblStats.TabIndex = 6;
             lblStats.Text = "Statitiques";
             lblStats.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -152,7 +150,7 @@ namespace AutoFact.Views
             btnCAc.Location = new Point(110, 290);
             btnCAc.Name = "btnCAc";
             btnCAc.Size = new Size(180, 40);
-            btnCAc.TabIndex = 1;
+            btnCAc.TabIndex = 3;
             btnCAc.Text = "Calcul CA cumulé";
             btnCAc.UseVisualStyleBackColor = false;
             btnCAc.MouseEnter += btn_Enter;
@@ -171,7 +169,7 @@ namespace AutoFact.Views
             btnCAca.Location = new Point(110, 350);
             btnCAca.Name = "btnCAca";
             btnCAca.Size = new Size(180, 40);
-            btnCAca.TabIndex = 1;
+            btnCAca.TabIndex = 4;
             btnCAca.Text = "Calcul CA client/année";
             btnCAca.UseVisualStyleBackColor = false;
             btnCAca.MouseEnter += btn_Enter;
@@ -183,7 +181,6 @@ namespace AutoFact.Views
             separator2.Location = new Point(100, 410);
             separator2.Name = "separator2";
             separator2.Size = new Size(200, 2);
-            separator2.TabIndex = 3;
             // 
             // lblPresta
             // 
@@ -192,7 +189,6 @@ namespace AutoFact.Views
             lblPresta.Location = new Point(110, 430);
             lblPresta.Name = "lblPresta";
             lblPresta.Size = new Size(180, 40);
-            lblPresta.TabIndex = 6;
             lblPresta.Text = "Prestations";
             lblPresta.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -208,7 +204,7 @@ namespace AutoFact.Views
             btnArticle.Location = new Point(110, 490);
             btnArticle.Name = "btnArticle";
             btnArticle.Size = new Size(180, 40);
-            btnArticle.TabIndex = 1;
+            btnArticle.TabIndex = 5;
             btnArticle.Text = "Article";
             btnArticle.UseVisualStyleBackColor = false;
             btnArticle.MouseEnter += btn_Enter;
@@ -227,7 +223,7 @@ namespace AutoFact.Views
             btnFourn.Location = new Point(110, 550);
             btnFourn.Name = "btnFourn";
             btnFourn.Size = new Size(180, 40);
-            btnFourn.TabIndex = 1;
+            btnFourn.TabIndex = 6;
             btnFourn.Text = "Fournisseur";
             btnFourn.UseVisualStyleBackColor = false;
             btnFourn.MouseEnter += btn_Enter;
@@ -246,7 +242,7 @@ namespace AutoFact.Views
             btnServ.Location = new Point(110, 610);
             btnServ.Name = "btnServ";
             btnServ.Size = new Size(180, 40);
-            btnServ.TabIndex = 1;
+            btnServ.TabIndex = 7;
             btnServ.Text = "Service";
             btnServ.UseVisualStyleBackColor = false;
             btnServ.MouseEnter += btn_Enter;
@@ -265,7 +261,7 @@ namespace AutoFact.Views
             btnClient.Location = new Point(110, 670);
             btnClient.Name = "btnClient";
             btnClient.Size = new Size(180, 40);
-            btnClient.TabIndex = 1;
+            btnClient.TabIndex = 8;
             btnClient.Text = "Client";
             btnClient.UseVisualStyleBackColor = false;
             btnClient.MouseEnter += btn_Enter;
@@ -278,7 +274,6 @@ namespace AutoFact.Views
             separator3.Location = new Point(100, 730);
             separator3.Name = "separator3";
             separator3.Size = new Size(200, 2);
-            separator3.TabIndex = 4;
             // 
             // btnAllfact
             // 
@@ -292,7 +287,7 @@ namespace AutoFact.Views
             btnAllfact.Location = new Point(110, 750);
             btnAllfact.Name = "btnAllfact";
             btnAllfact.Size = new Size(180, 45);
-            btnAllfact.TabIndex = 1;
+            btnAllfact.TabIndex = 9;
             btnAllfact.Text = "Voir toutes les factures";
             btnAllfact.UseVisualStyleBackColor = false;
             btnAllfact.MouseEnter += btn_Enter;
@@ -304,7 +299,6 @@ namespace AutoFact.Views
             separator4.Location = new Point(100, 810);
             separator4.Name = "separator4";
             separator4.Size = new Size(200, 2);
-            separator4.TabIndex = 5;
             // 
             // btnParam
             // 
@@ -318,7 +312,7 @@ namespace AutoFact.Views
             btnParam.Location = new Point(110, 830);
             btnParam.Name = "btnParam";
             btnParam.Size = new Size(180, 45);
-            btnParam.TabIndex = 1;
+            btnParam.TabIndex = 10;
             btnParam.Text = "Parametres";
             btnParam.UseVisualStyleBackColor = false;
             btnParam.MouseEnter += btn_Enter;
