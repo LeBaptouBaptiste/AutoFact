@@ -234,6 +234,8 @@ namespace AutoFact.Views
         {
             DurationTB.Visible = TimeChB.Checked;
             DurationTB.Enabled = TimeChB.Checked;
+            DurationLbl.Visible = TimeChB.Checked;
+            DurationLbl.Enabled = TimeChB.Checked;
         }
     }
 }

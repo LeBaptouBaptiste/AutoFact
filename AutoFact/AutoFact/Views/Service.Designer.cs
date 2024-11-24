@@ -180,6 +180,7 @@
             DurationLbl.Location = new Point(1237, 669);
             DurationLbl.Name = "DurationLbl";
             DurationLbl.Size = new Size(53, 17);
+            DurationLbl.Visible = false;
             DurationLbl.Text = "Durée :";
             // 
             // DescriptionLbl

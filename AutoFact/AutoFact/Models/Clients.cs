@@ -18,6 +18,7 @@ namespace AutoFact.Models
         private string phone;
         private string mail;
         private List<Avoirs> avoirs;
+        private List<Clients> clients;
 
         public Clients (int id, string name, string address, string postalCode, string phone, string mail, List<Avoirs> avoirs)
         {

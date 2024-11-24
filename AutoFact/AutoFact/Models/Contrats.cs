@@ -8,10 +8,11 @@ namespace AutoFact.Models
 {
     internal class Contrats
     {
-        private string reference {  get; set; }
-        private Clients client { get; set; }
-        private DelaisPaiements delais { get; set; }
-        private List<Avoirs> avoirs { get; set; }
+        private string reference;
+        private Clients client;
+        private DelaisPaiements delais;
+        private List<Avoirs> avoirs;
+        private List<ServiceClient> services;
         private decimal prixTotal;
 
         private Contrats(string reference, Clients client, DelaisPaiements delais, List<Avoirs> avoirs)
