@@ -34,12 +34,12 @@ namespace AutoFact.Views
             AddUpLbl = new Label();
             HommeRB = new RadioButton();
             FemmeRB = new RadioButton();
-            NameTB = new TextBox();
-            MailTB = new TextBox();
-            FirstNameTB = new TextBox();
-            PhoneTB = new TextBox();
-            AddressTB = new TextBox();
-            CpTB = new TextBox();
+            NameTB = new CustomTextBox();
+            MailTB = new CustomTextBox();
+            FirstNameTB = new CustomTextBox();
+            PhoneTB = new CustomTextBox();
+            AddressTB = new CustomTextBox();
+            CpTB = new CustomTextBox();
             AddBtn = new Button();
             UpdBtn = new Button();
             NameLbl = new Label();
@@ -97,7 +97,7 @@ namespace AutoFact.Views
             NameTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             NameTB.ForeColor = Color.Silver;
             NameTB.Location = new Point(867, 418);
-            NameTB.MaxLength = 255;
+            NameTB.MaxLength = 32;
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 2;
@@ -125,7 +125,7 @@ namespace AutoFact.Views
             FirstNameTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FirstNameTB.ForeColor = Color.Silver;
             FirstNameTB.Location = new Point(867, 548);
-            FirstNameTB.MaxLength = 255;
+            FirstNameTB.MaxLength = 50;
             FirstNameTB.Name = "FirstNameTB";
             FirstNameTB.Size = new Size(180, 26);
             FirstNameTB.TabIndex = 4;
@@ -139,7 +139,7 @@ namespace AutoFact.Views
             PhoneTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PhoneTB.ForeColor = Color.Silver;
             PhoneTB.Location = new Point(1228, 548);
-            PhoneTB.MaxLength = 255;
+            PhoneTB.MaxLength = 10;
             PhoneTB.Name = "PhoneTB";
             PhoneTB.Size = new Size(180, 26);
             PhoneTB.TabIndex = 5;
@@ -167,7 +167,7 @@ namespace AutoFact.Views
             CpTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CpTB.ForeColor = Color.Silver;
             CpTB.Location = new Point(1228, 677);
-            CpTB.MaxLength = 255;
+            CpTB.MaxLength = 5;
             CpTB.Name = "CpTB";
             CpTB.Size = new Size(180, 26);
             CpTB.TabIndex = 7;
@@ -298,7 +298,7 @@ namespace AutoFact.Views
         private NavbarControll navbarUserControl;
         private Label AddUpLbl;
         private RadioButton HommeRB, FemmeRB;
-        private TextBox NameTB, MailTB, FirstNameTB, PhoneTB, AddressTB, CpTB;
+        private CustomTextBox NameTB, MailTB, FirstNameTB, PhoneTB, AddressTB, CpTB;
         private Button AddBtn, UpdBtn;
         private Label NameLbl;
         private Label FirstNameLbl;

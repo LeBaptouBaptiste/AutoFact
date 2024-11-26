@@ -30,11 +30,11 @@
         {
             navbarUserControl = new NavbarControll();
             AddUpLbl = new Label();
-            NameTB = new TextBox();
-            DescriptionTB = new TextBox();
-            PriceTB = new TextBox();
+            NameTB = new CustomTextBox();
+            DescriptionTB = new CustomTextBox();
+            PriceTB = new CustomTextBox();
             TimeChB = new CheckBox();
-            DurationTB = new TextBox();
+            DurationTB = new CustomTextBox();
             AddBtn = new Button();
             UpdBtn = new Button();
             NameLbl = new Label();
@@ -70,6 +70,7 @@
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 0;
+            NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
             NameTB.Enter += NameTB_Clicked;
             NameTB.Leave += (sender, e) => Resets(sender, false);
@@ -79,11 +80,12 @@
             DescriptionTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DescriptionTB.ForeColor = Color.Silver;
             DescriptionTB.Location = new Point(1297, 294);
-            DescriptionTB.MaxLength = 511;
+            DescriptionTB.MaxLength = 1023;
             DescriptionTB.Multiline = true;
             DescriptionTB.Name = "DescriptionTB";
             DescriptionTB.Size = new Size(469, 261);
             DescriptionTB.TabIndex = 1;
+            DescriptionTB.Text = descriptionTxt;
             DescriptionTB.Click += DescriptionTB_Clicked;
             DescriptionTB.Enter += DescriptionTB_Clicked;
             DescriptionTB.Leave += (sender, e) => Resets(sender, false);
@@ -93,10 +95,11 @@
             PriceTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PriceTB.ForeColor = Color.Silver;
             PriceTB.Location = new Point(828, 508);
-            PriceTB.MaxLength = 511;
+            PriceTB.MaxLength = 17;
             PriceTB.Name = "PriceTB";
             PriceTB.Size = new Size(180, 26);
             PriceTB.TabIndex = 2;
+            PriceTB.Text = priceTxt;
             PriceTB.Click += PriceTB_Clicked;
             PriceTB.Enter += PriceTB_Clicked;
             PriceTB.Leave += (sender, e) => Resets(sender, false);
@@ -120,11 +123,12 @@
             DurationTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DurationTB.ForeColor = Color.Silver;
             DurationTB.Location = new Point(1237, 689);
-            DurationTB.MaxLength = 511;
+            DurationTB.MaxLength = 5;
             DurationTB.Name = "DurationTB";
             DurationTB.Size = new Size(180, 26);
             DurationTB.TabIndex = 4;
             DurationTB.Visible = false;
+            DescriptionTB.Text = descriptionTxt;
             DurationTB.Click += DurationTB_Clicked;
             DurationTB.Enter += DurationTB_Clicked;
             DurationTB.Leave += (sender, e) => Resets(sender, false);
@@ -223,7 +227,7 @@
 
         private NavbarControll navbarUserControl;
         private Label AddUpLbl;
-        private TextBox NameTB, DescriptionTB, PriceTB, DurationTB;
+        private CustomTextBox NameTB, DescriptionTB, PriceTB, DurationTB;
         private CheckBox TimeChB;
         private Button AddBtn, UpdBtn;
         private Label NameLbl;

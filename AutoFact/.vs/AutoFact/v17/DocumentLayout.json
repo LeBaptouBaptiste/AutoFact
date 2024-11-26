@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\caclientvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\caclientvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\models\\contrats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\models\\contrats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\cacumulclient.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\cacumulclient.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\cacumulclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\cacumulclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\models\\clients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\models\\clients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\models\\serviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\models\\serviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\cacumulvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\cacumulvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\clientshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\clientshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\article.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\article.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\cacumulclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\cacumulclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\customtextbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\customtextbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\views\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|c:\\users\\sipha\\documents\\github\\autofact\\autofact\\autofact\\viewmodel\\caclientvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\viewmodel\\caclientvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,90 +55,115 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Clients.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\Clients.cs",
-              "RelativeDocumentMoniker": "AutoFact\\Models\\Clients.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\Clients.cs",
-              "RelativeToolTip": "AutoFact\\Models\\Clients.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAmAAAAAAAAAA==",
+              "Title": "Article.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.Designer.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\Article.Designer.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Article.Designer.cs",
+              "RelativeToolTip": "AutoFact\\Views\\Article.Designer.cs",
+              "ViewState": "AgIAAOQAAAAAAAAAAAAowL8AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:44:18.113Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ServiceClient.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\ServiceClient.cs",
-              "RelativeDocumentMoniker": "AutoFact\\Models\\ServiceClient.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\ServiceClient.cs",
-              "RelativeToolTip": "AutoFact\\Models\\ServiceClient.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:40:48.276Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Contrats.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\Contrats.cs",
-              "RelativeDocumentMoniker": "AutoFact\\Models\\Contrats.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Models\\Contrats.cs",
-              "RelativeToolTip": "AutoFact\\Models\\Contrats.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:35:56.882Z",
+              "WhenOpened": "2024-11-26T15:06:28.208Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CAClientVM.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\CAClientVM.cs",
-              "RelativeDocumentMoniker": "AutoFact\\ViewModel\\CAClientVM.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\CAClientVM.cs",
-              "RelativeToolTip": "AutoFact\\ViewModel\\CAClientVM.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBwAAAAZAAAAAAAAAA==",
+              "Title": "CACumulClient.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\CACumulClient.Designer.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\CACumulClient.Designer.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\CACumulClient.Designer.cs",
+              "RelativeToolTip": "AutoFact\\Views\\CACumulClient.Designer.cs",
+              "ViewState": "AgIAAPEAAAAAAAAAAAApwBYBAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T13:01:19.986Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CACumulVM.cs",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\CACumulVM.cs",
-              "RelativeDocumentMoniker": "AutoFact\\ViewModel\\CACumulVM.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\CACumulVM.cs",
-              "RelativeToolTip": "AutoFact\\ViewModel\\CACumulVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T12:03:43.174Z",
+              "WhenOpened": "2024-11-26T13:40:30.164Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ClientShow.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ClientShow.cs",
-              "RelativeDocumentMoniker": "AutoFact\\Views\\ClientShow.cs",
-              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ClientShow.cs [Conception]",
-              "RelativeToolTip": "AutoFact\\Views\\ClientShow.cs [Conception]",
+              "Title": "CustomTextBox.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\CustomTextBox.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\CustomTextBox.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\CustomTextBox.cs",
+              "RelativeToolTip": "AutoFact\\Views\\CustomTextBox.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACAAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T11:53:39.192Z",
+              "WhenOpened": "2024-11-26T14:56:22.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Client.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\Client.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Client.cs",
+              "RelativeToolTip": "AutoFact\\Views\\Client.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAADwv9wAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T14:46:09.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Client.cs [Conception]",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Client.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\Client.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\Client.cs [Conception]",
+              "RelativeToolTip": "AutoFact\\Views\\Client.cs [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T14:46:07.163Z",
               "EditorCaption": " [Conception]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
+              "Title": "CAClientVM.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\CAClientVM.cs",
+              "RelativeDocumentMoniker": "AutoFact\\ViewModel\\CAClientVM.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\ViewModel\\CAClientVM.cs",
+              "RelativeToolTip": "AutoFact\\ViewModel\\CAClientVM.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAcwJkAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T14:06:35.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CACumulClient.cs",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\CACumulClient.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\CACumulClient.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\CACumulClient.cs",
+              "RelativeToolTip": "AutoFact\\Views\\CACumulClient.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGYAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T13:41:16.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CACumulClient.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\CACumulClient.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\CACumulClient.cs",
               "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\CACumulClient.cs [Conception]",
               "RelativeToolTip": "AutoFact\\Views\\CACumulClient.cs [Conception]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T11:52:20.204Z",
+              "WhenOpened": "2024-11-26T13:17:47.58Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClientShow.cs [Conception]",
+              "DocumentMoniker": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ClientShow.cs",
+              "RelativeDocumentMoniker": "AutoFact\\Views\\ClientShow.cs",
+              "ToolTip": "C:\\Users\\sipha\\Documents\\GitHub\\AutoFact\\AutoFact\\AutoFact\\Views\\ClientShow.cs [Conception]",
+              "RelativeToolTip": "AutoFact\\Views\\ClientShow.cs [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T13:28:50.653Z",
               "EditorCaption": " [Conception]"
             }
           ]

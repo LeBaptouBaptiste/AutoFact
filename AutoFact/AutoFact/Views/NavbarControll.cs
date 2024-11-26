@@ -174,6 +174,7 @@ namespace AutoFact.Views
             btnCAca.UseVisualStyleBackColor = false;
             btnCAca.MouseEnter += btn_Enter;
             btnCAca.MouseLeave += btn_Leave;
+            btnCAca.Click += btn_CAClient;
             // 
             // separator2
             // 
@@ -342,6 +343,13 @@ namespace AutoFact.Views
         private void btn_CAc_Click(object sender, EventArgs e)
         {
             CACumul form = new CACumul();
+            Parent.Hide();
+            form.Show();
+        }
+        
+        private void btn_CAClient(object sender, EventArgs e)
+        {
+            CACumulClient form = new CACumulClient();
             Parent.Hide();
             form.Show();
         }

@@ -86,6 +86,7 @@ namespace AutoFact.Views
             ClientsDGV.Size = new Size(1319, 661);
             ClientsDGV.TabIndex = 9;
             ClientsDGV.CellClick += UpdBtn_Click;
+            ClientsDGV.RowHeadersVisible = false;
             // 
             // id
             // 
@@ -189,6 +190,7 @@ namespace AutoFact.Views
             Controls.Add(navbarControll1);
             Name = "ClientShow";
             Text = "ClientShow";
+            WindowState = FormWindowState.Maximized;
             Load += ClientShow_Load;
             ((System.ComponentModel.ISupportInitialize)ClientsDGV).EndInit();
             ResumeLayout(false);

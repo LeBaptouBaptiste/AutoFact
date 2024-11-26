@@ -32,15 +32,15 @@ namespace AutoFact.Views
         private void InitializeComponent()
         {
             navbarUserControl = new NavbarControll();
-            NameTB = new TextBox();
-            PriceTB = new TextBox();
+            NameTB = new CustomTextBox();
+            PriceTB = new CustomTextBox();
             SupplyCB = new ComboBox();
             AddBtn = new Button();
             UpBtn = new Button();
             AddUpLbl = new Label();
-            BuypriceTB = new TextBox();
-            QuantityTB = new TextBox();
-            DescriptionTB = new TextBox();
+            BuypriceTB = new CustomTextBox();
+            QuantityTB = new CustomTextBox();
+            DescriptionTB = new CustomTextBox();
             NameLbl = new Label();
             PriceLbl = new Label();
             QuantityLbl = new Label();
@@ -64,10 +64,10 @@ namespace AutoFact.Views
             NameTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             NameTB.ForeColor = Color.Silver;
             NameTB.Location = new Point(714, 289);
-            NameTB.MaxLength = 255;
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 0;
+            NameTB.MaxLength = 255;
             NameTB.Text = nameTxt;
             NameTB.Click += NameTB_Clicked;
             NameTB.Enter += NameTB_Clicked;
@@ -81,6 +81,7 @@ namespace AutoFact.Views
             PriceTB.Name = "PriceTB";
             PriceTB.Size = new Size(180, 26);
             PriceTB.TabIndex = 1;
+            PriceTB.MaxLength = 17;
             PriceTB.Text = priceTxt;
             PriceTB.Click += PriceTB_Clicked;
             PriceTB.Enter += PriceTB_Clicked;
@@ -140,10 +141,10 @@ namespace AutoFact.Views
             BuypriceTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BuypriceTB.ForeColor = Color.Silver;
             BuypriceTB.Location = new Point(1075, 405);
-            BuypriceTB.MaxLength = 255;
             BuypriceTB.Name = "BuypriceTB";
             BuypriceTB.Size = new Size(180, 26);
             BuypriceTB.TabIndex = 3;
+            BuypriceTB.MaxLength = 17;
             BuypriceTB.Text = buypriceTxt;
             BuypriceTB.Click += BuypriceTB_Clicked;
             BuypriceTB.Enter += BuypriceTB_Clicked;
@@ -154,10 +155,10 @@ namespace AutoFact.Views
             QuantityTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             QuantityTB.ForeColor = Color.Silver;
             QuantityTB.Location = new Point(1075, 288);
-            QuantityTB.MaxLength = 255;
             QuantityTB.Name = "QuantityTB";
             QuantityTB.Size = new Size(180, 26);
             QuantityTB.TabIndex = 2;
+            QuantityTB.MaxLength = 50;
             QuantityTB.Text = quantityTxt;
             QuantityTB.Click += QuantityTB_Clicked;
             QuantityTB.Enter += QuantityTB_Clicked;
@@ -168,11 +169,11 @@ namespace AutoFact.Views
             DescriptionTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DescriptionTB.ForeColor = Color.Silver;
             DescriptionTB.Location = new Point(820, 520);
-            DescriptionTB.MaxLength = 511;
             DescriptionTB.Multiline = true;
             DescriptionTB.Name = "DescriptionTB";
             DescriptionTB.Size = new Size(363, 170);
             DescriptionTB.TabIndex = 4;
+            DescriptionTB.MaxLength = 1023;
             DescriptionTB.Text = descriptionTxt;
             DescriptionTB.Click += DescriptionTB_Clicked;
             DescriptionTB.Enter += DescriptionTB_Clicked;
@@ -265,20 +266,10 @@ namespace AutoFact.Views
         #endregion
 
         private NavbarControll navbarUserControl;
-        private TextBox NameTB;
-        private TextBox PriceTB;
+        private CustomTextBox NameTB, PriceTB, BuypriceTB, QuantityTB, DescriptionTB;
         private ComboBox SupplyCB;
         private Button AddBtn;
         private Button UpBtn;
-        private Label AddUpLbl;
-        private TextBox BuypriceTB;
-        private TextBox QuantityTB;
-        private TextBox DescriptionTB;
-        private Label NameLbl;
-        private Label PriceLbl;
-        private Label QuantityLbl;
-        private Label BuyPriceLbl;
-        private Label DescriptionLbl;
-        private Label SupplierLbl;
+        private Label AddUpLbl, NameLbl, PriceLbl, QuantityLbl, BuyPriceLbl, DescriptionLbl, SupplierLbl;
     }
 }

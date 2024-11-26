@@ -84,6 +84,7 @@
             ServicesDGV.Size = new Size(1319, 661);
             ServicesDGV.TabIndex = 12;
             ServicesDGV.CellClick += UpdBtn_Click;
+            ServicesDGV.RowHeadersVisible = false;
             // 
             // id
             // 
@@ -160,6 +161,7 @@
             Controls.Add(navbarControll1);
             Name = "ServiceShow";
             Text = "ServiceShow";
+            WindowState = FormWindowState.Maximized;
             Load += ServicesShow_Load;
             ((System.ComponentModel.ISupportInitialize)ServicesDGV).EndInit();
             ResumeLayout(false);

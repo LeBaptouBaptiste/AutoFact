@@ -72,3 +72,6 @@ C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-w
 C:\Users\Baptiste\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.ArticleShow.resources
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.ArticleShow.resources
 C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.SupplierShow.resources
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.CACumulClient.resources
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.TestForm.resources
+C:\Users\sipha\Documents\GitHub\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.CustomTextBox.resources

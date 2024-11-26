@@ -30,12 +30,12 @@
         {
             navbarUserControl = new NavbarControll();
             AddUpLbl = new Label();
-            NameTB = new TextBox();
-            MailTB = new TextBox();
-            SiretTB = new TextBox();
-            PhoneTB = new TextBox();
-            AddressTB = new TextBox();
-            CpTB = new TextBox();
+            NameTB = new CustomTextBox();
+            MailTB = new CustomTextBox();
+            SiretTB = new CustomTextBox();
+            PhoneTB = new CustomTextBox();
+            AddressTB = new CustomTextBox();
+            CpTB = new CustomTextBox();
             AddBtn = new Button();
             UpdBtn = new Button();
             NameLbl = new Label();
@@ -70,7 +70,7 @@
             NameTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             NameTB.ForeColor = Color.Silver;
             NameTB.Location = new Point(837, 321);
-            NameTB.MaxLength = 255;
+            NameTB.MaxLength = 32;
             NameTB.Name = "NameTB";
             NameTB.Size = new Size(180, 26);
             NameTB.TabIndex = 0;
@@ -98,7 +98,7 @@
             SiretTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SiretTB.ForeColor = Color.Silver;
             SiretTB.Location = new Point(837, 447);
-            SiretTB.MaxLength = 255;
+            SiretTB.MaxLength = 17;
             SiretTB.Name = "SiretTB";
             SiretTB.Size = new Size(180, 26);
             SiretTB.TabIndex = 2;
@@ -112,7 +112,7 @@
             PhoneTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PhoneTB.ForeColor = Color.Silver;
             PhoneTB.Location = new Point(1369, 447);
-            PhoneTB.MaxLength = 255;
+            PhoneTB.MaxLength = 10;
             PhoneTB.Name = "PhoneTB";
             PhoneTB.Size = new Size(180, 26);
             PhoneTB.TabIndex = 3;
@@ -140,7 +140,7 @@
             CpTB.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CpTB.ForeColor = Color.Silver;
             CpTB.Location = new Point(1369, 598);
-            CpTB.MaxLength = 255;
+            CpTB.MaxLength = 5;
             CpTB.Name = "CpTB";
             CpTB.Size = new Size(180, 26);
             CpTB.TabIndex = 5;
@@ -263,13 +263,8 @@
 
         private NavbarControll navbarUserControl;
         private Label AddUpLbl;
-        private TextBox NameTB, MailTB, SiretTB, PhoneTB, AddressTB, CpTB;
+        private CustomTextBox NameTB, MailTB, SiretTB, PhoneTB, AddressTB, CpTB;
         private Button AddBtn, UpdBtn;
-        private Label NameLbl;
-        private Label SiretLbl;
-        private Label AddressLbl;
-        private Label MailLbl;
-        private Label PhoneLbl;
-        private Label CpLbl;
+        private Label NameLbl, SiretLbl, AddressLbl, MailLbl, PhoneLbl, CpLbl;
     }
 }

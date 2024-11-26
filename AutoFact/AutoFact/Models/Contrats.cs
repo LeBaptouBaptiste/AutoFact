@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoFact.Models
 {
-    internal class Contrats
+    public class Contrats
     {
         private string reference;
         private Clients client;

@@ -18,7 +18,7 @@ namespace AutoFact.Models
         private string phone;
         private string mail;
         private List<Avoirs> avoirs;
-        private List<Clients> clients;
+        private List<Contrats> contrats;
 
         public Clients (int id, string name, string address, string postalCode, string phone, string mail, List<Avoirs> avoirs)
         {
@@ -84,6 +84,11 @@ namespace AutoFact.Models
         {
             get { return this.mail; }         // Accesseur pour obtenir la valeur du champ _mail
             set { this.mail = value; }        // Accesseur pour modifier la valeur du champ _mail
+        }
+        public List<Contrats> Contrats
+        {
+            get { return this.contrats; }         // Accesseur pour obtenir la valeur du champ _mail
+            set { this.contrats = value; }        // Accesseur pour modifier la valeur du champ _mail
         }
     }
 }

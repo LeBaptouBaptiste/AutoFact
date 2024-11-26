@@ -81,7 +81,7 @@ namespace AutoFact.Views
         // Méthode générique pour gérer les clics sur les champs de saisie
         private void HandleFieldClick(object sender, string defaultText)
         {
-            TextBox textBox = sender as TextBox;
+            CustomTextBox textBox = sender as CustomTextBox;
             if (textBox.Text == defaultText)
             {
                 Resets(sender, true);
@@ -133,7 +133,7 @@ namespace AutoFact.Views
         }
 
         // Réinitialisation d'un champ de texte
-        private void ResetField(TextBox textBox, string defaultText)
+        private void ResetField(CustomTextBox textBox, string defaultText)
         {
             if (textBox.Text == string.Empty)
             {

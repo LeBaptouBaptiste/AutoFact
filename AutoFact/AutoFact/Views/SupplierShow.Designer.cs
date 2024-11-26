@@ -77,6 +77,7 @@
             SuppliersDGV.Size = new Size(1319, 661);
             SuppliersDGV.TabIndex = 16;
             SuppliersDGV.CellClick += UpdBtn_Click;
+            SuppliersDGV.RowHeadersVisible = false;
             // 
             // ShowSuppliersLbl
             // 
@@ -180,6 +181,7 @@
             Controls.Add(navbarControll1);
             Name = "SupplierShow";
             Text = "SupplierShow";
+            WindowState = FormWindowState.Maximized;
             Load += SupplierShow_Load;
             ((System.ComponentModel.ISupportInitialize)SuppliersDGV).EndInit();
             ResumeLayout(false);

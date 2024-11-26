@@ -77,6 +77,7 @@
             ArticlesDGV.Size = new Size(1319, 661);
             ArticlesDGV.TabIndex = 16;
             ArticlesDGV.CellClick += UpdBtn_Click;
+            ArticlesDGV.RowHeadersVisible = false;
             // 
             // id
             // 
@@ -180,6 +181,7 @@
             Controls.Add(navbarControll1);
             Name = "ArticleShow";
             Text = "ArticleShow";
+            WindowState = FormWindowState.Maximized;
             Load += ArticlesShow_Load;
             ((System.ComponentModel.ISupportInitialize)ArticlesDGV).EndInit();
             ResumeLayout(false);
