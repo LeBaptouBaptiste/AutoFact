@@ -37,5 +37,12 @@ namespace AutoFact.Views
                 OkBtn_Click(sender, e);
             }
         }
+
+        private void Cancel_Btn_Click(object sender, EventArgs e)
+        {
+            // Fermer le modal
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

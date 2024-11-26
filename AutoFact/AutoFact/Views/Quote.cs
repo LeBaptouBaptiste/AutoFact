@@ -16,11 +16,12 @@ using System.Runtime.Intrinsics.X86;
 using System.Diagnostics;
 using System.IO;
 using Aspose.Email;
+using Aspose.Pdf.Facades;
 
 
 namespace AutoFact.Views
 {
-    public partial class Quote : Form
+    public partial class Quote : System.Windows.Forms.Form
     {
         private List<Produits> listProducts;
         private List<Services> listServices;
@@ -96,19 +97,27 @@ namespace AutoFact.Views
 
                 int theQuantity = showQuantityModal(sender, e);
 
-                // Ajouter l'article séléctionné dans le tableau du devis
-                AllArticlesDGV.Rows.Add(listProducts[id].Id, listProducts[id].Libelle, listProducts[id].Description, "20%", listProducts[id].Prix, theQuantity, listProducts[id].Prix * theQuantity);
+                if (theQuantity != 0)
+                {
 
-                //// Ajouter la taxe correspondante dans le tableau des taxes
-                decimal resultat = listProducts[id].Prix * 0.2m * theQuantity;
+                    // Ajouter l'article séléctionné dans le tableau du devis
+                    AllArticlesDGV.Rows.Add(listProducts[id].Id, listProducts[id].Libelle, listProducts[id].Description, "20%", listProducts[id].Prix, theQuantity, listProducts[id].Prix * theQuantity);
 
-                TaxesDGV.Rows.Add("Produits", "20%", resultat + " €");
+                    //// Ajouter la taxe correspondante dans le tableau des taxes
+                    decimal resultat = listProducts[id].Prix * 0.2m * theQuantity;
 
-                ChangeText(AProduitCB, e, true);
+                    TaxesDGV.Rows.Add("Produits", "20%", resultat + " €");
 
-                UpdateTotal(id, true, theQuantity);
+                    ChangeText(AProduitCB, e, true);
 
-                //MessageBox.Show("Produit ajouté au devis");
+                    UpdateTotal(id, true, theQuantity);
+
+                    //MessageBox.Show("Produit ajouté au devis");
+                }
+                else
+                {
+                    MessageBox.Show("produit annulé");
+                }
             }
         }
 
@@ -126,15 +135,21 @@ namespace AutoFact.Views
 
                 int theQuantity = showQuantityModal(sender, e);
 
-                // Ajouter l'article séléctionné dans le tableau du devis avec la quantité entrée dans le modal
-                AllArticlesDGV.Rows.Add(listServices[id].Id, listServices[id].Libelle, listServices[id].Description, "0%", listServices[id].Prix, theQuantity, listServices[id].Prix * theQuantity);
+                if (theQuantity != 0)
+                {
+                    // Ajouter l'article séléctionné dans le tableau du devis avec la quantité entrée dans le modal
+                    AllArticlesDGV.Rows.Add(listServices[id].Id, listServices[id].Libelle, listServices[id].Description, "0%", listServices[id].Prix, theQuantity, listServices[id].Prix * theQuantity);
 
-                ChangeText(AServiceCB, e, true);
+                    ChangeText(AServiceCB, e, true);
 
-                UpdateTotal(id, false, theQuantity);
+                    UpdateTotal(id, false, theQuantity);
 
-                //MessageBox.Show("Service ajouté au devis");
-
+                    //MessageBox.Show("Service ajouté au devis");
+                }
+                else
+                {
+                    MessageBox.Show("service annulé");
+                }
             }
         }
 
@@ -168,6 +183,44 @@ namespace AutoFact.Views
             // Calculer le total TTC final
             totalTTC = totalHT + totalTaxes;
             LeTotalTTC.Text = $"{totalTTC} €";
+        }
+
+        private void DeleteProductBtn_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == AllArticlesDGV.Columns["DelProduct"].Index)
+            {
+                // Récupérer l'index de la ligne sélectionnée
+                int index = e.RowIndex;
+                // Récupérer le montant de la ligne sélectionnée
+                decimal amount = Convert.ToDecimal(AllArticlesDGV.Rows[index].Cells[6].Value);
+                // Soustraire le montant de la ligne sélectionnée du total HT
+                totalHT -= amount;
+                LeTotalHT.Text = $"{totalHT} €";
+                if (AllArticlesDGV.Rows[index].Cells[3].Value.ToString() == "20%") // S'il y a une taxe
+                {
+                    // Soustraire le montant de la ligne sélectionnée du total produits
+                    totalProduits -= amount;
+                    LeTotalProduits.Text = $"{totalProduits} €";
+                    // Récupérer le montant de la taxe de la ligne sélectionnée
+                    decimal taxAmount = Convert.ToDecimal(TaxesDGV.Rows[index].Cells[2].Value.ToString().Replace(" €", ""));
+                    // Soustraire le montant de la ligne sélectionnée du total taxes
+                    totalTaxes -= taxAmount;
+                    LeTotalTaxes.Text = $"{totalTaxes} €";
+                    // Supprimer la ligne sélectionnée du tableau des taxes
+                    TaxesDGV.Rows.RemoveAt(index);
+                }
+                else
+                {
+                    // Soustraire le montant de la ligne sélectionnée du total services
+                    totalServices -= amount;
+                    LeTotalServices.Text = $"{totalServices} €";
+                }
+                // Soustraire le montant de la ligne sélectionnée du total TTC
+                totalTTC = totalHT + totalTaxes;
+                LeTotalTTC.Text = $"{totalTTC} €";
+                // Supprimer la ligne sélectionnée du tableau des articles
+                AllArticlesDGV.Rows.RemoveAt(index);
+            }
         }
 
         private void SendInvoiceByMailBtn_Click(object sender, EventArgs e)
@@ -214,7 +267,7 @@ namespace AutoFact.Views
             }
         }
 
-        private string GenerateInvoicePDF()
+        public string GenerateInvoicePDF()
         {
             try
             {
@@ -243,6 +296,12 @@ namespace AutoFact.Views
                 MessageBox.Show($"Erreur lors de la génération du PDF : {ex.Message}", "Erreur");
                 return null;
             }
+        }
+
+        private void PrintInvoiceBtn_Click(object sender, EventArgs e)
+        {
+            PDFViewer pdfViewer = new PDFViewer();
+            pdfViewer.Show();
         }
     }
 }

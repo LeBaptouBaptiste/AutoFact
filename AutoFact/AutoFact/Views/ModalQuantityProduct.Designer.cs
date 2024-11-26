@@ -31,6 +31,7 @@
             QuantityLbl = new Label();
             QuantityTB = new TextBox();
             OkBtn = new Button();
+            Cancel_Btn = new Button();
             SuspendLayout();
             // 
             // QuantityLbl
@@ -62,7 +63,7 @@
             // OkBtn
             // 
             OkBtn.Anchor = AnchorStyles.None;
-            OkBtn.Location = new Point(195, 121);
+            OkBtn.Location = new Point(109, 128);
             OkBtn.Name = "OkBtn";
             OkBtn.Size = new Size(95, 28);
             OkBtn.TabIndex = 1;
@@ -70,11 +71,23 @@
             OkBtn.UseVisualStyleBackColor = true;
             OkBtn.Click += OkBtn_Click;
             // 
+            // Cancel_Btn
+            // 
+            Cancel_Btn.Anchor = AnchorStyles.None;
+            Cancel_Btn.Location = new Point(258, 128);
+            Cancel_Btn.Name = "Cancel_Btn";
+            Cancel_Btn.Size = new Size(95, 28);
+            Cancel_Btn.TabIndex = 7;
+            Cancel_Btn.Text = "Annuler";
+            Cancel_Btn.UseVisualStyleBackColor = true;
+            Cancel_Btn.Click += Cancel_Btn_Click;
+            // 
             // ModalQuantityProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(515, 194);
+            Controls.Add(Cancel_Btn);
             Controls.Add(OkBtn);
             Controls.Add(QuantityLbl);
             Controls.Add(QuantityTB);
@@ -91,5 +104,6 @@
         private Label QuantityLbl;
         private TextBox QuantityTB;
         private Button OkBtn;
+        private Button Cancel_Btn;
     }
 }

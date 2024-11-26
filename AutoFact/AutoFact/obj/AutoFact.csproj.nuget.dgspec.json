@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[24.11.0, )"
             },
+            "Spire.PDFViewer": {
+              "target": "Package",
+              "version": "[7.12.23, )"
+            },
             "System.Data.SQLite.Core": {
               "target": "Package",
               "version": "[1.0.119, )"

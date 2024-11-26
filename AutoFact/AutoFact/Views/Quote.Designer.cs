@@ -40,6 +40,7 @@
             PrixUnitaire = new DataGridViewTextBoxColumn();
             Quantite = new DataGridViewTextBoxColumn();
             PrixTotal = new DataGridViewTextBoxColumn();
+            DelProduct = new DataGridViewButtonColumn();
             TaxesDGV = new DataGridView();
             detailsTaxe = new DataGridViewTextBoxColumn();
             tauxTaxe = new DataGridViewTextBoxColumn();
@@ -114,23 +115,27 @@
             AllArticlesDGV.AllowUserToDeleteRows = false;
             AllArticlesDGV.BackgroundColor = Color.FromArgb(183, 192, 255);
             AllArticlesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AllArticlesDGV.Columns.AddRange(new DataGridViewColumn[] { Ref, name, Desc, tva, PrixUnitaire, Quantite, PrixTotal });
+            AllArticlesDGV.Columns.AddRange(new DataGridViewColumn[] { Ref, name, Desc, tva, PrixUnitaire, Quantite, PrixTotal, DelProduct });
             AllArticlesDGV.Location = new Point(491, 347);
             AllArticlesDGV.Name = "AllArticlesDGV";
+            AllArticlesDGV.ReadOnly = true;
             AllArticlesDGV.Size = new Size(1343, 253);
             AllArticlesDGV.TabIndex = 3;
+            AllArticlesDGV.CellClick += DeleteProductBtn_Click;
             // 
             // Ref
             // 
             Ref.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Ref.HeaderText = "Référence";
             Ref.Name = "Ref";
+            Ref.ReadOnly = true;
             // 
             // name
             // 
             name.FillWeight = 280.851074F;
             name.HeaderText = "Désignation";
             name.Name = "name";
+            name.ReadOnly = true;
             name.Width = 250;
             // 
             // Desc
@@ -138,6 +143,7 @@
             Desc.FillWeight = 63.8297844F;
             Desc.HeaderText = "Description";
             Desc.Name = "Desc";
+            Desc.ReadOnly = true;
             Desc.Width = 400;
             // 
             // tva
@@ -145,12 +151,14 @@
             tva.FillWeight = 63.8297844F;
             tva.HeaderText = "TVA";
             tva.Name = "tva";
+            tva.ReadOnly = true;
             // 
             // PrixUnitaire
             // 
             PrixUnitaire.FillWeight = 63.8297844F;
             PrixUnitaire.HeaderText = "Prix Unitaire (HT)";
             PrixUnitaire.Name = "PrixUnitaire";
+            PrixUnitaire.ReadOnly = true;
             PrixUnitaire.Width = 150;
             // 
             // Quantite
@@ -158,13 +166,24 @@
             Quantite.FillWeight = 63.8297844F;
             Quantite.HeaderText = "Quantité";
             Quantite.Name = "Quantite";
+            Quantite.ReadOnly = true;
             // 
             // PrixTotal
             // 
             PrixTotal.FillWeight = 63.8297844F;
             PrixTotal.HeaderText = "Prix Total (HT)";
             PrixTotal.Name = "PrixTotal";
+            PrixTotal.ReadOnly = true;
             PrixTotal.Width = 150;
+            // 
+            // DelProduct
+            // 
+            DelProduct.HeaderText = "";
+            DelProduct.Name = "DelProduct";
+            DelProduct.ReadOnly = true;
+            DelProduct.Text = "Supprimer";
+            DelProduct.ToolTipText = "Supprimer le produit du devis";
+            DelProduct.UseColumnTextForButtonValue = true;
             // 
             // TaxesDGV
             // 
@@ -307,7 +326,7 @@
             // 
             LeTotalTTC.AutoSize = true;
             LeTotalTTC.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            LeTotalTTC.Location = new Point(68, 260);
+            LeTotalTTC.Location = new Point(60, 260);
             LeTotalTTC.Name = "LeTotalTTC";
             LeTotalTTC.Size = new Size(56, 37);
             LeTotalTTC.TabIndex = 10;
@@ -401,12 +420,13 @@
             PrintInvoiceBtn.TabIndex = 12;
             PrintInvoiceBtn.Text = "Imprimer la facture";
             PrintInvoiceBtn.UseVisualStyleBackColor = false;
+            PrintInvoiceBtn.Click += PrintInvoiceBtn_Click;
             // 
             // Quote
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1886, 1041);
+            ClientSize = new Size(1904, 1041);
             Controls.Add(PrintInvoiceBtn);
             Controls.Add(SendInvoiceByMailBtn);
             Controls.Add(TheClientCB);
@@ -441,13 +461,6 @@
         private Label AddProduitsLbl;
         private ComboBox AProduitCB;
         private DataGridView AllArticlesDGV;
-        private DataGridViewTextBoxColumn Ref;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn Desc;
-        private DataGridViewTextBoxColumn tva;
-        private DataGridViewTextBoxColumn PrixUnitaire;
-        private DataGridViewTextBoxColumn Quantite;
-        private DataGridViewTextBoxColumn PrixTotal;
         private DataGridView TaxesDGV;
         private DataGridViewTextBoxColumn detailsTaxe;
         private DataGridViewTextBoxColumn tauxTaxe;
@@ -471,5 +484,13 @@
         private Label AddClientsLbl;
         private Button SendInvoiceByMailBtn;
         private Button PrintInvoiceBtn;
+        private DataGridViewTextBoxColumn Ref;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn Desc;
+        private DataGridViewTextBoxColumn tva;
+        private DataGridViewTextBoxColumn PrixUnitaire;
+        private DataGridViewTextBoxColumn Quantite;
+        private DataGridViewTextBoxColumn PrixTotal;
+        private DataGridViewButtonColumn DelProduct;
     }
 }

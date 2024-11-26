@@ -137,6 +137,51 @@
           }
         }
       },
+      "Spire.PDF/10.4.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0",
+          "System.Text.Encoding.CodePages": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Spire.Pdf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Spire.Pdf.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Spire.PDFViewer/7.12.23": {
+        "type": "package",
+        "dependencies": {
+          "Spire.PDF": "10.4.2"
+        },
+        "compile": {
+          "lib/net46/Spire.Pdf.dll": {
+            "related": ".xml"
+          },
+          "lib/net46/Spire.PdfViewer.Asp.dll": {
+            "related": ".xml"
+          },
+          "lib/net46/Spire.PdfViewer.Forms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net46/Spire.Pdf.dll": {
+            "related": ".xml"
+          },
+          "lib/net46/Spire.PdfViewer.Asp.dll": {
+            "related": ".xml"
+          },
+          "lib/net46/Spire.PdfViewer.Forms.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Stub.System.Data.SQLite.Core.NetStandard/1.0.119": {
         "type": "package",
         "compile": {
@@ -701,6 +746,56 @@
         "packageIcon.png"
       ]
     },
+    "Spire.PDF/10.4.2": {
+      "sha512": "tc2Wn1uU5N+QQrSCRpKR/NCnUxvRuAnpVF108z2Vf7YbaDj62kT7la+g/0OEoZl9jRERLA6KcD0O2K0EAB6Wyw==",
+      "type": "package",
+      "path": "spire.pdf/10.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Spire.Pdf.dll",
+        "lib/net40/Spire.Pdf.xml",
+        "lib/net48/Spire.Pdf.dll",
+        "lib/net48/Spire.Pdf.xml",
+        "lib/net6.0/Spire.Pdf.dll",
+        "lib/net6.0/Spire.Pdf.xml",
+        "lib/netstandard2.0/Spire.Pdf.dll",
+        "lib/netstandard2.0/Spire.Pdf.xml",
+        "license.txt",
+        "spire.pdf.10.4.2.nupkg.sha512",
+        "spire.pdf.nuspec"
+      ]
+    },
+    "Spire.PDFViewer/7.12.23": {
+      "sha512": "xwfeRuR/oNv82ZlPuQIyi9ByyUzqxdrjfQeUomWdcLAkbvgAeT3ZKbr1pUy6sJTceMX0byCXk4JYPZ4XbOW0MA==",
+      "type": "package",
+      "path": "spire.pdfviewer/7.12.23",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Spire.Pdf.dll",
+        "lib/net40/Spire.Pdf.xml",
+        "lib/net40/Spire.PdfViewer.Asp.dll",
+        "lib/net40/Spire.PdfViewer.Asp.xml",
+        "lib/net40/Spire.PdfViewer.Forms.dll",
+        "lib/net40/Spire.PdfViewer.Forms.xml",
+        "lib/net46/Spire.Pdf.dll",
+        "lib/net46/Spire.Pdf.xml",
+        "lib/net46/Spire.PdfViewer.Asp.dll",
+        "lib/net46/Spire.PdfViewer.Asp.xml",
+        "lib/net46/Spire.PdfViewer.Forms.dll",
+        "lib/net46/Spire.PdfViewer.Forms.xml",
+        "lib/net48/Spire.Pdf.dll",
+        "lib/net48/Spire.Pdf.xml",
+        "lib/net48/Spire.PdfViewer.Asp.dll",
+        "lib/net48/Spire.PdfViewer.Asp.xml",
+        "lib/net48/Spire.PdfViewer.Forms.dll",
+        "lib/net48/Spire.PdfViewer.Forms.xml",
+        "license.txt",
+        "spire.pdfviewer.7.12.23.nupkg.sha512",
+        "spire.pdfviewer.nuspec"
+      ]
+    },
     "Stub.System.Data.SQLite.Core.NetStandard/1.0.119": {
       "sha512": "dI7ngiCNgdm+n00nQvFTa+LbHvE9MIQXwMSLRzJI/KAJ7G1WmCachsvfE1CD6xvb3OXJvYYEfv3+S/LHyhN0Rg==",
       "type": "package",
@@ -1220,6 +1315,7 @@
     "net8.0-windows7.0": [
       "Aspose.Email >= 24.10.0",
       "Aspose.PDF >= 24.11.0",
+      "Spire.PDFViewer >= 7.12.23",
       "System.Data.SQLite.Core >= 1.0.119"
     ]
   },
@@ -1281,6 +1377,10 @@
             "target": "Package",
             "version": "[24.11.0, )"
           },
+          "Spire.PDFViewer": {
+            "target": "Package",
+            "version": "[7.12.23, )"
+          },
           "System.Data.SQLite.Core": {
             "target": "Package",
             "version": "[1.0.119, )"
@@ -1336,6 +1436,16 @@
       "warningLevel": 1,
       "message": "Le package 'System.Text.Json' 8.0.0 présente une vulnérabilité de gravité élevé(e) connue, https://github.com/advisories/GHSA-hh2w-p6rv-4g7w.",
       "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'Spire.PDFViewer 7.12.23' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows7.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "libraryId": "Spire.PDFViewer",
       "targetGraphs": [
         "net8.0-windows7.0"
       ]

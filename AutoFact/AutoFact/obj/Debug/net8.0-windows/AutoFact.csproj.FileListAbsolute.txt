@@ -108,3 +108,12 @@ D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-wi
 D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Aspose.Email.dll
 D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Spire.Pdf.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Spire.PdfViewer.Asp.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Spire.PdfViewer.Forms.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\Interop.AcroPDFLib.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\bin\Debug\net8.0-windows\AxInterop.AcroPDFLib.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\Interop.AcroPDFLib.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AxInterop.AcroPDFLib.dll
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.csproj.ResolveComReference.cache
+D:\Cours\BTS_SIO\SIO2\Autofact\C#\AutoFact\AutoFact\AutoFact\obj\Debug\net8.0-windows\AutoFact.Views.PDFViewer.resources
