@@ -34,5 +34,10 @@ namespace AutoFact.Models
             get { return this.civility; }           // Accesseur pour obtenir la valeur du champ _id
             set { this.civility = value; }          // Accesseur pour modifier la valeur du champ _id
         }
+
+        public override string ToString()
+        {
+            return $"{Name} {FirstName}";
+        }
     }
 }

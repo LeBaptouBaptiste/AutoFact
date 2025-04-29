@@ -32,5 +32,10 @@ namespace AutoFact.Models
             get { return this.siret; } 
             set { this.siret = value; } 
         }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

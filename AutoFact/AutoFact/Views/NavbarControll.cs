@@ -80,10 +80,11 @@ namespace AutoFact.Views
             btnDevis.Name = "btnDevis";
             btnDevis.Size = new Size(180, 40);
             btnDevis.TabIndex = 0;
-            btnDevis.Text = "Devis";
+            btnDevis.Text = "Devis !";
             btnDevis.UseVisualStyleBackColor = false;
             btnDevis.MouseEnter += btn_Enter;
             btnDevis.MouseLeave += btn_Leave;
+            btnDevis.Click += btn_Devis_Click;
             // 
             // btnFact
             // 
@@ -340,13 +341,20 @@ namespace AutoFact.Views
             btn.Font = new Font("Arial", 12F, FontStyle.Regular);
         }
 
+        private void btn_Devis_Click(object sender, EventArgs e)
+        {
+            Quote form = new Quote();
+            Parent.Hide();
+            form.Show();
+        }
+
         private void btn_CAc_Click(object sender, EventArgs e)
         {
             CACumul form = new CACumul();
             Parent.Hide();
             form.Show();
         }
-        
+
         private void btn_CAClient(object sender, EventArgs e)
         {
             CACumulClient form = new CACumulClient();

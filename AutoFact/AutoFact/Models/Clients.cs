@@ -20,7 +20,7 @@ namespace AutoFact.Models
         private List<Avoirs> avoirs;
         private List<Contrats> contrats;
 
-        public Clients (int id, string name, string address, string postalCode, string phone, string mail, List<Avoirs> avoirs)
+        public Clients(int id, string name, string address, string postalCode, string phone, string mail, List<Avoirs> avoirs)
         {
             this.id = id;
             this.name = name;
@@ -31,7 +31,7 @@ namespace AutoFact.Models
             this.avoirs = avoirs;
         }
 
-        public Clients (int id, string name, string address, string postalCode, string phone, string mail)
+        public Clients(int id, string name, string address, string postalCode, string phone, string mail)
         {
             this.id = id;
             this.name = name;
@@ -41,7 +41,7 @@ namespace AutoFact.Models
             this.mail = mail;
         }
 
-        public Clients (string name, string address, string cp, string phone, string mail)
+        public Clients(string name, string address, string cp, string phone, string mail)
         {
             this.name = name;
             this.address = address;
@@ -89,6 +89,11 @@ namespace AutoFact.Models
         {
             get { return this.contrats; }         // Accesseur pour obtenir la valeur du champ _mail
             set { this.contrats = value; }        // Accesseur pour modifier la valeur du champ _mail
+        }
+
+        public override string ToString()
+        {
+            return $"{name}";
         }
     }
 }
