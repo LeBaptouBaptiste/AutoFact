@@ -43,6 +43,7 @@ namespace AutoFact.Views
         decimal totalTaxes = 0;
         decimal totalHT = 0;
         decimal totalTTC = 0;
+        Dictionary<string, string> theClientSelected = new Dictionary<string, string>();
 
         public Quote()
         {
@@ -174,27 +175,84 @@ namespace AutoFact.Views
             {
                 if (TheClientCB.SelectedItem is Clients selectedClient)
                 {
+                    theClientSelected.Clear();
+
                     StringBuilder sb = new StringBuilder();
 
-                    // Si c'est un particulier → afficher civilité et prénom
+                    // Si c'est un particulier → afficher civilité et prénom  
                     if (selectedClient is Particuliers particulier)
                     {
-                        sb.AppendLine($"Civilité : {particulier.Civility}");
-                        sb.AppendLine($"Prénom : {particulier.FirstName}");
-                    }
-                    sb.AppendLine($"Nom : {selectedClient.Name}");
-                    sb.AppendLine($"Adresse : {selectedClient.Address}");
-                    sb.AppendLine($"Code Postal : {selectedClient.PostalCode}");
-                    sb.AppendLine($"Téléphone : {selectedClient.Phone}");
-                    sb.AppendLine($"Email : {selectedClient.Mail}");
+                        if (!string.IsNullOrEmpty(particulier.Civility))
+                            sb.AppendLine($"Civilité : {particulier.Civility}");
 
-                // Si c'est une société → afficher SIRET
-                if (selectedClient is Societe societe)
+                        if (!string.IsNullOrEmpty(particulier.FirstName))
+                            sb.AppendLine($"Prénom : {particulier.FirstName}");
+
+                        if (!string.IsNullOrEmpty(particulier.Civility))
+                            theClientSelected["Civilité"] = particulier.Civility;
+
+                        if (!string.IsNullOrEmpty(particulier.FirstName))
+                            theClientSelected["Prénom"] = particulier.FirstName;
+                    }
+
+                    if (!string.IsNullOrEmpty(selectedClient.Name))
+                    {
+                        sb.AppendLine($"Nom : {selectedClient.Name}");
+                        theClientSelected["Nom"] = selectedClient.Name;
+                    }
+
+                    if (!string.IsNullOrEmpty(selectedClient.Address))
+                    {
+                        sb.AppendLine($"Adresse : {selectedClient.Address}");
+                        theClientSelected["Adresse"] = selectedClient.Address;
+                    }
+
+                    if (!string.IsNullOrEmpty(selectedClient.PostalCode))
+                    {
+                        sb.AppendLine($"Code Postal : {selectedClient.PostalCode}");
+                        theClientSelected["Code Postal"] = selectedClient.PostalCode;
+                    }
+
+                    if (!string.IsNullOrEmpty(selectedClient.Phone))
+                    {
+                        sb.AppendLine($"Téléphone : {selectedClient.Phone}");
+                        theClientSelected["Téléphone"] = selectedClient.Phone;
+                    }
+
+                    if (!string.IsNullOrEmpty(selectedClient.Mail))
+                    {
+                        sb.AppendLine($"Email : {selectedClient.Mail}");
+                        theClientSelected["Email"] = selectedClient.Mail;
+                    }
+
+                    // Si c'est une société → afficher SIRET  
+                    if (selectedClient is Societe societe && !string.IsNullOrEmpty(societe.Siret))
                     {
                         sb.AppendLine($"SIRET : {societe.Siret}");
+                        theClientSelected["SIRET"] = societe.Siret;
                     }
 
                     MessageBox.Show(sb.ToString(), "Informations du client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Construire le message pour le client sélectionné  
+                    var selectedClientMessage = new StringBuilder("Client sélectionné : ");
+
+                    if (theClientSelected.ContainsKey("Nom"))
+                        selectedClientMessage.AppendLine($"Nom : {theClientSelected["Nom"]}, ");
+
+                    if (theClientSelected.ContainsKey("Prénom"))
+                        selectedClientMessage.AppendLine($"Prénom : {theClientSelected["Prénom"]} ");
+
+                    if (theClientSelected.ContainsKey("Civilité"))
+                        selectedClientMessage.AppendLine($"Civilité : {theClientSelected["Civilité"]}, ");
+
+                    if (theClientSelected.ContainsKey("Adresse"))
+                        selectedClientMessage.AppendLine($"Adresse : {theClientSelected["Adresse"]}, ");
+
+                    if (theClientSelected.ContainsKey("SIRET"))
+                        selectedClientMessage.AppendLine($"SIRET : {theClientSelected["SIRET"]}");
+
+                    MessageBox.Show(selectedClientMessage.ToString(), "Client sélectionné", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 ChangeText(sender, e, true);
@@ -362,16 +420,20 @@ namespace AutoFact.Views
     { "cityE", "Paris" },
     { "telE", "01 23 45 67 89" },
     { "emailE", "contact@twintech.fr" },
-    { "sitewebE", "www.twintech.fr" },
+    { "sitewebE", "| www.twintech.fr" },
     { "refInvoice", refFacture },
     { "dateInvoice", DateTime.Now.ToShortDateString() },
 
-    { "nameC", client?.Name ?? "Client inconnu" },
-    { "streetC", client?.Address ?? "Adresse" },
-    { "cpC", client?.PostalCode ?? "00000" },
-    //{ "cityC", client?.City ?? "Ville" }, // on a pas mis la ville dans le model Client | [EDITED] => (cityC retiré du modèle Word)
-    { "emailC", client?.Mail ?? "email@exemple.com" },
-    { "telC", client?.Phone ?? "00 00 00 00 00" },
+    { "nameC", theClientSelected.ContainsKey("Nom") ? theClientSelected["Nom"] : "Client inconnu" },
+{ "streetC", theClientSelected.ContainsKey("Adresse") ? theClientSelected["Adresse"] : "Aucune adresse" },
+{ "cpC", theClientSelected.ContainsKey("Code Postal") ? theClientSelected["Code Postal"] : "Aucun CP" },
+{ "emailC", theClientSelected.ContainsKey("Email") ? theClientSelected["Email"] : "email@exemple.com" },
+{ "telC", theClientSelected.ContainsKey("Téléphone") ? "| " + theClientSelected["Téléphone"] : "Pas de numéro" },
+{ "civilityC", theClientSelected.ContainsKey("Civilité") ? (theClientSelected["Civilité"] == "H" ? "Mr" : "Mme") : "" },
+{ "firstNameC", theClientSelected.ContainsKey("Prénom") ? theClientSelected["Prénom"] : "" },
+{ "siretC", theClientSelected.ContainsKey("SIRET") ? "| " + theClientSelected["SIRET"] : "" },
+
+
 
     { "productTotal", totalProduits.ToString("0.00") + " €" },
     { "serviceTotal", totalServices.ToString("0.00") + " €" },

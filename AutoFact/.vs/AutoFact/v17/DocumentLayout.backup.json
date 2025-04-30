@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\models\\societe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|d:\\cours\\bts_sio\\sio2\\autofact\\c#\\autofact\\autofact\\autofact\\views\\quote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\autofact\\views\\quote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}|AutoFact\\AutoFact.csproj|solutionrelative:autofact\\views\\quote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -46,8 +46,7 @@
               "RelativeToolTip": "AutoFact\\Models\\Particuliers.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T16:56:13.003Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T16:56:13.003Z"
             },
             {
               "$type": "Document",
@@ -59,8 +58,7 @@
               "RelativeToolTip": "AutoFact\\Models\\Societe.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T16:56:07.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T16:56:07.894Z"
             },
             {
               "$type": "Document",
@@ -72,20 +70,19 @@
               "RelativeToolTip": "AutoFact\\Models\\Clients.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAmwF8AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T14:40:37.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T14:40:37.139Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Quote.cs [Conception]",
+              "Title": "Quote.cs [Design]",
               "DocumentMoniker": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\Quote.cs",
               "RelativeDocumentMoniker": "AutoFact\\Views\\Quote.cs",
-              "ToolTip": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\Quote.cs [Conception]*",
-              "RelativeToolTip": "AutoFact\\Views\\Quote.cs [Conception]*",
+              "ToolTip": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\Quote.cs [Design]*",
+              "RelativeToolTip": "AutoFact\\Views\\Quote.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T13:20:36.07Z",
-              "EditorCaption": " [Conception]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -95,7 +92,7 @@
               "RelativeDocumentMoniker": "AutoFact\\Views\\Quote.cs",
               "ToolTip": "D:\\Cours\\BTS_SIO\\SIO2\\Autofact\\C#\\AutoFact\\AutoFact\\AutoFact\\Views\\Quote.cs*",
               "RelativeToolTip": "AutoFact\\Views\\Quote.cs*",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAxwLcAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAwwLEAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T11:52:03.69Z",
               "EditorCaption": ""
