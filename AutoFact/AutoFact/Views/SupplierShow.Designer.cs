@@ -32,7 +32,7 @@
             AddBtn = new Button();
             SuppliersDGV = new DataGridView();
             ShowSuppliersLbl = new Label();
-            navbarControll1 = new NavbarControll();
+            navbarUserControl = new NavbarControll();
             id = new DataGridViewTextBoxColumn();
             siret = new DataGridViewTextBoxColumn();
             address = new DataGridViewTextBoxColumn();
@@ -89,14 +89,15 @@
             ShowSuppliersLbl.TabIndex = 15;
             ShowSuppliersLbl.Text = "Affichage des fournisseurs";
             // 
-            // navbarControll1
+            // navbarUserControl
             // 
-            navbarControll1.BackColor = Color.Transparent;
-            navbarControll1.ForeColor = SystemColors.ControlText;
-            navbarControll1.Location = new Point(12, 12);
-            navbarControll1.Name = "navbarControll1";
-            navbarControll1.Size = new Size(450, 1080);
-            navbarControll1.TabIndex = 14;
+            navbarUserControl.BackColor = Color.Transparent;
+            navbarUserControl.ForeColor = SystemColors.ControlText;
+            navbarUserControl.Location = new Point(12, 12);
+            navbarUserControl.Name = "navbarUserControl";
+            navbarUserControl.Size = new Size(450, 1080);
+            navbarUserControl.TabIndex = 14;
+            navbarUserControl.ParentForm = this;
             // 
             // id
             // 
@@ -178,7 +179,7 @@
             Controls.Add(AddBtn);
             Controls.Add(SuppliersDGV);
             Controls.Add(ShowSuppliersLbl);
-            Controls.Add(navbarControll1);
+            Controls.Add(navbarUserControl);
             Name = "SupplierShow";
             Text = "SupplierShow";
             WindowState = FormWindowState.Maximized;
@@ -193,7 +194,7 @@
         private Button AddBtn;
         private DataGridView SuppliersDGV;
         private Label ShowSuppliersLbl;
-        private NavbarControll navbarControll1;
+        private NavbarControll navbarUserControl;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn siret;
         private DataGridViewTextBoxColumn address;

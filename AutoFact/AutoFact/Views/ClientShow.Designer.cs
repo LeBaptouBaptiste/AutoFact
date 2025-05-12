@@ -31,7 +31,7 @@ namespace AutoFact.Views
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            navbarControll1 = new NavbarControll();
+            navbarUserControl = new NavbarControll();
             ShowClientLbl = new Label();
             ClientsDGV = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -47,14 +47,15 @@ namespace AutoFact.Views
             ((System.ComponentModel.ISupportInitialize)ClientsDGV).BeginInit();
             SuspendLayout();
             // 
-            // navbarControll1
+            // navbarUserControl
             // 
-            navbarControll1.BackColor = Color.Transparent;
-            navbarControll1.ForeColor = SystemColors.ControlText;
-            navbarControll1.Location = new Point(12, 12);
-            navbarControll1.Name = "navbarControll1";
-            navbarControll1.Size = new Size(450, 1080);
-            navbarControll1.TabIndex = 0;
+            navbarUserControl.BackColor = Color.Transparent;
+            navbarUserControl.ForeColor = SystemColors.ControlText;
+            navbarUserControl.Location = new Point(12, 12);
+            navbarUserControl.Name = "navbarUserControl";
+            navbarUserControl.Size = new Size(450, 1080);
+            navbarUserControl.TabIndex = 0;
+            navbarUserControl.ParentForm = this;
             // 
             // ShowClientLbl
             // 
@@ -187,7 +188,7 @@ namespace AutoFact.Views
             Controls.Add(AddBtn);
             Controls.Add(ClientsDGV);
             Controls.Add(ShowClientLbl);
-            Controls.Add(navbarControll1);
+            Controls.Add(navbarUserControl);
             Name = "ClientShow";
             Text = "ClientShow";
             WindowState = FormWindowState.Maximized;
@@ -199,7 +200,7 @@ namespace AutoFact.Views
 
         #endregion
 
-        private NavbarControll navbarControll1;
+        private NavbarControll navbarUserControl;
         private Label ShowClientLbl;
         private DataGridView ClientsDGV;
         private DataGridViewTextBoxColumn id;

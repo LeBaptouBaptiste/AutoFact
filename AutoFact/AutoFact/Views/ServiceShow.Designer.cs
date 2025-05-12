@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            navbarControll1 = new NavbarControll();
+            navbarUserControl = new NavbarControll();
             AddBtn = new Button();
             ServicesDGV = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -42,14 +42,15 @@
             ((System.ComponentModel.ISupportInitialize)ServicesDGV).BeginInit();
             SuspendLayout();
             // 
-            // navbarControll1
+            // navbarUserControl
             // 
-            navbarControll1.BackColor = Color.Transparent;
-            navbarControll1.ForeColor = SystemColors.ControlText;
-            navbarControll1.Location = new Point(12, 12);
-            navbarControll1.Name = "navbarControll1";
-            navbarControll1.Size = new Size(450, 1080);
-            navbarControll1.TabIndex = 0;
+            navbarUserControl.BackColor = Color.Transparent;
+            navbarUserControl.ForeColor = SystemColors.ControlText;
+            navbarUserControl.Location = new Point(12, 12);
+            navbarUserControl.Name = "navbarUserControl";
+            navbarUserControl.Size = new Size(450, 1080);
+            navbarUserControl.TabIndex = 0;
+            navbarUserControl.ParentForm = this;
             // 
             // AddBtn
             // 
@@ -158,7 +159,7 @@
             Controls.Add(AddBtn);
             Controls.Add(ServicesDGV);
             Controls.Add(ShowServicesLbl);
-            Controls.Add(navbarControll1);
+            Controls.Add(navbarUserControl);
             Name = "ServiceShow";
             Text = "ServiceShow";
             WindowState = FormWindowState.Maximized;
@@ -170,7 +171,7 @@
 
         #endregion
 
-        private NavbarControll navbarControll1;
+        private NavbarControll navbarUserControl;
         private Button AddBtn;
         private DataGridView ServicesDGV;
         private Label ShowServicesLbl;

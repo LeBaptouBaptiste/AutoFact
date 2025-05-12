@@ -55,6 +55,7 @@
             navbarUserControl.Name = "navbarUserControl";
             navbarUserControl.Size = new Size(450, 1080);
             navbarUserControl.TabIndex = 0;
+            navbarUserControl.ParentForm = this;
             // 
             // StartDP
             // 

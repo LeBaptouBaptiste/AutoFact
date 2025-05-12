@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            navbarControll1 = new NavbarControll();
+            navbarUserControl = new NavbarControll();
             ClientsDGV = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
@@ -52,14 +52,15 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // navbarControll1
+            // navbarUserControl
             // 
-            navbarControll1.BackColor = Color.Transparent;
-            navbarControll1.ForeColor = SystemColors.ControlText;
-            navbarControll1.Location = new Point(12, 12);
-            navbarControll1.Name = "navbarControll1";
-            navbarControll1.Size = new Size(450, 1080);
-            navbarControll1.TabIndex = 0;
+            navbarUserControl.BackColor = Color.Transparent;
+            navbarUserControl.ForeColor = SystemColors.ControlText;
+            navbarUserControl.Location = new Point(12, 12);
+            navbarUserControl.Name = "navbarUserControl";
+            navbarUserControl.Size = new Size(450, 1080);
+            navbarUserControl.TabIndex = 0;
+            navbarUserControl.ParentForm = this; 
             // 
             // ClientsDGV
             // 
@@ -270,7 +271,7 @@
             Controls.Add(NameTB);
             Controls.Add(ShowClientLbl);
             Controls.Add(ClientsDGV);
-            Controls.Add(navbarControll1);
+            Controls.Add(navbarUserControl);
             Name = "CACumulClient";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CACumulClient";
@@ -286,7 +287,7 @@
 
         #endregion
 
-        private NavbarControll navbarControll1;
+        private NavbarControll navbarUserControl;
         private DataGridView ClientsDGV;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn name;

@@ -169,6 +169,7 @@
             navbarControll1.Name = "navbarControll1";
             navbarControll1.Size = new Size(450, 1080);
             navbarControll1.TabIndex = 14;
+            navbarControll1.ParentForm = this;
             // 
             // ArticleShow
             // 

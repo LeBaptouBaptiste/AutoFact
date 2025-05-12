@@ -58,6 +58,7 @@ namespace AutoFact.Views
             navbarUserControl.Name = "navbarUserControl";
             navbarUserControl.Size = new Size(450, 1041);
             navbarUserControl.TabIndex = 7;
+            navbarUserControl.ParentForm = this;
             // 
             // NameTB
             // 

@@ -344,56 +344,59 @@ namespace AutoFact.Views
         private void btn_Devis_Click(object sender, EventArgs e)
         {
             Quote form = new Quote();
-            Parent.Hide();
+            ParentForm.Hide();
+            form.FormClosed += (s,e) => ParentForm.Close();
             form.Show();
         }
 
         private void btn_CAc_Click(object sender, EventArgs e)
         {
             CACumul form = new CACumul();
-            Parent.Hide();
+            form.FormClosed += (s, e) => ParentForm.Close();
             form.Show();
         }
 
         private void btn_CAClient(object sender, EventArgs e)
         {
             CACumulClient form = new CACumulClient();
-            Parent.Hide();
+            form.FormClosed += (s, e) => ParentForm.Close();
             form.Show();
         }
 
         private void btn_Article_Click(object sender, EventArgs e)
         {
             ArticleShow form = new ArticleShow();
-            Parent.Hide();
+            form.FormClosed += (s, e) => ParentForm.Close();
             form.Show();
+
+
         }
 
         private void btn_Supplier_Click(object sender, EventArgs e)
         {
             SupplierShow form = new SupplierShow();
-            Parent.Hide();
+            form.FormClosed += (s, e) => ParentForm.Close();
             form.Show();
         }
 
         private void btn_Service_Click(object sender, EventArgs e)
         {
             ServiceShow form = new ServiceShow();
-            Parent.Hide();
+            form.FormClosed += (s, e) => ParentForm.Close();
             form.Show();
         }
 
         private void btn_Client_Click(object sender, EventArgs e)
         {
             ClientShow form = new ClientShow();
-            Parent.Hide();
+            form.FormClosed += (s, e) => ParentForm.Close();
             form.Show();
         }
 
         private void btn_Settings_Click(object sender, EventArgs e)
         {
             Settings form = new Settings();
-            Parent.Hide();
+            form.FormClosed += (s, e) => ParentForm.Close();
             form.Show();
         }
 
