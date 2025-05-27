@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFact", "AutoFact\AutoFact.csproj", "{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutuFactInstaller", "AutuFactInstaller\AutuFactInstaller.vdproj", "{3287E52A-206F-458A-910B-B27298ADEE5D}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutoFactSetup", "AutoFactSetup\AutoFactSetup.vdproj", "{DEAC6C40-686F-4BBB-B1DA-4D5BC88E484E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F75FF14B-A3DF-41F2-B79C-DB9B9EC61AB9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3287E52A-206F-458A-910B-B27298ADEE5D}.Debug|Any CPU.ActiveCfg = Debug
-		{3287E52A-206F-458A-910B-B27298ADEE5D}.Release|Any CPU.ActiveCfg = Release
+		{DEAC6C40-686F-4BBB-B1DA-4D5BC88E484E}.Debug|Any CPU.ActiveCfg = Debug
+		{DEAC6C40-686F-4BBB-B1DA-4D5BC88E484E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
